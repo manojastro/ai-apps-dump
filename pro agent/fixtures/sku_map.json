@@ -1,0 +1,6 @@
+{
+  "_comment": "Buyer-side master data: supplier SKU -> canonical product. Maintained by administrators, not read from supplier systems. Extracted page specifications are still verified against the canonical specification.",
+  "alpha": {"A-NW14-16-512": "NW-PRO14-16-512", "A-NW14-8-512": "NW-PRO14-8-512", "A-NW14-16-512-P5": "NW-PRO14-16-512", "A-CT15-16-256": "CT-BOOK15-16-256"},
+  "beta": {"B-77821": "NW-PRO14-16-512", "B-77805": "NW-PRO14-8-512", "B-77830": "NW-PRO14-16-1024"},
+  "gamma": {"G-PRO14-16": "NW-PRO14-16-512", "G-PRO14-08": "NW-PRO14-8-512"}
+}

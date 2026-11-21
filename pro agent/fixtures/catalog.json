@@ -1,0 +1,96 @@
+{
+  "_comment": "SYNTHETIC FIXTURE DATA. Brands, prices, tax rates and delivery times are invented for the demo and are not market data or tax advice. Quantities are individual laptops unless pack_size > 1.",
+  "canonical_products": {
+    "NW-PRO14-16-512": {
+      "family": "Northwind Pro 14",
+      "cpu": "Core i5-1335U",
+      "ram_gb": 16,
+      "ssd_gb": 512,
+      "storage_type": "SSD",
+      "display_in": 14,
+      "os": "Windows 11 Pro"
+    },
+    "NW-PRO14-8-512": {
+      "family": "Northwind Pro 14",
+      "cpu": "Core i5-1335U",
+      "ram_gb": 8,
+      "ssd_gb": 512,
+      "storage_type": "SSD",
+      "display_in": 14,
+      "os": "Windows 11 Pro"
+    },
+    "NW-PRO14-16-1024": {
+      "family": "Northwind Pro 14",
+      "cpu": "Core i5-1335U",
+      "ram_gb": 16,
+      "ssd_gb": 1024,
+      "storage_type": "SSD",
+      "display_in": 14,
+      "os": "Windows 11 Pro"
+    },
+    "CT-BOOK15-16-256": {
+      "family": "Contoso Book 15",
+      "cpu": "Ryzen 5 7530U",
+      "ram_gb": 16,
+      "ssd_gb": 256,
+      "storage_type": "SSD",
+      "display_in": 15.6,
+      "os": "Windows 11 Home"
+    }
+  },
+  "suppliers": {
+    "alpha": {
+      "name": "Alpha Supply",
+      "price_basis": "exclusive",
+      "tax_rate": "0.18",
+      "tax_basis": "goods_only",
+      "shipping_mode": "per_order",
+      "shipping_amount": "1500.00",
+      "addresses": [
+        {"ref": "ADDR-BLR-01", "label": "Bengaluru HQ", "line": "Synthetic Tower, 12 Demo Road, Bengaluru 560001"},
+        {"ref": "ADDR-PUN-02", "label": "Pune Office", "line": "Placeholder Park, 7 Sample Lane, Pune 411001"}
+      ],
+      "products": [
+        {"sku": "A-NW14-16-512", "name": "Northwind Pro 14 Business Laptop - 16GB RAM / 512GB SSD", "canonical_id": "NW-PRO14-16-512", "pack_size": 1, "unit_price": "41500.00", "discount_pct": "0", "discount_min_qty": 0, "delivery_days": 4, "delivery_certain": true, "stock": 25},
+        {"sku": "A-NW14-8-512", "name": "Northwind Pro 14 Business Laptop - 8GB RAM / 512GB SSD", "canonical_id": "NW-PRO14-8-512", "pack_size": 1, "unit_price": "34000.00", "discount_pct": "0", "discount_min_qty": 0, "delivery_days": 3, "delivery_certain": true, "stock": 60},
+        {"sku": "A-NW14-16-512-P5", "name": "Northwind Pro 14 16GB/512GB Multi-unit Bundle", "canonical_id": "NW-PRO14-16-512", "pack_size": 5, "unit_price": "198000.00", "discount_pct": "0", "discount_min_qty": 0, "delivery_days": 4, "delivery_certain": true, "stock": 8, "hidden_unless_scenario": "ambiguous_pack"},
+        {"sku": "A-CT15-16-256", "name": "Contoso Book 15 - 16GB / 256GB", "canonical_id": "CT-BOOK15-16-256", "pack_size": 1, "unit_price": "36500.00", "discount_pct": "0", "discount_min_qty": 0, "delivery_days": 2, "delivery_certain": true, "stock": 30}
+      ]
+    },
+    "beta": {
+      "name": "Beta Devices",
+      "price_basis": "inclusive",
+      "tax_rate": "0.18",
+      "tax_basis": "goods_and_shipping",
+      "shipping_mode": "per_order",
+      "shipping_amount": "2000.00",
+      "addresses": [
+        {"ref": "ADDR-BLR-01", "label": "Bengaluru HQ", "line": "Synthetic Tower, 12 Demo Road, Bengaluru 560001"}
+      ],
+      "products": [
+        {"sku": "B-77821", "name": "NW Pro14 i5 / 16G / 512G SSD / W11P", "canonical_id": "NW-PRO14-16-512", "pack_size": 1, "unit_price": "47200.00", "discount_pct": "0", "discount_min_qty": 0, "delivery_days": 6, "delivery_certain": true, "stock": 12},
+        {"sku": "B-77805", "name": "NW Pro14 i5 / 8G / 512G SSD / W11P", "canonical_id": "NW-PRO14-8-512", "pack_size": 1, "unit_price": "38900.00", "discount_pct": "0", "discount_min_qty": 0, "delivery_days": 5, "delivery_certain": true, "stock": 40},
+        {"sku": "B-77830", "name": "NW Pro14 i5 / 16G / 1TB SSD / W11P", "canonical_id": "NW-PRO14-16-1024", "pack_size": 1, "unit_price": "53100.00", "discount_pct": "0", "discount_min_qty": 0, "delivery_days": 6, "delivery_certain": true, "stock": 15}
+      ]
+    },
+    "gamma": {
+      "name": "Gamma Trade",
+      "price_basis": "exclusive",
+      "tax_rate": "0.18",
+      "tax_basis": "goods_only",
+      "shipping_mode": "per_unit",
+      "shipping_amount": "350.00",
+      "addresses": [
+        {"ref": "ADDR-BLR-01", "label": "Bengaluru HQ", "line": "Synthetic Tower, 12 Demo Road, Bengaluru 560001"}
+      ],
+      "products": [
+        {"sku": "G-PRO14-16", "name": "Northwind Professional 14-inch Notebook", "canonical_id": "NW-PRO14-16-512", "pack_size": 1, "unit_price": "42900.00", "discount_pct": "0", "discount_min_qty": 0, "delivery_days": 5, "delivery_certain": true, "stock": 40},
+        {"sku": "G-PRO14-08", "name": "Northwind Professional 14-inch Notebook (Value)", "canonical_id": "NW-PRO14-8-512", "pack_size": 1, "unit_price": "35400.00", "discount_pct": "0", "discount_min_qty": 0, "delivery_days": 5, "delivery_certain": true, "stock": 22}
+      ]
+    }
+  },
+  "accounts": {
+    "acme": {"username": "acme-buyer", "password_env": "SUPPLIER_ACME_PASSWORD", "default_password": "demo-acme-supplier"},
+    "globex": {"username": "globex-buyer", "password_env": "SUPPLIER_GLOBEX_PASSWORD", "default_password": "demo-globex-supplier"}
+  }
+}

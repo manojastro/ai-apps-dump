@@ -1,0 +1,46 @@
+{
+  "conflict": {
+    "customer_key": "ACC-00481",
+    "evidence": {
+      "billing": [
+        {
+          "billing_customer_id": "BC-00468",
+          "billing_email": "leo.patel@willow-retail.example",
+          "billing_plan": "starter",
+          "billing_status": "past_due",
+          "currency": "EUR",
+          "days_past_due": 85,
+          "match_confidence": 1.0,
+          "match_method": "id",
+          "monthly_amount": 49.0,
+          "next_charge_date": null,
+          "past_due_since": "2026-08-08",
+          "subscription_id": "SUB-00468"
+        }
+      ],
+      "crm_account_id": "ACC-00481",
+      "crm_email": "leo.patel@willow-retail.example",
+      "crm_name": "Leo Patel",
+      "crm_plan": "starter",
+      "crm_status": "active",
+      "threshold_days": 30
+    },
+    "id": "cf_09d86dd1ff20",
+    "type": "PAST_DUE_BUT_CRM_ACTIVE"
+  },
+  "created_at": "2026-11-16T03:20:09+00:00",
+  "expect_mock": {
+    "failure_category": "explanation_too_long",
+    "status": "FAILED"
+  },
+  "expected_action": "flag_for_finance_review",
+  "id": "rg_guard_9b449c1deb",
+  "note": "explanation over 80 words",
+  "prompt_version": "v1",
+  "recorded_responses": [
+    "{\"explanation\": \"word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word \", \"action\": \"flag_for_finance_review\", \"params\": {\"reason\": \"overdue\"}, \"confidence\": 0.7, \"needs_human_note\": null}",
+    "{\"explanation\": \"word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word \", \"action\": \"flag_for_finance_review\", \"params\": {\"reason\": \"overdue\"}, \"confidence\": 0.7, \"needs_human_note\": null}",
+    "{\"explanation\": \"word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word \", \"action\": \"flag_for_finance_review\", \"params\": {\"reason\": \"overdue\"}, \"confidence\": 0.7, \"needs_human_note\": null}"
+  ],
+  "source": "guard"
+}

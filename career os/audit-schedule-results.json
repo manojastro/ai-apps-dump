@@ -1,0 +1,159 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "D:\\ai apps dump\\career os\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "e2e/functional-audit.spec.ts",
+      "-g",
+      "editing task schedule",
+      "--reporter=json"
+    ],
+    "configFile": "D:\\ai apps dump\\career os\\playwright.config.ts",
+    "rootDir": "D:/ai apps dump/career os/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/ai apps dump/career os/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "D:/ai apps dump/career os/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 90000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 6,
+    "webServer": {
+      "command": "npm run start",
+      "url": "http://127.0.0.1:3102",
+      "timeout": 90000,
+      "reuseExistingServer": false,
+      "env": {
+        "PORT": "3102"
+      }
+    }
+  },
+  "suites": [
+    {
+      "title": "functional-audit.spec.ts",
+      "file": "functional-audit.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "DEFECT: editing task schedule should move its linked Planner block",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5079,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"20\u001b[7m99-01-01\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"20\u001b[7m26-10-10\u001b[27m\"\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"20\u001b[7m99-01-01\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"20\u001b[7m26-10-10\u001b[27m\"\u001b[39m\n    at D:\\ai apps dump\\career os\\e2e\\functional-audit.spec.ts:396:45",
+                    "location": {
+                      "file": "D:\\ai apps dump\\career os\\e2e\\functional-audit.spec.ts",
+                      "column": 45,
+                      "line": 396
+                    },
+                    "snippet": "  394 |   const data = await state(page);\n  395 |   expect(data.tasks[0].scheduled_date).toBe(\"2099-01-01\");\n> 396 |   expect(data.planner_blocks[0].block_date).toBe(data.tasks[0].scheduled_date);\n      |                                             ^\n  397 | });\n  398 |\n  399 | test(\"DEFECT: Copilot should preserve requested high priority\", async ({ page }) => {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\ai apps dump\\career os\\e2e\\functional-audit.spec.ts",
+                        "column": 45,
+                        "line": 396
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"20\u001b[7m99-01-01\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"20\u001b[7m26-10-10\u001b[27m\"\u001b[39m\n\n  394 |   const data = await state(page);\n  395 |   expect(data.tasks[0].scheduled_date).toBe(\"2099-01-01\");\n> 396 |   expect(data.planner_blocks[0].block_date).toBe(data.tasks[0].scheduled_date);\n      |                                             ^\n  397 | });\n  398 |\n  399 | test(\"DEFECT: Copilot should preserve requested high priority\", async ({ page }) => {\n    at D:\\ai apps dump\\career os\\e2e\\functional-audit.spec.ts:396:45"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-09T19:04:21.532Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\ai apps dump\\career os\\test-results\\functional-audit-DEFECT-ed-69c4d-ve-its-linked-Planner-block-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\ai apps dump\\career os\\test-results\\functional-audit-DEFECT-ed-69c4d-ve-its-linked-Planner-block-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\ai apps dump\\career os\\e2e\\functional-audit.spec.ts",
+                    "column": 45,
+                    "line": 396
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "c8572141a47bd3c7757c-eba36be8b61ecf488aab",
+          "file": "functional-audit.spec.ts",
+          "line": 382,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-09T19:04:18.140Z",
+    "duration": 10320.509000000002,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

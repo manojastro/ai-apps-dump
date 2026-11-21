@@ -1,0 +1,12 @@
+{% extends "base.html" %}{% block content %}
+<h2>{{ wf.id }} <span class="tag">{{ wf.type }}</span> <span class="tag">{{ wf.status }}</span></h2>
+<div class="card"><b>Timeline (persisted transitions)</b><table><tr><th>time</th><th>from</th><th>to</th><th>status</th><th>note</th></tr>
+{% for h in wf.history %}<tr><td>{{ h.ts }}</td><td>{{ h["from"] or "" }}</td><td>{{ h.to }}</td><td>{{ h.status }}</td><td>{{ h.note }}</td></tr>{% endfor %}</table></div>
+<div class="card"><b>Agent runs</b><table><tr><th>agent</th><th>status</th><th>steps</th><th>tokens in/out</th><th>latency ms</th><th>mode</th></tr>
+{% for r in runs %}<tr><td>{{ r.agent }}</td><td>{{ r.status }}</td><td>{{ r.steps }}</td><td>{{ r.tokens_in }}/{{ r.tokens_out }}</td><td>{{ "%.1f"|format(r.latency_ms) }}</td><td>{{ r.llm_mode }}</td></tr>{% endfor %}</table></div>
+<div class="card"><b>Tool calls (audit)</b><table><tr><th>time</th><th>actor</th><th>tool</th><th>status</th><th>detail</th></tr>
+{% for c in calls %}<tr><td>{{ c.ts }}</td><td>{{ c.actor }}</td><td>{{ c.tool }}</td><td class="{{ "denied" if c.status == "denied" }}">{{ c.status }}</td><td>{{ c.detail }}</td></tr>{% endfor %}</table></div>
+<div class="card"><b>Approvals</b><table><tr><th>id</th><th>kind</th><th>status</th><th>by</th><th>reason</th></tr>
+{% for a in approvals %}<tr><td>{{ a.id }}</td><td>{{ a.kind }}</td><td>{{ a.status }}</td><td>{{ a.decided_by or "" }}</td><td>{{ a.decision_reason or "" }}</td></tr>{% endfor %}</table></div>
+<div class="card"><b>Data</b><pre>{{ wf.data | tojson(indent=1) }}</pre></div>
+{% endblock %}

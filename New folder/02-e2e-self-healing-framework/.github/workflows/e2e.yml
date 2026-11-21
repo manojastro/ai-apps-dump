@@ -1,0 +1,108 @@
+# File: .github/workflows/e2e.yml
+# Enterprise E2E pipeline: browser-matrix x sharded execution, artifact
+# uploads for traces/reports, and automated, de-duplicated Jira bug filing
+# on failure of the protected main branch.
+#
+# Main-branch protection pattern:
+#   Settings -> Branches -> main:
+#     - Require status checks: "E2E (chromium · shard 1/3)", ... shard 2/3, 3/3,
+#       plus firefox/webkit equivalents (matrix job display names below).
+#     - Require branches up to date + linear history.
+# The concurrency group cancels superseded PR runs to save minutes.
+
+name: E2E Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  # Optional remote trigger, e.g. from a nightly scheduler or deploy webhook:
+  # curl -X POST -H "Authorization: token $GH_PAT" \
+  #   -d '{"event_type":"e2e-request"}' \
+  #   https://api.github.com/repos/<org>/<repo>/dispatches
+  repository_dispatch:
+    types: [e2e-request]
+
+concurrency:
+  group: e2e-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+env:
+  BASE_URL: https://www.saucedemo.com
+  PLAYWRIGHT_JSON_OUTPUT_NAME: test-results/results.json
+
+jobs:
+  e2e:
+    name: E2E (${{ matrix.browser }} · shard ${{ matrix.shard }}/3)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [chromium, firefox, webkit]
+        shard: [1, 2, 3]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Cache Playwright browsers
+        id: pw-cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: ms-playwright-${{ runner.os }}-${{ hashFiles('package.json') }}
+
+      - name: Install Playwright browser
+        if: steps.pw-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps ${{ matrix.browser }}
+
+      - name: Run E2E tests (sharded; JSON report emitted for Jira triage)
+        # The json reporter writes PLAYWRIGHT_JSON_OUTPUT_NAME so the Jira step
+        # can extract failed titles, error messages and screenshot paths.
+        run: npx playwright test --project=${{ matrix.browser }} --shard=${{ matrix.shard }}/3 --reporter=list,json
+
+      - name: Upload test artifacts (traces, screenshots, healing report)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-artifacts-${{ matrix.browser }}-shard-${{ matrix.shard }}
+          path: |
+            test-results/
+            playwright-report/
+          retention-days: 14
+          if-no-files-found: ignore
+
+      - name: File de-duplicated Jira bug on failure (main only)
+        if: >-
+          failure() &&
+          github.ref == 'refs/heads/main' &&
+          github.event_name == 'push'
+        env:
+          JIRA_HOST: ${{ secrets.JIRA_HOST }}
+          JIRA_EMAIL: ${{ secrets.JIRA_EMAIL }}
+          JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
+          JIRA_PROJECT_KEY: ${{ secrets.JIRA_PROJECT_KEY }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: npx tsx scripts/create-jira-bug.ts --report test-results/results.json
+
+      - name: Notify downstream systems via repository_dispatch (optional)
+        if: failure() && github.ref == 'refs/heads/main'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.REPO_DISPATCH_TOKEN }}
+        run: |
+          curl -sf -X POST \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            https://api.github.com/repos/${{ github.repository }}/dispatches \
+            -d '{"event_type":"e2e-failed","client_payload":{"run_id":"${{ github.run_id }}","browser":"${{ matrix.browser }}"}}' \
+          || echo "repository_dispatch skipped"

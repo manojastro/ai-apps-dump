@@ -1,0 +1,14 @@
+<table class="grid" aria-label="Purchase summary"><caption>Purchase summary</caption>
+<tr><th scope="row">Part number</th><td>{{ line.sku }}</td></tr>
+<tr><th scope="row">Description</th><td>{{ line.name }}</td></tr>
+<tr><th scope="row">Order quantity</th><td>{{ totals.qty }}</td></tr>
+<tr><th scope="row">Unit rate (ex-tax)</th><td>INR {{ totals.unit_price|inr }}</td></tr>
+<tr><th scope="row">Goods value</th><td>INR {{ totals.subtotal|inr }}</td></tr>
+<tr><th scope="row">Volume discount</th><td>INR {{ totals.discount|inr }}</td></tr>
+<tr><th scope="row">GST @18% (synthetic)</th><td>INR {{ totals.tax|inr }}</td></tr>
+<tr><th scope="row">Freight</th><td>INR {{ totals.shipping|inr }}</td></tr>
+<tr><th scope="row">Order value</th><td><b>INR {{ totals.total|inr }}</b></td></tr>
+<tr><th scope="row">Currency</th><td>INR</td></tr>
+<tr><th scope="row">Expected dispatch arrival</th><td>{% if totals.delivery_certain %}{{ totals.delivery_date }}{% else %}Subject to confirmation{% endif %}</td></tr>
+<tr><th scope="row">Quote reference</th><td>{{ totals.quote_ref }}</td></tr>
+</table>

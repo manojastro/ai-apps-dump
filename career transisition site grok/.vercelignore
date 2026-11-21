@@ -1,0 +1,12 @@
+.next
+node_modules
+.vercel
+coverage
+playwright-report
+test-results
+_vercel_files.json
+_vercel_meta.json
+MASTER PROMPT.txt
+GROK-BUILD-STARTER-PROMPT.md
+GROK-BUILD-VERCEL-ADDENDUM.md
+tsconfig.tsbuildinfo

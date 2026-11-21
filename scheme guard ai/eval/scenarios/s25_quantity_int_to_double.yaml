@@ -1,0 +1,24 @@
+# Hand-labelled golden scenario. Expectations derive from reading the SQL and dashboards.yaml.
+id: s25_quantity_int_to_double
+description: Avro promotion int -> double for quantity
+topic: orders.v1
+mutations:
+- op: change_type
+  field: quantity
+  type: double
+expected:
+  change_class: potentially_breaking
+  route: report
+  impacted:
+  - column:mart.daily_revenue.items_sold
+  - column:mart.fct_orders.quantity
+  - column:stg.stg_orders.quantity
+  - dashboard:Sales Overview
+  - visual:Sales Overview/Items Sold by Day
+  verdicts:
+    column:stg.stg_orders.quantity: safe
+    column:mart.fct_orders.quantity: safe
+    column:mart.daily_revenue.items_sold: safe
+    visual:Sales Overview/Items Sold by Day: safe
+    dashboard:Sales Overview: safe
+  fix_should_pass: null

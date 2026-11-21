@@ -1,0 +1,9 @@
+# Normalize line endings so Windows and Linux checkouts produce identical hashes
+# (matters for the audit hash chain and for pre-commit's mixed-line-ending check).
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.pdf binary
+*.parquet binary
+*.duckdb binary

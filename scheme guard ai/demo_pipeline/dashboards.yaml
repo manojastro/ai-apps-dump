@@ -1,0 +1,29 @@
+# Mimics a BI tool's (Power BI / Tableau) report metadata: dashboards, visuals and the
+# warehouse columns each visual reads. Synthetic.
+dashboards:
+  - name: Sales Overview
+    owner: sales-analytics
+    tool: powerbi
+    visuals:
+      - name: Revenue by Day
+        columns: [mart.daily_revenue.order_date, mart.daily_revenue.revenue]
+      - name: Items Sold by Day
+        columns: [mart.daily_revenue.order_date, mart.daily_revenue.items_sold]
+      - name: Orders by Status
+        columns: [mart.fct_orders.status, mart.fct_orders.order_id]
+      - name: Payment Mix
+        columns: [mart.fct_orders.payment_method, mart.fct_orders.paid_amount]
+  - name: Customer Health
+    owner: customer-success
+    tool: tableau
+    visuals:
+      - name: LTV Distribution
+        columns: [mart.customer_ltv.ltv]
+      - name: Customers by Country
+        columns: [mart.customer_ltv.country, mart.customer_ltv.customer_id]
+  - name: Finance Reconciliation
+    owner: finance
+    tool: powerbi
+    visuals:
+      - name: Paid vs Ordered
+        columns: [mart.fct_orders.amount, mart.fct_orders.paid_amount, mart.fct_orders.currency]

@@ -1,0 +1,14 @@
+{
+  "type": "record",
+  "name": "Payment",
+  "namespace": "com.example.shop",
+  "doc": "A payment captured for an order.",
+  "x-owner": "payments-team",
+  "fields": [
+    {"name": "payment_id", "type": "string"},
+    {"name": "order_id", "type": "string"},
+    {"name": "amount", "type": "double", "doc": "Captured amount."},
+    {"name": "method", "type": {"type": "enum", "name": "PaymentMethod", "symbols": ["CARD", "PAYPAL", "BANK_TRANSFER"]}},
+    {"name": "paid_at", "type": {"type": "long", "logicalType": "timestamp-millis"}}
+  ]
+}

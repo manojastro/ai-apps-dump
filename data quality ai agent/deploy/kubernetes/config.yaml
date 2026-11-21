@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: recoverygraph-config
+data:
+  DEMO_MODE: 'true'
+  LLM_PROVIDER: mock
+  EMBEDDING_PROVIDER: local
+  MAX_REMEDIATION_ATTEMPTS: '3'
+  ALLOWED_ORIGINS: '["http://localhost:8080"]'

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StreamSentinel — Kafka Reliability</title>
+  <link rel="stylesheet" href="/assets/app.css">
+</head>
+<body>
+  <aside class="rail">
+    <div class="brand"><span class="brand-mark">S</span><span>StreamSentinel</span></div>
+    <p class="eyebrow">Kafka reliability control plane</p>
+    <nav>
+      <a class="active" href="#overview">Overview</a>
+      <a href="#incidents">Incidents</a>
+      <a href="#investigation">Investigation</a>
+      <a href="/docs">API contract</a>
+    </nav>
+    <div class="mode-card">
+      <span class="pulse"></span>
+      <div><strong>Safe demo mode</strong><small>Synthetic adapter · Mock reasoning</small></div>
+    </div>
+    <details class="credentials">
+      <summary>Secure API keys</summary>
+      <p>Held in memory only; leave blank in open demo mode.</p>
+      <input id="viewer-key" type="password" autocomplete="off" placeholder="Viewer key">
+      <input id="approver-key" type="password" autocomplete="off" placeholder="Approver key">
+      <input id="executor-key" type="password" autocomplete="off" placeholder="Executor key">
+      <button id="apply-keys" type="button">Apply session keys</button>
+    </details>
+  </aside>
+
+  <main>
+    <header>
+      <div><p class="eyebrow">Streaming operations</p><h1>Reliability command center</h1></div>
+      <div class="health"><span></span><div><strong>Control plane healthy</strong><small id="updated">Checking state…</small></div></div>
+    </header>
+
+    <section id="overview" class="metric-grid">
+      <article><p>RCA accuracy</p><strong id="accuracy">—</strong><small>Against stored ground truth</small></article>
+      <article><p>Investigations</p><strong id="total">—</strong><small>Persisted incident runs</small></article>
+      <article><p>Mean confidence</p><strong id="confidence">—</strong><small>Evidence-bound diagnosis</small></article>
+      <article><p>Mean diagnosis</p><strong id="duration">—</strong><small>Deterministic agent latency</small></article>
+      <article><p>Mean MTTD</p><strong id="mttd">—</strong><small>Simulated failure clock</small></article>
+      <article><p>Mean MTTR</p><strong id="mttr">—</strong><small>Through validated outcome</small></article>
+    </section>
+
+    <section class="workbench">
+      <div class="panel inject-panel">
+        <div class="section-title"><div><p class="eyebrow">Failure injection</p><h2>Start an investigation</h2></div><span class="badge">7 known scenarios</span></div>
+        <p class="lede">Select a ground-truth failure. The monitor collects a snapshot; the RCA agent can only cite persisted evidence.</p>
+        <div id="scenario-list" class="scenario-list"></div>
+      </div>
+
+      <div id="investigation" class="panel detail-panel">
+        <div class="section-title"><div><p class="eyebrow">Agent investigation</p><h2 id="incident-heading">No incident selected</h2></div><span id="incident-status" class="badge muted">Idle</span></div>
+        <div id="empty-detail" class="empty-state"><div class="radar"></div><p>Inject a failure or select an incident to inspect its evidence, hypothesis, risk, and validation.</p></div>
+        <div id="incident-detail" hidden>
+          <div class="root-cause"><span>Probable root cause</span><strong id="root-cause"></strong><small id="root-confidence"></small></div>
+          <h3>Evidence chain</h3><div id="evidence" class="evidence-list"></div>
+          <h3>Proposed remediation</h3><div id="action" class="action-card"></div>
+          <div id="controls" class="controls"></div>
+          <div id="validation" class="validation" hidden></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="incidents" class="panel incidents-panel">
+      <div class="section-title"><div><p class="eyebrow">Persisted incident state</p><h2>Recent incidents</h2></div><button id="refresh" class="ghost">Refresh</button></div>
+      <div class="table-wrap"><table><thead><tr><th>Incident</th><th>Scenario</th><th>Root cause</th><th>Confidence</th><th>Status</th></tr></thead><tbody id="incident-rows"></tbody></table></div>
+    </section>
+  </main>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script src="/assets/app.js"></script>
+</body>
+</html>

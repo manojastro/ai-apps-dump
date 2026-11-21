@@ -1,0 +1,2 @@
+import {defineConfig} from '@playwright/test'
+export default defineConfig({testDir:'e2e',timeout:60000,expect:{timeout:30000},use:{baseURL:'http://127.0.0.1:3002'},webServer:[{command:'npm run dev',url:'http://127.0.0.1:3002',reuseExistingServer:true},{command:'set DATABASE_URL=sqlite://&& set SEED_ON_START=true&& "..\\..\\.venv\\Scripts\\python.exe" -m uvicorn app.main:app --host 127.0.0.1 --port 8002',url:'http://127.0.0.1:8002/health/live',reuseExistingServer:true}]})

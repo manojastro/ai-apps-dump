@@ -1,0 +1,10 @@
+
+> ai-resume-platform@0.1.0 start
+> next start
+
+▲ Next.js 16.2.10
+- Local:         http://localhost:3000
+- Network:       http://192.168.55.2:3000
+✓ Ready in 850ms
+[azure] completion error { provider: 'azure', status: 401, code: '401', requestId: undefined }
+[trending] model synthesis failed: auth_error Azure authentication or permission error

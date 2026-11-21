@@ -1,0 +1,9 @@
+import { api } from "../api";
+import { EvaluationRunner } from "../components";
+
+type Summary = { total_cases: number; exact_root_cause_accuracy: number; category_accuracy: number; evidence_citation_coverage: number; unsupported_claim_rate: number; critic_overturn_rate: number; average_duration_ms: number; accuracy_by_category: Record<string, number>; passed: boolean };
+
+export default async function EvaluationPage() {
+  const result = await api<Summary>("/api/v1/evaluations/summary");
+  return <><header className="page-head"><div><div className="eyebrow">Deterministic replay gate</div><h1>Evaluation dashboard</h1><p>Ground-truth RCA accuracy, citation integrity, cost, and critic behavior.</p></div><EvaluationRunner/></header><section className="grid"><div className="card span-4 stat"><small>Replay cases</small><strong>{result.total_cases}</strong></div><div className="card span-4 stat"><small>Exact accuracy</small><strong>{(result.exact_root_cause_accuracy * 100).toFixed(0)}%</strong></div><div className="card span-4 stat"><small>Gate status</small><strong className={result.passed ? "pass" : "fail"}>{result.passed ? "PASS" : "FAIL"}</strong></div><div className="card span-4 stat"><small>Citation coverage</small><strong>{(result.evidence_citation_coverage * 100).toFixed(0)}%</strong></div><div className="card span-4 stat"><small>Unsupported claims</small><strong>{(result.unsupported_claim_rate * 100).toFixed(1)}%</strong></div><div className="card span-4 stat"><small>Critic overturn rate</small><strong>{(result.critic_overturn_rate * 100).toFixed(1)}%</strong></div><div className="card span-12"><h2>Accuracy by incident category</h2>{Object.entries(result.accuracy_by_category).map(([category, accuracy]) => <div className="worker" key={category}><strong>{category}</strong><span>{(accuracy * 100).toFixed(0)}%</span></div>)}</div></section></>;
+}

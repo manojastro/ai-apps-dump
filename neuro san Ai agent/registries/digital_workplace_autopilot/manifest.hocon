@@ -1,0 +1,4 @@
+{
+    # Digital Workplace Autopilot networks (served via root manifest include).
+    "digital_workplace_autopilot/commander.hocon": true,
+}

@@ -1,0 +1,527 @@
+[
+  {
+    "id": "GOLD-001",
+    "scenario": "schema_drift",
+    "incident_title": "Schema drift in orders_daily",
+    "known_root_cause": "schema_drift",
+    "force_first_fail": false,
+    "max_attempts": 3,
+    "expected_status": "COMPLETED",
+    "important_evidence": [
+      "EV-SCHEMA-001"
+    ],
+    "investigation_branches": [
+      "schema",
+      "quality",
+      "infrastructure",
+      "dependency",
+      "change"
+    ],
+    "required_validators": [
+      "SchemaValidator",
+      "RowCountValidator",
+      "NullRateValidator",
+      "DuplicateValidator",
+      "FreshnessValidator",
+      "DataTypeValidator",
+      "BusinessRuleValidator",
+      "TransformationValidator",
+      "DownstreamContractValidator",
+      "PipelineCompletionValidator"
+    ],
+    "acceptable_operation": "map_customer_id",
+    "risk": "LOW",
+    "requires_approval": false,
+    "variant": "normal"
+  },
+  {
+    "id": "GOLD-002",
+    "scenario": "schema_drift",
+    "incident_title": "Schema drift in orders_daily",
+    "known_root_cause": "schema_drift",
+    "force_first_fail": true,
+    "max_attempts": 3,
+    "expected_status": "COMPLETED",
+    "important_evidence": [
+      "EV-SCHEMA-001"
+    ],
+    "investigation_branches": [
+      "schema",
+      "quality",
+      "infrastructure",
+      "dependency",
+      "change"
+    ],
+    "required_validators": [
+      "SchemaValidator",
+      "RowCountValidator",
+      "NullRateValidator",
+      "DuplicateValidator",
+      "FreshnessValidator",
+      "DataTypeValidator",
+      "BusinessRuleValidator",
+      "TransformationValidator",
+      "DownstreamContractValidator",
+      "PipelineCompletionValidator"
+    ],
+    "acceptable_operation": "map_customer_id",
+    "risk": "LOW",
+    "requires_approval": false,
+    "variant": "revision"
+  },
+  {
+    "id": "GOLD-003",
+    "scenario": "schema_drift",
+    "incident_title": "Schema drift in orders_daily",
+    "known_root_cause": "schema_drift",
+    "force_first_fail": true,
+    "max_attempts": 1,
+    "expected_status": "FAILED",
+    "important_evidence": [
+      "EV-SCHEMA-001"
+    ],
+    "investigation_branches": [
+      "schema",
+      "quality",
+      "infrastructure",
+      "dependency",
+      "change"
+    ],
+    "required_validators": [
+      "SchemaValidator",
+      "RowCountValidator",
+      "NullRateValidator",
+      "DuplicateValidator",
+      "FreshnessValidator",
+      "DataTypeValidator",
+      "BusinessRuleValidator",
+      "TransformationValidator",
+      "DownstreamContractValidator",
+      "PipelineCompletionValidator"
+    ],
+    "acceptable_operation": "map_customer_id",
+    "risk": "LOW",
+    "requires_approval": false,
+    "variant": "exhaustion"
+  },
+  {
+    "id": "GOLD-004",
+    "scenario": "null_spike",
+    "incident_title": "Null customer identifiers in orders_daily",
+    "known_root_cause": "null_spike",
+    "force_first_fail": false,
+    "max_attempts": 3,
+    "expected_status": "COMPLETED",
+    "important_evidence": [
+      "EV-QUALITY-001"
+    ],
+    "investigation_branches": [
+      "schema",
+      "quality",
+      "infrastructure",
+      "dependency",
+      "change"
+    ],
+    "required_validators": [
+      "SchemaValidator",
+      "RowCountValidator",
+      "NullRateValidator",
+      "DuplicateValidator",
+      "FreshnessValidator",
+      "DataTypeValidator",
+      "BusinessRuleValidator",
+      "TransformationValidator",
+      "DownstreamContractValidator",
+      "PipelineCompletionValidator"
+    ],
+    "acceptable_operation": "restore_customer_from_master",
+    "risk": "LOW",
+    "requires_approval": false,
+    "variant": "normal"
+  },
+  {
+    "id": "GOLD-005",
+    "scenario": "null_spike",
+    "incident_title": "Null customer identifiers in orders_daily",
+    "known_root_cause": "null_spike",
+    "force_first_fail": true,
+    "max_attempts": 3,
+    "expected_status": "COMPLETED",
+    "important_evidence": [
+      "EV-QUALITY-001"
+    ],
+    "investigation_branches": [
+      "schema",
+      "quality",
+      "infrastructure",
+      "dependency",
+      "change"
+    ],
+    "required_validators": [
+      "SchemaValidator",
+      "RowCountValidator",
+      "NullRateValidator",
+      "DuplicateValidator",
+      "FreshnessValidator",
+      "DataTypeValidator",
+      "BusinessRuleValidator",
+      "TransformationValidator",
+      "DownstreamContractValidator",
+      "PipelineCompletionValidator"
+    ],
+    "acceptable_operation": "restore_customer_from_master",
+    "risk": "LOW",
+    "requires_approval": false,
+    "variant": "revision"
+  },
+  {
+    "id": "GOLD-006",
+    "scenario": "null_spike",
+    "incident_title": "Null customer identifiers in orders_daily",
+    "known_root_cause": "null_spike",
+    "force_first_fail": true,
+    "max_attempts": 1,
+    "expected_status": "FAILED",
+    "important_evidence": [
+      "EV-QUALITY-001"
+    ],
+    "investigation_branches": [
+      "schema",
+      "quality",
+      "infrastructure",
+      "dependency",
+      "change"
+    ],
+    "required_validators": [
+      "SchemaValidator",
+      "RowCountValidator",
+      "NullRateValidator",
+      "DuplicateValidator",
+      "FreshnessValidator",
+      "DataTypeValidator",
+      "BusinessRuleValidator",
+      "TransformationValidator",
+      "DownstreamContractValidator",
+      "PipelineCompletionValidator"
+    ],
+    "acceptable_operation": "restore_customer_from_master",
+    "risk": "LOW",
+    "requires_approval": false,
+    "variant": "exhaustion"
+  },
+  {
+    "id": "GOLD-007",
+    "scenario": "duplicates",
+    "incident_title": "Duplicate transactions in orders_daily",
+    "known_root_cause": "duplicates",
+    "force_first_fail": false,
+    "max_attempts": 3,
+    "expected_status": "COMPLETED",
+    "important_evidence": [
+      "EV-QUALITY-001"
+    ],
+    "investigation_branches": [
+      "schema",
+      "quality",
+      "infrastructure",
+      "dependency",
+      "change"
+    ],
+    "required_validators": [
+      "SchemaValidator",
+      "RowCountValidator",
+      "NullRateValidator",
+      "DuplicateValidator",
+      "FreshnessValidator",
+      "DataTypeValidator",
+      "BusinessRuleValidator",
+      "TransformationValidator",
+      "DownstreamContractValidator",
+      "PipelineCompletionValidator"
+    ],
+    "acceptable_operation": "deduplicate_transactions",
+    "risk": "LOW",
+    "requires_approval": false,
+    "variant": "normal"
+  },
+  {
+    "id": "GOLD-008",
+    "scenario": "duplicates",
+    "incident_title": "Duplicate transactions in orders_daily",
+    "known_root_cause": "duplicates",
+    "force_first_fail": true,
+    "max_attempts": 3,
+    "expected_status": "COMPLETED",
+    "important_evidence": [
+      "EV-QUALITY-001"
+    ],
+    "investigation_branches": [
+      "schema",
+      "quality",
+      "infrastructure",
+      "dependency",
+      "change"
+    ],
+    "required_validators": [
+      "SchemaValidator",
+      "RowCountValidator",
+      "NullRateValidator",
+      "DuplicateValidator",
+      "FreshnessValidator",
+      "DataTypeValidator",
+      "BusinessRuleValidator",
+      "TransformationValidator",
+      "DownstreamContractValidator",
+      "PipelineCompletionValidator"
+    ],
+    "acceptable_operation": "deduplicate_transactions",
+    "risk": "LOW",
+    "requires_approval": false,
+    "variant": "revision"
+  },
+  {
+    "id": "GOLD-009",
+    "scenario": "duplicates",
+    "incident_title": "Duplicate transactions in orders_daily",
+    "known_root_cause": "duplicates",
+    "force_first_fail": true,
+    "max_attempts": 1,
+    "expected_status": "FAILED",
+    "important_evidence": [
+      "EV-QUALITY-001"
+    ],
+    "investigation_branches": [
+      "schema",
+      "quality",
+      "infrastructure",
+      "dependency",
+      "change"
+    ],
+    "required_validators": [
+      "SchemaValidator",
+      "RowCountValidator",
+      "NullRateValidator",
+      "DuplicateValidator",
+      "FreshnessValidator",
+      "DataTypeValidator",
+      "BusinessRuleValidator",
+      "TransformationValidator",
+      "DownstreamContractValidator",
+      "PipelineCompletionValidator"
+    ],
+    "acceptable_operation": "deduplicate_transactions",
+    "risk": "LOW",
+    "requires_approval": false,
+    "variant": "exhaustion"
+  },
+  {
+    "id": "GOLD-010",
+    "scenario": "transformation_regression",
+    "incident_title": "Currency reconciliation failure in orders_daily",
+    "known_root_cause": "transformation_regression",
+    "force_first_fail": false,
+    "max_attempts": 3,
+    "expected_status": "COMPLETED",
+    "important_evidence": [
+      "EV-CHANGE-001"
+    ],
+    "investigation_branches": [
+      "schema",
+      "quality",
+      "infrastructure",
+      "dependency",
+      "change"
+    ],
+    "required_validators": [
+      "SchemaValidator",
+      "RowCountValidator",
+      "NullRateValidator",
+      "DuplicateValidator",
+      "FreshnessValidator",
+      "DataTypeValidator",
+      "BusinessRuleValidator",
+      "TransformationValidator",
+      "DownstreamContractValidator",
+      "PipelineCompletionValidator"
+    ],
+    "acceptable_operation": "correct_amount_units",
+    "risk": "LOW",
+    "requires_approval": false,
+    "variant": "normal"
+  },
+  {
+    "id": "GOLD-011",
+    "scenario": "transformation_regression",
+    "incident_title": "Currency reconciliation failure in orders_daily",
+    "known_root_cause": "transformation_regression",
+    "force_first_fail": true,
+    "max_attempts": 3,
+    "expected_status": "COMPLETED",
+    "important_evidence": [
+      "EV-CHANGE-001"
+    ],
+    "investigation_branches": [
+      "schema",
+      "quality",
+      "infrastructure",
+      "dependency",
+      "change"
+    ],
+    "required_validators": [
+      "SchemaValidator",
+      "RowCountValidator",
+      "NullRateValidator",
+      "DuplicateValidator",
+      "FreshnessValidator",
+      "DataTypeValidator",
+      "BusinessRuleValidator",
+      "TransformationValidator",
+      "DownstreamContractValidator",
+      "PipelineCompletionValidator"
+    ],
+    "acceptable_operation": "correct_amount_units",
+    "risk": "LOW",
+    "requires_approval": false,
+    "variant": "revision"
+  },
+  {
+    "id": "GOLD-012",
+    "scenario": "transformation_regression",
+    "incident_title": "Currency reconciliation failure in orders_daily",
+    "known_root_cause": "transformation_regression",
+    "force_first_fail": true,
+    "max_attempts": 1,
+    "expected_status": "FAILED",
+    "important_evidence": [
+      "EV-CHANGE-001"
+    ],
+    "investigation_branches": [
+      "schema",
+      "quality",
+      "infrastructure",
+      "dependency",
+      "change"
+    ],
+    "required_validators": [
+      "SchemaValidator",
+      "RowCountValidator",
+      "NullRateValidator",
+      "DuplicateValidator",
+      "FreshnessValidator",
+      "DataTypeValidator",
+      "BusinessRuleValidator",
+      "TransformationValidator",
+      "DownstreamContractValidator",
+      "PipelineCompletionValidator"
+    ],
+    "acceptable_operation": "correct_amount_units",
+    "risk": "LOW",
+    "requires_approval": false,
+    "variant": "exhaustion"
+  },
+  {
+    "id": "GOLD-013",
+    "scenario": "dependency_failure",
+    "incident_title": "Orders API dependency failure",
+    "known_root_cause": "dependency_failure",
+    "force_first_fail": false,
+    "max_attempts": 3,
+    "expected_status": "COMPLETED",
+    "important_evidence": [
+      "EV-DEPENDENCY-001"
+    ],
+    "investigation_branches": [
+      "schema",
+      "quality",
+      "infrastructure",
+      "dependency",
+      "change"
+    ],
+    "required_validators": [
+      "SchemaValidator",
+      "RowCountValidator",
+      "NullRateValidator",
+      "DuplicateValidator",
+      "FreshnessValidator",
+      "DataTypeValidator",
+      "BusinessRuleValidator",
+      "TransformationValidator",
+      "DownstreamContractValidator",
+      "PipelineCompletionValidator"
+    ],
+    "acceptable_operation": "bounded_dependency_retry",
+    "risk": "MEDIUM",
+    "requires_approval": true,
+    "variant": "normal"
+  },
+  {
+    "id": "GOLD-014",
+    "scenario": "dependency_failure",
+    "incident_title": "Orders API dependency failure",
+    "known_root_cause": "dependency_failure",
+    "force_first_fail": true,
+    "max_attempts": 3,
+    "expected_status": "COMPLETED",
+    "important_evidence": [
+      "EV-DEPENDENCY-001"
+    ],
+    "investigation_branches": [
+      "schema",
+      "quality",
+      "infrastructure",
+      "dependency",
+      "change"
+    ],
+    "required_validators": [
+      "SchemaValidator",
+      "RowCountValidator",
+      "NullRateValidator",
+      "DuplicateValidator",
+      "FreshnessValidator",
+      "DataTypeValidator",
+      "BusinessRuleValidator",
+      "TransformationValidator",
+      "DownstreamContractValidator",
+      "PipelineCompletionValidator"
+    ],
+    "acceptable_operation": "bounded_dependency_retry",
+    "risk": "MEDIUM",
+    "requires_approval": true,
+    "variant": "revision"
+  },
+  {
+    "id": "GOLD-015",
+    "scenario": "dependency_failure",
+    "incident_title": "Orders API dependency failure",
+    "known_root_cause": "dependency_failure",
+    "force_first_fail": true,
+    "max_attempts": 1,
+    "expected_status": "FAILED",
+    "important_evidence": [
+      "EV-DEPENDENCY-001"
+    ],
+    "investigation_branches": [
+      "schema",
+      "quality",
+      "infrastructure",
+      "dependency",
+      "change"
+    ],
+    "required_validators": [
+      "SchemaValidator",
+      "RowCountValidator",
+      "NullRateValidator",
+      "DuplicateValidator",
+      "FreshnessValidator",
+      "DataTypeValidator",
+      "BusinessRuleValidator",
+      "TransformationValidator",
+      "DownstreamContractValidator",
+      "PipelineCompletionValidator"
+    ],
+    "acceptable_operation": "bounded_dependency_retry",
+    "risk": "MEDIUM",
+    "requires_approval": false,
+    "variant": "exhaustion"
+  }
+]

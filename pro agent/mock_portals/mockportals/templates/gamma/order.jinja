@@ -1,0 +1,14 @@
+{% extends "gamma/base.jinja" %}{% block title %}{{ o.order_ref }}{% endblock %}{% block body %}
+<h1>Sales order {{ o.order_ref }}</h1>
+<table class="grid" aria-label="Sales order">
+<tr><th scope="row">Status</th><td>{{ status }}</td></tr>
+<tr><th scope="row">Buyer PO reference</th><td>{{ o.po_reference }}</td></tr>
+<tr><th scope="row">Quote reference</th><td>{{ o.quote_ref }}</td></tr>
+<tr><th scope="row">Part number</th><td>{{ o.sku }} {{ o.product_name }}</td></tr>
+<tr><th scope="row">Order quantity</th><td>{{ o.qty }}</td></tr>
+<tr><th scope="row">Order value</th><td>INR {{ o.total|inr }}</td></tr>
+<tr><th scope="row">Currency</th><td>{{ o.currency }}</td></tr>
+<tr><th scope="row">Expected arrival</th><td>{{ o.delivery_date }}</td></tr>
+<tr><th scope="row">Consignee</th><td>{{ o.address_ref }}{% if address %}, {{ address.line }}{% endif %}</td></tr>
+</table>
+{% if status == 'Confirmed' %}<p><a class="button" href="{{ r.receipt.replace('{ref}', o.order_ref) }}" download>Download receipt</a></p>{% else %}<p role="status">Order processing. Receipt pending.</p>{% endif %}{% endblock %}

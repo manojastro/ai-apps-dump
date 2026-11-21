@@ -1,0 +1,38 @@
+[project]
+name = "sentinel-qa"
+version = "0.1.0"
+description = "Sentinel — autonomous QA agent for Salesforce Lightning + eval harness"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "anthropic>=0.40.0",
+  "langgraph>=0.2.0",
+  "pydantic>=2.0.0",
+  "playwright>=1.44.0",
+  "deepeval>=2.0.0",
+]
+
+[dependency-groups]
+dev = [
+  "pytest>=8.0.0",
+  "pytest-asyncio>=0.23.0",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+# Let tests import both `sentinel` and `evals` packages from the repo root.
+pythonpath = ["."]
+# deepeval ships a pytest11 plugin that hangs at startup (telemetry); our own
+# unit tests don't need it — Phase 5 calls deepeval programmatically instead.
+addopts = ["-p", "no:deepeval"]
+# Don't treat the imported Pydantic `TestCase` model as a test class.
+python_classes = ["Test_*"]
+markers = ["browser: needs headless Chromium (Phase 2 groundwork tests)"]
+
+[tool.uv]
+package = false
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

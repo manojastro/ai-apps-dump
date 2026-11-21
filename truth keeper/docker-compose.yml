@@ -1,0 +1,38 @@
+# One command demo:  docker compose up --build
+#   app      -> http://localhost:8000   (review UI + API, MOCK mode by default)
+#   phoenix  -> http://localhost:6006   (traces)
+services:
+  phoenix:
+    # Pin a specific tag before relying on this in CI; check https://hub.docker.com/r/arizephoenix/phoenix/tags
+    image: arizephoenix/phoenix:latest
+    ports:
+      - "6006:6006"   # UI + OTLP/HTTP at /v1/traces
+      - "4317:4317"   # OTLP/gRPC
+    restart: unless-stopped
+
+  app:
+    build: .
+    depends_on:
+      - phoenix
+    ports:
+      - "8000:8000"
+    environment:
+      LLM_MODE: ${LLM_MODE:-mock}
+      LLM_MODEL: ${LLM_MODEL:-claude-opus-5-5}
+      PROMPT_VERSION: ${PROMPT_VERSION:-v1}
+      PHOENIX_COLLECTOR_ENDPOINT: http://phoenix:6006
+      # all mutable state lives on the volume, code stays in the image
+      TK_GENERATED_DIR: /app/var/generated
+      TK_SANDBOX_DIR: /app/var/sandbox
+      TK_STATE_DB: /app/var/state.db
+      TK_GROUND_TRUTH: /app/var/generated/ground_truth.json
+      TK_REGRESSIONS_DIR: /app/var/regressions
+    # For real LLM runs only: put ANTHROPIC_API_KEY in a local .env (gitignored).
+    env_file:
+      - path: .env
+        required: false
+    volumes:
+      - tk-data:/app/var
+
+volumes:
+  tk-data:

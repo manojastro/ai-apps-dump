@@ -1,0 +1,7 @@
+services:
+  agentjudge:
+    build: .
+    volumes:
+      - ./reports:/app/reports
+    command: ["run", "--target", "stub", "--set", "golden_set.jsonl", "--subset", "smoke"]
+    env_file: [.env]

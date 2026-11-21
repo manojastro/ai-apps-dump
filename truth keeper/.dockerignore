@@ -1,0 +1,11 @@
+.venv
+.git
+.env
+**/__pycache__
+.pytest_cache
+.ruff_cache
+data/generated/*
+data/generated_seed7
+data/sandbox/*
+data/state.db
+evals/results

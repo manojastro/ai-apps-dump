@@ -1,0 +1,49 @@
+# Hand-labelled golden scenario. Expectations derive from reading the SQL and dashboards.yaml.
+id: s10_customer_id_nullable
+description: 'orders.customer_id becomes nullable: not-null test fails, joins drop rows'
+topic: orders.v1
+mutations:
+- op: make_nullable
+  field: customer_id
+expected:
+  change_class: potentially_breaking
+  route: approval
+  impacted:
+  - column:mart.customer_ltv.country
+  - column:mart.customer_ltv.customer_id
+  - column:mart.customer_ltv.ltv
+  - column:mart.customer_ltv.order_count
+  - column:mart.daily_revenue.items_sold
+  - column:mart.daily_revenue.order_count
+  - column:mart.daily_revenue.order_date
+  - column:mart.daily_revenue.revenue
+  - column:mart.fct_orders.amount
+  - column:mart.fct_orders.country
+  - column:mart.fct_orders.created_at
+  - column:mart.fct_orders.currency
+  - column:mart.fct_orders.customer_id
+  - column:mart.fct_orders.order_date
+  - column:mart.fct_orders.order_id
+  - column:mart.fct_orders.paid_amount
+  - column:mart.fct_orders.payment_method
+  - column:mart.fct_orders.quantity
+  - column:mart.fct_orders.status
+  - column:stg.stg_orders.customer_id
+  - dashboard:Customer Health
+  - dashboard:Finance Reconciliation
+  - dashboard:Sales Overview
+  - visual:Customer Health/Customers by Country
+  - visual:Customer Health/LTV Distribution
+  - visual:Finance Reconciliation/Paid vs Ordered
+  - visual:Sales Overview/Items Sold by Day
+  - visual:Sales Overview/Orders by Status
+  - visual:Sales Overview/Payment Mix
+  - visual:Sales Overview/Revenue by Day
+  verdicts:
+    test:stg_orders_customer_id_not_null: breaking
+    column:stg.stg_orders.customer_id: degraded
+    column:mart.fct_orders.country: degraded
+    visual:Customer Health/LTV Distribution: degraded
+    dashboard:Sales Overview: degraded
+  fix_should_pass: true
+  failing_tables: []

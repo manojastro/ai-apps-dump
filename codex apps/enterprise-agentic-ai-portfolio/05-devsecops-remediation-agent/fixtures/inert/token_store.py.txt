@@ -1,0 +1,6 @@
+"""INERT TEST FIXTURE. The value below is intentionally nonfunctional."""
+
+SERVICE_TOKEN = "demo_prod_token_123456789"
+
+def auth_header():
+    return {"Authorization": f"Bearer {SERVICE_TOKEN}"}

@@ -1,0 +1,38 @@
+{
+  "conflict": {
+    "customer_key": "ACC-00450",
+    "evidence": {
+      "crm_account_id": "ACC-00450",
+      "crm_email": "oliver.okafor@tidal-logistics.example",
+      "crm_name": "Oliver Okafor",
+      "crm_plan": "pro",
+      "crm_status": "cancelled",
+      "marketing": [
+        {
+          "contact_id": "MC-00429",
+          "last_campaign": "onboarding_day7",
+          "lifecycle_stage": "onboarding",
+          "marketing_email": "oliver.okafor@tidal-logistics.example",
+          "match_confidence": 0.95,
+          "match_method": "email",
+          "subscribed": true
+        }
+      ]
+    },
+    "id": "cf_763a44fa4866",
+    "type": "CHURNED_STILL_MARKETED"
+  },
+  "created_at": "2026-11-16T03:20:13+00:00",
+  "expect_mock": {
+    "action": "no_action",
+    "status": "PENDING_REVIEW"
+  },
+  "expected_action": "unsubscribe_contact",
+  "id": "rg_wrong_action_975a4c9fed",
+  "note": "proposed no_action, ground truth expects unsubscribe_contact",
+  "prompt_version": "v1",
+  "recorded_responses": [
+    "{\"explanation\": \"Account ACC-00450 is cancelled in the CRM, but marketing contact MC-00429 is still subscribed in stage 'onboarding' (last campaign onboarding_day7). A churned customer is still receiving onboarding email.\", \"action\": \"no_action\", \"params\": {}, \"confidence\": 0.55, \"needs_human_note\": null}"
+  ],
+  "source": "wrong_action"
+}

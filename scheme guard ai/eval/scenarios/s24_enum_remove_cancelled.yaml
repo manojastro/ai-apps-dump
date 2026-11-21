@@ -1,0 +1,44 @@
+# Hand-labelled golden scenario. Expectations derive from reading the SQL and dashboards.yaml.
+id: s24_enum_remove_cancelled
+description: 'Remove CANCELLED from status: revenue filters silently become no-ops'
+topic: orders.v1
+mutations:
+- op: remove_enum_symbol
+  field: status
+  symbol: CANCELLED
+expected:
+  change_class: potentially_breaking
+  route: escalate
+  impacted:
+  - column:mart.customer_ltv.country
+  - column:mart.customer_ltv.customer_id
+  - column:mart.customer_ltv.ltv
+  - column:mart.customer_ltv.order_count
+  - column:mart.daily_revenue.items_sold
+  - column:mart.daily_revenue.order_count
+  - column:mart.daily_revenue.order_date
+  - column:mart.daily_revenue.revenue
+  - column:mart.fct_orders.status
+  - column:stg.stg_orders.status
+  - dashboard:Customer Health
+  - dashboard:Sales Overview
+  - visual:Customer Health/Customers by Country
+  - visual:Customer Health/LTV Distribution
+  - visual:Sales Overview/Items Sold by Day
+  - visual:Sales Overview/Orders by Status
+  - visual:Sales Overview/Revenue by Day
+  verdicts:
+    column:mart.daily_revenue.order_date: degraded
+    column:mart.daily_revenue.revenue: degraded
+    column:mart.daily_revenue.order_count: degraded
+    column:mart.daily_revenue.items_sold: degraded
+    column:mart.customer_ltv.customer_id: degraded
+    column:mart.customer_ltv.country: degraded
+    column:mart.customer_ltv.ltv: degraded
+    column:mart.customer_ltv.order_count: degraded
+    visual:Sales Overview/Revenue by Day: degraded
+    visual:Customer Health/LTV Distribution: degraded
+    visual:Sales Overview/Orders by Status: safe
+    column:mart.fct_orders.status: safe
+    test:stg_orders_status_accepted: safe
+  fix_should_pass: null

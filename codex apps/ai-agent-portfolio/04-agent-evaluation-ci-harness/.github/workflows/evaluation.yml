@@ -1,0 +1,29 @@
+name: Agent quality gate
+on: [push, pull_request]
+jobs:
+  deterministic-evaluation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install -e ".[dev]"
+      - run: pytest
+      - name: Seed and evaluate baseline
+        run: |
+          evalharness seed
+          evalharness run --mode good --output reports/baseline.json --baseline
+      - name: Prove the bad configuration is rejected
+        shell: bash
+        run: |
+          evalharness run --mode bad --output reports/bad.json
+          if evalharness gate --candidate reports/bad.json --baseline reports/baseline.json --config config/gates.yml; then
+            echo "Bad candidate unexpectedly passed"; exit 1
+          fi
+      - name: Apply pull-request quality gate
+        run: evalharness gate --candidate reports/baseline.json --config config/gates.yml | tee reports/gate.json
+      - name: Job summary
+        run: evalharness report --run reports/baseline.json --output reports/summary.md && cat reports/summary.md >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with: {name: evaluation-artifacts, path: reports/}
+

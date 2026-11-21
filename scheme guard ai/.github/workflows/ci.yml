@@ -1,0 +1,32 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with:
+          version: "0.11.20"
+      - name: Install
+        run: uv sync --extra ui --extra llm
+      - name: Lint
+        run: uv run ruff check . && uv run ruff format --check .
+      - name: Type check
+        run: uv run mypy
+      - name: Unit tests
+        run: uv run pytest -q
+      - name: Eval (fake LLM, deterministic)
+        run: uv run python eval/run_eval.py --llm fake --out eval/results
+      - uses: actions/upload-artifact@v4
+        with:
+          name: eval-results
+          path: eval/results/

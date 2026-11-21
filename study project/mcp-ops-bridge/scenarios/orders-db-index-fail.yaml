@@ -1,0 +1,15 @@
+# Ground truth: orders-db slow. Red herring deploy must be ignored. Synthetic drill.
+scenario: orders-db-index-fail
+incident_number: INC1000002
+ci: orders-db-01
+true_root_cause: nightly_reindex config change broke idx_orders_created; seq scans cause p95 8.2s.
+evidence:
+  - change: CHG1000002 opened 2026-09-01T09:40:00+00:00 (25 min before incident 10:05)
+  - logs: orders-db ERROR slow query + index job FAILED
+  - deploy v2.14.1 healthy per logs (red herring)
+related_changes: [CHG1000002]
+red_herrings: [CHG1000003]
+expected_blast: [orders-app-01, orders-app-02, search-idx-01, stock-api-01, pricing-api-01]
+log_window: {service: orders, minutes: 60}
+confidence: HIGH
+note: Tests that agents don't blame the nearest change (deploy) but the failed index job.

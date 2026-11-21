@@ -1,0 +1,17 @@
+{"scenarios": [
+  {"id": "ram_pressure_no_processes", "description": "Pressure without breakdown is a gap, not a cause",
+   "evidence": [{"id": "E1", "m": "ram", "v": "91.0", "s": "RAM 91.0%"}],
+   "expected": {"verdict": "INSUFFICIENT", "top": null, "reject": [], "missing": ["process breakdown"]}},
+  {"id": "vpn_down_no_signin", "description": "VPN fault without identity context",
+   "evidence": [{"id": "E1", "m": "vpn", "v": "False", "s": "VPN DOWN: stale cached token"}],
+   "expected": {"verdict": "ESCALATE", "top": "Stale secure-access token", "reject": [], "missing": ["identity correlation"]}},
+  {"id": "empty", "description": "No evidence at all",
+   "evidence": [],
+   "expected": {"verdict": "INSUFFICIENT", "top": null, "reject": []}},
+  {"id": "single_weak_dns", "description": "One healthy reading proves nothing",
+   "evidence": [{"id": "E1", "m": "dns", "v": "True", "s": "DNS ok"}],
+   "expected": {"verdict": "INSUFFICIENT", "top": null, "reject": []}},
+  {"id": "cpu_only", "description": "Bare CPU number without context",
+   "evidence": [{"id": "E1", "m": "cpu", "v": "79.0", "s": "CPU 79.0%"}],
+   "expected": {"verdict": "INSUFFICIENT", "top": null, "reject": []}}
+ ]}

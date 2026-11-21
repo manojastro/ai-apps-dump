@@ -1,0 +1,9 @@
+{% extends "beta/base.jinja" %}{% block title %}Shop{% endblock %}{% block body %}
+<form role="search" method="get" action="{{ r.search }}" style="display:flex;gap:8px;margin-bottom:20px">
+<input aria-label="Search products" placeholder="Search laptops, monitors…" name="term" value="{{ query }}" style="flex:1">
+<button class="cta" type="submit">Search</button></form>
+{% if malicious %}{% include "_malicious.jinja" %}{% endif %}
+{% if query %}<p>{{ items|length }} result(s)</p><div class="grid">
+{% for p in items %}<article class="card"><h2 style="font-size:17px"><a href="{{ r.product.replace('{sku}', p.sku) }}">{{ p.name }}</a></h2>
+<p>₹{{ p.unit_price|inr }} <small>incl. GST</small></p><p><small>SKU {{ p.sku }}</small></p></article>
+{% else %}<p>No products found.</p>{% endfor %}</div>{% endif %}{% endblock %}

@@ -1,0 +1,301 @@
+{
+  "date": "2026-09-18",
+  "n_questions": 15,
+  "n_retrievable": 12,
+  "hit_rate@5": 1.0,
+  "hits": 12,
+  "refusal_accuracy": 0.933,
+  "refusal_correct": 14,
+  "citation_validity": 1.0,
+  "citations_ok": 13,
+  "citations_total": 13,
+  "p50_ms": 7.6,
+  "p95_ms": 40.17,
+  "cost_usd_per_question": 0.0,
+  "mode": "hybrid-tfidf+hashvec-rrf+mock-rerank",
+  "refuse_threshold": 0.029,
+  "details": [
+    {
+      "id": "q01",
+      "type": "answerable",
+      "expected": [
+        "KB0001"
+      ],
+      "retrieved": [
+        "KB0001",
+        "KB0001",
+        "KB0001",
+        "KB0001",
+        "KB0001"
+      ],
+      "hit@5": true,
+      "refused": false,
+      "refusal_ok": true,
+      "citation_valid": true,
+      "latency_ms": 6.85
+    },
+    {
+      "id": "q02",
+      "type": "exact-code",
+      "expected": [
+        "KB0002"
+      ],
+      "retrieved": [
+        "KB0002",
+        "KB0002",
+        "KB0002",
+        "KB0002",
+        "KB0002"
+      ],
+      "hit@5": true,
+      "refused": false,
+      "refusal_ok": true,
+      "citation_valid": true,
+      "latency_ms": 7.6
+    },
+    {
+      "id": "q03",
+      "type": "answerable",
+      "expected": [
+        "KB0003"
+      ],
+      "retrieved": [
+        "KB0003",
+        "KB0003",
+        "KB0003",
+        "KB0003",
+        "KB0018"
+      ],
+      "hit@5": true,
+      "refused": false,
+      "refusal_ok": true,
+      "citation_valid": true,
+      "latency_ms": 4.16
+    },
+    {
+      "id": "q04",
+      "type": "exact-code",
+      "expected": [
+        "KB0004"
+      ],
+      "retrieved": [
+        "KB0004",
+        "KB0004",
+        "KB0004",
+        "KB0004",
+        "KB0004"
+      ],
+      "hit@5": true,
+      "refused": false,
+      "refusal_ok": true,
+      "citation_valid": true,
+      "latency_ms": 6.35
+    },
+    {
+      "id": "q05",
+      "type": "answerable",
+      "expected": [
+        "KB0006"
+      ],
+      "retrieved": [
+        "KB0006",
+        "KB0006",
+        "KB0006",
+        "KB0006",
+        "KB0006"
+      ],
+      "hit@5": true,
+      "refused": false,
+      "refusal_ok": true,
+      "citation_valid": true,
+      "latency_ms": 2.64
+    },
+    {
+      "id": "q06",
+      "type": "conflicting",
+      "expected": [
+        "KB0007",
+        "KB0008"
+      ],
+      "retrieved": [
+        "KB0007",
+        "KB0008",
+        "KB0007",
+        "KB0007",
+        "KB0008"
+      ],
+      "hit@5": true,
+      "refused": false,
+      "refusal_ok": true,
+      "citation_valid": true,
+      "latency_ms": 9.81
+    },
+    {
+      "id": "q07",
+      "type": "answerable",
+      "expected": [
+        "KB0011",
+        "KB0012"
+      ],
+      "retrieved": [
+        "KB0011",
+        "KB0012",
+        "KB0011",
+        "KB0011",
+        "KB0012"
+      ],
+      "hit@5": true,
+      "refused": false,
+      "refusal_ok": true,
+      "citation_valid": true,
+      "latency_ms": 8.98
+    },
+    {
+      "id": "q08",
+      "type": "answerable",
+      "expected": [
+        "SOP-POS-01"
+      ],
+      "retrieved": [
+        "SOP-POS-01",
+        "SOP-POS-01",
+        "SOP-POS-01",
+        "SOP-POS-01",
+        "KB0011"
+      ],
+      "hit@5": true,
+      "refused": false,
+      "refusal_ok": true,
+      "citation_valid": true,
+      "latency_ms": 9.63
+    },
+    {
+      "id": "q09",
+      "type": "answerable",
+      "expected": [
+        "SOP-IAM-01"
+      ],
+      "retrieved": [
+        "SOP-IAM-01",
+        "SOP-IAM-01",
+        "SOP-IAM-01",
+        "KB0025",
+        "SOP-IAM-01"
+      ],
+      "hit@5": true,
+      "refused": false,
+      "refusal_ok": true,
+      "citation_valid": true,
+      "latency_ms": 4.03
+    },
+    {
+      "id": "q10",
+      "type": "conflicting",
+      "expected": [
+        "KB0015",
+        "KB0016"
+      ],
+      "retrieved": [
+        "KB0015",
+        "KB0016",
+        "KB0015",
+        "KB0016",
+        "KB0015"
+      ],
+      "hit@5": true,
+      "refused": false,
+      "refusal_ok": true,
+      "citation_valid": true,
+      "latency_ms": 5.86
+    },
+    {
+      "id": "q11",
+      "type": "answerable",
+      "expected": [
+        "KB0024"
+      ],
+      "retrieved": [
+        "KB0024",
+        "KB0024",
+        "KB0024",
+        "KB0024",
+        "KB0024"
+      ],
+      "hit@5": true,
+      "refused": false,
+      "refusal_ok": true,
+      "citation_valid": true,
+      "latency_ms": 5.78
+    },
+    {
+      "id": "q12",
+      "type": "answerable",
+      "expected": [
+        "KB0017"
+      ],
+      "retrieved": [
+        "KB0017",
+        "KB0007",
+        "KB0021",
+        "KB0001",
+        "KB0017"
+      ],
+      "hit@5": true,
+      "refused": false,
+      "refusal_ok": true,
+      "citation_valid": true,
+      "latency_ms": 7.9
+    },
+    {
+      "id": "q13",
+      "type": "unanswerable",
+      "expected": [],
+      "retrieved": [
+        "KB0005",
+        "KB0020",
+        "KB0009",
+        "KB0018",
+        "SOP-VPN-01"
+      ],
+      "hit@5": null,
+      "refused": true,
+      "refusal_ok": true,
+      "citation_valid": null,
+      "latency_ms": 42.32
+    },
+    {
+      "id": "q14",
+      "type": "unanswerable",
+      "expected": [],
+      "retrieved": [
+        "SOP-PRT-01",
+        "KB0026",
+        "KB0022",
+        "KB0024",
+        "KB0013"
+      ],
+      "hit@5": null,
+      "refused": true,
+      "refusal_ok": true,
+      "citation_valid": null,
+      "latency_ms": 37.43
+    },
+    {
+      "id": "q15",
+      "type": "unanswerable",
+      "expected": [],
+      "retrieved": [
+        "SOP-LAP-01",
+        "KB0015",
+        "KB0016",
+        "KB0015",
+        "KB0028"
+      ],
+      "hit@5": null,
+      "refused": false,
+      "refusal_ok": false,
+      "citation_valid": true,
+      "latency_ms": 39.25
+    }
+  ]
+}

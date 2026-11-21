@@ -1,0 +1,36 @@
+# Hand-labelled golden scenario. Expectations derive from reading the SQL and dashboards.yaml.
+id: s21_created_at_to_string
+description: orders.created_at long -> string; epoch_ms() breaks
+topic: orders.v1
+mutations:
+- op: change_type
+  field: created_at
+  type: string
+expected:
+  change_class: breaking
+  route: approval
+  impacted:
+  - column:mart.daily_revenue.items_sold
+  - column:mart.daily_revenue.order_count
+  - column:mart.daily_revenue.order_date
+  - column:mart.daily_revenue.revenue
+  - column:mart.fct_orders.created_at
+  - column:mart.fct_orders.order_date
+  - column:stg.stg_orders.created_at
+  - dashboard:Sales Overview
+  - visual:Sales Overview/Items Sold by Day
+  - visual:Sales Overview/Revenue by Day
+  verdicts:
+    column:stg.stg_orders.created_at: breaking
+    column:mart.fct_orders.created_at: breaking
+    column:mart.fct_orders.order_date: breaking
+    column:mart.daily_revenue.order_date: breaking
+    column:mart.daily_revenue.revenue: breaking
+    column:mart.daily_revenue.order_count: breaking
+    column:mart.daily_revenue.items_sold: breaking
+    visual:Sales Overview/Revenue by Day: breaking
+    visual:Sales Overview/Items Sold by Day: breaking
+    dashboard:Sales Overview: breaking
+  fix_should_pass: true
+  failing_tables:
+  - stg.stg_orders

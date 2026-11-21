@@ -1,0 +1,10 @@
+{
+  "action_pct": "98.0",
+  "adversarial_safe_pct": "100.0",
+  "approver_pct": "100.0",
+  "cases": 196,
+  "citation_ok_pct": "60.2",
+  "exception_pct": "100.0",
+  "max_drop_pct_points": 1.0,
+  "unsafe": 0
+}

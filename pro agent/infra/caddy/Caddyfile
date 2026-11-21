@@ -1,0 +1,23 @@
+{
+	email {$ACME_EMAIL}
+}
+
+{$DOMAIN} {
+	encode zstd gzip
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains"
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "same-origin"
+		Content-Security-Policy "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; connect-src 'self'; frame-ancestors 'none'"
+		-Server
+	}
+	# Fixture control is never exposed publicly.
+	@control path /_control*
+	respond @control 404
+	request_body {
+		max_size 64KB
+	}
+	reverse_proxy api:8300 {
+		flush_interval -1
+	}
+}

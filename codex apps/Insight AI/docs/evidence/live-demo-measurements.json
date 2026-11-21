@@ -1,0 +1,110 @@
+{
+  "mode": "live_demo",
+  "timestamp": 1788710809.1257734,
+  "configuration": "Windows local processes; no container CPU limit",
+  "samples": [
+    {
+      "scenario": "healthy",
+      "mode": "live_demo",
+      "samples": 40,
+      "errors": 0,
+      "error_rate": 0.0,
+      "p95_ms": 486.64,
+      "observed_at": 1788710829.3727388
+    },
+    {
+      "scenario": "payment_delay",
+      "mode": "live_demo",
+      "samples": 35,
+      "errors": 35,
+      "error_rate": 1.0,
+      "p95_ms": 998.31,
+      "observed_at": 1788710861.980326,
+      "observed_gauges": [
+        "demo_cpu_ratio{service=\"checkout\"} 0.094",
+        "demo_pool_usage{service=\"checkout\"} 0.0",
+        "demo_pool_wait_seconds{service=\"checkout\"} 0.0019969000131823123"
+      ]
+    },
+    {
+      "scenario": "payment_delay_recovery",
+      "mode": "live_demo",
+      "samples": 35,
+      "errors": 5,
+      "error_rate": 0.14285714285714285,
+      "p95_ms": 3973.69,
+      "observed_at": 1788710916.5058706
+    },
+    {
+      "scenario": "config_regression",
+      "mode": "live_demo",
+      "samples": 35,
+      "errors": 35,
+      "error_rate": 1.0,
+      "p95_ms": 97.22,
+      "observed_at": 1788710926.1429462,
+      "observed_gauges": [
+        "demo_cpu_ratio{service=\"checkout\"} 0.031",
+        "demo_pool_usage{service=\"checkout\"} 0.0",
+        "demo_pool_wait_seconds{service=\"checkout\"} 3.8526547999936156"
+      ]
+    },
+    {
+      "scenario": "config_regression_recovery",
+      "mode": "live_demo",
+      "samples": 35,
+      "errors": 4,
+      "error_rate": 0.11428571428571428,
+      "p95_ms": 3363.16,
+      "observed_at": 1788710991.7132304
+    },
+    {
+      "scenario": "pool_exhaustion",
+      "mode": "live_demo",
+      "samples": 35,
+      "errors": 35,
+      "error_rate": 1.0,
+      "p95_ms": 230.23,
+      "observed_at": 1788711004.6746595,
+      "observed_gauges": [
+        "demo_cpu_ratio{service=\"checkout\"} 0.0",
+        "demo_pool_usage{service=\"checkout\"} 1.0",
+        "demo_pool_wait_seconds{service=\"checkout\"} 0.16472120000980794"
+      ]
+    },
+    {
+      "scenario": "pool_exhaustion_recovery",
+      "mode": "live_demo",
+      "samples": 35,
+      "errors": 0,
+      "error_rate": 0.0,
+      "p95_ms": 474.81,
+      "observed_at": 1788711020.1993191
+    },
+    {
+      "scenario": "cpu_saturation",
+      "mode": "live_demo",
+      "samples": 35,
+      "errors": 4,
+      "error_rate": 0.11428571428571428,
+      "p95_ms": 3284.2,
+      "observed_at": 1788711069.1272123,
+      "observed_gauges": [
+        "demo_cpu_ratio{service=\"checkout\"} 0.594",
+        "demo_pool_usage{service=\"checkout\"} 0.0",
+        "demo_pool_wait_seconds{service=\"checkout\"} 0.0287491999915801"
+      ]
+    },
+    {
+      "scenario": "cpu_saturation_recovery",
+      "mode": "live_demo",
+      "samples": 35,
+      "errors": 0,
+      "error_rate": 0.0,
+      "p95_ms": 1015.79,
+      "observed_at": 1788711091.989597
+    }
+  ],
+  "trace_context_present": true,
+  "control_denies_unauthorized": true
+}

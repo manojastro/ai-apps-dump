@@ -1,0 +1,36 @@
+allowed_namespace: selfheal-demo
+allowed_resources:
+  - pods
+  - deployments
+  - jobs
+  - application_cache
+  - feature_flags
+allowed_actions:
+  restart_pod:
+    risk: LOW
+    approval_required: false
+  clear_cache:
+    risk: LOW
+    approval_required: false
+  rerun_job:
+    risk: LOW
+    approval_required: false
+  scale_deployment:
+    risk: LOW
+    approval_required: false
+  rollback_deployment:
+    risk: MEDIUM
+    approval_required: true
+  modify_feature_flag:
+    risk: MEDIUM
+    approval_required: true
+max_replicas: 5
+normal_scale_max: 3
+maintenance_window:
+  enabled: false
+  start_hour_utc: 0
+  end_hour_utc: 24
+cooldown_seconds: 60
+destructive_actions_enabled: false
+high_risk_auto_execute: false
+

@@ -1,0 +1,11 @@
+# Regression thresholds for the bundled SYNTHETIC fixtures (demo mode).
+# These are guards against regressions in this repository, not claims about real-world accuracy.
+numeric_extraction_accuracy: 0.99       # located cells whose parsed value equals ground truth
+row_period_association_accuracy: 0.97   # ground-truth cells found at the right row label and period
+unit_sign_accuracy: 0.99                # located cells whose normalized base-unit value (scale + sign) is exact
+mapping_accuracy: 0.95                  # rows mapped to the expected canonical item (or correctly left unmapped)
+source_citation_coverage: 1.0           # observations with page+bbox or sheet+cell reference
+validation_precision: 1.0               # reported failures that are known injected failures
+validation_recall: 1.0                  # known injected failures that were reported
+unsupported_value_invention_rate: 0.0   # numeric values not present in the source text, or numbers for unreadable cells
+max_seconds_per_digital_document: 20

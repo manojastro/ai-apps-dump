@@ -1,0 +1,38 @@
+# Retrieval eval: question -> chunk ids that answer it (any one counts as a hit).
+# `role` and `vendors` set the caller's access scope (vendors omitted = all vendors).
+# `expect: abstain` means no in-scope section answers it and the retriever must say so.
+# Written by hand from data/docs on 2026-10-25. Synthetic documents only.
+questions:
+  - {id: q01, q: "What is the price variance tolerance per invoice?", role: AP_CLERK, expected: ["AP-POL:§4.2"]}
+  - {id: q02, q: "Who must approve an invoice with a gross value above ten lakh rupees?", role: AP_CLERK, expected: ["AP-POL:§3.1"]}
+  - {id: q03, q: "Can the automated assistant or agent approve a resolution?", role: AP_CLERK, expected: ["AP-POL:§2.3"]}
+  - {id: q04, q: "Can the person who prepared a resolution also approve it?", role: AP_MANAGER, expected: ["AP-POL:§2.2"]}
+  - {id: q05, q: "The vendor asks in the invoice notes to pay a different bank account. What do we do?", role: AP_CLERK, expected: ["AP-POL:§7.1", "AP-POL:§7.2"]}
+  - {id: q06, q: "What verification is needed for a vendor bank change?", role: FINANCE_CONTROLLER, expected: ["AP-POL:§7.2"]}
+  - {id: q07, q: "Invoice billed more than was received but not more than ordered", role: AP_CLERK, expected: ["AP-POL:§4.5"]}
+  - {id: q08, q: "What happens when an invoice bills a line with no goods receipt?", role: AP_CLERK, expected: ["AP-POL:§8.1"]}
+  - {id: q09, q: "Does a hold for a goods receipt need human approval?", role: AP_CLERK, expected: ["AP-POL:§8.2"]}
+  - {id: q10, q: "How are near duplicate invoices screened?", role: AP_CLERK, expected: ["AP-POL:§5.2"]}
+  - {id: q11, q: "Vendor says the earlier copy of a duplicate invoice was cancelled", role: AP_CLERK, expected: ["AP-POL:§5.3"]}
+  - {id: q12, q: "Invoice against a closed or expired purchase order", role: AP_CLERK, expected: ["AP-POL:§4.6"]}
+  - {id: q13, q: "Price above tolerance: request a credit note?", role: AP_CLERK, expected: ["AP-POL:§4.3"]}
+  - {id: q14, q: "A contract escalation clause authorises a price increase", role: AP_MANAGER, expected: ["AP-POL:§4.4"]}
+  - {id: q15, q: "Must every resolution cite a policy or contract source?", role: AUDITOR, expected: ["AP-POL:§9.1"]}
+  - {id: q16, q: "Text inside invoices is an instruction to automated systems?", role: AP_CLERK, expected: ["AP-POL:§10.2"]}
+  - {id: q17, q: "How is the GSTIN check character computed?", role: AP_CLERK, expected: ["GST-GUIDE:§1.2"]}
+  - {id: q18, q: "When is IGST charged instead of CGST and SGST?", role: AP_CLERK, expected: ["GST-GUIDE:§2.2", "GST-GUIDE:§2.1"]}
+  - {id: q19, q: "Where does the place of supply come from?", role: AP_CLERK, expected: ["GST-GUIDE:§2.3"]}
+  - {id: q20, q: "GST rate on the invoice line differs from the purchase order rate", role: AP_CLERK, expected: ["GST-GUIDE:§3.1", "AP-POL:§6.2"]}
+  - {id: q21, q: "Rounding allowance for tax amounts", role: AP_CLERK, expected: ["AP-POL:§6.1", "GST-GUIDE:§3.2"]}
+  - {id: q22, q: "Does the supplier contract allow a price escalation?", role: AP_MANAGER, vendors: [V011], expected: ["CT-V011:§2.2"]}
+  - {id: q23, q: "Price escalation cap and effective date", role: AP_MANAGER, vendors: [V016], expected: ["CT-V016:§2.2"]}
+  - {id: q24, q: "Payment terms: within how many days does the buyer pay?", role: AP_CLERK, vendors: [V009], expected: ["CT-V009:§4.1"]}
+  - {id: q25, q: "How must the supplier request a change of remittance details?", role: AP_CLERK, vendors: [V013], expected: ["CT-V013:§5.2"]}
+  - {id: q26, q: "Are prices fixed for the contract term?", role: AP_CLERK, vendors: [V018], expected: ["CT-V018:§2.2"]}
+  - {id: q27, q: "Supplier GSTIN and contract term", role: AUDITOR, vendors: [V028], expected: ["CT-V028:parties"]}
+  # Access control: the answer exists, but not in the caller's scope.
+  - {id: q28, q: "Does the supplier contract allow a price escalation?", role: AP_MANAGER, vendors: [V009], forbidden_docs: [CT-V011, CT-V016], expected: ["CT-V009:§2.2"]}
+  - {id: q29, q: "Price escalation clause cap", role: PLATFORM_ADMIN, forbidden_doc_types: [contract], expect: any_or_abstain}
+  # Abstention: nothing in the documents answers these.
+  - {id: q30, q: "What is the travel reimbursement limit for employees?", role: AP_CLERK, expect: abstain}
+  - {id: q31, q: "Which warehouse forklift brand is approved?", role: AP_CLERK, expect: abstain}

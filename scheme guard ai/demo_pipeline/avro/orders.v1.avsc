@@ -1,0 +1,17 @@
+{
+  "type": "record",
+  "name": "Order",
+  "namespace": "com.example.shop",
+  "doc": "An order placed on the synthetic web shop.",
+  "x-owner": "checkout-team",
+  "fields": [
+    {"name": "order_id", "type": "string", "doc": "Unique order id."},
+    {"name": "customer_id", "type": "string", "doc": "Customer who placed the order."},
+    {"name": "amount", "type": "double", "doc": "Order total in major currency units."},
+    {"name": "currency", "type": "string", "doc": "ISO-4217 currency code."},
+    {"name": "quantity", "type": "int", "doc": "Number of items in the order."},
+    {"name": "status", "type": {"type": "enum", "name": "OrderStatus", "symbols": ["PLACED", "PAID", "SHIPPED", "CANCELLED"]}, "doc": "Lifecycle status."},
+    {"name": "coupon_code", "type": ["null", "string"], "default": null, "doc": "Optional coupon; not used downstream."},
+    {"name": "created_at", "type": {"type": "long", "logicalType": "timestamp-millis"}, "doc": "Order creation time."}
+  ]
+}

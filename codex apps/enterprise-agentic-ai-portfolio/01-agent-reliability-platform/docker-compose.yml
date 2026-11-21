@@ -1,0 +1,17 @@
+services:
+  agent-reliability-platform:
+    build: .
+    ports:
+      - "8101:8101"
+    environment:
+      APP_ENV: local-container
+      DATABASE_PATH: /app/data/reliability.db
+      LLM_MODE: mock
+      CORS_ORIGINS: http://localhost:8101
+      RATE_LIMIT_PER_MINUTE: 120
+    volumes:
+      - reliability-data:/app/data
+    restart: unless-stopped
+
+volumes:
+  reliability-data:

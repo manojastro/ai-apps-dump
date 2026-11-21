@@ -1,0 +1,13 @@
+# Hand-labelled golden scenario. Expectations derive from reading the SQL and dashboards.yaml.
+id: s15_unconsumed_topic
+description: Drop a field on inventory.v1, which no pipeline consumes
+topic: inventory.v1
+mutations:
+- op: drop_field
+  field: delta
+expected:
+  change_class: breaking
+  route: report
+  impacted: []
+  verdicts: {}
+  fix_should_pass: null

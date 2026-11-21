@@ -1,0 +1,23 @@
+# Hand-labelled golden scenario. Expectations derive from reading the SQL and dashboards.yaml.
+id: s17_payment_method_new_enum
+description: New payment method APPLE_PAY
+topic: payments.v1
+mutations:
+- op: add_enum_symbol
+  field: method
+  symbol: APPLE_PAY
+expected:
+  change_class: potentially_breaking
+  route: approval
+  impacted:
+  - column:mart.fct_orders.payment_method
+  - column:stg.stg_payments.method
+  - dashboard:Sales Overview
+  - visual:Sales Overview/Payment Mix
+  verdicts:
+    test:stg_payments_method_accepted: breaking
+    column:stg.stg_payments.method: safe
+    column:mart.fct_orders.payment_method: safe
+    visual:Sales Overview/Payment Mix: degraded
+    dashboard:Sales Overview: degraded
+  fix_should_pass: true

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Network Digital Twin - Change Validation Agent</title>
+<style>
+  :root {
+    --bg:#0b0f14; --panel:#111823; --panel2:#0e1520; --line:#1d2a3a;
+    --txt:#cfe3f5; --dim:#7d93ab; --ok:#2ecc71; --warn:#f39c12;
+    --bad:#e74c3c; --crit:#ff2d55; --acc:#3aa0ff; --purple:#9b59b6;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--txt);
+         font-family:"Segoe UI",Consolas,monospace; font-size:13px; }
+  header { display:flex; align-items:center; gap:16px; padding:10px 18px;
+           background:var(--panel2); border-bottom:1px solid var(--line); position:sticky; top:0; z-index:5;}
+  header h1 { font-size:15px; margin:0; color:var(--acc); letter-spacing:.5px;}
+  header .spacer{flex:1}
+  .pill { padding:2px 10px; border-radius:12px; border:1px solid var(--line); color:var(--dim); font-size:11px;}
+  main { padding:12px; display:grid; gap:12px;
+         grid-template-columns: repeat(12, 1fr); }
+  .panel { background:var(--panel); border:1px solid var(--line); border-radius:8px;
+           padding:10px 12px; overflow:auto;}
+  .panel h2 { margin:0 0 8px 0; font-size:12px; text-transform:uppercase;
+              letter-spacing:1px; color:var(--dim); border-bottom:1px solid var(--line);
+              padding-bottom:6px;}
+  .p-topology{grid-column:span 7; min-height:340px}
+  .p-risk{grid-column:span 5}
+  .p-changes{grid-column:span 4; max-height:420px}
+  .p-diff{grid-column:span 8; max-height:420px}
+  .p-matrix{grid-column:span 6; max-height:360px}
+  .p-reg{grid-column:span 6; max-height:360px}
+  .p-intents{grid-column:span 4; max-height:320px}
+  .p-routing{grid-column:span 4; max-height:320px}
+  .p-rca{grid-column:span 4; max-height:320px}
+  table { width:100%; border-collapse:collapse; font-size:12px;}
+  th { text-align:left; color:var(--dim); font-weight:normal; padding:3px 6px;
+       border-bottom:1px solid var(--line); position:sticky; top:0; background:var(--panel);}
+  td { padding:3px 6px; border-bottom:1px solid #14202e; }
+  tr:hover td { background:#15223080; cursor:pointer;}
+  .tag { padding:1px 8px; border-radius:10px; font-size:11px; display:inline-block;}
+  .t-LOW{background:#12331f;color:var(--ok)} .t-MEDIUM{background:#3a2b10;color:var(--warn)}
+  .t-HIGH{background:#3a1512;color:#ff7043} .t-CRITICAL{background:#40060f;color:var(--crit)}
+  .s-allowed{color:var(--ok)} .s-denied_acl,.s-denied_fw{color:var(--bad)}
+  .s-no_route,.s-no_gateway,.s-host_down,.s-ttl_exceeded{color:var(--crit)}
+  .s-mtu_blocked{color:var(--warn)}
+  .btn { background:#16283c; color:var(--txt); border:1px solid #27405c; padding:4px 12px;
+         border-radius:5px; cursor:pointer; font-size:12px;}
+  .btn:hover{background:#1d3a5c} .btn.green{border-color:#1f6f43;color:#8af0b4}
+  .btn.red{border-color:#7c2620;color:#ff9d94} .btn:disabled{opacity:.4;cursor:default}
+  select,input[type=text]{background:#0d141d;color:var(--txt);border:1px solid #27405c;
+         border-radius:5px;padding:4px 8px;font-size:12px;font-family:inherit}
+  pre.diff { font-size:11.5px; line-height:1.45; white-space:pre-wrap; margin:0;}
+  .add{color:#8af0b4;background:#12271a;display:block} .del{color:#ff9d94;background:#2a1210;display:block}
+  .ctx{color:#5c7590;display:block}
+  svg text{fill:var(--dim);font-size:9px;font-family:Consolas,monospace}
+  .gauge-val{font-size:30px;font-weight:bold;text-align:center}
+  .bar{height:8px;border-radius:4px;background:#182433;margin:4px 0}
+  .bar>div{height:100%;border-radius:4px}
+  .kv{display:flex;justify-content:space-between;padding:2px 0;border-bottom:1px dashed #16222f}
+  .kv span:first-child{color:var(--dim)}
+  .narration{background:#0d1723;border-left:3px solid var(--acc);padding:8px;border-radius:4px;color:#a8c7e8}
+  .empty{color:var(--dim);font-style:italic;padding:14px;text-align:center}
+</style>
+</head>
+<body>
+<header>
+  <h1>NET-TWIN // CHANGE VALIDATION AGENT</h1>
+  <span class="pill" id="llm-mode">LLM: mock</span>
+  <span class="pill" id="db-indicator">snapshot: -</span>
+  <span class="spacer"></span>
+  <select id="fault-select"></select>
+  <button class="btn red" onclick="injectFault()">Inject Fault Change</button>
+  <button class="btn" onclick="loadAll()">Refresh</button>
+</header>
+
+<main>
+  <section class="panel p-topology"><h2>Network Topology (CURRENT twin)</h2>
+    <svg id="topo-svg" width="100%" height="300" viewBox="0 0 900 300"></svg></section>
+
+  <section class="panel p-risk"><h2>Risk Assessment - Selected Change</h2>
+    <div id="risk-body"><div class="empty">select a change</div></div></section>
+
+  <section class="panel p-changes"><h2>Proposed Changes Queue</h2>
+    <table id="changes-table"><thead><tr><th>#</th><th>Title</th><th>Status</th><th>Risk</th><th></th></tr></thead><tbody/></table>
+  </section>
+
+  <section class="panel p-diff"><h2>Configuration Diff</h2>
+    <div id="diff-body"><div class="empty">select a change</div></div></section>
+
+  <section class="panel p-matrix"><h2>Reachability Matrix Diff (candidate vs current)</h2>
+    <div id="matrix-body"><div class="empty">select a change</div></div></section>
+
+  <section class="panel p-reg"><h2>Detected Regressions</h2>
+    <div id="reg-body"><div class="empty">none / select a change</div></div></section>
+
+  <section class="panel p-intents"><h2>Intent Policy Tests (candidate)</h2>
+    <table id="intents-table"><thead><tr><th>Policy</th><th>Result</th></tr></thead><tbody/></table>
+  </section>
+
+  <section class="panel p-routing"><h2>Routing Changes</h2>
+    <div id="routing-body"><div class="empty">select a change</div></div></section>
+
+  <section class="panel p-rca"><h2>Root Cause Analysis</h2>
+    <div id="rca-body"><div class="empty">select a change</div></div></section>
+</main>
+
+<script>
+const API = "";
+let state = {changes:[], selected:null, validation:null};
+
+async function j(url, opts){ const r = await fetch(API+url, opts);
+  if(!r.ok){ let t = await r.text(); throw new Error(r.status+" "+t.slice(0,200)); }
+  return r.json(); }
+
+function esc(s){ return String(s??"").replace(/</g,"&lt;"); }
+
+async function loadAll(){
+  try{
+    await ensureSeed();
+    const [changes, faults, kpis] = await Promise.all([
+      j("/api/v1/changes"), j("/api/v1/network/faults"), j("/api/v1/kpis")]);
+    state.changes = changes;
+    renderChanges(); renderKpis(kpis); renderFaults(faults);
+    await loadViews();
+    if(state.selected) await selectChange(state.selected);
+  }catch(e){ console.error(e); alert("API error: "+e.message); }
+}
+
+async function ensureSeed(){
+  try{ await j("/api/v1/network/snapshot", {method:"POST", headers:{'Content-Type':'application/json'}, body:"{}"}); }catch(e){}
+}
+
+function renderKpis(k){
+  document.getElementById("llm-mode").textContent = "LLM: " + (localStorage.getItem("llm")||"mock");
+  document.getElementById("db-indicator").textContent =
+    `runs:${k.validation_runs_total} prevented:${k.unsafe_changes_prevented} compliance:${k.intent_compliance_pct??"-"}% avg:${k.avg_validation_duration_ms}ms`;
+}
+
+function renderFaults(f){
+  const sel = document.getElementById("fault-select");
+  sel.innerHTML = f.faults.map(x =>
+    `<option value="${x.name}">${x.benign?"[benign] ":""}${x.title}</option>`).join("");
+}
+
+function renderChanges(){
+  const tb = document.querySelector("#changes-table tbody");
+  tb.innerHTML = state.changes.map(c => `
+    <tr onclick="selectChange(${c.id})" style="${state.selected===c.id?'outline:1px solid var(--acc)':''}">
+      <td>${c.id}</td><td>${esc(c.title).slice(0,42)}</td>
+      <td>${c.status}</td>
+      <td><span class="tag t-${c.risk_band}">${c.risk_band}</span></td>
+      <td>${actionButtons(c)}</td></tr>`).join("") ||
+    `<tr><td colspan="5" class="empty">no changes submitted</td></tr>`;
+}
+
+function actionButtons(c){
+  const b = [];
+  if(c.status==="AWAITING_APPROVAL"){
+    b.push(`<button class="btn green" onclick="act(event,'approve',${c.id})">Approve</button>`);
+    b.push(`<button class="btn red" onclick="act(event,'reject',${c.id})">Reject</button>`);
+  }
+  if(c.status==="COMPLETED"||c.status==="FAILED")
+    b.push(`<button class="btn red" onclick="act(event,'rollback',${c.id})">Rollback</button>`);
+  return b.join(" ");
+}
+
+async function act(ev, kind, id){
+  ev.stopPropagation();
+  const body = JSON.stringify(kind==="approve"
+    ? {approver:"dashboard-admin", comment:"", justification:"dashboard approval"}
+    : {actor:"dashboard-admin", reason:"rejected via dashboard"});
+  await j(`/api/v1/changes/${id}/${kind}`,
+          {method:"POST", headers:{'Content-Type':'application/json'}, body});
+  if(kind==="approve") await j(`/api/v1/changes/${id}/apply`,{method:"POST"});
+  await loadAll();
+}
+
+async function injectFault(){
+  const name = document.getElementById("fault-select").value;
+  await j(`/api/v1/network/faults/${name}`,
+          {method:"POST", headers:{'Content-Type':'application/json'}, body:"{}"});
+  await loadAll();
+}
+
+async function loadViews(){
+  const topo = await j("/api/v1/topology");
+  drawTopology(topo);
+  const iv = await j("/api/v1/intents");
+  const tb = document.querySelector("#intents-table tbody");
+  tb.innerHTML = iv.results.map(r=>`<tr><td>${esc(r.name)}</td>
+    <td style="color:${r.passed?'var(--ok)':'var(--bad)'}">${r.passed?"PASS":"FAIL"}</td></tr>`).join("");
+}
+
+const ROLE_POS = {"core":[450,150],"distribution":[280,80],"firewall":[620,240],
+  "wan":[720,60],"access":[160,200],"jump":[600,40],"server":[380,250],"host":[800,220]};
+function nodePos(n,i,total){
+  const base = ROLE_POS[n.role];
+  if(base && n.role!=="server") return base;
+  const cx = base?base[0]:450, cy = base?base[1]:180;
+  return [cx + ((i%5)-2)*90, cy + Math.floor(i/5)*55];
+}
+
+function drawTopology(topo){
+  const svg = document.getElementById("topo-svg");
+  const pos = {};
+  topo.nodes.forEach((n,i)=>pos[n.name]=nodePos(n,i,topo.nodes.length));
+  let edges = topo.edges.map(e=>{
+    const a=pos[e.source], b=pos[e.target]; if(!a||!b) return "";
+    return `<line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}"
+      stroke="#22364d" stroke-width="1.2"/>`;}).join("");
+  let nodes = topo.nodes.map((n)=>{
+    const p = pos[n.name];
+    const colors = {core:"#3aa0ff",distribution:"#9b59b6",access:"#2ecc71",
+                    firewall:"#e74c3c",wan:"#f39c12",jump:"#1abc9c",
+                    server:"#5d8aa8",host:"#8899aa"};
+    const c = n.enabled?(colors[n.role]||"#888"):"#444";
+    return `<circle cx="${p[0]}" cy="${p[1]}" r="7" fill="${c}">
+      <title>${n.name} role=${n.role} zone=${n.zone}</title></circle>
+      <text x="${p[0]+10}" y="${p[1]-8}">${n.name}</text>`;}).join("");
+  svg.innerHTML = edges + nodes;
+}
+
+async function selectChange(id){
+  state.selected = id;
+  const full = await j("/api/v1/changes/"+id);
+  state.validation = full.validation;
+  renderChanges();
+  renderDiff(full.config_diff, full.proposed_fix_diff);
+  renderRisk(full);
+  renderRegressions(full.validation);
+  renderMatrix(full.validation);
+  renderRouting(full.validation);
+  renderRca(full.validation);
+}
+
+function renderDiff(orig, fix){
+  const el = document.getElementById("diff-body");
+  const fmt = txt => txt.split("\n").map(l=>{
+    if(l.startsWith("+")) return `<span class="add">${esc(l)}</span>`;
+    if(l.startsWith("-")) return `<span class="del">${esc(l)}</span>`;
+    return `<span class="ctx">${esc(l)}</span>`;}).join("");
+  el.innerHTML = `<pre class="diff">${fmt(orig)}</pre>` +
+    (fix ? `<p style="color:var(--ok);margin:8px 0 4px">PROPOSED SAFER FIX:</p>
+            <pre class="diff">${fmt(fix)}</pre>` : "");
+}
+
+function renderRisk(full){
+  const v = full.validation;
+  const r = v.risk;
+  const pct = Math.min(100, r.score);
+  const col = r.band==="LOW"?"var(--ok)":r.band==="MEDIUM"?"var(--warn)":
+              r.band==="HIGH"?"#ff7043":"var(--crit)";
+  document.getElementById("risk-body").innerHTML = `
+    <div class="gauge-val" style="color:${col}">${r.score.toFixed(1)}
+      <span style="font-size:13px">${r.band}</span></div>
+    <div class="bar"><div style="width:${pct}%;background:${col}"></div></div>
+    ${Object.entries(r.components).map(([k,val])=>
+      `<div class="kv"><span>${k}</span><span>${val}</span></div>`).join("")}
+    <div class="kv"><span>confidence</span><span>${(r.confidence*100).toFixed(0)}%</span></div>
+    <div class="kv"><span>verdict</span><span style="color:${v.verdict==='PASS'?'var(--ok)':'var(--bad)'}">${v.verdict}</span></div>
+    <div class="kv"><span>duration</span><span>${v.duration_ms} ms</span></div>
+    <p class="narration">${esc(v.narration)}</p>`;
+}
+
+function renderRegressions(v){
+  const el = document.getElementById("reg-body");
+  if(!v || !v.regressions.length){ el.innerHTML=`<div class="empty">zero regressions detected</div>`; return; }
+  el.innerHTML = `<table><thead><tr><th>Kind</th><th>Sev</th><th>Message</th></tr></thead><tbody>` +
+    v.regressions.map(g=>`<tr><td>${g.kind}</td>
+      <td><span class="tag t-${g.severity}">${g.severity}</span></td>
+      <td>${esc(g.message).slice(0,110)}</td></tr>`).join("")+"</tbody></table>";
+}
+
+function renderMatrix(v){
+  const el = document.getElementById("matrix-body");
+  const det = v.matrix_diff_summary.newly_blocked_detail || [];
+  if(!det.length){ el.innerHTML=`<div class="empty">no flow impact on candidate twin</div>`; return; }
+  el.innerHTML = `<table><thead><tr><th>Src</th><th>Dst</th><th>Probe</th><th>Now</th><th>Reason</th></tr></thead><tbody>`+
+    det.map(d=>`<tr><td>${d.flow.src}</td><td>${d.flow.dst}</td>
+      <td>${d.flow.proto}/${d.flow.port}</td>
+      <td class="s-${d.flow.status}">${d.flow.status}</td>
+      <td>${esc(d.reason).slice(0,70)}</td></tr>`).join("")+"</tbody></table>";
+}
+
+function renderRouting(v){
+  const el = document.getElementById("routing-body");
+  const rc = v.routing_changes || [];
+  if(!rc.length){ el.innerHTML=`<div class="empty">routing tables unchanged</div>`; return; }
+  el.innerHTML = `<table><thead><tr><th>Device</th><th>Change</th><th>Prefix</th><th>Via</th><th>Proto</th></tr></thead><tbody>`+
+    rc.map(c=>`<tr><td>${c.device}</td>
+      <td style="color:${c.change==='removed'?'var(--bad)':'var(--warn)'}">${c.change}</td>
+      <td>${c.prefix}</td><td>${c.next_hop??"-"}</td><td>${c.protocol}</td></tr>`).join("")
+    + "</tbody></table>";
+}
+
+function renderRca(v){
+  const el = document.getElementById("rca-body");
+  if(!v.rca){ el.innerHTML=`<div class="empty">no RCA required</div>`; return; }
+  const rca = v.rca;
+  el.innerHTML = `
+    <div class="kv"><span>incident</span><span>${esc(rca.incident_id)}</span></div>
+    <div class="kv"><span>root cause</span><span>${esc(rca.root_cause).slice(0,140)}</span></div>
+    <div class="kv"><span>confidence</span><span>${(rca.confidence*100).toFixed(0)}%</span></div>
+    <p style="margin:6px 0 2px;color:var(--dim)">Hypotheses</p>
+    ${rca.hypotheses.map(h=>`<div class="kv">
+       <span style="color:${h.status==='confirmed'?'var(--bad)':'var(--dim)'}">${esc(h.statement).slice(0,90)}</span>
+       <span>${h.status}</span></div>`).join("")}`;
+}
+
+window.selectChange = selectChange;
+window.act = act;
+window.injectFault = injectFault;
+window.loadAll = loadAll;
+loadAll();
+setInterval(()=>loadAll(), 30000);
+</script>
+</body>
+</html>

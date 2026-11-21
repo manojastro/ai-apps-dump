@@ -1,0 +1,23 @@
+# Hand-labelled golden scenario. Expectations derive from reading the SQL and dashboards.yaml.
+id: s05_drop_currency
+description: Drop orders.currency (only a Finance visual reads it; no tests)
+topic: orders.v1
+mutations:
+- op: drop_field
+  field: currency
+expected:
+  change_class: breaking
+  route: approval
+  impacted:
+  - column:mart.fct_orders.currency
+  - column:stg.stg_orders.currency
+  - dashboard:Finance Reconciliation
+  - visual:Finance Reconciliation/Paid vs Ordered
+  verdicts:
+    column:stg.stg_orders.currency: breaking
+    column:mart.fct_orders.currency: breaking
+    visual:Finance Reconciliation/Paid vs Ordered: breaking
+    dashboard:Finance Reconciliation: breaking
+  fix_should_pass: true
+  failing_tables:
+  - stg.stg_orders

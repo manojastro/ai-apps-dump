@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 98%;
+    --foreground: 222 30% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 30% 12%;
+    --primary: 214 68% 42%;
+    --primary-foreground: 0 0% 100%;
+    --muted: 220 16% 94%;
+    --muted-foreground: 220 9% 38%;
+    --accent: 214 60% 94%;
+    --accent-foreground: 214 68% 30%;
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 14% 88%;
+    --input: 220 14% 84%;
+    --ring: 214 68% 42%;
+
+    /* Chart roles: categorical slots from the validated palette, in fixed order. */
+    --chart-surface: #ffffff;
+    --chart-grid: #e6e8ec;
+    --chart-axis: #5b6270;
+    --series-1: #2a78d6;
+    --series-2: #eb6834;
+    --series-3: #1baf7a;
+    --series-4: #eda100;
+
+    /* Status colours are reserved, and always ship with an icon and a label. */
+    --status-good: #0ca30c;
+    --status-warning: #fab219;
+    --status-serious: #ec835a;
+    --status-critical: #d03b3b;
+  }
+
+  .dark {
+    --background: 222 22% 9%;
+    --foreground: 220 20% 93%;
+    --card: 222 20% 12%;
+    --card-foreground: 220 20% 93%;
+    --primary: 213 77% 60%;
+    --primary-foreground: 222 30% 10%;
+    --muted: 222 16% 18%;
+    --muted-foreground: 220 10% 68%;
+    --accent: 214 40% 22%;
+    --accent-foreground: 213 80% 82%;
+    --destructive: 0 62% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 222 14% 22%;
+    --input: 222 14% 26%;
+    --ring: 213 77% 60%;
+
+    --chart-surface: #1a1f29;
+    --chart-grid: #2c3340;
+    --chart-axis: #aab1be;
+    --series-1: #3987e5;
+    --series-2: #d95926;
+    --series-3: #199e70;
+    --series-4: #c98500;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "tnum" 1;
+  }
+}

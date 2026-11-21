@@ -1,0 +1,169 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f5f5f7;
+  --foreground: #1d1d1f;
+  --muted: #6e6e73;
+  --surface: #ffffff;
+  --accent: #0071e3;
+  --ring: #0071e3;
+  --success: #34c759;
+  --warning: #ff9f0a;
+  --danger: #ff3b30;
+  --elevated-shadow: 0 2px 16px rgba(0, 0, 0, 0.04), 0 8px 40px rgba(0, 0, 0, 0.06);
+  --elevated-shadow-hover: 0 4px 24px rgba(0, 0, 0, 0.06), 0 16px 48px rgba(0, 0, 0, 0.08);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-surface: var(--surface);
+  --color-accent: var(--accent);
+  --color-ring: var(--ring);
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI",
+    "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Static page wash — no pointer tracking, no looping orbs. */
+body {
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  letter-spacing: -0.022em;
+  background:
+    radial-gradient(900px 520px at 50% -12%, rgba(0, 113, 227, 0.07), transparent 70%),
+    linear-gradient(180deg, #fbfbfd 0%, #f5f5f7 100%);
+  background-attachment: fixed;
+}
+
+::selection {
+  background: rgba(0, 113, 227, 0.14);
+  color: #1d1d1f;
+}
+
+/* Thin elegant scrollbars on desktop; still minimal */
+@media (pointer: fine) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.12) transparent;
+  }
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  *::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.12);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+  }
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.glass-nav {
+  background: rgba(251, 251, 253, 0.72);
+  backdrop-filter: saturate(180%) blur(22px);
+  -webkit-backdrop-filter: saturate(180%) blur(22px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.35s var(--ease-out-expo), background 0.35s ease;
+}
+
+.glass-nav.scrolled {
+  background: rgba(251, 251, 253, 0.88);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.04);
+}
+
+/* Landing hero only. Interior pages use compact PageHero type. */
+.text-hero {
+  font-size: clamp(2.5rem, 5.5vw, 4rem);
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  line-height: 1.05;
+}
+
+.text-hero-sub {
+  font-size: clamp(1.02rem, 2vw, 1.2rem);
+  color: var(--muted);
+  font-weight: 400;
+  letter-spacing: -0.012em;
+  line-height: 1.45;
+}
+
+.page-title {
+  font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+}
+
+.document-preview {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow:
+    0 0 0 0.5px rgba(0, 0, 0, 0.05),
+    0 1px 2px rgba(0, 0, 0, 0.03),
+    0 12px 40px rgba(0, 0, 0, 0.07),
+    0 32px 64px rgba(0, 0, 0, 0.04);
+}
+
+.section-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.premium-card {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 1.5rem;
+  box-shadow: var(--elevated-shadow);
+  transition:
+    box-shadow 0.4s var(--ease-out-expo),
+    border-color 0.3s ease;
+}
+
+.premium-card:hover {
+  box-shadow: var(--elevated-shadow-hover);
+  border-color: rgba(0, 113, 227, 0.08);
+}
+
+.premium-card-static {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  border-radius: 1.5rem;
+  box-shadow: var(--elevated-shadow);
+}
+
+.focus-ring:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.22);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

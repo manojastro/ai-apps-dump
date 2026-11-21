@@ -1,0 +1,279 @@
+{
+  "meta": {
+    "title": "2026 GenAI / Agentic / LLM / Applied AI engineer job market",
+    "access_date": "2026-09-15",
+    "inspected_jds_skill_coded": 50,
+    "additional_titles_location_only": 8,
+    "sample_note": "N=50 is a convenience sample of named-employer and live postings with extractable JD text. Not a random draw from Naukri/LinkedIn headline counts. Headline aggregator counts are inflated by duplicates and keyword match.",
+    "india_priority_cities": ["Bengaluru", "Hyderabad", "Chennai", "Pune", "Gurugram", "Noida", "Mumbai", "Kochi", "Coimbatore", "India remote"],
+    "geography_in_skill_sample": {"india_or_india_delivery": 35, "global_product_lab": 15}
+  },
+  "market_volume": {
+    "naukri_generative_ai_engineer_india": {"count": 10584, "url": "https://www.naukri.com/generative-ai-engineer-jobs"},
+    "naukri_by_city": {
+      "Bengaluru": 3974,
+      "Hyderabad": 2373,
+      "Pune": 1610,
+      "Delhi_NCR": 1567
+    },
+    "naukri_genai_keyword": {"count": 7247, "url": "https://www.naukri.com/genai-jobs"},
+    "naukri_company_filter": {"Accenture": 2283, "Infosys": 330, "TCS": 227, "EY": 166},
+    "naukri_salary_filter_jobs_tagged": {
+      "0_3_lakh": 766,
+      "3_6_lakh": 2680,
+      "6_10_lakh": 4500,
+      "10_15_lakh": 3948,
+      "note": "Jobs tagged with a band; overlapping filters; not a salary survey."
+    },
+    "linkedin_generative_ai_engineer_india": {"count_label": "11000+", "url": "https://in.linkedin.com/jobs/generative-ai-engineer-jobs"},
+    "linkedin_bengaluru": {"count_label": "8000+", "url": "https://in.linkedin.com/jobs/generative-ai-engineer-jobs-bengaluru"},
+    "linkedin_hyderabad_ai_llm_rag_genai": {"count_label": "4000+"},
+    "glassdoor_bengaluru_generative_ai": {"count": 2700},
+    "agenticcareers_ai_agent_engineer_global": {
+      "count": 144,
+      "companies": 63,
+      "median_advertised_usd": [149000, 232000],
+      "priced_listings": 52,
+      "pct_remote": 20,
+      "most_active": ["NVIDIA", "Adobe", "Databricks"],
+      "url": "https://agenticcareers.co/roles/ai-agent-engineer",
+      "updated": "2026-09-14"
+    },
+    "underprompt_ai_ml_engineering": {"count": 2748, "top_skills_claimed": ["Python", "Llm", "Kubernetes", "Typescript", "Mlops"]},
+    "openai_careers": {"total_jobs": 807, "applied_search": 142},
+    "anthropic_careers": {"total_jobs": 596, "india_titles": ["Applied AI Architect, Bangalore", "Applied AI Architect, Partnerships, Bangalore"]}
+  },
+  "skill_frequency": {
+    "n": 50,
+    "rules": {
+      "mentioned": "appears in required, preferred, or responsibilities",
+      "required": "must-have / mandatory / minimum qualifications",
+      "preferred": "preferred / good-to-have / bonus",
+      "or_list": "named in a must-have OR-list counts as required but substitutable"
+    },
+    "languages_backend_cloud": [
+      {"skill": "Python", "mentioned": 49, "required": 44, "preferred": 2},
+      {"skill": "FastAPI", "mentioned": 10, "required": 6, "preferred": 1},
+      {"skill": "REST_APIs_microservices", "mentioned": 38, "required": 28, "preferred": 3},
+      {"skill": "TypeScript_JavaScript_React", "mentioned": 8, "required": 4, "preferred": 3},
+      {"skill": "Java", "mentioned": 6, "required": 4, "preferred": 1},
+      {"skill": "Docker_CICD", "mentioned": 24, "required": 14, "preferred": 4},
+      {"skill": "Kubernetes", "mentioned": 14, "required": 8, "preferred": 4},
+      {"skill": "AWS_or_Azure_or_GCP", "mentioned": 41, "required": 28, "preferred": 6},
+      {"skill": "Azure_OpenAI_or_Foundry", "mentioned": 12, "required": 8, "preferred": 2},
+      {"skill": "AWS_Bedrock", "mentioned": 11, "required": 7, "preferred": 2},
+      {"skill": "GCP_Vertex", "mentioned": 10, "required": 5, "preferred": 3}
+    ],
+    "llm_rag": [
+      {"skill": "LLMs_generic", "mentioned": 50, "required": 46, "preferred": 1},
+      {"skill": "OpenAI_GPT", "mentioned": 28, "required": 16, "preferred": 4},
+      {"skill": "Anthropic_Claude", "mentioned": 16, "required": 8, "preferred": 3},
+      {"skill": "Gemini_Vertex_models", "mentioned": 9, "required": 4, "preferred": 3},
+      {"skill": "Llama_Nemotron_Mistral_open_weights", "mentioned": 14, "required": 7, "preferred": 4},
+      {"skill": "RAG", "mentioned": 42, "required": 34, "preferred": 3},
+      {"skill": "vector_db_any", "mentioned": 27, "required": 18, "preferred": 5},
+      {"skill": "embeddings_chunking_hybrid_retrieval", "mentioned": 22, "required": 14, "preferred": 4},
+      {"skill": "fine_tune_LoRA_PEFT", "mentioned": 11, "required": 4, "preferred": 6}
+    ],
+    "named_vector_stores_mentioned": {
+      "Pinecone": 11,
+      "Chroma": 5,
+      "pgvector": 5,
+      "Weaviate": 4,
+      "FAISS": 4,
+      "Milvus": 3,
+      "Azure_AI_Search": 3,
+      "OpenSearch": 1,
+      "Qdrant": 0
+    },
+    "agent_frameworks_protocols": [
+      {"skill": "LangChain", "mentioned": 31, "required": 22, "preferred": 4},
+      {"skill": "LangGraph", "mentioned": 24, "required": 18, "preferred": 3},
+      {"skill": "CrewAI", "mentioned": 14, "required": 10, "preferred": 2},
+      {"skill": "LlamaIndex", "mentioned": 13, "required": 8, "preferred": 3},
+      {"skill": "AutoGen", "mentioned": 12, "required": 9, "preferred": 2},
+      {"skill": "Semantic_Kernel", "mentioned": 8, "required": 5, "preferred": 1},
+      {"skill": "OpenAI_Agents_SDK", "mentioned": 4, "required": 3, "preferred": 1},
+      {"skill": "Google_ADK", "mentioned": 3, "required": 1, "preferred": 2},
+      {"skill": "PydanticAI", "mentioned": 3, "required": 3, "preferred": 0},
+      {"skill": "Pydantic", "mentioned": 4, "required": 3, "preferred": 0},
+      {"skill": "Claude_Agent_SDK", "mentioned": 2, "required": 1, "preferred": 1},
+      {"skill": "MCP", "mentioned": 12, "required": 8, "preferred": 3},
+      {"skill": "A2A", "mentioned": 2, "required": 1, "preferred": 1},
+      {"skill": "tool_calling", "mentioned": 21, "required": 14, "preferred": 3}
+    ],
+    "eval_obs_security_gtm": [
+      {"skill": "eval_hallucination_metrics", "mentioned": 18, "required": 8, "preferred": 6},
+      {"skill": "observability_tracing", "mentioned": 12, "required": 5, "preferred": 4},
+      {"skill": "guardrails_safety", "mentioned": 15, "required": 7, "preferred": 5},
+      {"skill": "OAuth_identity", "mentioned": 6, "required": 3, "preferred": 2},
+      {"skill": "customer_or_partner_facing", "mentioned": 20, "required": 14, "preferred": 3}
+    ]
+  },
+  "experience_bands_in_sample": {
+    "n": 50,
+    "1_to_3_years": 4,
+    "3_to_6_years": 16,
+    "5_to_9_years": 18,
+    "8_plus_years": 12
+  },
+  "hype_vs_reality": [
+    {
+      "item": "MCP",
+      "verdict": "Real differentiator, not universal table stakes",
+      "required_examples": ["TCS Hyderabad", "PwC Acceleration Centers", "SAP Bangalore", "OpenAI Agent Enablement", "GRAIL", "G-Research", "Workfall", "Platlap"],
+      "preferred_examples": ["Google Cloud FDE", "Atos ServiceNow FDE"],
+      "absent_in": ["Most Cognizant/Infosys/Deloitte/Siemens/WSP inspected JDs"]
+    },
+    {
+      "item": "A2A",
+      "verdict": "Rare keyword (TCS required, Atos preferred). Not market-wide."
+    },
+    {
+      "item": "LangGraph vs LangChain",
+      "verdict": "LangGraph is the 2026 agent-framework signal; LangChain remains the umbrella. CrewAI/AutoGen almost always OR-list padding."
+    },
+    {
+      "item": "Google ADK / OpenAI Agents SDK / PydanticAI",
+      "verdict": "Vendor-native or niche. ADK almost only on Google FDE + Modus. Agents SDK on PwC AC, NVIDIA RAG, Dataiku. PydanticAI on 3 JDs."
+    },
+    {
+      "item": "RAG vs agents",
+      "verdict": "RAG still the default architecture (42/50). Many 'agentic' JDs are tool-calling RAG plus orchestration."
+    },
+    {
+      "item": "Kubernetes",
+      "verdict": "Platform/senior filter, not universal for India 4-6yr SI GenAI roles."
+    },
+    {
+      "item": "FastAPI brand",
+      "verdict": "Named on 10/50; REST APIs on 38/50. Teach backend engineering, not the brand."
+    },
+    {
+      "item": "Eval",
+      "verdict": "Quality split: Google FDE, OpenAI ADE, Anthropic Agents, Cognizant official require it. Most Naukri SI dumps omit it."
+    },
+    {
+      "item": "Accenture volume",
+      "verdict": "2283 Naukri hits include empty LLM Architect templates ('Good to have: NA'). Not 2283 unique architecture seats."
+    },
+    {
+      "item": "Qdrant",
+      "verdict": "0 mentions in N=50. Pinecone is the JD brand; pgvector appears in production-minded product JDs."
+    }
+  ],
+  "salaries": {
+    "india": {
+      "evidence_quality": "partial",
+      "foundit_ians_2026_09_02": {
+        "url": "https://www.newkerala.com/news/a/ai-job-salaries-surge-23-pc-since-2024-791.htm",
+        "category": "AI professionals (not GenAI-engineer-only)",
+        "cagr_2024_2026_pct": 23,
+        "entry_0_3_lpa": [8.87, 15.41],
+        "over_15y_lpa": [70.99, 89.24],
+        "bengaluru_senior_lpa": [61.70, 91.25],
+        "notes": "BLR senior ~10-15% above NCR/Mumbai; up to ~40% above Chennai at senior end. Hyderabad closest challenger."
+      },
+      "ownyourcareer_bengaluru_ai_engineer": {
+        "url": "https://www.ownyourcareer.in/careers/ai-engineer/salaries/bengaluru",
+        "sample_records": 850,
+        "live_jd_inventory_at_refresh": 0,
+        "last_refresh": "2026-09-15",
+        "median_lpa": 24,
+        "p25_lpa": 13,
+        "p75_lpa": 33,
+        "p90_lpa": 58,
+        "entry_lpa": [8, 15],
+        "mid_3_to_5y_lpa": [18, 30],
+        "senior_6plus_lpa": [35, 65],
+        "genai_skill_premium_lpa": 7
+      },
+      "sixfigr_generative_ai_skill_bengaluru": {
+        "url": "https://6figr.com/in/salary/generative-ai--india--sl",
+        "updated": "2026-05-27",
+        "n_profiles": 510,
+        "average_lpa": 39.0,
+        "median_lpa": 30.2,
+        "note": "Skill tag, not job title. Includes SDEs/managers who list GenAI."
+      },
+      "glassdoor_genai_engineer_bengaluru": {
+        "note": "Low confidence. Mixed views ~₹9-15L base / ₹11L median total; TCS ₹9-12L; outliers present. Services-heavy self-report."
+      },
+      "employer_posted_ctc_on_jds": [
+        {"company": "EaseMyTrip", "title": "Generative AI Engineer", "location": "Gurugram", "years": "1-4", "lpa": [8, 18]},
+        {"company": "unspecified Naukri", "title": "AI Engineer Generative AI & Agentic AI", "location": "Jaipur/Bengaluru", "years": "2-5", "lpa": [5, 14]},
+        {"company": "unspecified Naukri", "title": "Gen AI Engineer", "location": "Hyd/Pune/Bengaluru", "years": "6-11", "lpa": [20, 32.5]},
+        {"company": "Cognizant", "title": "Gen AI Architect", "location": "Hyd/Chennai/Bengaluru", "years": "14-24", "lpa": [30, 45]},
+        {"company": "Deqode", "title": "GenAI & Agentic AI Engineer", "location": "Hyderabad", "years": null, "lpa": [10, 25]}
+      ],
+      "insufficient_evidence": [
+        "GenAI vs Agentic vs LLM Engineer title split",
+        "Official TCS/Infosys/Accenture/PwC CTC bands",
+        "Kochi/Coimbatore/India-remote specific bands",
+        "Documented ESOP-inclusive startup sample"
+      ]
+    },
+    "global_advertised_usd": [
+      {"role": "AI Agent Engineer median (AgenticCareers, n_priced=52)", "range": [149000, 232000]},
+      {"role": "OpenAI Applied AI Engineer, Agent Enablement", "range": [197000, 280000]},
+      {"role": "Perplexity MTS Agents", "range": [220000, 405000], "equity": true},
+      {"role": "Eigen Labs Senior Agentic AI", "range": [187000, 253000]},
+      {"role": "Cognition Applied AI Engineer", "range": [180000, 225000]},
+      {"role": "Titan AI Application Engineer", "range": [150000, 225000]},
+      {"role": "GRAIL Staff Enterprise AI Infra", "range": [169000, 224000]},
+      {"role": "IANS Agentic Engineer", "range": [135000, 170000], "plus": "bonus"},
+      {"role": "Cognizant US Agentic AI & LLM Dallas", "range": [81000, 132000]}
+    ],
+    "global_advertised_gbp": [
+      {"role": "Anthropic Forward Deployed Engineer London (Underprompt)", "range": [225000, 255000]}
+    ]
+  },
+  "employers_checked": {
+    "inspected_with_jd_text": [
+      "OpenAI", "Anthropic", "Google Cloud", "Microsoft (Applied Scientist titles)", "Meta", "NVIDIA",
+      "Databricks", "Salesforce", "SAP", "Accenture", "Deloitte", "PwC", "Cognizant", "Infosys", "TCS",
+      "CGI", "Siemens", "WSP", "Atos", "RoundCircle", "Prasanz", "EaseMyTrip", "ADScholars",
+      "CirrusLabs", "Workfall", "Evnek", "BizBrolly", "Mango Sciences", "Platlap", "Sia Partners",
+      "Cohere", "Perplexity", "Dataiku", "Turing", "ClickUp", "Titan AI", "GRAIL", "G-Research",
+      "Modus Create", "IANS", "Cognition", "Eigen Labs", "Baselayer"
+    ],
+    "title_or_location_only": ["MongoDB Gurugram", "UST", "Litmus7 Kochi", "HCLTech", "EY GDS", "Anthropic Bangalore Architect"],
+    "insufficient_or_not_found": [
+      "Thoughtworks", "Hugging Face", "Mistral", "Scale AI", "Snowflake India", "Oracle", "Elastic",
+      "IBM India", "Wipro (news only)", "KPMG", "Amazon/AWS named GenAI Engineer JD"
+    ]
+  },
+  "role_clusters": [
+    {
+      "id": "A_services_si",
+      "employers": ["TCS", "Infosys", "Accenture", "Cognizant", "PwC", "Deloitte", "CGI"],
+      "wants": "Python + RAG + one agent framework + hyperscaler; client delivery",
+      "typical_years": "4-10; TCS floor 5 years total IT"
+    },
+    {
+      "id": "B_product_gcc",
+      "employers": ["Google Cloud FDE", "NVIDIA", "Salesforce", "SAP", "Databricks", "Meta Partner"],
+      "wants": "Strong SWE + RAG/agents + cloud-native; FDEs are builders in customer env",
+      "typical_years": "5-10+; Google FDE 8 years"
+    },
+    {
+      "id": "C_frontier_applied",
+      "employers": ["OpenAI", "Anthropic", "Cohere", "Perplexity", "Cognition"],
+      "wants": "Production agents, MCP/tooling, evals, reliability; frameworks optional",
+      "typical_years": "4-8 IC"
+    }
+  ],
+  "citations": [
+    "https://www.naukri.com/generative-ai-engineer-jobs",
+    "https://in.linkedin.com/jobs/generative-ai-engineer-jobs",
+    "https://agenticcareers.co/roles/ai-agent-engineer",
+    "https://openai.com/careers/search/?q=applied",
+    "https://www.anthropic.com/careers/jobs",
+    "https://in.linkedin.com/jobs/view/generative-ai-at-tata-consultancy-services-4464492813",
+    "https://www.jobaaj.com/job/google-forward-deployed-engineer-generative-ai-google-cloud-bengaluru-bangalore-karnataka-8-to-10-years-1309342",
+    "https://startup.jobs/applied-ai-engineer-agent-enablement-openai-8777800",
+    "https://jobs.sap.com/job/Bangalore-AI-Developer-at-SAP-Python%2C-LLMs%2C-RAG%2C-MCP-%283-7-yrs%29-KA-562149/1434220133/",
+    "https://www.newkerala.com/news/a/ai-job-salaries-surge-23-pc-since-2024-791.htm",
+    "https://www.ownyourcareer.in/careers/ai-engineer/salaries/bengaluru"
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "D:\\ai apps dump\\career os\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "e2e/production-readonly-audit.spec.ts",
+      "-g",
+      "console diagnostics",
+      "--reporter=json"
+    ],
+    "configFile": "D:\\ai apps dump\\career os\\playwright.config.ts",
+    "rootDir": "D:/ai apps dump/career os/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/ai apps dump/career os/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "D:/ai apps dump/career os/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 90000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 6,
+    "webServer": {
+      "command": "npm run start",
+      "url": "http://127.0.0.1:3102",
+      "timeout": 90000,
+      "reuseExistingServer": false,
+      "env": {
+        "PORT": "3102"
+      }
+    }
+  },
+  "suites": [
+    {
+      "title": "production-readonly-audit.spec.ts",
+      "file": "production-readonly-audit.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "live sample-only agent gates and console diagnostics",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5380,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-09T18:47:27.183Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "production-console-and-gates",
+                      "contentType": "application/json",
+                      "body": "ewogICJjb25zb2xlRXJyb3JzIjogW10sCiAgInBhZ2VFcnJvcnMiOiBbXSwKICAiZ2F0ZXMiOiBbCiAgICB7CiAgICAgICJyb3V0ZSI6ICIvdmF1bHQiLAogICAgICAiZ2F0ZWQiOiB0cnVlCiAgICB9LAogICAgewogICAgICAicm91dGUiOiAiL2FnZW50IiwKICAgICAgImdhdGVkIjogdHJ1ZQogICAgfQogIF0KfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "31fd854feea083529404-d1e7799e07a220e8ecf9",
+          "file": "production-readonly-audit.spec.ts",
+          "line": 50,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-09T18:47:23.317Z",
+    "duration": 11129.821,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

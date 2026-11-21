@@ -1,0 +1,13 @@
+# Prices — set by learner — VERIFY on provider site before any real use.
+# Mock-first slice: synthetic prices only, used by estimate_cost() and red-team cost cap.
+# Units: USD per 1K tokens.
+models:
+  triage-cheap:
+    input_per_1k: 0.0005
+    output_per_1k: 0.0015
+  rca-strong:
+    input_per_1k: 0.003
+    output_per_1k: 0.006
+  general-default:
+    input_per_1k: 0.001
+    output_per_1k: 0.002

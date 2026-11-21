@@ -1,0 +1,85 @@
+import { io, type Socket } from 'socket.io-client';
+import {
+  SIGNAL_EVENTS,
+  type IceCandidatePayload,
+  type PeerRole,
+  type SdpPayload,
+} from '@helpdesk/shared';
+import { SOCKET_ORIGIN } from '../config';
+
+export interface SignallingCallbacks {
+  onPeerJoined?: (peer: string) => void;
+  onPeerLeft?: (peer: string) => void;
+  onSdp?: (from: string, sdp: SdpPayload) => void;
+  onIce?: (from: string, candidate: IceCandidatePayload) => void;
+  onError?: (message: string) => void;
+  onDisconnect?: (reason: string) => void;
+}
+
+/** socket.io signalling client. Event names are locked (docs/signalling-protocol.md). */
+export class SignallingClient {
+  private readonly sock: Socket;
+
+  constructor(
+    sessionId: string,
+    role: PeerRole,
+    token: string,
+    private readonly cb: SignallingCallbacks,
+  ) {
+    // SOCKET_ORIGIN is '' for a same-origin deployment, which is what
+    // socket.io already assumed; a separate backend host supplies its origin.
+    this.sock = io(SOCKET_ORIGIN, {
+      path: '/socket.io',
+      transports: ['websocket', 'polling'],
+      auth: { sessionId, role },
+    });
+
+    this.sock.on('connect', () => {
+      void this.sock
+        .emitWithAck(SIGNAL_EVENTS.join, { sessionId, role, token })
+        .then((ack: { ok: boolean; error?: string; peers?: string[] }) => {
+          if (!ack?.ok) {
+            this.cb.onError?.(ack?.error ?? 'join rejected');
+            return;
+          }
+          // Peers already in the room are reported ONLY in this ack —
+          // signal:peer-joined fires for later arrivals, never for ones that
+          // were there first. Ignoring these left whichever peer joined second
+          // believing the room was empty, so useRtcSession gated its own
+          // SDP/ICE away and no session could ever negotiate. The .NET agent
+          // has always read this list; the browser client did not.
+          for (const peer of ack.peers ?? []) this.cb.onPeerJoined?.(peer);
+        })
+        .catch((err: Error) => this.cb.onError?.(err.message));
+    });
+
+    this.sock.on(SIGNAL_EVENTS.peerJoined, (p: { peer: string }) => this.cb.onPeerJoined?.(p.peer));
+    this.sock.on(SIGNAL_EVENTS.peerLeft, (p: { peer: string }) => this.cb.onPeerLeft?.(p.peer));
+    this.sock.on(SIGNAL_EVENTS.sdp, (p: { from: string; sdp: SdpPayload }) =>
+      this.cb.onSdp?.(p.from, p.sdp),
+    );
+    this.sock.on(SIGNAL_EVENTS.ice, (p: { from: string; candidate: IceCandidatePayload }) =>
+      this.cb.onIce?.(p.from, p.candidate),
+    );
+    this.sock.on(SIGNAL_EVENTS.error, (p: { message: string }) => this.cb.onError?.(p.message));
+    this.sock.on('disconnect', (reason) => this.cb.onDisconnect?.(reason));
+    this.sock.on('connect_error', (err) => this.cb.onError?.(err.message));
+  }
+
+  get connected(): boolean {
+    return this.sock.connected;
+  }
+
+  sendSdp(sessionId: string, sdp: SdpPayload): void {
+    this.sock.emit(SIGNAL_EVENTS.sdp, { sessionId, sdp });
+  }
+
+  sendIce(sessionId: string, candidate: IceCandidatePayload): void {
+    this.sock.emit(SIGNAL_EVENTS.ice, { sessionId, candidate });
+  }
+
+  close(): void {
+    this.sock.removeAllListeners();
+    this.sock.close();
+  }
+}

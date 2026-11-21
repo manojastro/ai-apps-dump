@@ -1,0 +1,22 @@
+# Production overlay for a single Ubuntu VM: Caddy terminates TLS for $DOMAIN and proxies to the API.
+# PostgreSQL and the fixture control API stay on the internal network only.
+#   docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build
+services:
+  api:
+    ports: !reset []
+  proxy:
+    image: caddy:2.10-alpine
+    restart: unless-stopped
+    environment:
+      DOMAIN: ${DOMAIN:?set DOMAIN to the public hostname}
+      ACME_EMAIL: ${ACME_EMAIL:?set ACME_EMAIL for certificate notices}
+    ports: ["80:80", "443:443"]
+    volumes:
+      - ./infra/caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on: [api]
+    networks: [edge]
+volumes:
+  caddy_data:
+  caddy_config:

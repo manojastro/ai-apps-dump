@@ -1,0 +1,9 @@
+{% extends "base.html" %}{% block content %}
+<h2>Audit search</h2>
+<form method="get" class="card">
+ actor <input name="actor" value="{{ f.actor }}" size="12"> tool <input name="tool" value="{{ f.tool }}" size="18">
+ patient <input name="patient_id" value="{{ f.patient_id }}" size="10"> from <input name="date_from" value="{{ f.date_from }}" size="16">
+ to <input name="date_to" value="{{ f.date_to }}" size="16"> <button>Search</button></form>
+<table><tr><th>time</th><th>actor</th><th>tool</th><th>patient</th><th>workflow</th><th>status</th><th>args hash</th><th>detail</th></tr>
+{% for r in rows %}<tr><td>{{ r.ts }}</td><td>{{ r.actor }}</td><td>{{ r.tool }}</td><td>{{ r.patient_id or "" }}</td><td>{{ r.workflow_id or "" }}</td><td class="{{ "denied" if r.status == "denied" }}">{{ r.status }}</td><td>{{ r.args_hash }}</td><td>{{ r.detail }}</td></tr>{% endfor %}
+</table>{% endblock %}

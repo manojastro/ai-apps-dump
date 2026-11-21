@@ -1,0 +1,15 @@
+{"expected_docs": ["KB0001"], "id": "q01", "question": "Outlook keeps asking for password after MFA reset, what is the fix?", "service": "outlook", "type": "answerable"}
+{"expected_docs": ["KB0002"], "id": "q02", "question": "VPN client fails with ERR_VPN_809 on home broadband, how do I fix it?", "service": "vpn", "type": "exact-code"}
+{"expected_docs": ["KB0003"], "id": "q03", "question": "Shop-floor handheld scanners keep dropping WiFi near the freezers, what should we do?", "service": "wifi", "type": "answerable"}
+{"expected_docs": ["KB0004"], "id": "q04", "question": "Till receipt printer fails with spooler error 0x0000011b after patching, what is the workaround?", "service": "printer", "type": "exact-code"}
+{"expected_docs": ["KB0006"], "id": "q05", "question": "Laptop boots to BitLocker recovery screen after BIOS update, where is the key?", "service": "laptop", "type": "answerable"}
+{"expected_docs": ["KB0007", "KB0008"], "id": "q06", "question": "Shared info mailbox sync is very slow in Outlook, should I disable Cached Exchange Mode?", "service": "outlook", "type": "conflicting"}
+{"expected_docs": ["KB0011", "KB0012"], "id": "q07", "question": "Epson receipt printer shows jam E-POS-03 mid-receipt, how do I clear it?", "service": "pos", "type": "answerable"}
+{"expected_docs": ["SOP-POS-01"], "id": "q08", "question": "What are the steps for POS end-of-day reconciliation and Z-report filing?", "service": "pos", "type": "answerable"}
+{"expected_docs": ["SOP-IAM-01"], "id": "q09", "question": "How do we process joiner-mover-leaver account provisioning within one business day?", "service": "iam", "type": "answerable"}
+{"expected_docs": ["KB0015", "KB0016"], "id": "q10", "question": "Over VPN, store intranet names fail but internet works — should DNS be tunnel-all or split-tunnel?", "service": "vpn", "type": "conflicting"}
+{"expected_docs": ["KB0024"], "id": "q11", "question": "VPN disconnects exactly every 60 minutes and reconnects cleanly, what causes it?", "service": "vpn", "type": "answerable"}
+{"expected_docs": ["KB0017"], "id": "q12", "question": "Outlook search shows nothing newer than 7 days though new mail arrives, how to fix?", "service": "outlook", "type": "answerable"}
+{"expected_docs": [], "id": "q13", "question": "How do I bake sourdough bread on Mars with a solar oven?", "service": null, "type": "unanswerable"}
+{"expected_docs": [], "id": "q14", "question": "What is the stock price of Acme Retail Ltd and should I buy calls before earnings?", "service": null, "type": "unanswerable"}
+{"expected_docs": [], "id": "q15", "question": "Write a haiku about quantum entanglement for our store opening event.", "service": null, "type": "unanswerable"}

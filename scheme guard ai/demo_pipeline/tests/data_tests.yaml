@@ -1,0 +1,26 @@
+# Data tests every SchemaGuard fix must pass (run on DuckDB in the sandbox).
+# Types: not_null, unique, accepted_values, row_count_min, reconcile.
+tests:
+  - {name: stg_orders_order_id_not_null, type: not_null, table: stg.stg_orders, column: order_id}
+  - {name: stg_orders_order_id_unique, type: unique, table: stg.stg_orders, column: order_id}
+  - {name: stg_orders_amount_not_null, type: not_null, table: stg.stg_orders, column: amount}
+  - {name: stg_orders_customer_id_not_null, type: not_null, table: stg.stg_orders, column: customer_id}
+  - name: stg_orders_status_accepted
+    type: accepted_values
+    table: stg.stg_orders
+    column: status
+    values: [PLACED, PAID, SHIPPED, CANCELLED]
+  - name: stg_payments_method_accepted
+    type: accepted_values
+    table: stg.stg_payments
+    column: method
+    values: [CARD, PAYPAL, BANK_TRANSFER]
+  - {name: fct_orders_amount_not_null, type: not_null, table: mart.fct_orders, column: amount}
+  - {name: fct_orders_rows, type: row_count_min, table: mart.fct_orders, min: 1000}
+  - {name: daily_revenue_rows, type: row_count_min, table: mart.daily_revenue, min: 20}
+  - {name: customer_ltv_not_null, type: not_null, table: mart.customer_ltv, column: ltv}
+  - name: revenue_reconciles_with_staging
+    type: reconcile
+    left: "select sum(amount) from stg.stg_orders where status <> 'CANCELLED'"
+    right: "select sum(revenue) from mart.daily_revenue"
+    tolerance: 0.001

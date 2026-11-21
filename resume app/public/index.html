@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CareerForge AI</title>
+  <meta name="description" content="Build an ATS-friendly resume with AI and explore trending, high-paying and in-demand jobs." />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="#home" data-tab="home">
+      <span class="brand-mark">CF</span>
+      <span>CareerForge <b>AI</b></span>
+    </a>
+    <nav class="tabs" role="tablist">
+      <button class="tab active" data-tab="home">Overview</button>
+      <button class="tab" data-tab="resume">Resume</button>
+      <button class="tab" data-tab="trends">Job Trends</button>
+      <button class="tab" data-tab="chat">Advisor</button>
+    </nav>
+    <button class="btn ghost small" id="openSettings" title="LLM API key">
+      <span class="dot" id="keyDot"></span> Settings
+    </button>
+  </header>
+
+  <main>
+    <!-- ============ HOME ============ -->
+    <section class="view active" id="view-home">
+      <div class="hero">
+        <div class="eyebrow">Powered by Claude</div>
+        <h1>Your career.<br/><span class="soft">Crafted with intelligence.</span></h1>
+        <p class="lead">An ATS-ready resume in seconds. A clear view of where the jobs and salaries are. And an advisor to help you choose your path.</p>
+        <div class="hero-cta">
+          <button class="btn primary" data-tab="resume">Build your resume</button>
+          <button class="btn ghost" data-tab="trends">Explore job trends</button>
+        </div>
+      </div>
+
+      <div class="stats" id="homeStats"></div>
+
+      <div class="features">
+        <article class="card feature" data-tab="resume">
+          <div class="num-label">01</div>
+          <h3>Resume, refined.</h3>
+          <p>Upload your old resume or list your skills. Get keyword-tuned bullets, an ATS score and clear tips. Export to PDF or Word.</p>
+          <span class="more">Build your resume ›</span>
+        </article>
+        <article class="card feature" data-tab="trends">
+          <div class="num-label">02</div>
+          <h3>The market, at a glance.</h3>
+          <p>Openings by city, salaries, top domains, highest-paying roles, and the best paths for freshers and experienced people.</p>
+          <span class="more">See the trends ›</span>
+        </article>
+        <article class="card feature" data-tab="chat">
+          <div class="num-label">03</div>
+          <h3>An advisor, on call.</h3>
+          <p>Ask which domain fits you, compare paths, or get a learning roadmap, all grounded in the market data.</p>
+          <span class="more">Ask the advisor ›</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ RESUME ============ -->
+    <section class="view" id="view-resume">
+      <div class="section-head">
+        <h2>Resume Builder</h2>
+        <p>Start from your skills or your old resume. We'll shape it into a clean, ATS-friendly page.</p>
+      </div>
+
+      <div class="resume-layout">
+        <form class="card form" id="resumeForm">
+          <div class="seg" role="tablist">
+            <button type="button" class="seg-btn active" data-mode="skills">Enter skills</button>
+            <button type="button" class="seg-btn" data-mode="upload">Upload resume</button>
+          </div>
+
+          <div class="mode mode-skills skills-box">
+            <label for="skillsText" class="skills-label">Your skills <span class="req">*</span></label>
+            <p class="hint">Type your skills in your own words: a list, a sentence, anything works.</p>
+            <textarea id="skillsText" name="skills" rows="6" placeholder="e.g. I know Python, SQL and Power BI. I build Excel dashboards, clean data with Pandas, and I'm good at presenting insights to managers."></textarea>
+            <div class="skill-suggest">
+              <small>Quick add:</small>
+              <div class="skill-chips" id="skillChips"></div>
+            </div>
+          </div>
+
+          <div class="mode mode-upload hidden">
+            <label class="drop" id="drop">
+              <input type="file" name="resume" id="fileInput" accept=".pdf,.docx,.txt,.md" hidden />
+              <svg class="drop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg>
+              <div><b>Drop your resume here</b> or click to browse</div>
+              <small>PDF, DOCX or TXT · up to 10 MB</small>
+              <div class="file-name" id="fileName"></div>
+            </label>
+            <p class="hint">Optional: fill in the fields below to add or override details.</p>
+          </div>
+
+          <div class="grid2">
+            <label>Full name<input name="name" placeholder="Priya Sharma" /></label>
+            <label>Target role<input name="targetRole" placeholder="Data Analyst" /></label>
+            <label>Email<input name="email" type="email" placeholder="priya@email.com" /></label>
+            <label>Phone<input name="phone" placeholder="+91 98765 43210" /></label>
+            <label>Location<input name="location" placeholder="Bengaluru, India" /></label>
+            <label>Experience
+              <select name="level">
+                <option>Fresher / Student</option>
+                <option>1-3 years</option>
+                <option>3-6 years</option>
+                <option>6+ years</option>
+              </select>
+            </label>
+            <label>LinkedIn<input name="linkedin" placeholder="linkedin.com/in/priya" /></label>
+            <label>GitHub / Portfolio<input name="github" placeholder="github.com/priya" /></label>
+          </div>
+
+          <label>Experience, projects &amp; education
+            <textarea name="notes" rows="4" placeholder="Intern at ABC Corp 2024 – built a sales dashboard used by 30 managers&#10;Project: Movie recommender in Python&#10;B.Tech CSE, XYZ University, 2025"></textarea>
+          </label>
+          <details>
+            <summary>Tailor to a job description</summary>
+            <textarea name="jobDescription" rows="4" placeholder="Paste the job description to match its keywords"></textarea>
+          </details>
+
+          <button class="btn primary block" id="genBtn" type="submit">
+            <span class="btn-label">Generate resume</span>
+          </button>
+          <p class="form-msg" id="formMsg"></p>
+        </form>
+
+        <div class="preview-col">
+          <div class="toolbar card">
+            <div class="ats" id="atsBox">
+              <svg viewBox="0 0 36 36" class="ring"><circle class="ring-bg" cx="18" cy="18" r="15.9155"/><circle class="ring-fg" id="ringFg" cx="18" cy="18" r="15.9155" stroke-dasharray="0,100"/></svg>
+              <div><div class="ats-score" id="atsScore">—</div><small>ATS score</small></div>
+            </div>
+            <div class="tools">
+              <button class="btn ghost small" id="pdfBtn" disabled>PDF</button>
+              <button class="btn ghost small" id="docBtn" disabled>Word</button>
+              <button class="btn ghost small" id="copyBtn" disabled>Copy text</button>
+            </div>
+          </div>
+          <div class="card tpl-card">
+            <div class="tpl-head"><b>Template</b><small id="tplDesc"></small></div>
+            <div class="tpl-picker" id="tplPicker" role="radiogroup" aria-label="Resume template"></div>
+          </div>
+          <div class="tips card hidden" id="tipsBox"></div>
+          <div class="paper-wrap">
+            <div id="resumePaper" class="paper empty">
+              <div class="empty-state">
+                <svg class="empty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z"/><path d="M14 3v5h5M9 13h6M9 17h6M9 9h2"/></svg>
+                <h3>Your resume appears here.</h3>
+                <p>Pick a template above to preview it, then fill in the form and choose Generate. You can edit any line on the page before you download it.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TRENDS ============ -->
+    <section class="view" id="view-trends">
+      <div class="section-head">
+        <h2>Job Trends <span class="tag" id="asOf"></span></h2>
+        <p id="dataNote" class="muted"></p>
+      </div>
+
+      <div class="kpis" id="kpis"></div>
+
+      <div class="chart-grid">
+        <div class="card chart-card"><h3>Openings by city</h3><p class="sub-l">Where the jobs are</p><canvas id="cityChart"></canvas></div>
+        <div class="card chart-card"><h3>Top 10 domains</h3><p class="sub-l">By number of openings</p><canvas id="domainChart"></canvas></div>
+        <div class="card chart-card"><h3>Highest-paying domains</h3><p class="sub-l">Average salary, LPA</p><canvas id="payChart"></canvas></div>
+        <div class="card chart-card"><h3>Fastest growing</h3><p class="sub-l">Year-over-year growth, %</p><canvas id="growthChart"></canvas></div>
+      </div>
+
+      <div class="card lists">
+        <div class="list-tabs" id="listTabs">
+          <button class="chip active" data-list="trendingJobs">Trending</button>
+          <button class="chip" data-list="highPaying">Top paid</button>
+          <button class="chip" data-list="easyEntry">Easy entry</button>
+          <button class="chip" data-list="freshers">For freshers</button>
+          <button class="chip" data-list="experienced">For experienced</button>
+        </div>
+        <div id="listBody" class="rank-list"></div>
+      </div>
+
+      <div class="section-head sub">
+        <h2>Explore domains</h2>
+        <div class="filters">
+          <input id="domainSearch" placeholder="Search domain or skill" />
+          <select id="domainSort">
+            <option value="openings">Most openings</option>
+            <option value="avgSalaryLPA">Highest pay</option>
+            <option value="growth">Fastest growth</option>
+            <option value="difficulty">Easiest first</option>
+          </select>
+        </div>
+      </div>
+      <div class="domain-grid" id="domainGrid"></div>
+
+      <div class="card city-table">
+        <h3>City breakdown</h3>
+        <div class="table-wrap"><table id="cityTable"></table></div>
+      </div>
+    </section>
+
+    <!-- ============ CHAT ============ -->
+    <section class="view" id="view-chat">
+      <div class="chat card">
+        <div class="chat-head">
+          <div class="bot-avatar">CP</div>
+          <div><b>CareerPilot</b><small>Career advisor · grounded in the job-trends data</small></div>
+          <button class="btn ghost small" id="clearChat">New chat</button>
+        </div>
+        <div class="chat-body" id="chatBody"></div>
+        <div class="chips" id="suggestions">
+          <button class="chip">Which domain is best for a fresher in 2026?</button>
+          <button class="chip">Top 5 highest-paying jobs and the skills they need</button>
+          <button class="chip">Data Science or Cloud DevOps — which should I choose?</button>
+          <button class="chip">Easiest IT jobs to get without strong coding</button>
+          <button class="chip">Which city has the most AI jobs?</button>
+        </div>
+        <form class="chat-input" id="chatForm">
+          <textarea id="chatText" rows="1" placeholder="Ask about roles, salaries, skills or a roadmap"></textarea>
+          <button class="btn primary" type="submit">Send</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">CareerForge AI · Built with Claude</footer>
+
+  <!-- Settings modal -->
+  <dialog id="settings" class="modal">
+    <form method="dialog" class="card">
+      <h3>AI settings</h3>
+      <p class="muted">Your key is stored only in this browser and sent to this app's server with each request. It's never saved on the server. Without a key, the app runs in demo mode.</p>
+      <div class="settings-fields">
+        <label>AI provider
+          <select id="provider">
+            <option value="anthropic">Claude (Anthropic)</option>
+            <option value="openai">DeepSeek via APInex (OpenAI-compatible)</option>
+          </select>
+        </label>
+        <label>API key
+          <input type="password" id="apiKey" placeholder="sk-ant-..." autocomplete="off" />
+        </label>
+        <label id="modelRow" class="hidden">Model
+          <input id="modelName" placeholder="deepseek-v4-flash" autocomplete="off" spellcheck="false" />
+        </label>
+      </div>
+      <p class="muted small-note" id="providerNote"></p>
+      <p class="muted" id="serverKeyNote"></p>
+      <div class="modal-actions">
+        <button class="btn ghost" value="clear" id="clearKey">Remove key</button>
+        <button class="btn primary" value="save" id="saveKey">Save</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast"></div>
+  <style id="tplStyle"></style>
+  <script src="templates.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

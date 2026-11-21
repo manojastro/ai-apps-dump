@@ -1,0 +1,3 @@
+# USD per 1K tokens. SET BY LEARNER — verify on provider site before using.
+openai:
+  gpt-4o-mini: {input_per_1k: 0.00015, output_per_1k: 0.0006}

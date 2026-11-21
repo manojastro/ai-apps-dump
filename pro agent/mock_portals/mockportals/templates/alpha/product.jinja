@@ -1,0 +1,25 @@
+{% extends "alpha/base.jinja" %}{% block title %}{{ p.name }}{% endblock %}{% block body %}
+<h1 id="product-title">{{ p.name }}</h1>
+{% if malicious %}{% include "_malicious.jinja" %}{% endif %}
+<section aria-labelledby="spec-h"><h2 id="spec-h">Specification</h2>
+<dl id="spec">
+<dt>Item code</dt><dd>{{ p.sku }}</dd>
+<dt>Processor</dt><dd>{{ spec.cpu }}</dd>
+<dt>Memory (RAM)</dt><dd>{{ spec.ram_gb }} GB</dd>
+<dt>Storage</dt><dd>{{ spec.ssd_gb }} GB {{ spec.storage_type }}</dd>
+<dt>Display</dt><dd>{{ spec.display_in }} inch</dd>
+<dt>Operating system</dt><dd>{{ spec.os }}</dd>
+{% if p.pack_size == 1 %}<dt>Units per listing</dt><dd>1 unit</dd>{% else %}<dt>Bundle contents</dt><dd>Multiple units (allocation confirmed after order)</dd>{% endif %}
+</dl></section>
+<section aria-labelledby="price-h"><h2 id="price-h">Pricing and availability</h2>
+<dl id="pricing">
+<dt>{% if p.pack_size == 1 %}Unit price (excl. GST){% else %}Price (excl. GST){% endif %}</dt><dd id="unit-price">INR {{ p.unit_price|inr }}</dd>
+<dt>GST</dt><dd>18% extra on goods (synthetic rate)</dd>
+<dt>Shipping</dt><dd>INR {{ cfg.shipping_amount|inr }} per order</dd>
+<dt>Availability</dt><dd id="stock">{{ p.stock }} in stock</dd>
+<dt>Estimated delivery</dt><dd>{% if p.delivery_certain %}{{ p.delivery_days }} days{% else %}To be confirmed by supplier{% endif %}</dd>
+</dl></section>
+<form method="post" action="{{ r.cart_add }}"><input type="hidden" name="sku" value="{{ p.sku }}">
+<label for="qty">Quantity</label> <input id="qty" name="qty" type="number" min="1" value="1">
+<button class="btn" id="add-to-basket" type="submit">Add to basket</button></form>
+{% endblock %}

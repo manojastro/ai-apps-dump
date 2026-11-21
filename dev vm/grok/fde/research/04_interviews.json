@@ -1,0 +1,729 @@
+{
+  "meta": {
+    "title": "04 Interviews — FDE + GenAI / Agentic AI",
+    "access_date": "2026-09-15",
+    "purpose": "Sourced research notes for an FDE and GenAI/Agentic AI interview handbook",
+    "labeling_rules": {
+      "official_verified": "Published by the employer on careers, official interview guides, hiring blogs, or official PDFs. Process can still vary by team.",
+      "candidate_reported": "Prep-site compilations, Glassdoor, coaching platforms. Useful for round flavor; not company policy.",
+      "unverified_rumor": "Circulating numbers or hidden-filter claims without a primary source. Must not be presented as confirmed process."
+    },
+    "standing_caveats": [
+      "Loops are team- and level-dependent.",
+      "AI-tool policy differs by company and by round; ask the recruiter.",
+      "FDE is a family of titles; confirm employer and title before prepping.",
+      "Repeated 2026 FDE-blog claims of ~40% decomposition pass rate and ~30% weight are not independently verified."
+    ]
+  },
+  "round_type_map": {
+    "classic_swe": {
+      "dsa_leetcode": "high",
+      "practical_coding_debug_learning": "low_to_medium",
+      "distributed_system_design": "high_from_mid_level",
+      "rag_agents_evals_design": "rare_except_ai_teams",
+      "ambiguous_case_decomposition": "rare",
+      "customer_simulation": "rare",
+      "values_behavioral": "always"
+    },
+    "fde": {
+      "dsa_leetcode": "medium_often_product_framed",
+      "practical_coding_debug_learning": "high",
+      "distributed_system_design": "medium_more_data_integration",
+      "rag_agents_evals_design": "rising",
+      "ambiguous_case_decomposition": "signature",
+      "customer_simulation": "high",
+      "values_behavioral": "always_often_embedded_in_technical"
+    },
+    "genai_agentic": {
+      "dsa_leetcode": "medium_more_practical",
+      "practical_coding_debug_learning": "high",
+      "distributed_system_design": "medium",
+      "rag_agents_evals_design": "core",
+      "ambiguous_case_decomposition": "common_in_applied_ai_and_fde",
+      "customer_simulation": "medium",
+      "values_behavioral": "always_labs_probe_safety_mission"
+    }
+  },
+  "leetcode_justification": {
+    "summary": "Classic SWE at Google/Meta/Amazon still justifies heavy LeetCode. FDE justifies medium practical coding plus decomposition. Lab GenAI SWE justifies practical multi-part coding, tests, LLM systems, and mission literacy more than LeetCode hard.",
+    "by_track": [
+      {
+        "track": "classic_swe",
+        "justification": "high",
+        "notes": "Google, Meta, Amazon, Microsoft official technical pages still center DSA, complexity, and (Microsoft) runnable code plus testing. NVIDIA uses HackerRank coding as a floor plus domain."
+      },
+      {
+        "track": "fde",
+        "justification": "moderate",
+        "notes": "Palantir/Databricks/Scale FDE coding is commonly LeetCode-medium dressed as workflows (SQL, APIs, messy data). Decomposition, learning, debugging, and customer communication decide more offers than hard DP."
+      },
+      {
+        "track": "genai_lab_swe",
+        "justification": "floor_not_the_job",
+        "notes": "OpenAI official bar is design quality, code quality, performance, test coverage. Anthropic official: look-up allowed, stdlib fluency required. Candidate reports: progressive specs, concurrency, LLM serving design, values."
+      }
+    ]
+  },
+  "companies": [
+    {
+      "id": "palantir",
+      "name": "Palantir",
+      "roles": ["Forward Deployed Software Engineer (FDSE)", "Forward Deployed AI Engineer", "Forward Deployed Infrastructure/Reliability/Security Engineer", "Deployment Strategist (separate loop)"],
+      "official_process": {
+        "confidence": "official_verified",
+        "sources": [
+          "https://www.palantir.com/careers/getting-hired/",
+          "https://www.palantir.com/careers/getting-hired/the-phone-interview/",
+          "https://www.palantir.com/careers/students-and-early-talent/"
+        ],
+        "stages": [
+          {
+            "name": "Phone interviews",
+            "count": "1-2",
+            "duration_min": "20-45",
+            "notes": "Background, experiences, interest. Engineering roles include a coding question. Official tips: think out loud, ask questions, start simple then expand."
+          },
+          {
+            "name": "Onsite",
+            "format": "in-person or virtual, personalized to skillset and role (FDSE vs SWE)",
+            "notes": "Discuss accomplishments and failures; ask clarifying questions on analytical/technical problems. Recruiter provides prep material."
+          }
+        ],
+        "ai_policy": "Not stated on the official getting-hired pages fetched. Candidate reports say Palantir FDE interviews prohibit AI."
+      },
+      "candidate_reported": {
+        "confidence": "candidate_reported",
+        "sources": [
+          "https://www.tryexponent.com/guides/palantir-forward-deployed-engineer-interview",
+          "https://interviewing.io/palantir-interview-questions",
+          "https://www.glassdoor.com/Interview/Palantir-Technologies-Forward-Deployed-Software-Engineer-Interview-Questions-EI_IE236375.0,21_KO22,56.htm"
+        ],
+        "timeline": "commonly 3-4 weeks",
+        "stages": [
+          {"name": "Recruiter", "duration_min": 30, "notes": "Motivation filter; generic answers fail."},
+          {"name": "Technical screen", "format": "HackerRank ~90 min coding+SQL+API or live CodePair/Karat ~60 min"},
+          {"name": "Onsite pool of 3x60 min", "drawn_from": ["decomposition", "learning", "coding", "re-engineering", "system design"], "notes": "Decomposition nearly universal. ~15-20 min behavioral embedded in each round."},
+          {"name": "Hiring manager", "duration_min": 60, "notes": "Often re-tests a weak onsite area; team matching."}
+        ],
+        "coding_difficulty": "LeetCode medium framed as a real workflow, not LeetCode-hard graphs/DP",
+        "ai_policy": "Prohibited throughout FDE loop (Aced candidate-updated guide)"
+      },
+      "emphasis": {
+        "fde": "decomposition, communication, why Palantir, practical coding",
+        "swe": "coding + design + same culture bar",
+        "genai": "Forward Deployed AI Engineer title exists on careers; loop not separately published"
+      },
+      "gaps": ["Official pages do not name decomposition/learning/re-engineering. Treat those as candidate-reported names for official competencies."]
+    },
+    {
+      "id": "databricks",
+      "name": "Databricks",
+      "roles": ["Forward Deployed Engineer", "AI Engineer (FDE)", "Resident Solutions Architect / Solutions Architect (adjacent)", "Software Engineer"],
+      "official_process": {
+        "confidence": "official_verified",
+        "sources": [
+          "https://www.databricks.com/company/careers/interview-prep",
+          "https://www.databricks.com/sites/default/files/2025-04/engineering-careers-site-interview-prep-april-2025-002.pdf"
+        ],
+        "timeline": "typically 2-3 months",
+        "stages": [
+          "Recruiter call",
+          "Pre-onsite screen (HM, technical assessment, or skill evaluation)",
+          "Onsite loop of 4-6 interviews",
+          "Presentation for some GTM/exec roles",
+          "Hiring committee (SWE PDF)",
+          "References",
+          "Offer"
+        ],
+        "format": "Virtual Google Meet unless recruiter specifies otherwise",
+        "swe_panel_types_official_pdf": ["Coding", "Algorithms", "System Programming", "Architecture", "Domain Deep Dive", "Cross-Functional/Hiring Manager"],
+        "coding_bar_official": "Production-quality code, tests, edge cases, Big-O. Language-agnostic but fluency required."
+      },
+      "candidate_reported_fde": {
+        "confidence": "candidate_reported",
+        "sources": ["https://www.tryexponent.com/guides/databricks-forward-deployed-engineer-interview"],
+        "timeline": "4-6 weeks, fully remote",
+        "stages": [
+          {"name": "Recruiter", "duration_min": 30},
+          {"name": "Technical screen", "duration_min": "45-60", "topics": ["SQL", "data manipulation", "light design", "high-level RAG"]},
+          {"name": "Coding", "duration_min": 60, "format": "notebook, dicts/strings/lists, easy-to-medium"},
+          {"name": "Decomposition", "duration_min": 60, "notes": "Vague business goal to KPI, data, app layer, optional AI"},
+          {"name": "Leadership/values", "values_reported": ["customer obsessed", "raise the bar", "truth seeking", "operate from first principles", "bias for action", "put the company first"]}
+        ],
+        "notes": "FDE org launch-in-2026 is a prep-site claim; confirm live JDs. Some loops add take-home or presentation. Hiring committee can still no-hire."
+      },
+      "gaps": ["Official engineering PDF is SWE-shaped; FDE-specific round list is candidate-reported."]
+    },
+    {
+      "id": "openai",
+      "name": "OpenAI",
+      "roles": ["Software Engineer", "Forward Deployed Engineer (title exists; loop not on official guide)", "Applied / research variants"],
+      "official_process": {
+        "confidence": "official_verified",
+        "sources": ["https://openai.com/interview-guide/"],
+        "philosophy": "Not credential-driven. Collaboration, communication, feedback, mission alignment.",
+        "stages": [
+          {"name": "Application and resume review", "sla": "typically one week"},
+          {"name": "Introductory calls", "with": "hiring manager or recruiter"},
+          {"name": "Skills-based assessment", "formats": ["pair coding", "take-home projects", "technical tests"], "notes": "Varies by team; may be more than one; recruiting provides prep."},
+          {"name": "Final interviews", "duration": "4-6 hours with 4-6 people over 1-2 days", "default": "virtual; optional SF onsite"},
+          {"name": "Decision", "sla": "within one week; references possible"}
+        ],
+        "engineering_bar": ["well-designed solutions", "high-quality code", "optimal performance", "good test coverage", "communication of reasoning"],
+        "ai_policy": "Varies by interview. Some formats allow AI tools; others assess independent problem-solving. Recruiter materials specify. Ask if unsure.",
+        "recommended_reading": [
+          "https://openai.com/charter/",
+          "https://www.deeplearningbook.org/",
+          "https://spinningup.openai.com/en/latest/"
+        ]
+      },
+      "candidate_reported": {
+        "confidence": "candidate_reported",
+        "sources": [
+          "https://interviewing.io/openai-interview-questions",
+          "https://fdenest.com/guides/forward-deployed-engineer-interview/"
+        ],
+        "notes": [
+          "Decentralized; recruiter is source of truth.",
+          "Coding more practical than stock LeetCode; multi-part; sometimes information theory/probability.",
+          "System design often Excalidraw.",
+          "Onsite may include slides presentation of a past hard project.",
+          "Agentic coding round in beta: existing codebase plus authorized agent.",
+          "Paid 48h work trial is team-dependent and conflicting across blogs; official guide only says take-homes may occur.",
+          "FDE flavor (not official): RAG/evals/tool-use design and customer-pitch round."
+        ]
+      },
+      "gaps": ["No official FDE-specific loop on the interview guide.", "Work-trial reports conflict."]
+    },
+    {
+      "id": "anthropic",
+      "name": "Anthropic",
+      "roles": ["Software Engineer", "Research/infra variants", "Applied AI Engineer (closest public FDE analog; loop not published)"],
+      "official_process": {
+        "confidence": "official_verified",
+        "sources": [
+          "https://www.anthropic.com/careers",
+          "https://www.anthropic.com/candidate-ai-guidance"
+        ],
+        "ai_guidance_updated": "2025-07-10",
+        "highlights": [
+          "What you can do, not where you learned it.",
+          "About half of technical staff had no prior ML.",
+          "If engineering background, apply as engineer.",
+          "All interviews on Google Meet.",
+          "Technical: Colab and CodeSignal; looking things up allowed; stdlib fluency required.",
+          "Re-apply after 12 months or sooner if material change.",
+          "Recruiters only from @anthropic.com."
+        ],
+        "ai_policy": {
+          "resume": "Draft yourself, then refine with Claude.",
+          "take_home": "Without Claude unless indicated.",
+          "live_interviews": "No AI unless indicated.",
+          "prep": "Claude encouraged."
+        }
+      },
+      "candidate_reported": {
+        "confidence": "candidate_reported",
+        "sources": ["https://interviewing.io/anthropic-interview-questions"],
+        "based_on": "Conversations with Anthropic engineers in 2026 (interviewing.io)",
+        "stages": [
+          "Recruiter 30 min — mission alignment is a real filter",
+          "Coding challenge 60-90 min live or CodeSignal take-home, progressive spec, not stock LeetCode",
+          "Onsite: coding, system design, second coding, company values; HM before or inside onsite"
+        ],
+        "values_round": "Often described as the hardest; personal/ethical; they want skepticism not enthusiasm. Suggested reading: Machines of Loving Grace; The Adolescence of Technology; Core Views on AI Safety.",
+        "recurring_topics": ["concurrency", "multithreading", "practical coding", "LLM-serving design"]
+      },
+      "gaps": ["No official FDE/Applied AI round list."]
+    },
+    {
+      "id": "google",
+      "name": "Google",
+      "roles": ["Software Engineer", "Cloud/applied AI customer roles (FDE analog, loop not official)"],
+      "official_process": {
+        "confidence": "official_verified",
+        "sources": [
+          "https://www.google.com/about/careers/applications/how-we-hire/",
+          "https://www.google.com/about/careers/applications/interview-tips/"
+        ],
+        "highlights": [
+          "Apply to at most three jobs per 30 days.",
+          "Possible Google Hiring Assessment.",
+          "Typical onsite 3-4 interviews in one day.",
+          "No brain teasers.",
+          "Four attributes commonly cited: GCA, RRK, Leadership, Googleyness.",
+          "Hiring committee reviews written feedback; then team match."
+        ]
+      },
+      "candidate_reported": {
+        "confidence": "candidate_reported",
+        "stages": [
+          "Recruiter",
+          "GHA",
+          "1-2 technical phone screens",
+          "Loop: 2-4 coding, code comprehension or AI-assisted code comprehension (select US teams, 2026), systems architecture for experienced, Googleyness"
+        ],
+        "leetcode": "Highest justification in this set."
+      },
+      "gaps": ["No official Google FDE loop page found."]
+    },
+    {
+      "id": "microsoft",
+      "name": "Microsoft",
+      "roles": ["Software Engineer", "Azure AI / Foundry-adjacent"],
+      "official_process": {
+        "confidence": "official_verified",
+        "sources": [
+          "https://careers.microsoft.com/v2/global/en/hiring-tips.html",
+          "https://careers.microsoft.com/v2/global/en/hiring-tips/technical-interviewing.html"
+        ],
+        "loop_size_official": "Most interviews include 2-4 conversations up to an hour each.",
+        "lifecycle": ["problem solving", "design", "coding", "testing"],
+        "coding": "Language you are strong in; no pseudocode; third-party tool that runs code; test before done.",
+        "algorithms": "Recursion; at least one n log n sort; Big-O.",
+        "data_structures": ["arrays/strings", "queues/lists", "linked lists", "trees/tries", "hash maps/sets", "graphs"],
+        "system_design": ["distributed systems", "SOA", "n-tier", "resiliency", "HA", "auto-scaling", "replication", "CAP", "partitioning"],
+        "ai_ml": "Role-dependent: models, training pipelines, evaluation, applying AI/ML algorithms.",
+        "ai_policy": "Responsible AI in prep allowed; no outside assistance during assessments/interviews unless explicitly permitted."
+      },
+      "candidate_reported": {
+        "confidence": "candidate_reported",
+        "notes": "Senior SWE loops often 4-5 rounds including an As-Appropriate senior interviewer. AA is widely reported but not named on the current public how-we-hire page."
+      }
+    },
+    {
+      "id": "amazon",
+      "name": "Amazon",
+      "roles": ["SDE I/II/III", "AWS ProServe / prototyping / GenAI specialist (FDE analog)"],
+      "official_process": {
+        "confidence": "official_verified",
+        "sources": [
+          "https://www.amazon.jobs/landing_pages/interviewing-at-amazon",
+          "https://amazon.jobs/content/en/how-we-hire/interview-loop",
+          "https://amazon.jobs/content/en/how-we-hire/interview-prep/software-development-topics",
+          "https://www.aboutamazon.com/news/workplace/amazon-interview-guide",
+          "https://www.aboutamazon.com/about-us/leadership-principles"
+        ],
+        "published_steps": ["Online application", "Assessments", "Phone screening", "Interview loop"],
+        "loop": {
+          "count": "4-6 interviews",
+          "duration_min": "45-60",
+          "bar_raiser": "Interviewer from outside the hiring team; maintains hiring bar.",
+          "technical_share": "Technical roles dedicate approximately half the process to technical assessments.",
+          "behavioral": "STAR; I not we; metrics; Leadership Principles throughout."
+        },
+        "leadership_principles": [
+          "Customer Obsession",
+          "Ownership",
+          "Invent and Simplify",
+          "Are Right, A Lot",
+          "Learn and Be Curious",
+          "Hire and Develop the Best",
+          "Insist on the Highest Standards",
+          "Think Big",
+          "Bias for Action",
+          "Frugality",
+          "Earn Trust",
+          "Dive Deep",
+          "Have Backbone; Disagree and Commit",
+          "Deliver Results",
+          "Strive to be Earth’s Best Employer",
+          "Success and Scale Bring Broad Responsibility"
+        ],
+        "sde_topics": [
+          "programming language",
+          "data structures",
+          "algorithms",
+          "coding",
+          "object-oriented design",
+          "databases",
+          "distributed computing",
+          "operating systems",
+          "internet topics",
+          "general machine learning and artificial intelligence"
+        ]
+      },
+      "candidate_reported": {
+        "confidence": "candidate_reported",
+        "notes": "Each interviewer assigned 2-3 LPs. Some engineering loops may include a GenAI fluency round; not named on the official SDE topics page."
+      }
+    },
+    {
+      "id": "meta",
+      "name": "Meta",
+      "roles": ["Software Engineer"],
+      "official_process": {
+        "confidence": "official_verified",
+        "sources": ["https://www.metacareers.com/hiring-process"],
+        "timeline": "typically about 2-3 months",
+        "stages": ["Recruiter conversation or prescreen form", "Initial screening", "Full loop"],
+        "ai_native": {
+          "status": "official_faq_current",
+          "notes": "Many interviews include a built-in AI assistant in CoderPad. Candidates are expected to use it. Outside AI unauthorized. Models include Claude, ChatGPT, Gemini, Meta models. Design interviews use CoderPad plus Mermaid Markdown. Languages: Python, Java, TypeScript, C++, C#, Kotlin, Swift, Rust, Go."
+        }
+      },
+      "candidate_reported": {
+        "confidence": "candidate_reported",
+        "nicknames": {"ninja": "coding", "pirate": "design", "jedi": "behavioral"},
+        "mid_level_onsite": "two coding, one-two design, one behavioral",
+        "scoring_heuristic": "Coding = hire/no-hire; design = level",
+        "leetcode": "Still justified for speed and the non-AI coding round; also practice directing an in-environment agent."
+      }
+    },
+    {
+      "id": "nvidia",
+      "name": "NVIDIA",
+      "roles": ["Software Engineer", "CUDA/GPU systems", "AI infrastructure"],
+      "official_process": {
+        "confidence": "official_verified",
+        "sources": ["https://www.nvidia.com/en-us/about-nvidia/careers/how-we-hire/"],
+        "stages": [
+          "Search and apply (focus on top 3-5 roles)",
+          "Phone/video/in-person with HM, teammates, other groups",
+          "Onsite in-person interview required before an offer",
+          "Technical coding exercise usually HackerRank on provided whiteboard or laptop",
+          "Decision in a few weeks"
+        ],
+        "ai_policy": "Use of unapproved outside tools such as ChatGPT during the interview results in disqualification.",
+        "insider_chat": "Optional 15-min CRG conversation; does not influence hiring."
+      },
+      "candidate_reported": {
+        "confidence": "candidate_reported",
+        "notes": "Highly team-specific. Mix of LeetCode medium, C++/memory, CUDA/GPU domain, systems. Timeline commonly 6-8 weeks."
+      }
+    },
+    {
+      "id": "scale",
+      "name": "Scale AI",
+      "roles": ["Forward Deployed Engineer (GenAI)", "Frontier Agents Engineer", "Software Engineer", "Applied AI Engineer", "Solutions Engineer (lower technical bar)"],
+      "official_process": {
+        "confidence": "gap",
+        "notes": "Job postings exist. No public round-by-round interview guide found on scale.com as of 2026-09-15."
+      },
+      "candidate_reported": {
+        "confidence": "candidate_reported_conflicting",
+        "sources": [
+          "https://www.tryexponent.com/guides/scale-ai-forward-deployed-engineer-interview",
+          "https://www.glassdoor.com/Interview/Scale-Forward-Deployed-Engineer-Interview-Questions-EI_IE1656849.0,5_KO6,31.htm"
+        ],
+        "conflict": "Reports disagree on length (6-7 interviews vs up to 10; 2-4 weeks vs ~2 months) and on whether a customer-simulation/presentation round exists.",
+        "composite_stages_not_guaranteed": [
+          "HackerRank project-style OA ~60 min",
+          "Recruiter (FDE vs SWE preference)",
+          "Technical screen HackerRank, completion over Big-O",
+          "Onsite: credo behavioral, project-style coding, debugging unfamiliar repo, system design (RAG/ingestion/evals), hiring manager"
+        ],
+        "credos_reported_current_six": [
+          "Earn Customer Love",
+          "Team Flow",
+          "Quality is Our Cheat Code",
+          "Find the 20%",
+          "Write the Market",
+          "Three Moves Ahead"
+        ],
+        "bar": "Aced: FDE shares SWE technical bar; FDE vs SWE placement often at HM."
+      },
+      "gaps": ["Official process unpublished. Confirm every round with recruiter."]
+    },
+    {
+      "id": "salesforce",
+      "name": "Salesforce",
+      "roles": ["Forward Deployed Engineer", "Deployment Strategist"],
+      "official_process": {
+        "confidence": "official_role_not_loop",
+        "sources": ["https://www.salesforce.com/blog/forward-deployed-engineer/"],
+        "published": "2025-11-19",
+        "role_facts": [
+          "FDE team launched April 2025.",
+          "Company committed to building toward 1,000 FDEs (company statement in the post).",
+          "Pods: 1 deployment strategist + 2 FDEs; ~3 months / 1-2 use cases.",
+          "Momentum program for nominated customers; paid FDE services planned.",
+          "Skills: problem-solving, Apex/JS/prompts/integrations, executive communication, business acumen, learning mindset.",
+          "Learning: Trailhead, specialist exams, Agentblazer Legend; new-hire Ready in Six."
+        ]
+      },
+      "candidate_reported": {
+        "confidence": "weak",
+        "notes": "FDEnest groups Salesforce with structured loops plus applied scenario. Not confirmed. Recruiter is the only reliable source."
+      },
+      "gaps": ["Interview round list not published."]
+    },
+    {
+      "id": "india_product",
+      "name": "Indian product companies (Flipkart and peers)",
+      "official_process": {
+        "confidence": "gap",
+        "notes": "No Flipkart official round-by-round hiring guide equivalent to Amazon/Microsoft pages was used."
+      },
+      "candidate_reported": {
+        "confidence": "candidate_reported",
+        "sources": [
+          "https://www.glassdoor.sg/Interview/Flipkart-Software-Engineer-Interview-Questions-EI_IE300494.0,8_KO9,26.htm",
+          "https://www.geeksforgeeks.org/interview-experiences/flipkart-recruitment-process/"
+        ],
+        "flipkart_common_shape": [
+          "Online assessment (HackerRank/HackerEarth, 2-3 DSA medium-hard)",
+          "Machine coding 90-150 min working extensible app plus review",
+          "Live DSA",
+          "LLD and/or HLD (SDE-2+)",
+          "Managerial/HR"
+        ],
+        "notes": "Machine coding is the closest Indian analog to FDE practical coding. Not a customer-decomposition round. Zoho/Razorpay evidence is thinner and more variable."
+      },
+      "fde_titled_loops": "Insufficient primary evidence as of access date."
+    },
+    {
+      "id": "india_services",
+      "name": "Indian IT services (Infosys, TCS, Accenture, and peers)",
+      "official_process": {
+        "confidence": "partial",
+        "notes": "Mass-hiring patterns (TCS NQT, InfyTQ, Accenture cognitive/coding) are long-standing public structures but vendor pages were not all fetched as primary PDFs in this pass."
+      },
+      "candidate_reported": {
+        "confidence": "candidate_reported",
+        "tcs": "NQT foundation + advanced coding for Digital/Prime tracks, then combined TR/MR/HR panel. Depth: projects, OOP, DBMS, SQL, light coding.",
+        "infosys": "InfyTQ/HackWithInfy; tracks SE / Specialist Programmer / Power Programmer. Fresher: aptitude, technical, HR.",
+        "accenture": "Cognitive + communication + coding for engineering, then technical and HR. Applied AI Engineer Glassdoor hits exist but are not a standard FDE loop.",
+        "genai_partner_fde": "SI firms staff GenAI/Agentforce/Databricks partner FDE roles. Interviews usually client-scenario + platform knowledge + mild coding. Evidence quality is low. Confirm whether the loop is the vendor's or the SI's."
+      },
+      "leetcode_justification": {
+        "mass_hire_ninja_se_ase": "low_to_medium",
+        "sp_pp_digital_prime": "medium",
+        "flipkart_top_product": "medium_hard_plus_machine_coding",
+        "faang_india": "same_as_us_swe",
+        "partner_fde": "low_to_medium_practical_plus_platform"
+      }
+    }
+  ],
+  "certifications_roi": {
+    "principle": "For FDE/GenAI at Palantir, OpenAI, Anthropic, Google, Meta, a cert almost never substitutes for a shipped system. Certs help ATS screens at enterprises and SIs, structured learning, and JDs that list them. Blog salary-premium claims are not causal evidence.",
+    "higher_roi": [
+      {
+        "id": "aws_saa",
+        "name": "AWS Solutions Architect Associate",
+        "url": "https://aws.amazon.com/certification/",
+        "learning": "high",
+        "employer": "high in AWS shops and SIs",
+        "notes": "Broadest cloud-associate keyword."
+      },
+      {
+        "id": "aws_ml",
+        "name": "AWS ML Engineer Associate (MLA-C01) / current ML path",
+        "url": "https://aws.amazon.com/certification/",
+        "learning": "high for Bedrock plus pipelines",
+        "employer": "medium_high for AWS GenAI JDs"
+      },
+      {
+        "id": "azure_ai",
+        "name": "Azure AI Engineer (AI-102 or successor)",
+        "url": "https://learn.microsoft.com/credentials/",
+        "learning": "high for Azure OpenAI / AI Foundry",
+        "employer": "high in Microsoft-heavy enterprises"
+      },
+      {
+        "id": "gcp_mle_or_architect",
+        "name": "GCP Professional ML Engineer or Professional Cloud Architect",
+        "url": "https://cloud.google.com/learn/certification",
+        "learning": "high for Vertex",
+        "employer": "medium volume"
+      },
+      {
+        "id": "databricks",
+        "name": "Databricks Data Engineer / Generative AI Engineer Associate",
+        "url": "https://www.databricks.com/learn/certification",
+        "learning": "high if working on Lakehouse/Mosaic",
+        "employer": "high for Databricks FDE/RSA and partners; low at Palantir/OpenAI"
+      },
+      {
+        "id": "cka",
+        "name": "Certified Kubernetes Administrator",
+        "url": "https://www.cncf.io/training/certification/cka/",
+        "learning": "high (hands-on)",
+        "employer": "medium_high for platform/SRE; medium for FDE"
+      },
+      {
+        "id": "nvidia_ncp",
+        "name": "NVIDIA NCP-GENL / NCP-AAI (Agentic AI new) / NCP infra exams",
+        "url": "https://www.nvidia.com/en-us/learn/certification/",
+        "learning": "medium_high on NVIDIA stack",
+        "employer": "medium for GPU infra and NVIDIA partners; low at labs",
+        "notes": "NCP-AII/AIO are infra ops, not FDE software. DLI course certificates are not NCP exams. NCP-AAI listed as coming soon/new on official pages."
+      }
+    ],
+    "low_roi": [
+      {
+        "id": "foundational_cloud",
+        "name": "AWS Cloud Practitioner / Azure AI-900 / GCP Digital Leader",
+        "why": "Foundational multiple-choice; not treated as signal by Palantir/labs/FAANG hiring managers."
+      },
+      {
+        "id": "badge_collecting",
+        "name": "Five-plus associate certs with no production",
+        "why": "Signals exam studying. Target JDs ask for experience."
+      },
+      {
+        "id": "trailblazer_as_waiver",
+        "name": "Salesforce Agentblazer ranks as a substitute for a portfolio",
+        "why": "Official FDE blog lists Trailhead as skill acquisition, not a hiring exam."
+      },
+      {
+        "id": "generic_mooc_genai",
+        "name": "Generic Coursera/Udemy GenAI professional certificates",
+        "why": "No employer standard; not listed on target-company official hiring pages reviewed."
+      },
+      {
+        "id": "dli_attendance",
+        "name": "NVIDIA DLI workshop badges without NCP",
+        "why": "Course receipt, not professional cert. NVIDIA distinguishes DLI vs NCP."
+      }
+    ],
+    "fde_rule_of_thumb": "One cloud associate in the customer's cloud plus Databricks or Salesforce if that is the platform. A second cloud cert is usually worse than one production-ish RAG/agent with evals."
+  },
+  "portfolios": {
+    "toy": [
+      "ChatGPT wrapper around a public PDF with no evals, auth, or deployment story",
+      "Tutorial-clone RAG with a README that only says built a RAG app",
+      "Notebook-only experiments with no API, tests, or failure analysis",
+      "Certificate screenshots as the GitHub hero"
+    ],
+    "recruiter_worthy_mid": [
+      "One customer-shaped problem with user and success metric",
+      "Messy data and access-control story",
+      "Architecture: retrieval, tools/MCP, orchestration, serving, runtime",
+      "Evals: golden set and failure taxonomy",
+      "At least two OWASP LLM Top 10 mitigations actually implemented",
+      "Ops: logging, tracing, rollback, human-in-the-loop",
+      "3-minute walkthrough (slides for OpenAI onsite if asked)"
+    ],
+    "senior": [
+      "Production incident or eval-regression diagnosed",
+      "Cloud-AI-platform migration with cost and latency numbers",
+      "Multi-agent system with permissioning, audit, and a killed feature",
+      "Design-doc quality writeup",
+      "Evidence of changing a customer workflow, plus a failure story"
+    ]
+  },
+  "learning_resources": {
+    "python": [
+      {"title": "Python tutorial", "type": "official", "url": "https://docs.python.org/3/tutorial/"},
+      {"title": "Python standard library", "type": "official", "url": "https://docs.python.org/3/library/"},
+      {"title": "PEP 8", "type": "official", "url": "https://peps.python.org/pep-0008/"},
+      {"title": "typing", "type": "official", "url": "https://docs.python.org/3/library/typing.html"}
+    ],
+    "fastapi": [
+      {"title": "FastAPI user guide", "type": "official", "url": "https://fastapi.tiangolo.com/"},
+      {"title": "FastAPI tutorial", "type": "official", "url": "https://fastapi.tiangolo.com/tutorial/"},
+      {"title": "Pydantic v2", "type": "official", "url": "https://docs.pydantic.dev/latest/"},
+      {"title": "Uvicorn", "type": "official", "url": "https://www.uvicorn.org/"}
+    ],
+    "rag": [
+      {"title": "AWS Bedrock Knowledge Bases", "type": "official", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html"},
+      {"title": "Azure RAG / AI Search", "type": "official", "url": "https://learn.microsoft.com/azure/search/retrieval-augmented-generation-overview"},
+      {"title": "Vertex AI grounding", "type": "official", "url": "https://cloud.google.com/vertex-ai/generative-ai/docs/grounding/overview"},
+      {"title": "OpenAI file search", "type": "official", "url": "https://platform.openai.com/docs/guides/tools-file-search"},
+      {"title": "Anthropic RAG docs", "type": "official", "url": "https://docs.anthropic.com/en/docs/build-with-claude/retrieval-augmented-generation"},
+      {"title": "Databricks Mosaic AI RAG", "type": "official", "url": "https://docs.databricks.com/aws/en/generative-ai/retrieval-augmented-generation"}
+    ],
+    "langgraph": [
+      {"title": "LangGraph overview", "type": "official", "url": "https://docs.langchain.com/oss/python/langgraph/overview"}
+    ],
+    "mcp": [
+      {"title": "MCP docs", "type": "official", "url": "https://modelcontextprotocol.io/"},
+      {"title": "MCP GitHub", "type": "official", "url": "https://github.com/modelcontextprotocol"},
+      {"title": "Anthropic MCP docs", "type": "official", "url": "https://docs.anthropic.com/en/docs/mcp"}
+    ],
+    "kubernetes": [
+      {"title": "Kubernetes docs", "type": "official", "url": "https://kubernetes.io/docs/home/"},
+      {"title": "kubectl cheat sheet", "type": "official", "url": "https://kubernetes.io/docs/reference/kubectl/cheatsheet/"},
+      {"title": "CKA", "type": "official", "url": "https://www.cncf.io/training/certification/cka/"}
+    ],
+    "aws_bedrock": [
+      {"title": "What is Bedrock", "type": "official", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html"},
+      {"title": "Bedrock Agents", "type": "official", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html"},
+      {"title": "Guardrails", "type": "official", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html"}
+    ],
+    "azure_ai_foundry": [
+      {"title": "Azure AI Foundry docs", "type": "official", "url": "https://learn.microsoft.com/azure/ai-foundry/"},
+      {"title": "Azure OpenAI in Foundry", "type": "official", "url": "https://learn.microsoft.com/azure/ai-foundry/openai/overview"},
+      {"title": "Content safety", "type": "official", "url": "https://learn.microsoft.com/azure/ai-services/content-safety/"}
+    ],
+    "vertex": [
+      {"title": "Vertex generative AI docs", "type": "official", "url": "https://cloud.google.com/vertex-ai/generative-ai/docs"},
+      {"title": "Agent Builder", "type": "official", "url": "https://cloud.google.com/products/agent-builder"},
+      {"title": "Model Garden", "type": "official", "url": "https://cloud.google.com/model-garden"}
+    ],
+    "owasp_llm": [
+      {"title": "OWASP LLM Top 10", "type": "official", "url": "https://genai.owasp.org/llm-top-10/"},
+      {"title": "OWASP Top 10 for LLM Applications 2025 resource", "type": "official", "url": "https://genai.owasp.org/resource/owasp-top-10-for-llm-applications-2025/"},
+      {"title": "OWASP Top 10 for Agentic Applications", "type": "official", "url": "https://genai.owasp.org/2025/12/09/owasp-top-10-for-agentic-applications-the-benchmark-for-agentic-security-in-the-age-of-autonomous-ai/"},
+      {"title": "OWASP GenAI LLM Top 10 initiative (includes 2026 listing)", "type": "official", "url": "https://genai.owasp.org/initiative/owasp-top-10-for-llm-and-genai/"}
+    ],
+    "llm_top_10_2025_names": [
+      "LLM01:2025 Prompt Injection",
+      "LLM02:2025 Sensitive Information Disclosure",
+      "LLM03:2025 Supply Chain",
+      "LLM04:2025 Data and Model Poisoning",
+      "LLM05:2025 Improper Output Handling",
+      "LLM06:2025 Excessive Agency",
+      "LLM07:2025 System Prompt Leakage",
+      "LLM08:2025 Vector and Embedding Weaknesses",
+      "LLM09:2025 Misinformation",
+      "LLM10: confirm live numbering on genai.owasp.org (Unbounded Consumption on 2025 list)"
+    ]
+  },
+  "gaps": [
+    "Palantir official onsite round names not published; decomposition/learning/re-engineering are candidate-reported.",
+    "OpenAI FDE-specific loop not on the official interview guide.",
+    "OpenAI paid 48h work trial reports conflict.",
+    "Anthropic FDE/Applied AI round list not on careers page.",
+    "Databricks FDE org launched-2026 is a prep-site claim.",
+    "Scale official loop unpublished; candidate reports conflict.",
+    "Salesforce FDE interview rounds not published.",
+    "Google/Meta/Microsoft named FDE loops weak or absent.",
+    "Decomposition ~40% pass / ~30% weight is unverified blog repetition.",
+    "Blind threads not used as primary evidence (login wall).",
+    "Indian services GenAI FDE evidence is thin; partner vs vendor loops mixed.",
+    "OWASP LLM Top 10 2026 vs 2025: use live list on interview day."
+  ],
+  "sources": {
+    "official_verified": [
+      {"id": 1, "title": "Palantir Getting Hired", "url": "https://www.palantir.com/careers/getting-hired/"},
+      {"id": 2, "title": "Palantir Phone Interview", "url": "https://www.palantir.com/careers/getting-hired/the-phone-interview/"},
+      {"id": 3, "title": "Palantir Students and Early Talent", "url": "https://www.palantir.com/careers/students-and-early-talent/"},
+      {"id": 4, "title": "Palantir open positions", "url": "https://www.palantir.com/careers/open-positions/"},
+      {"id": 5, "title": "Interviewing at Palantir: Our advice", "url": "https://blog.palantir.com/interviewing-at-palantir-advice-from-palantirians-88444a90e7c4"},
+      {"id": 6, "title": "Databricks interview prep", "url": "https://www.databricks.com/company/careers/interview-prep"},
+      {"id": 7, "title": "Databricks Engineering interview prep PDF April 2025", "url": "https://www.databricks.com/sites/default/files/2025-04/engineering-careers-site-interview-prep-april-2025-002.pdf"},
+      {"id": 8, "title": "OpenAI Interview Guide", "url": "https://openai.com/interview-guide/"},
+      {"id": 9, "title": "Anthropic Careers / How we hire", "url": "https://www.anthropic.com/careers"},
+      {"id": 10, "title": "Anthropic candidate AI guidance", "url": "https://www.anthropic.com/candidate-ai-guidance"},
+      {"id": 11, "title": "Google How we hire", "url": "https://www.google.com/about/careers/applications/how-we-hire/"},
+      {"id": 12, "title": "Google Interview tips", "url": "https://www.google.com/about/careers/applications/interview-tips/"},
+      {"id": 13, "title": "Microsoft How we hire", "url": "https://careers.microsoft.com/v2/global/en/hiring-tips.html"},
+      {"id": 14, "title": "Microsoft Technical interviewing", "url": "https://careers.microsoft.com/v2/global/en/hiring-tips/technical-interviewing.html"},
+      {"id": 15, "title": "Amazon Interviewing at Amazon", "url": "https://www.amazon.jobs/landing_pages/interviewing-at-amazon"},
+      {"id": 16, "title": "Amazon Interview loop", "url": "https://amazon.jobs/content/en/how-we-hire/interview-loop"},
+      {"id": 17, "title": "Amazon SDE interview topics", "url": "https://amazon.jobs/content/en/how-we-hire/interview-prep/software-development-topics"},
+      {"id": 18, "title": "About Amazon interview guide", "url": "https://www.aboutamazon.com/news/workplace/amazon-interview-guide"},
+      {"id": 19, "title": "Amazon Leadership Principles", "url": "https://www.aboutamazon.com/about-us/leadership-principles"},
+      {"id": 20, "title": "Meta hiring process", "url": "https://www.metacareers.com/hiring-process"},
+      {"id": 21, "title": "NVIDIA How we hire", "url": "https://www.nvidia.com/en-us/about-nvidia/careers/how-we-hire/"},
+      {"id": 22, "title": "Salesforce Forward Deployed Engineer blog", "url": "https://www.salesforce.com/blog/forward-deployed-engineer/"},
+      {"id": 23, "title": "NVIDIA certification programs", "url": "https://www.nvidia.com/en-us/learn/certification/"},
+      {"id": 24, "title": "OWASP LLM Top 10", "url": "https://genai.owasp.org/llm-top-10/"},
+      {"id": 25, "title": "OWASP Top 10 for Agentic Applications", "url": "https://genai.owasp.org/2025/12/09/owasp-top-10-for-agentic-applications-the-benchmark-for-agentic-security-in-the-age-of-autonomous-ai/"}
+    ],
+    "candidate_reported": [
+      {"id": 26, "title": "Aced Palantir FDE guide", "url": "https://www.tryexponent.com/guides/palantir-forward-deployed-engineer-interview"},
+      {"id": 27, "title": "Aced Databricks FDE guide", "url": "https://www.tryexponent.com/guides/databricks-forward-deployed-engineer-interview"},
+      {"id": 28, "title": "Aced Scale AI FDE guide", "url": "https://www.tryexponent.com/guides/scale-ai-forward-deployed-engineer-interview"},
+      {"id": 29, "title": "interviewing.io OpenAI", "url": "https://interviewing.io/openai-interview-questions"},
+      {"id": 30, "title": "interviewing.io Anthropic", "url": "https://interviewing.io/anthropic-interview-questions"},
+      {"id": 31, "title": "FDEnest FDE interview guide", "url": "https://fdenest.com/guides/forward-deployed-engineer-interview/"},
+      {"id": 32, "title": "Glassdoor Palantir FDSE", "url": "https://www.glassdoor.com/Interview/Palantir-Technologies-Forward-Deployed-Software-Engineer-Interview-Questions-EI_IE236375.0,21_KO22,56.htm"},
+      {"id": 33, "title": "Glassdoor Scale FDE", "url": "https://www.glassdoor.com/Interview/Scale-Forward-Deployed-Engineer-Interview-Questions-EI_IE1656849.0,5_KO6,31.htm"},
+      {"id": 34, "title": "Glassdoor Flipkart SWE", "url": "https://www.glassdoor.sg/Interview/Flipkart-Software-Engineer-Interview-Questions-EI_IE300494.0,8_KO9,26.htm"},
+      {"id": 36, "title": "GeeksforGeeks Flipkart recruitment process", "url": "https://www.geeksforgeeks.org/interview-experiences/flipkart-recruitment-process/"}
+    ]
+  }
+}

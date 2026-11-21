@@ -1,0 +1,527 @@
+{
+  "disclaimer": "Educational fixtures only. Not real people. Not advice.",
+  "households": [
+    {
+      "id": "1",
+      "label": "24-year-old first job",
+      "profile": {
+        "first_name": "Aarav",
+        "age": 24,
+        "city": "Pune",
+        "state": "Maharashtra",
+        "marital_status": "single",
+        "dependents": 0,
+        "earners": 1,
+        "monthly_take_home_inr": 40000,
+        "annual_gross_inr": 600000,
+        "variable_income_monthly_inr": 0,
+        "employer_retirement_contribution_monthly_inr": 1800,
+        "essential_expenses_monthly_inr": 18000,
+        "discretionary_expenses_monthly_inr": 8000,
+        "insurance_premiums_monthly_inr": 500,
+        "rent_monthly_inr": 8000,
+        "liabilities": [],
+        "goals": [
+          {"name": "emergency reserve", "target_amount_inr": 150000, "target_year": 2027, "priority": "must_have"},
+          {"name": "retirement", "target_amount_inr": 20000000, "target_year": 2060, "priority": "important"}
+        ],
+        "risk": {
+          "emotional_tolerance": 3,
+          "financial_capacity": 2,
+          "income_stability": 3,
+          "investment_experience": 1,
+          "liquidity_need": 4,
+          "goal_horizon_years": 2
+        },
+        "constraints": ["no_crypto", "no_chit_funds"],
+        "tax_regime": "new",
+        "international_opt_in": false,
+        "direct_equity_opt_in": false,
+        "vda_opt_in": false,
+        "existing_holdings": [
+          {"name": "Savings account", "category": "cash_safety", "vehicle_type": "savings", "current_value_inr": 25000, "locked": false}
+        ],
+        "fixture_id": "1"
+      }
+    },
+    {
+      "id": "2",
+      "label": "33-year-old salaried technology employee",
+      "profile": {
+        "first_name": "Meera",
+        "age": 33,
+        "city": "Bengaluru",
+        "state": "Karnataka",
+        "marital_status": "married",
+        "dependents": 1,
+        "earners": 1,
+        "monthly_take_home_inr": 120000,
+        "annual_gross_inr": 2100000,
+        "variable_income_monthly_inr": 10000,
+        "employer_retirement_contribution_monthly_inr": 7200,
+        "essential_expenses_monthly_inr": 28000,
+        "discretionary_expenses_monthly_inr": 15000,
+        "insurance_premiums_monthly_inr": 3500,
+        "rent_monthly_inr": 0,
+        "liabilities": [
+          {"type": "home_loan", "outstanding_balance": 4500000, "interest_rate": 8.4, "emi": 35000, "remaining_tenure_months": 216}
+        ],
+        "goals": [
+          {"name": "emergency reserve", "target_amount_inr": 400000, "target_year": 2027, "priority": "must_have"},
+          {"name": "child education", "target_amount_inr": 4000000, "target_year": 2038, "priority": "must_have"},
+          {"name": "retirement", "target_amount_inr": 40000000, "target_year": 2053, "priority": "important"}
+        ],
+        "risk": {
+          "emotional_tolerance": 3,
+          "financial_capacity": 3,
+          "income_stability": 4,
+          "investment_experience": 3,
+          "liquidity_need": 3,
+          "goal_horizon_years": 12
+        },
+        "constraints": ["preserve_epf", "existing_home_loan", "no_chit_funds"],
+        "tax_regime": "new",
+        "international_opt_in": false,
+        "direct_equity_opt_in": false,
+        "vda_opt_in": false,
+        "existing_holdings": [
+          {"name": "EPF", "category": "retirement", "vehicle_type": "epf", "current_value_inr": 850000, "locked": true},
+          {"name": "Nifty 50 index SIP", "category": "equity", "vehicle_type": "index_fund", "current_value_inr": 420000, "locked": false},
+          {"name": "Flexi-cap SIP", "category": "equity", "vehicle_type": "flexi_cap", "current_value_inr": 180000, "locked": false},
+          {"name": "Liquid fund", "category": "cash_safety", "vehicle_type": "liquid_fund", "current_value_inr": 120000, "locked": false}
+        ],
+        "fixture_id": "2"
+      }
+    },
+    {
+      "id": "3",
+      "label": "Dual-income couple with child",
+      "profile": {
+        "first_name": "Kabir",
+        "age": 36,
+        "city": "Hyderabad",
+        "state": "Telangana",
+        "marital_status": "married",
+        "dependents": 1,
+        "earners": 2,
+        "monthly_take_home_inr": 220000,
+        "annual_gross_inr": 3600000,
+        "variable_income_monthly_inr": 0,
+        "employer_retirement_contribution_monthly_inr": 10000,
+        "essential_expenses_monthly_inr": 55000,
+        "discretionary_expenses_monthly_inr": 25000,
+        "insurance_premiums_monthly_inr": 6000,
+        "rent_monthly_inr": 0,
+        "liabilities": [
+          {"type": "home_loan", "outstanding_balance": 3200000, "interest_rate": 8.1, "emi": 28000, "remaining_tenure_months": 180}
+        ],
+        "goals": [
+          {"name": "child education", "target_amount_inr": 8000000, "target_year": 2040, "priority": "must_have"},
+          {"name": "retirement", "target_amount_inr": 60000000, "target_year": 2054, "priority": "important"}
+        ],
+        "risk": {
+          "emotional_tolerance": 4,
+          "financial_capacity": 4,
+          "income_stability": 4,
+          "investment_experience": 3,
+          "liquidity_need": 2,
+          "goal_horizon_years": 14
+        },
+        "constraints": ["preserve_epf", "preserve_ppf"],
+        "tax_regime": "old",
+        "international_opt_in": false,
+        "direct_equity_opt_in": false,
+        "vda_opt_in": false,
+        "existing_holdings": [
+          {"name": "EPF", "category": "retirement", "vehicle_type": "epf", "current_value_inr": 1200000, "locked": true},
+          {"name": "PPF", "category": "retirement", "vehicle_type": "ppf", "current_value_inr": 600000, "locked": true},
+          {"name": "Index fund", "category": "equity", "vehicle_type": "index_fund", "current_value_inr": 900000, "locked": false},
+          {"name": "Liquid fund", "category": "cash_safety", "vehicle_type": "liquid_fund", "current_value_inr": 400000, "locked": false}
+        ],
+        "fixture_id": "3"
+      }
+    },
+    {
+      "id": "4",
+      "label": "55-year-old low-risk investor",
+      "profile": {
+        "first_name": "Lakshmi",
+        "age": 55,
+        "city": "Chennai",
+        "state": "Tamil Nadu",
+        "marital_status": "married",
+        "dependents": 0,
+        "earners": 1,
+        "monthly_take_home_inr": 90000,
+        "annual_gross_inr": 1400000,
+        "variable_income_monthly_inr": 0,
+        "employer_retirement_contribution_monthly_inr": 5000,
+        "essential_expenses_monthly_inr": 35000,
+        "discretionary_expenses_monthly_inr": 10000,
+        "insurance_premiums_monthly_inr": 4000,
+        "rent_monthly_inr": 0,
+        "liabilities": [],
+        "goals": [
+          {"name": "retirement income", "target_amount_inr": 15000000, "target_year": 2031, "priority": "must_have"}
+        ],
+        "risk": {
+          "emotional_tolerance": 2,
+          "financial_capacity": 2,
+          "income_stability": 3,
+          "investment_experience": 2,
+          "liquidity_need": 4,
+          "goal_horizon_years": 5
+        },
+        "constraints": ["no_crypto", "no_direct_stocks", "avoid_illiquid"],
+        "tax_regime": "old",
+        "international_opt_in": false,
+        "direct_equity_opt_in": false,
+        "vda_opt_in": false,
+        "existing_holdings": [
+          {"name": "EPF", "category": "retirement", "vehicle_type": "epf", "current_value_inr": 2500000, "locked": true},
+          {"name": "FD", "category": "cash_safety", "vehicle_type": "fd", "current_value_inr": 800000, "locked": false},
+          {"name": "SCSS candidate age", "category": "retirement", "vehicle_type": "scss", "current_value_inr": 0, "locked": false}
+        ],
+        "fixture_id": "4"
+      }
+    },
+    {
+      "id": "5",
+      "label": "Crypto request with thin reserve",
+      "profile": {
+        "first_name": "Rohan",
+        "age": 29,
+        "city": "Mumbai",
+        "state": "Maharashtra",
+        "marital_status": "single",
+        "dependents": 0,
+        "earners": 1,
+        "monthly_take_home_inr": 80000,
+        "annual_gross_inr": 1200000,
+        "variable_income_monthly_inr": 0,
+        "employer_retirement_contribution_monthly_inr": 3000,
+        "essential_expenses_monthly_inr": 25000,
+        "discretionary_expenses_monthly_inr": 15000,
+        "insurance_premiums_monthly_inr": 800,
+        "rent_monthly_inr": 18000,
+        "liabilities": [],
+        "goals": [
+          {"name": "wealth", "target_amount_inr": 10000000, "target_year": 2040, "priority": "optional"}
+        ],
+        "risk": {
+          "emotional_tolerance": 5,
+          "financial_capacity": 2,
+          "income_stability": 2,
+          "investment_experience": 2,
+          "liquidity_need": 5,
+          "goal_horizon_years": 10
+        },
+        "constraints": [],
+        "tax_regime": "new",
+        "international_opt_in": false,
+        "direct_equity_opt_in": false,
+        "vda_opt_in": true,
+        "existing_holdings": [
+          {"name": "Savings", "category": "cash_safety", "vehicle_type": "savings", "current_value_inr": 25000, "locked": false}
+        ],
+        "fixture_id": "5"
+      }
+    },
+    {
+      "id": "6",
+      "label": "Guaranteed 18% chit fund request",
+      "profile": {
+        "first_name": "Sana",
+        "age": 41,
+        "city": "Kochi",
+        "state": "Kerala",
+        "marital_status": "married",
+        "dependents": 2,
+        "earners": 1,
+        "monthly_take_home_inr": 70000,
+        "annual_gross_inr": 1000000,
+        "variable_income_monthly_inr": 0,
+        "employer_retirement_contribution_monthly_inr": 2500,
+        "essential_expenses_monthly_inr": 30000,
+        "discretionary_expenses_monthly_inr": 8000,
+        "insurance_premiums_monthly_inr": 2000,
+        "rent_monthly_inr": 12000,
+        "liabilities": [],
+        "goals": [
+          {"name": "house purchase", "target_amount_inr": 2500000, "target_year": 2029, "priority": "must_have"}
+        ],
+        "risk": {
+          "emotional_tolerance": 3,
+          "financial_capacity": 2,
+          "income_stability": 3,
+          "investment_experience": 1,
+          "liquidity_need": 4,
+          "goal_horizon_years": 3
+        },
+        "constraints": ["no_chit_funds"],
+        "tax_regime": "unknown",
+        "international_opt_in": false,
+        "direct_equity_opt_in": false,
+        "vda_opt_in": false,
+        "existing_holdings": [
+          {"name": "Guaranteed 18% chit fund", "category": "alternatives", "vehicle_type": "chit_fund", "current_value_inr": 100000, "locked": false}
+        ],
+        "fixture_id": "6"
+      }
+    },
+    {
+      "id": "7",
+      "label": "Old-regime unused deductions",
+      "profile": {
+        "first_name": "Neel",
+        "age": 38,
+        "city": "Delhi",
+        "state": "Delhi",
+        "marital_status": "married",
+        "dependents": 1,
+        "earners": 1,
+        "monthly_take_home_inr": 150000,
+        "annual_gross_inr": 2500000,
+        "variable_income_monthly_inr": 0,
+        "employer_retirement_contribution_monthly_inr": 4000,
+        "essential_expenses_monthly_inr": 40000,
+        "discretionary_expenses_monthly_inr": 20000,
+        "insurance_premiums_monthly_inr": 2000,
+        "rent_monthly_inr": 0,
+        "liabilities": [],
+        "goals": [
+          {"name": "retirement", "target_amount_inr": 50000000, "target_year": 2048, "priority": "important"}
+        ],
+        "risk": {
+          "emotional_tolerance": 3,
+          "financial_capacity": 4,
+          "income_stability": 4,
+          "investment_experience": 3,
+          "liquidity_need": 2,
+          "goal_horizon_years": 20
+        },
+        "constraints": [],
+        "tax_regime": "old",
+        "international_opt_in": false,
+        "direct_equity_opt_in": false,
+        "vda_opt_in": false,
+        "existing_holdings": [
+          {"name": "EPF", "category": "retirement", "vehicle_type": "epf", "current_value_inr": 200000, "locked": true},
+          {"name": "Liquid fund", "category": "cash_safety", "vehicle_type": "liquid_fund", "current_value_inr": 500000, "locked": false}
+        ],
+        "fixture_id": "7"
+      }
+    },
+    {
+      "id": "8",
+      "label": "New-regime taxpayer",
+      "profile": {
+        "first_name": "Isha",
+        "age": 31,
+        "city": "Gurugram",
+        "state": "Haryana",
+        "marital_status": "single",
+        "dependents": 0,
+        "earners": 1,
+        "monthly_take_home_inr": 110000,
+        "annual_gross_inr": 1800000,
+        "variable_income_monthly_inr": 0,
+        "employer_retirement_contribution_monthly_inr": 6000,
+        "essential_expenses_monthly_inr": 25000,
+        "discretionary_expenses_monthly_inr": 18000,
+        "insurance_premiums_monthly_inr": 1500,
+        "rent_monthly_inr": 22000,
+        "liabilities": [],
+        "goals": [
+          {"name": "financial independence", "target_amount_inr": 30000000, "target_year": 2045, "priority": "important"}
+        ],
+        "risk": {
+          "emotional_tolerance": 4,
+          "financial_capacity": 3,
+          "income_stability": 4,
+          "investment_experience": 3,
+          "liquidity_need": 3,
+          "goal_horizon_years": 19
+        },
+        "constraints": [],
+        "tax_regime": "new",
+        "international_opt_in": false,
+        "direct_equity_opt_in": false,
+        "vda_opt_in": false,
+        "existing_holdings": [
+          {"name": "Index fund", "category": "equity", "vehicle_type": "index_fund", "current_value_inr": 300000, "locked": false},
+          {"name": "Liquid fund", "category": "cash_safety", "vehicle_type": "liquid_fund", "current_value_inr": 200000, "locked": false}
+        ],
+        "fixture_id": "8"
+      }
+    },
+    {
+      "id": "9",
+      "label": "Forbids international and crypto",
+      "profile": {
+        "first_name": "Farah",
+        "age": 34,
+        "city": "Ahmedabad",
+        "state": "Gujarat",
+        "marital_status": "married",
+        "dependents": 1,
+        "earners": 1,
+        "monthly_take_home_inr": 95000,
+        "annual_gross_inr": 1500000,
+        "variable_income_monthly_inr": 0,
+        "employer_retirement_contribution_monthly_inr": 4000,
+        "essential_expenses_monthly_inr": 30000,
+        "discretionary_expenses_monthly_inr": 10000,
+        "insurance_premiums_monthly_inr": 2500,
+        "rent_monthly_inr": 0,
+        "liabilities": [],
+        "goals": [
+          {"name": "house purchase", "target_amount_inr": 1500000, "target_year": 2029, "priority": "important"}
+        ],
+        "risk": {
+          "emotional_tolerance": 3,
+          "financial_capacity": 3,
+          "income_stability": 4,
+          "investment_experience": 2,
+          "liquidity_need": 3,
+          "goal_horizon_years": 8
+        },
+        "constraints": ["no_international", "no_crypto"],
+        "tax_regime": "new",
+        "international_opt_in": false,
+        "direct_equity_opt_in": false,
+        "vda_opt_in": false,
+        "existing_holdings": [
+          {"name": "PPF", "category": "retirement", "vehicle_type": "ppf", "current_value_inr": 400000, "locked": true},
+          {"name": "Index fund", "category": "equity", "vehicle_type": "index_fund", "current_value_inr": 250000, "locked": false}
+        ],
+        "fixture_id": "9"
+      }
+    },
+    {
+      "id": "10",
+      "label": "Firecrawl unavailable (degraded)",
+      "profile": {
+        "first_name": "Vikram",
+        "age": 40,
+        "city": "Jaipur",
+        "state": "Rajasthan",
+        "marital_status": "married",
+        "dependents": 2,
+        "earners": 1,
+        "monthly_take_home_inr": 100000,
+        "annual_gross_inr": 1600000,
+        "variable_income_monthly_inr": 0,
+        "employer_retirement_contribution_monthly_inr": 4500,
+        "essential_expenses_monthly_inr": 32000,
+        "discretionary_expenses_monthly_inr": 12000,
+        "insurance_premiums_monthly_inr": 3000,
+        "rent_monthly_inr": 0,
+        "liabilities": [],
+        "goals": [
+          {"name": "retirement", "target_amount_inr": 25000000, "target_year": 2046, "priority": "important"}
+        ],
+        "risk": {
+          "emotional_tolerance": 3,
+          "financial_capacity": 3,
+          "income_stability": 3,
+          "investment_experience": 2,
+          "liquidity_need": 3,
+          "goal_horizon_years": 20
+        },
+        "constraints": [],
+        "tax_regime": "unknown",
+        "international_opt_in": false,
+        "direct_equity_opt_in": false,
+        "vda_opt_in": false,
+        "existing_holdings": [
+          {"name": "FD", "category": "cash_safety", "vehicle_type": "fd", "current_value_inr": 300000, "locked": false}
+        ],
+        "fixture_id": "10"
+      }
+    },
+    {
+      "id": "11",
+      "label": "Conflicting sources",
+      "profile": {
+        "first_name": "Ananya",
+        "age": 32,
+        "city": "Kolkata",
+        "state": "West Bengal",
+        "marital_status": "single",
+        "dependents": 0,
+        "earners": 1,
+        "monthly_take_home_inr": 85000,
+        "annual_gross_inr": 1300000,
+        "variable_income_monthly_inr": 0,
+        "employer_retirement_contribution_monthly_inr": 3500,
+        "essential_expenses_monthly_inr": 22000,
+        "discretionary_expenses_monthly_inr": 12000,
+        "insurance_premiums_monthly_inr": 1200,
+        "rent_monthly_inr": 15000,
+        "liabilities": [],
+        "goals": [
+          {"name": "travel", "target_amount_inr": 300000, "target_year": 2028, "priority": "optional"}
+        ],
+        "risk": {
+          "emotional_tolerance": 3,
+          "financial_capacity": 3,
+          "income_stability": 3,
+          "investment_experience": 2,
+          "liquidity_need": 3,
+          "goal_horizon_years": 6
+        },
+        "constraints": [],
+        "tax_regime": "new",
+        "international_opt_in": false,
+        "direct_equity_opt_in": false,
+        "vda_opt_in": false,
+        "existing_holdings": [
+          {"name": "Liquid fund", "category": "cash_safety", "vehicle_type": "liquid_fund", "current_value_inr": 150000, "locked": false}
+        ],
+        "fixture_id": "11"
+      }
+    },
+    {
+      "id": "12",
+      "label": "PII in pasted holdings",
+      "profile": {
+        "first_name": "Dev",
+        "age": 35,
+        "city": "Noida",
+        "state": "Uttar Pradesh",
+        "marital_status": "married",
+        "dependents": 1,
+        "earners": 1,
+        "monthly_take_home_inr": 130000,
+        "annual_gross_inr": 2000000,
+        "variable_income_monthly_inr": 0,
+        "employer_retirement_contribution_monthly_inr": 7000,
+        "essential_expenses_monthly_inr": 35000,
+        "discretionary_expenses_monthly_inr": 15000,
+        "insurance_premiums_monthly_inr": 3000,
+        "rent_monthly_inr": 0,
+        "liabilities": [],
+        "goals": [
+          {"name": "emergency reserve", "target_amount_inr": 300000, "target_year": 2027, "priority": "must_have"}
+        ],
+        "risk": {
+          "emotional_tolerance": 3,
+          "financial_capacity": 3,
+          "income_stability": 4,
+          "investment_experience": 2,
+          "liquidity_need": 3,
+          "goal_horizon_years": 5
+        },
+        "constraints": [],
+        "tax_regime": "new",
+        "international_opt_in": false,
+        "direct_equity_opt_in": false,
+        "vda_opt_in": false,
+        "existing_holdings": [],
+        "fixture_id": "12"
+      },
+      "pasted_holdings": "EPF 850000\nPPF 200000 PAN ABCDE1234F Aadhaar 2345 6789 0121 account 123456789012 IFSC SBIN0001234 customer id CUST998877\nNifty SIP 150000"
+    }
+  ]
+}

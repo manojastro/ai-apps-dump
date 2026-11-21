@@ -1,0 +1,102 @@
+name: productionlens
+x-backend: &backend
+  build:
+    context: .
+    dockerfile: infra/api.Dockerfile
+  environment: &backend-env
+    DATABASE_URL: postgresql+psycopg://lens:${POSTGRES_PASSWORD:?Generate .env with python scripts/docker_env.py}@postgres/lens
+    REDIS_URL: redis://redis:6379/0
+    PRODUCTIONLENS_DATA: /app/.productionlens
+    MODEL_API_KEY: ${MODEL_API_KEY:-}
+    MODEL_ID: ${MODEL_ID:-}
+    MODEL_BASE_URL: ${MODEL_BASE_URL:-https://api.openai.com/v1}
+    MODEL_ALLOWED_HOSTS: ${MODEL_ALLOWED_HOSTS:-api.openai.com}
+    PROMETHEUS_URL: http://prometheus:9090
+    JAEGER_URL: http://jaeger:16686
+    DEMO_TELEMETRY_URL: http://checkout:8100
+    ALLOWED_ORIGINS: ${ALLOWED_ORIGINS:-http://localhost:3000,http://127.0.0.1:3000}
+    SECURE_COOKIES: ${SECURE_COOKIES:-false}
+  volumes: [platform-data:/app/.productionlens]
+  depends_on:
+    postgres: {condition: service_healthy}
+    redis: {condition: service_healthy}
+  restart: unless-stopped
+services:
+  postgres:
+    image: postgres:17.6-alpine
+    environment: {POSTGRES_USER: lens, POSTGRES_DB: lens, POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"}
+    volumes: [postgres-data:/var/lib/postgresql/data]
+    healthcheck: {test: [CMD-SHELL, "pg_isready -U lens"], interval: 5s, timeout: 5s, retries: 15}
+  redis:
+    image: redis:7.4.5-alpine
+    command: [redis-server, --appendonly, "yes"]
+    volumes: [redis-data:/data]
+    healthcheck: {test: [CMD, redis-cli, ping], interval: 5s, timeout: 3s, retries: 10}
+  setup:
+    <<: *backend
+    command: [python, -m, services.api.setup]
+    restart: "no"
+  api:
+    <<: *backend
+    depends_on:
+      setup: {condition: service_completed_successfully}
+    healthcheck: {test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health/ready')"], interval: 10s, timeout: 5s, retries: 10}
+  worker:
+    <<: *backend
+    command: [python, -m, services.worker.dispatch]
+    depends_on:
+      setup: {condition: service_completed_successfully}
+  web:
+    build: {context: ., dockerfile: infra/web.Dockerfile}
+    ports: ["127.0.0.1:3000:3000"]
+    depends_on:
+      api: {condition: service_healthy}
+    healthcheck: {test: [CMD, node, -e, "fetch('http://localhost:3000').then(r=>process.exit(r.ok?0:1))"], interval: 15s, timeout: 5s, retries: 10}
+  demo-db:
+    image: postgres:17.6-alpine
+    environment: {POSTGRES_USER: demo, POSTGRES_DB: demo, POSTGRES_PASSWORD: "${DEMO_DB_PASSWORD:?Generate .env}"}
+    volumes: [demo-data:/var/lib/postgresql/data]
+    healthcheck: {test: [CMD-SHELL, "pg_isready -U demo"], interval: 5s, timeout: 5s, retries: 15}
+  checkout: &demo
+    build: {context: ., dockerfile: infra/api.Dockerfile}
+    command: [uvicorn, "demo.app:app", --host, "0.0.0.0", --port, "8100"]
+    environment: &demo-env
+      DEMO_SERVICE: checkout
+      DEMO_DATABASE_URL: postgresql+psycopg://demo:${DEMO_DB_PASSWORD}@demo-db/demo
+      DEMO_CONTROL_TOKEN: ${DEMO_CONTROL_TOKEN:?Generate .env}
+      PAYMENT_URL: http://payment:8100
+      INVENTORY_URL: http://inventory:8100
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://otel-collector:4318
+    cpus: 1.0
+    mem_limit: 256m
+    depends_on:
+      demo-db: {condition: service_healthy}
+    healthcheck: {test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8100/health')"], interval: 10s, timeout: 5s, retries: 10}
+  payment:
+    <<: *demo
+    environment:
+      <<: *demo-env
+      DEMO_SERVICE: payment
+  inventory:
+    <<: *demo
+    environment:
+      <<: *demo-env
+      DEMO_SERVICE: inventory
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib:0.135.0
+    command: [--config=/etc/otel/config.yaml]
+    volumes: [./infra/otel.yaml:/etc/otel/config.yaml:ro]
+  prometheus:
+    image: prom/prometheus:v3.5.0
+    volumes: [./infra/prometheus.yaml:/etc/prometheus/prometheus.yml:ro, prometheus-data:/prometheus]
+    ports: ["127.0.0.1:9090:9090"]
+  jaeger:
+    image: jaegertracing/all-in-one:1.71.0
+    environment: {COLLECTOR_OTLP_ENABLED: "true"}
+    ports: ["127.0.0.1:16686:16686"]
+volumes:
+  platform-data:
+  postgres-data:
+  redis-data:
+  demo-data:
+  prometheus-data:

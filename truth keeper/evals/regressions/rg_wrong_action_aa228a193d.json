@@ -1,0 +1,42 @@
+{
+  "conflict": {
+    "customer_key": "ACC-00256",
+    "evidence": {
+      "billing": [
+        {
+          "billing_customer_id": "BC-00252",
+          "billing_email": "noah.sato@quarry-analytics.example",
+          "billing_plan": "pro",
+          "billing_status": "active",
+          "currency": "USD",
+          "match_confidence": 1.0,
+          "match_method": "id",
+          "monthly_amount": 399.0,
+          "next_charge_date": "2026-11-12",
+          "past_due_since": null,
+          "subscription_id": "SUB-00252"
+        }
+      ],
+      "crm_account_id": "ACC-00256",
+      "crm_email": "noah.sato@quarry-analytics.example",
+      "crm_name": "Noah Sato",
+      "crm_plan": "growth",
+      "crm_status": "active"
+    },
+    "id": "cf_465849a79169",
+    "type": "PLAN_MISMATCH"
+  },
+  "created_at": "2026-11-16T03:20:13+00:00",
+  "expect_mock": {
+    "action": "flag_for_finance_review",
+    "status": "PENDING_REVIEW"
+  },
+  "expected_action": "update_crm_plan",
+  "id": "rg_wrong_action_aa228a193d",
+  "note": "proposed flag_for_finance_review, ground truth expects update_crm_plan",
+  "prompt_version": "v1",
+  "recorded_responses": [
+    "{\"explanation\": \"The CRM lists plan 'growth' for ACC-00256, but billing charges for 'pro' (399.0 USD/month). Billing reflects what the customer pays, so the CRM is out of date.\", \"action\": \"flag_for_finance_review\", \"params\": {\"reason\": \"Plan differs; please check\"}, \"confidence\": 0.55, \"needs_human_note\": null}"
+  ],
+  "source": "wrong_action"
+}

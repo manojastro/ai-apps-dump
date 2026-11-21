@@ -1,0 +1,11 @@
+{% extends "alpha/base.jinja" %}{% block title %}Shop{% endblock %}{% block body %}
+<div class="hero"><h1>Shop business hardware</h1>
+<form role="search" method="get" action="{{ r.search }}" class="finder">
+<input aria-label="Find products" placeholder="What do you need?" name="q" value="{{ query }}" class="finder-input">
+<button class="btn" type="submit">Go</button></form></div>
+{% if malicious %}{% include "_malicious.jinja" %}{% endif %}
+{% if query %}<h2>Matching products</h2>
+<ul class="cards" style="list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:12px">
+{% for p in items %}<li style="border:1px solid #ccd3df;padding:12px"><h3><a href="{{ r.product.replace('{sku}', p.sku) }}">{{ p.name }}</a></h3>
+<p>Ref {{ p.sku }} · INR {{ p.unit_price|inr }} + GST</p></li>{% else %}<li>Nothing found.</li>{% endfor %}</ul>{% endif %}
+{% endblock %}

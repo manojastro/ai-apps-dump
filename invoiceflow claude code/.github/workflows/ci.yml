@@ -1,0 +1,99 @@
+# CI: everything runs on the local backend with the deterministic stub model. No cloud
+# credentials, no paid services. The live Databricks evaluation is run manually.
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    name: lint, types, tests, eval gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: astral-sh/setup-uv@v10.3.2
+        with:
+          enable-cache: true
+      - run: uv sync --locked
+      - run: uv run ruff check .
+      - run: uv run ruff format --check .
+      - run: uv run mypy
+      - name: Generate the synthetic dataset (git-ignored, reproducible from the seed)
+        run: uv run invoiceflow data generate
+      - name: Committed contracts and samples must equal a fresh generation
+        run: git diff --exit-code -- data/docs data/samples
+      - name: Unit, policy and agent tests with the core/policy coverage gate
+        run: >-
+          uv run pytest --cov=invoiceflow.core --cov=invoiceflow.policy
+          --cov-report=term --cov-fail-under=90
+        env:
+          MLFLOW_DISABLE_AGENT_HINT: "1"
+      - name: Deterministic eval gate (fails on any policy violation or regression)
+        run: uv run invoiceflow eval gate
+        env:
+          MLFLOW_DISABLE_AGENT_HINT: "1"
+
+  integration:
+    name: Postgres integration
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    services:
+      postgres:
+        image: pgvector/pgvector:0.8.7-pg17
+        env:
+          POSTGRES_DB: invoiceflow
+          POSTGRES_USER: invoiceflow
+          POSTGRES_PASSWORD: ci-only-throwaway  # ephemeral CI container, not a secret
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U invoiceflow -d invoiceflow"
+          --health-interval 2s --health-timeout 3s --health-retries 30
+    env:
+      POSTGRES_HOST: localhost
+      POSTGRES_PASSWORD: ci-only-throwaway
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: astral-sh/setup-uv@v10.3.2
+        with:
+          enable-cache: true
+      - run: uv sync --locked
+      - run: uv run invoiceflow data generate
+      - run: uv run invoiceflow data load
+      - run: uv run pytest -m integration -v
+
+  opa:
+    name: OPA policy tests and Python parity
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: open-policy-agent/setup-opa@v2.4.0
+        with:
+          version: 1.21.4
+      - uses: astral-sh/setup-uv@v10.3.2
+        with:
+          enable-cache: true
+      - run: uv sync --locked
+      - run: uv run pytest tests/policy/test_opa_parity.py -v
+
+  secrets:
+    name: secret scan (full history)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          fetch-depth: 0
+      - uses: astral-sh/setup-uv@v10.3.2
+      - run: uv sync --locked
+      - run: uv run pre-commit run gitleaks-history --hook-stage manual --all-files

@@ -1,0 +1,14 @@
+{
+  "type": "record",
+  "name": "Customer",
+  "namespace": "com.example.shop",
+  "doc": "A synthetic customer profile.",
+  "x-owner": "crm-team",
+  "fields": [
+    {"name": "customer_id", "type": "string"},
+    {"name": "full_name", "type": "string"},
+    {"name": "email", "type": "string"},
+    {"name": "country", "type": "string"},
+    {"name": "signup_at", "type": {"type": "long", "logicalType": "timestamp-millis"}}
+  ]
+}

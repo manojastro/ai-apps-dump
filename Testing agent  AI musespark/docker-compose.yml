@@ -1,0 +1,18 @@
+# Local Jira substitute for Phase 3 (real Jira also works via JIRA_* env vars).
+# Run: docker compose up -d
+services:
+  jira-substitute:
+    # Minimal stand-in: a Postgres-backed stub is wired in Phase 3.
+    # For now this reserves the port and documents intent.
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: sentinel
+      POSTGRES_PASSWORD: sentinel
+      POSTGRES_DB: sentinel_jira_stub
+    ports:
+      - "5432:5432"
+    volumes:
+      - sentinel_pgdata:/var/lib/postgresql/data
+
+volumes:
+  sentinel_pgdata:

@@ -1,0 +1,40 @@
+[project]
+name = "mock-portals"
+version = "0.1.0"
+description = "Synthetic supplier portals (Alpha Supply, Beta Devices, Gamma Trade) with fixture control API"
+requires-python = ">=3.12,<3.14"
+dependencies = [
+    "fastapi>=0.142.2",
+    "itsdangerous>=2.2.0",
+    "jinja2>=3.1.6",
+    "psycopg[binary]>=3.3.6",
+    "python-multipart>=0.0.32",
+    "sqlalchemy>=2",
+    "uvicorn[standard]>=0.54.0",
+]
+
+[build-system]
+requires = ["uv_build>=0.11.20,<0.12.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-root = ""
+module-name = "mockportals"
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+
+[dependency-groups]
+dev = [
+    "httpx>=0.28.1",
+    "pytest>=9.1.1",
+    "ruff>=0.16.10",
+]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "DTZ"]
+ignore = ["B008"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["E501"]

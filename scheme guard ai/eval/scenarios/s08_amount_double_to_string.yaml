@@ -1,0 +1,35 @@
+# Hand-labelled golden scenario. Expectations derive from reading the SQL and dashboards.yaml.
+id: s08_amount_double_to_string
+description: orders.amount double -> string; staging CAST keeps it working (fragile)
+topic: orders.v1
+mutations:
+- op: change_type
+  field: amount
+  type: string
+expected:
+  change_class: breaking
+  route: approval
+  impacted:
+  - column:mart.customer_ltv.ltv
+  - column:mart.daily_revenue.revenue
+  - column:mart.fct_orders.amount
+  - column:stg.stg_orders.amount
+  - dashboard:Customer Health
+  - dashboard:Finance Reconciliation
+  - dashboard:Sales Overview
+  - visual:Customer Health/LTV Distribution
+  - visual:Finance Reconciliation/Paid vs Ordered
+  - visual:Sales Overview/Revenue by Day
+  verdicts:
+    column:stg.stg_orders.amount: degraded
+    column:mart.fct_orders.amount: degraded
+    column:mart.daily_revenue.revenue: degraded
+    column:mart.customer_ltv.ltv: degraded
+    visual:Sales Overview/Revenue by Day: degraded
+    visual:Finance Reconciliation/Paid vs Ordered: degraded
+    visual:Customer Health/LTV Distribution: degraded
+    dashboard:Sales Overview: degraded
+    dashboard:Finance Reconciliation: degraded
+    dashboard:Customer Health: degraded
+  fix_should_pass: true
+  failing_tables: []

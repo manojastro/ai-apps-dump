@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}Review queue · TruthKeeper{% endblock %}
+{% block body %}
+<div class="cards">
+  <div class="card"><b>{{ stats.conflicts_open }}</b><span>open conflicts</span></div>
+  <div class="card"><b>${{ "{:,.0f}".format(stats.money_at_risk_open_usd) }}</b><span>money at risk / month (open)</span></div>
+  <div class="card"><b>{{ stats.proposals_pending_review }}</b><span>awaiting review</span></div>
+  <div class="card"><b>{{ stats.proposals_applied }}</b><span>fixes applied</span></div>
+  <div class="card"><b>{{ stats.proposals_failed }}</b><span>proposals failed</span></div>
+  <div class="card"><b>{{ stats.conflicts_resolved }}</b><span>conflicts resolved</span></div>
+</div>
+
+<p>
+  <form class="inline" method="post" action="/ui/run"><button class="primary">Run detection + proposals</button></form>
+  <form class="inline" method="post" action="/ui/reset" onsubmit="return confirm('Reset sandbox data to the generated originals?')"><button>Reset sandbox</button></form>
+  {% if not sandbox_ready %}<span class="muted">Sandbox is empty: running will copy the generated data first.</span>{% endif %}
+</p>
+
+<form method="get" action="/" style="margin:12px 0">
+  <select name="type">
+    <option value="">all types</option>
+    {% for t in types %}<option value="{{ t }}" {% if t == selected_type %}selected{% endif %}>{{ t }}</option>{% endfor %}
+  </select>
+  <select name="show">
+    <option value="open" {% if show == 'open' %}selected{% endif %}>open conflicts</option>
+    <option value="all" {% if show == 'all' %}selected{% endif %}>all conflicts</option>
+  </select>
+  <button>Filter</button>
+</form>
+
+<div class="scroll">
+<table>
+  <thead><tr><th class="num">$ at risk / mo</th><th>type</th><th>customer</th><th>status</th><th>proposal</th><th class="hide-sm">explanation</th><th></th></tr></thead>
+  <tbody>
+  {% for r in rows %}
+    <tr>
+      <td class="num">{{ "{:,.2f}".format(r.impact_usd) }}</td>
+      <td>{{ r.type }}</td>
+      <td>{{ r.customer_key }}</td>
+      <td><span class="pill {{ r.status }}">{{ r.status }}</span></td>
+      <td>{% if r.proposal %}<span class="pill {{ r.proposal.status }}">{{ r.proposal.status }}</span><br><code>{{ r.proposal.action or '-' }}</code>{% else %}<span class="muted">none yet</span>{% endif %}</td>
+      <td class="hide-sm">{{ (r.proposal.explanation or r.proposal.failure_reason or '') if r.proposal else '' }}</td>
+      <td>{% if r.proposal %}<a href="/ui/proposals/{{ r.proposal.id }}">review</a>{% endif %}</td>
+    </tr>
+  {% else %}
+    <tr><td colspan="7" class="muted">No conflicts yet. Click "Run detection + proposals".</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+{% endblock %}

@@ -1,0 +1,6 @@
+{% extends "gamma/base.jinja" %}{% block title %}Quote cart{% endblock %}{% block body %}
+<h1>Quote cart</h1>
+{% if lines %}<table class="grid" aria-label="Quote cart lines"><tr><th>Part number</th><th>Description</th><th>Order quantity</th><th>Unit rate (ex-tax)</th><th>Action</th></tr>
+{% for l in lines %}<tr><td>{{ l.sku }}</td><td>{{ l.name }}</td><td>{{ l.qty }}</td><td>INR {{ l.unit_price|inr }}</td>
+<td><form method="post" action="{{ r.cart_remove }}"><input type="hidden" name="sku" value="{{ l.sku }}"><button type="submit" aria-label="Remove {{ l.sku }}">Delete</button></form></td></tr>{% endfor %}
+</table><p><a class="button" href="{{ r.checkout }}">Proceed to purchase</a></p>{% else %}<p>Quote cart is empty.</p>{% endif %}{% endblock %}

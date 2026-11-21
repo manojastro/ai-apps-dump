@@ -1,0 +1,8 @@
+{% extends "alpha/base.jinja" %}{% block title %}Order {{ o.order_ref }}{% endblock %}{% block body %}
+<h1>Order {{ o.order_ref }}</h1>
+<dl id="order-detail"><dt>Status</dt><dd>{{ status }}</dd><dt>PO number</dt><dd>{{ o.po_reference }}</dd><dt>Quote reference</dt><dd>{{ o.quote_ref }}</dd>
+<dt>Item</dt><dd>{{ o.sku }} {{ o.product_name }}</dd><dt>Quantity</dt><dd>{{ o.qty }}</dd>
+<dt>Total</dt><dd>INR {{ o.total|inr }}</dd><dt>Currency</dt><dd>{{ o.currency }}</dd><dt>Delivery date</dt><dd>{{ o.delivery_date }}</dd>
+<dt>Ship to</dt><dd>{{ o.address_ref }}{% if address %} - {{ address.line }}{% endif %}</dd></dl>
+{% if status == 'Confirmed' %}<p><a href="{{ r.receipt.replace('{ref}', o.order_ref) }}" download>Download receipt</a></p>{% else %}<p role="status">Receipt available once the order is confirmed.</p>{% endif %}
+{% endblock %}

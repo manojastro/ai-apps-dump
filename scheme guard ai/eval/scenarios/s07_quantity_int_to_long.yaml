@@ -1,0 +1,25 @@
+# Hand-labelled golden scenario. Expectations derive from reading the SQL and dashboards.yaml.
+id: s07_quantity_int_to_long
+description: Lossless widening int -> long
+topic: orders.v1
+mutations:
+- op: change_type
+  field: quantity
+  type: long
+expected:
+  change_class: non_breaking
+  route: report
+  impacted:
+  - column:mart.daily_revenue.items_sold
+  - column:mart.fct_orders.quantity
+  - column:stg.stg_orders.quantity
+  - dashboard:Sales Overview
+  - visual:Sales Overview/Items Sold by Day
+  verdicts:
+    column:stg.stg_orders.quantity: safe
+    column:mart.fct_orders.quantity: safe
+    column:mart.daily_revenue.items_sold: safe
+    visual:Sales Overview/Items Sold by Day: safe
+    dashboard:Sales Overview: safe
+  fix_should_pass: null
+  failing_tables: []

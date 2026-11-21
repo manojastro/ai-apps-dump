@@ -1,0 +1,11 @@
+.env
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+*.db
+apps/web/node_modules/
+apps/web/dist/
+playwright-report/
+test-results/

@@ -1,0 +1,11 @@
+{% extends "alpha/base.jinja" %}{% block title %}Catalog{% endblock %}{% block body %}
+<h1>Catalog</h1>
+<form role="search" method="get" action="{{ r.search }}" id="alpha-search-form">
+<label for="alpha-search">Search catalog</label> <input id="alpha-search" name="q" value="{{ query }}">
+<button class="btn" type="submit">Search</button></form>
+{% if malicious %}{% include "_malicious.jinja" %}{% endif %}
+{% if query %}<h2>Results for "{{ query }}"</h2>
+{% if items %}<table id="results"><thead><tr><th>Item</th><th>Code</th><th>Price (excl. GST)</th><th>Availability</th></tr></thead><tbody>
+{% for p in items %}<tr><td><a href="{{ r.product.replace('{sku}', p.sku) }}">{{ p.name }}</a></td><td>{{ p.sku }}</td><td>INR {{ p.unit_price|inr }}</td><td>{{ 'In stock' if p.stock > 0 else 'Out of stock' }}</td></tr>{% endfor %}
+</tbody></table>{% else %}<p>No items match your search.</p>{% endif %}{% endif %}
+{% endblock %}

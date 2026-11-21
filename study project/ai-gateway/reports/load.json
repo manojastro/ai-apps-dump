@@ -1,0 +1,7 @@
+{
+  "note": "PLACEHOLDER — run locustfile.py against a local gateway and overwrite with measured p50/p95. Mock provider, so this measures gateway overhead only (auth, rate limit, guardrails, routing, metering), not model latency.",
+  "how": "GW_API_KEY=<tenant-key> locust -f locustfile.py --headless -u 10 -r 2 -t 60s --host http://localhost:8000",
+  "gateway_overhead_ms_p50": "<<MEASURE: from locust run>>",
+  "gateway_overhead_ms_p95": "<<MEASURE: from locust run>>",
+  "guardrail_overhead_ms_p95": "<<MEASURE: see reports/redteam.json overhead_ms_p95>>"
+}

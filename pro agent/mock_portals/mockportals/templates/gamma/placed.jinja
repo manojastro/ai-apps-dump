@@ -1,0 +1,5 @@
+{% extends "gamma/base.jinja" %}{% block title %}PO submitted{% endblock %}{% block body %}
+<h1>Purchase order submitted</h1>
+<p role="status">Sales order no.: <b>{{ order.order_ref }}</b></p>
+<p>Buyer PO reference: {{ order.po_reference }} | Order value INR {{ order.total|inr }}</p>
+<p><a href="{{ r.order.replace('{ref}', order.order_ref) }}">Open sales order</a></p>{% endblock %}

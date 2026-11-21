@@ -1,0 +1,14 @@
+# Hand-labelled golden scenario. Expectations derive from reading the SQL and dashboards.yaml.
+id: s04_drop_unused_coupon
+description: Drop orders.coupon_code, used nowhere downstream
+topic: orders.v1
+mutations:
+- op: drop_field
+  field: coupon_code
+expected:
+  change_class: breaking
+  route: report
+  impacted: []
+  verdicts: {}
+  fix_should_pass: null
+  failing_tables: []

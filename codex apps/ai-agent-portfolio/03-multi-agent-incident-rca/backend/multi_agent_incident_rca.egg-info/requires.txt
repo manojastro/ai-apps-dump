@@ -1,0 +1,15 @@
+fastapi<1,>=0.115
+uvicorn[standard]<1,>=0.30
+pydantic<3,>=2.8
+langgraph<1,>=0.2
+prometheus-client<1,>=0.20
+neo4j<6,>=5.23
+psycopg[binary]<4,>=3.2
+opentelemetry-api<2,>=1.27
+opentelemetry-sdk<2,>=1.27
+
+[dev]
+pytest<9,>=8.3
+pytest-asyncio<1,>=0.24
+httpx<1,>=0.27
+ruff<1,>=0.6

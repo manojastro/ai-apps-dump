@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% block content %}
+<h2>Flagged check-ins (fixed thresholds; staff decide)</h2>
+<table><tr><th>check-in</th><th>patient</th><th>pain</th><th>temp</th><th>flags</th><th>summary</th><th>patient free text (untrusted)</th><th>task</th></tr>
+{% for o in obs %}<tr><td>{{ o.id }}</td><td>{{ o.patient_id }}</td><td>{{ o.pain_score }}</td><td>{{ o.temperature }}</td><td>{{ o.flag_reasons|join("; ") }}</td><td>{{ o.review_summary }}</td>
+<td><div class="untrusted">{{ o.free_text }}</div></td><td>{{ aps[o.id].status if o.id in aps else "" }}</td></tr>{% endfor %}
+</table><p><a href="/approvals">Open the approval queue to act on pending review tasks.</a></p>{% endblock %}

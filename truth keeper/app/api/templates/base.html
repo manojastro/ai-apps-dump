@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}TruthKeeper{% endblock %}</title>
+<style>
+  :root { --bg:#f7f7f5; --card:#fff; --ink:#1d1d1b; --muted:#6b6b66; --line:#e3e2dc; --accent:#2f5d8a;
+          --ok:#2e7d4f; --bad:#b3402f; --warn:#a46a00; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#151514; --card:#1f1f1d; --ink:#ecebe6; --muted:#9b9a94;
+          --line:#33332f; --accent:#7fb0e0; --ok:#6cc08f; --bad:#e8826f; --warn:#e0b15a; } }
+  * { box-sizing:border-box; }
+  body { margin:0; font:15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; background:var(--bg); color:var(--ink); }
+  header { padding:14px 20px; border-bottom:1px solid var(--line); display:flex; gap:16px; align-items:center; flex-wrap:wrap; }
+  header a.brand { font-weight:700; color:var(--ink); text-decoration:none; }
+  main { padding:20px; max-width:1200px; margin:0 auto; }
+  a { color:var(--accent); }
+  .pill { display:inline-block; padding:1px 8px; border-radius:999px; border:1px solid var(--line); font-size:12px; color:var(--muted); }
+  .PENDING_REVIEW { color:var(--warn); border-color:var(--warn); }
+  .APPROVED, .APPLIED, .RESOLVED { color:var(--ok); border-color:var(--ok); }
+  .REJECTED, .FAILED, .STALE { color:var(--bad); border-color:var(--bad); }
+  table { width:100%; border-collapse:collapse; background:var(--card); border:1px solid var(--line); }
+  th, td { text-align:left; padding:8px 10px; border-bottom:1px solid var(--line); vertical-align:top; font-size:14px; }
+  th { font-size:12px; text-transform:uppercase; letter-spacing:.04em; color:var(--muted); }
+  td.num, th.num { text-align:right; font-variant-numeric:tabular-nums; }
+  .cards { display:grid; grid-template-columns:repeat(auto-fit, minmax(160px,1fr)); gap:10px; margin-bottom:16px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:10px 12px; }
+  .card b { display:block; font-size:20px; font-variant-numeric:tabular-nums; }
+  .card span { font-size:12px; color:var(--muted); }
+  form.inline { display:inline; }
+  button { font:inherit; padding:6px 12px; border-radius:6px; border:1px solid var(--line); background:var(--card); color:var(--ink); cursor:pointer; }
+  button.primary { background:var(--accent); color:#fff; border-color:var(--accent); }
+  button.danger { border-color:var(--bad); color:var(--bad); }
+  input, select, textarea { font:inherit; padding:6px 8px; border:1px solid var(--line); border-radius:6px; background:var(--card); color:var(--ink); }
+  pre { background:var(--card); border:1px solid var(--line); padding:10px; overflow:auto; font-size:12.5px; border-radius:6px; }
+  .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  @media (max-width: 800px) { .grid2 { grid-template-columns:1fr; } .hide-sm { display:none; } }
+  .msg { padding:10px 12px; border:1px solid var(--accent); border-radius:6px; margin-bottom:12px; }
+  .muted { color:var(--muted); }
+  .scroll { overflow-x:auto; }
+</style>
+</head>
+<body>
+<header>
+  <a class="brand" href="/">TruthKeeper</a>
+  <span class="muted">rules detect · LLM explains · humans approve · sandbox only</span>
+  <span class="pill" style="margin-left:auto">LLM: {{ llm_mode|default('') }} {{ model|default('') }}</span>
+</header>
+<main>{% block body %}{% endblock %}</main>
+</body>
+</html>

@@ -1,0 +1,64 @@
+name: selfheal-remediation-02
+services:
+  postgres:
+    image: postgres:17-alpine
+    container_name: selfheal-02-postgres
+    environment:
+      POSTGRES_DB: selfheal
+      POSTGRES_USER: selfheal
+      POSTGRES_PASSWORD: local-demo-only
+    ports: ["54322:5432"]
+    volumes: ["selfheal_02_postgres:/var/lib/postgresql/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U selfheal"]
+      interval: 5s
+      timeout: 3s
+      retries: 15
+    networks: [selfheal_02]
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    container_name: selfheal-02-api
+    environment:
+      PROJECT_ROOT: /app
+      DATABASE_URL: postgresql+psycopg://selfheal:local-demo-only@postgres:5432/selfheal
+      POLICY_PATH: /app/config/policies.yaml
+      SANDBOX_MODE: memory
+      ALLOWED_NAMESPACE: selfheal-demo
+      OPERATOR_TOKEN: demo-operator-token
+      VIEWER_TOKEN: demo-viewer-token
+      CSRF_TOKEN: demo-csrf-token
+      CORS_ORIGINS: http://localhost:3002,http://127.0.0.1:3002
+      SEED_ON_START: "true"
+    ports: ["8002:8002"]
+    depends_on:
+      postgres: {condition: service_healthy}
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8002/health/ready')"]
+      interval: 10s
+      timeout: 3s
+      retries: 10
+    networks: [selfheal_02]
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+      args: {VITE_API_URL: "http://localhost:8002"}
+    container_name: selfheal-02-web
+    ports: ["3002:80"]
+    depends_on:
+      api: {condition: service_healthy}
+    networks: [selfheal_02]
+  prometheus:
+    image: prom/prometheus:v3.5.0
+    container_name: selfheal-02-prometheus
+    command: ["--config.file=/etc/prometheus/prometheus.yml"]
+    volumes: ["./infra/prometheus.yml:/etc/prometheus/prometheus.yml:ro"]
+    ports: ["9092:9090"]
+    depends_on: [api]
+    networks: [selfheal_02]
+networks:
+  selfheal_02: {name: selfheal-02-network}
+volumes:
+  selfheal_02_postgres: {name: selfheal-02-postgres-data}

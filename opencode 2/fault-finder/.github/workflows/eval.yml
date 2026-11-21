@@ -1,0 +1,20 @@
+# Runs tests and the eval gate on pull requests. Offline: FakeLLM + SQLite, no secrets.
+# NOTE: added as a file only; not pushed or enabled by the build agent.
+name: eval-gate
+on:
+  pull_request:
+
+jobs:
+  eval:
+    runs-on: ubuntu-latest
+    env:
+      LLM_PROVIDER: fake
+      STORE_BACKEND: sqlite
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m venv .venv && .venv/bin/pip install -e ".[dev]"
+      - run: .venv/bin/python -m pytest
+      - run: .venv/bin/python -m evals.run_eval --fresh

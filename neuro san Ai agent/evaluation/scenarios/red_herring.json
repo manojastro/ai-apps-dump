@@ -1,0 +1,20 @@
+{"scenarios": [
+  {"id": "disk_42_with_teams", "description": "Healthy disk beside a real fault stays out",
+   "evidence": [{"id": "E1", "m": "process_memory", "v": "4500.0", "s": "Teams 4500.0MB", "e": "Teams"},
+                {"id": "E2", "m": "disk", "v": "42.0", "s": "Disk 42.0%"},
+                {"id": "E3", "m": "change", "v": "Teams updated 3.7.9 to 3.8.4", "s": "Change: Teams updated", "e": "Teams"}],
+   "expected": {"verdict": "PROCEED", "top": "Teams excessive memory after update", "reject": ["Disk exhaustion"]}},
+  {"id": "vpn_client_name_only", "description": "Healthy VPN client install is not a token fault",
+   "evidence": [{"id": "E1", "m": "software_version", "v": "5.2", "s": "VPN Client 5.2", "e": "VPN Client"}],
+   "expected": {"verdict": "INSUFFICIENT", "top": null, "reject": ["Stale secure-access token"]}},
+  {"id": "chrome_high_memory", "description": "Non-Teams hog must not frame Teams",
+   "evidence": [{"id": "E1", "m": "process_memory", "v": "4500.0", "s": "Chrome 4500.0MB", "e": "Chrome"}],
+   "expected": {"verdict": "INSUFFICIENT", "top": null, "reject": ["Teams excessive memory after update"]}},
+  {"id": "latency_noise", "description": "Elevated latency without fault signature",
+   "evidence": [{"id": "E1", "m": "network_path", "v": "400.0", "s": "Path latency 400.0ms loss 0.3%"}],
+   "expected": {"verdict": "INSUFFICIENT", "top": null, "reject": []}},
+  {"id": "unrelated_change", "description": "Chrome update does not explain Teams",
+   "evidence": [{"id": "E1", "m": "process_memory", "v": "4500.0", "s": "Teams 4500.0MB", "e": "Teams"},
+                {"id": "E2", "m": "change", "v": "Chrome updated to 126.0", "s": "Change: Chrome updated", "e": "Chrome"}],
+   "expected": {"verdict": "PROCEED", "top": "Teams excessive memory after update", "reject": [], "temporal": false}}
+ ]}

@@ -1,0 +1,85 @@
+# RECOVERY_WATCH: fixed thresholds (pain >= 7 or temperature >= 38.0) decide in code; humans review.
+- id: rw01_high_pain_flagged
+  description: Pain 8 exceeds the threshold; flagged and routed to nurse review.
+  setup: {checkin: {id: chk-s01, patient_id: pat-0003, pain_score: 8, temperature: 37.0, free_text: "Sore today."}}
+  events: [{type: CHECKIN_RECEIVED, payload: {checkin_id: chk-s01, patient_id: pat-0003}}]
+  expect:
+    workflow_status: COMPLETED
+    outcome: reviewed
+    must_call: [get_checkins, flag_checkin_for_review]
+    must_not_call: [draft_communication, book_appointment, get_patient_summary]
+    approvals: [checkin_review]
+    db: {flagged: 1}
+
+- id: rw02_high_temperature_flagged
+  description: Temperature 38.4 exceeds the threshold.
+  setup: {checkin: {id: chk-s02, patient_id: pat-0003, pain_score: 3, temperature: 38.4, free_text: ""}}
+  events: [{type: CHECKIN_RECEIVED, payload: {checkin_id: chk-s02, patient_id: pat-0003}}]
+  expect:
+    workflow_status: COMPLETED
+    outcome: reviewed
+    must_call: [flag_checkin_for_review]
+    approvals: [checkin_review]
+    db: {flagged: 1}
+
+- id: rw03_pain_boundary_7_flagged
+  description: Boundary case, pain exactly 7 is flagged.
+  setup: {checkin: {id: chk-s03, patient_id: pat-0003, pain_score: 7, temperature: 36.9, free_text: ""}}
+  events: [{type: CHECKIN_RECEIVED, payload: {checkin_id: chk-s03, patient_id: pat-0003}}]
+  expect:
+    workflow_status: COMPLETED
+    must_call: [flag_checkin_for_review]
+    approvals: [checkin_review]
+    db: {flagged: 1}
+
+- id: rw04_temperature_boundary_38_flagged
+  description: Boundary case, temperature exactly 38.0 is flagged.
+  setup: {checkin: {id: chk-s04, patient_id: pat-0003, pain_score: 1, temperature: 38.0, free_text: ""}}
+  events: [{type: CHECKIN_RECEIVED, payload: {checkin_id: chk-s04, patient_id: pat-0003}}]
+  expect:
+    workflow_status: COMPLETED
+    must_call: [flag_checkin_for_review]
+    approvals: [checkin_review]
+    db: {flagged: 1}
+
+- id: rw05_below_thresholds_recorded
+  description: Pain 6 and temperature 37.9 are just below the thresholds; recorded and closed with no flag.
+  setup: {checkin: {id: chk-s05, patient_id: pat-0003, pain_score: 6, temperature: 37.9, free_text: "Feeling better."}}
+  events: [{type: CHECKIN_RECEIVED, payload: {checkin_id: chk-s05, patient_id: pat-0003}}]
+  expect:
+    workflow_status: COMPLETED
+    outcome: recorded_no_flag
+    must_call: [get_checkins]
+    must_not_call: [flag_checkin_for_review]
+    no_approvals: true
+    db: {flagged: 0}
+
+- id: rw06_both_thresholds_two_reasons
+  description: Both thresholds exceeded; both reasons are recorded by code.
+  setup: {checkin: {id: chk-s06, patient_id: pat-0003, pain_score: 9, temperature: 39.1, free_text: ""}}
+  events: [{type: CHECKIN_RECEIVED, payload: {checkin_id: chk-s06, patient_id: pat-0003}}]
+  expect:
+    workflow_status: COMPLETED
+    must_call: [flag_checkin_for_review]
+    db: {flagged: 1, flag_reason_count: {chk-s06: 2}}
+
+- id: rw07_review_returned_by_nurse
+  description: Nurse returns the review task with a reason; workflow completes as returned.
+  setup: {checkin: {id: chk-s07, patient_id: pat-0003, pain_score: 8, temperature: 37.0, free_text: ""}}
+  events: [{type: CHECKIN_RECEIVED, payload: {checkin_id: chk-s07, patient_id: pat-0003}}]
+  approvals: {checkin_review: reject}
+  expect:
+    workflow_status: COMPLETED
+    outcome: review_returned
+    approvals: [checkin_review]
+
+- id: rw08_review_ignored_escalates
+  description: Nobody handles the flagged check-in in time; the workflow escalates.
+  setup: {checkin: {id: chk-s08, patient_id: pat-0003, pain_score: 8, temperature: 37.0, free_text: ""}}
+  events: [{type: CHECKIN_RECEIVED, payload: {checkin_id: chk-s08, patient_id: pat-0003}}]
+  approvals: {checkin_review: ignore}
+  expire: true
+  expect:
+    workflow_status: ESCALATED
+    outcome: escalated
+    db: {flagged: 1}

@@ -1,0 +1,13 @@
+<section class="card" aria-label="Order review">
+<div class="row"><span>Product</span><span>{{ line.name }} ({{ line.sku }})</span></div>
+<div class="row"><span>Qty</span><span>{{ totals.qty }}</span></div>
+<div class="row"><span>Price each (incl. GST)</span><span>₹{{ totals.unit_price|inr }}</span></div>
+<div class="row"><span>Items total (incl. GST)</span><span>₹{{ totals.subtotal|inr }}</span></div>
+<div class="row"><span>Savings</span><span>₹{{ totals.discount|inr }}</span></div>
+<div class="row"><span>Delivery fee (incl. GST)</span><span>₹{{ totals.shipping|inr }}</span></div>
+<div class="row"><span>GST included in total (18%, synthetic)</span><span>₹{{ totals.tax|inr }}</span></div>
+<div class="row"><strong>Grand total</strong><strong>₹{{ totals.total|inr }}</strong></div>
+<div class="row"><span>Currency</span><span>INR</span></div>
+<div class="row"><span>Arrives by</span><span>{% if totals.delivery_certain %}{{ totals.delivery_date }}{% else %}Date not confirmed{% endif %}</span></div>
+<div class="row"><span>Quote reference</span><span>{{ totals.quote_ref }}</span></div>
+</section>

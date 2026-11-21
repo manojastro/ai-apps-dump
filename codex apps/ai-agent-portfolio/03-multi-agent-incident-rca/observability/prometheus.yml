@@ -1,0 +1,11 @@
+global:
+  scrape_interval: 5s
+
+scrape_configs:
+  - job_name: rca-api
+    static_configs: [{ targets: ["api:8003"] }]
+  - job_name: synthetic-services
+    metrics_path: /metrics
+    static_configs:
+      - targets: ["storefront:9101", "checkout-api:9102", "payment-api:9103", "auth-service:9104", "orders-db:9105"]
+

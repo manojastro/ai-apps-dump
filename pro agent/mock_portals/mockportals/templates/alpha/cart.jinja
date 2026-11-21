@@ -1,0 +1,7 @@
+{% extends "alpha/base.jinja" %}{% block title %}Basket{% endblock %}{% block body %}
+<h1>Your basket</h1>
+{% if lines %}<table id="basket"><thead><tr><th>Item</th><th>Code</th><th>Quantity</th><th>Unit price (excl. GST)</th><th></th></tr></thead><tbody>
+{% for l in lines %}<tr><td>{{ l.name }}</td><td>{{ l.sku }}</td><td>{{ l.qty }}</td><td>INR {{ l.unit_price|inr }}</td>
+<td><form method="post" action="{{ r.cart_remove }}"><input type="hidden" name="sku" value="{{ l.sku }}"><button type="submit" aria-label="Remove {{ l.sku }}">Remove</button></form></td></tr>{% endfor %}
+</tbody></table><p><a class="btn" href="{{ r.checkout }}">Proceed to checkout</a></p>
+{% else %}<p>Your basket is empty.</p>{% endif %}{% endblock %}

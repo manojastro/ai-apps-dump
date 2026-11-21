@@ -1,0 +1,20 @@
+{% extends "base.html" %}{% block content %}
+<h2>Pending approvals for {{ user.role }}</h2>
+{% if msg %}<div class="card">{{ msg }}</div>{% endif %}
+{% if not items %}<p>Nothing waiting.</p>{% endif %}
+{% for a in items %}
+<div class="card">
+ <b>{{ a.kind }}</b> <span class="tag">{{ a.id }}</span> <span class="tag">age {{ ((now - a.created_at).total_seconds() // 60)|int }} min</span>
+ <span class="tag">expires {{ a.expires_at }}</span>
+ {% if a.workflow_id %}<a href="/workflows/{{ a.workflow_id }}">workflow {{ a.workflow_id }}</a>{% endif %}
+ <p><b>Agent summary:</b> {{ a.summary }}</p>
+ {% if a.payload.get("body") %}<p><b>Draft message:</b></p><div class="untrusted">{{ a.payload.body }}</div>{% endif %}
+ {% if a.payload.get("lines") %}<p><b>Order lines:</b> {% for l in a.payload.lines %}{{ l.sku }}&times;{{ l.quantity }}{% if not loop.last %}, {% endif %}{% endfor %}</p>{% endif %}
+ {% if a.payload.get("reasons") %}<p><b>Fixed-threshold flags:</b> {{ a.payload.reasons|join("; ") }}</p>{% endif %}
+ {% if a.payload.get("slot_id") %}<p><b>Proposed slot:</b> {{ a.payload.slot_id }} for {{ a.payload.patient_id }}</p>{% endif %}
+ <form method="post" action="/approvals/{{ a.id }}/decide">
+  <input name="reason" placeholder="reason (required to reject)" size="40">
+  <button name="decision" value="approve">{% if a.kind == "checkin_review" %}Mark reviewed{% else %}Approve{% endif %}</button>
+  <button name="decision" value="reject">{% if a.kind == "checkin_review" %}Return{% else %}Reject{% endif %}</button>
+ </form></div>
+{% endfor %}{% endblock %}

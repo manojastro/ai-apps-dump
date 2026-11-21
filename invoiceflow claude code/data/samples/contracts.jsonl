@@ -1,0 +1,5 @@
+{"contract_id":"CT-V009","vendor_id":"V009","effective_from":"2026-04-01","effective_to":"2027-03-31","payment_terms_days":30,"escalation_max_pct":null,"escalation_effective_from":null}
+{"contract_id":"CT-V011","vendor_id":"V011","effective_from":"2026-04-01","effective_to":"2027-03-31","payment_terms_days":30,"escalation_max_pct":"6.00","escalation_effective_from":"2026-07-01"}
+{"contract_id":"CT-V013","vendor_id":"V013","effective_from":"2026-04-01","effective_to":"2027-03-31","payment_terms_days":60,"escalation_max_pct":null,"escalation_effective_from":null}
+{"contract_id":"CT-V016","vendor_id":"V016","effective_from":"2026-04-01","effective_to":"2027-03-31","payment_terms_days":60,"escalation_max_pct":"6.00","escalation_effective_from":"2026-07-01"}
+{"contract_id":"CT-V018","vendor_id":"V018","effective_from":"2026-04-01","effective_to":"2027-03-31","payment_terms_days":30,"escalation_max_pct":null,"escalation_effective_from":null}

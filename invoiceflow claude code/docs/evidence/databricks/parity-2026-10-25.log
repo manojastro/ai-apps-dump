@@ -1,0 +1,39 @@
+# Databricks parity run
+# date:
+2026-10-25 18:20:19 +05:30
+# commit:
+21bdebc
+; clean:
+True
+# command: uv run invoiceflow databricks parity
+# target: workspace.invoiceflow_ap / workspace.invoiceflow_eval (host omitted)
+
+{
+  "vendors": {
+    "records": 30,
+    "mismatches": 0
+  },
+  "purchase_orders": {
+    "records": 200,
+    "mismatches": 0
+  },
+  "goods_receipts": {
+    "records": 276,
+    "mismatches": 0
+  },
+  "invoices": {
+    "records": 325,
+    "mismatches": 0
+  },
+  "ground_truth": {
+    "records": 325,
+    "mismatches": 0
+  },
+  "per_record_sample": {
+    "invoices": 10
+  },
+  "mismatches": [],
+  "elapsed_s": 106.4
+}
+
+## exit code: 0

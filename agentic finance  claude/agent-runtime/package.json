@@ -1,0 +1,25 @@
+{
+  "name": "spreadlens-agent-runtime",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "SpreadLens eve agents (live mode). The Python coordinator calls each agent over its /eve/v1 HTTP API.",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "info": "node scripts/each.mjs info",
+    "build": "node scripts/each.mjs build",
+    "start": "node scripts/start-all.mjs",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "ai": "7.0.165",
+    "eve": "1.0.0-rc.6",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "26.6.6",
+    "typescript": "7.0.2"
+  }
+}

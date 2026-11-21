@@ -1,0 +1,13 @@
+# Ground truth: SSO failures from expired cert. Synthetic drill.
+scenario: sso-cert-expiry
+incident_number: INC1000003
+ci: sso-idp-01
+true_root_cause: Certificate sso.acme-retail.local expired; IdP TLS handshakes fail.
+evidence:
+  - change: CHG1000004 cert renewal skipped 2026-08-30
+  - logs: sso WARN expiry + ERROR certificate expired
+related_changes: [CHG1000004]
+red_herrings: []
+expected_blast: [checkout-web-01]
+log_window: {service: sso, minutes: 120}
+confidence: HIGH

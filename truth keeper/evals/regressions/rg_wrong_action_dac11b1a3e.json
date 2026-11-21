@@ -1,0 +1,45 @@
+{
+  "conflict": {
+    "customer_key": "ACC-00356",
+    "evidence": {
+      "billing": [
+        {
+          "billing_customer_id": "BC-00345",
+          "billing_email": "ethan.sato@northwind-retail.example",
+          "billing_plan": "enterprise",
+          "billing_status": "past_due",
+          "currency": "USD",
+          "days_past_due": 77,
+          "match_confidence": 0.95,
+          "match_method": "email",
+          "monthly_amount": 1200.0,
+          "next_charge_date": null,
+          "past_due_since": "2026-08-16",
+          "subscription_id": "SUB-00345"
+        }
+      ],
+      "crm_account_id": "ACC-00356",
+      "crm_email": "ethan.sato@northwind-retail.example",
+      "crm_name": "Ethan Sato",
+      "crm_plan": "enterprise",
+      "crm_status": "active",
+      "threshold_days": 30
+    },
+    "id": "cf_40f218e5b2a5",
+    "type": "PAST_DUE_BUT_CRM_ACTIVE"
+  },
+  "created_at": "2026-11-16T03:20:13+00:00",
+  "expect_mock": {
+    "action": "no_action",
+    "status": "PENDING_REVIEW"
+  },
+  "expected_action": "flag_for_finance_review",
+  "id": "rg_wrong_action_dac11b1a3e",
+  "note": "proposed no_action, ground truth expects flag_for_finance_review",
+  "prompt_version": "v1",
+  "recorded_responses": [
+    "Sure! Here is my proposal: {action: flag_for_finance_review, params: ...",
+    "{\"explanation\": \"Billing shows subscription SUB-00345 past due for 77 days, but the CRM still lists ACC-00356 as an active, healthy account. Sales and support do not know the account is at risk.\", \"action\": \"no_action\", \"params\": {}, \"confidence\": 0.55, \"needs_human_note\": null}"
+  ],
+  "source": "wrong_action"
+}

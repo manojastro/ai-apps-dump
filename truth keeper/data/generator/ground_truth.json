@@ -1,0 +1,984 @@
+{
+  "as_of": "2026-11-01",
+  "conflicts": [
+    {
+      "customer_key": "ACC-00015",
+      "expected_fix": "cancel_subscription",
+      "expected_params": {
+        "subscription_id": "SUB-00014"
+      },
+      "type": "CANCELLED_BUT_BILLING_ACTIVE"
+    },
+    {
+      "customer_key": "ACC-00072",
+      "expected_fix": "cancel_subscription",
+      "expected_params": {
+        "subscription_id": "SUB-00067"
+      },
+      "type": "CANCELLED_BUT_BILLING_ACTIVE"
+    },
+    {
+      "customer_key": "ACC-00117",
+      "expected_fix": "cancel_subscription",
+      "expected_params": {
+        "subscription_id": "SUB-00111"
+      },
+      "type": "CANCELLED_BUT_BILLING_ACTIVE"
+    },
+    {
+      "customer_key": "ACC-00164",
+      "expected_fix": "cancel_subscription",
+      "expected_params": {
+        "subscription_id": "SUB-00159"
+      },
+      "type": "CANCELLED_BUT_BILLING_ACTIVE"
+    },
+    {
+      "customer_key": "ACC-00178",
+      "expected_fix": "cancel_subscription",
+      "expected_params": {
+        "subscription_id": "SUB-00171"
+      },
+      "type": "CANCELLED_BUT_BILLING_ACTIVE"
+    },
+    {
+      "customer_key": "ACC-00185",
+      "expected_fix": "cancel_subscription",
+      "expected_params": {
+        "subscription_id": "SUB-00178"
+      },
+      "type": "CANCELLED_BUT_BILLING_ACTIVE"
+    },
+    {
+      "customer_key": "ACC-00213",
+      "expected_fix": "cancel_subscription",
+      "expected_params": {
+        "subscription_id": "SUB-00204"
+      },
+      "type": "CANCELLED_BUT_BILLING_ACTIVE"
+    },
+    {
+      "customer_key": "ACC-00222",
+      "expected_fix": "cancel_subscription",
+      "expected_params": {
+        "subscription_id": "SUB-00213"
+      },
+      "type": "CANCELLED_BUT_BILLING_ACTIVE"
+    },
+    {
+      "customer_key": "ACC-00239",
+      "expected_fix": "cancel_subscription",
+      "expected_params": {
+        "subscription_id": "SUB-00231"
+      },
+      "type": "CANCELLED_BUT_BILLING_ACTIVE"
+    },
+    {
+      "customer_key": "ACC-00251",
+      "expected_fix": "cancel_subscription",
+      "expected_params": {
+        "subscription_id": "SUB-00246"
+      },
+      "type": "CANCELLED_BUT_BILLING_ACTIVE"
+    },
+    {
+      "customer_key": "ACC-00266",
+      "expected_fix": "cancel_subscription",
+      "expected_params": {
+        "subscription_id": "SUB-00262"
+      },
+      "type": "CANCELLED_BUT_BILLING_ACTIVE"
+    },
+    {
+      "customer_key": "ACC-00271",
+      "expected_fix": "cancel_subscription",
+      "expected_params": {
+        "subscription_id": "SUB-00267"
+      },
+      "type": "CANCELLED_BUT_BILLING_ACTIVE"
+    },
+    {
+      "customer_key": "ACC-00278",
+      "expected_fix": "cancel_subscription",
+      "expected_params": {
+        "subscription_id": "SUB-00272"
+      },
+      "type": "CANCELLED_BUT_BILLING_ACTIVE"
+    },
+    {
+      "customer_key": "ACC-00311",
+      "expected_fix": "cancel_subscription",
+      "expected_params": {
+        "subscription_id": "SUB-00303"
+      },
+      "type": "CANCELLED_BUT_BILLING_ACTIVE"
+    },
+    {
+      "customer_key": "ACC-00337",
+      "expected_fix": "cancel_subscription",
+      "expected_params": {
+        "subscription_id": "SUB-00328"
+      },
+      "type": "CANCELLED_BUT_BILLING_ACTIVE"
+    },
+    {
+      "customer_key": "ACC-00357",
+      "expected_fix": "cancel_subscription",
+      "expected_params": {
+        "subscription_id": "SUB-00346"
+      },
+      "type": "CANCELLED_BUT_BILLING_ACTIVE"
+    },
+    {
+      "customer_key": "ACC-00366",
+      "expected_fix": "cancel_subscription",
+      "expected_params": {
+        "subscription_id": "SUB-00353"
+      },
+      "type": "CANCELLED_BUT_BILLING_ACTIVE"
+    },
+    {
+      "customer_key": "ACC-00429",
+      "expected_fix": "cancel_subscription",
+      "expected_params": {
+        "subscription_id": "SUB-00415"
+      },
+      "type": "CANCELLED_BUT_BILLING_ACTIVE"
+    },
+    {
+      "customer_key": "ACC-00446",
+      "expected_fix": "cancel_subscription",
+      "expected_params": {
+        "subscription_id": "SUB-00434"
+      },
+      "type": "CANCELLED_BUT_BILLING_ACTIVE"
+    },
+    {
+      "customer_key": "ACC-00477",
+      "expected_fix": "cancel_subscription",
+      "expected_params": {
+        "subscription_id": "SUB-00464"
+      },
+      "type": "CANCELLED_BUT_BILLING_ACTIVE"
+    },
+    {
+      "customer_key": "ACC-00028",
+      "expected_fix": "unsubscribe_contact",
+      "expected_params": {
+        "contact_id": "MC-00027"
+      },
+      "type": "CHURNED_STILL_MARKETED"
+    },
+    {
+      "customer_key": "ACC-00063",
+      "expected_fix": "unsubscribe_contact",
+      "expected_params": {
+        "contact_id": "MC-00061"
+      },
+      "type": "CHURNED_STILL_MARKETED"
+    },
+    {
+      "customer_key": "ACC-00103",
+      "expected_fix": "unsubscribe_contact",
+      "expected_params": {
+        "contact_id": "MC-00099"
+      },
+      "type": "CHURNED_STILL_MARKETED"
+    },
+    {
+      "customer_key": "ACC-00123",
+      "expected_fix": "unsubscribe_contact",
+      "expected_params": {
+        "contact_id": "MC-00119"
+      },
+      "type": "CHURNED_STILL_MARKETED"
+    },
+    {
+      "customer_key": "ACC-00126",
+      "expected_fix": "unsubscribe_contact",
+      "expected_params": {
+        "contact_id": "MC-00122"
+      },
+      "type": "CHURNED_STILL_MARKETED"
+    },
+    {
+      "customer_key": "ACC-00143",
+      "expected_fix": "unsubscribe_contact",
+      "expected_params": {
+        "contact_id": "MC-00139"
+      },
+      "type": "CHURNED_STILL_MARKETED"
+    },
+    {
+      "customer_key": "ACC-00150",
+      "expected_fix": "unsubscribe_contact",
+      "expected_params": {
+        "contact_id": "MC-00146"
+      },
+      "type": "CHURNED_STILL_MARKETED"
+    },
+    {
+      "customer_key": "ACC-00153",
+      "expected_fix": "unsubscribe_contact",
+      "expected_params": {
+        "contact_id": "MC-00149"
+      },
+      "type": "CHURNED_STILL_MARKETED"
+    },
+    {
+      "customer_key": "ACC-00163",
+      "expected_fix": "unsubscribe_contact",
+      "expected_params": {
+        "contact_id": "MC-00158"
+      },
+      "type": "CHURNED_STILL_MARKETED"
+    },
+    {
+      "customer_key": "ACC-00264",
+      "expected_fix": "unsubscribe_contact",
+      "expected_params": {
+        "contact_id": "MC-00252"
+      },
+      "type": "CHURNED_STILL_MARKETED"
+    },
+    {
+      "customer_key": "ACC-00267",
+      "expected_fix": "unsubscribe_contact",
+      "expected_params": {
+        "contact_id": "MC-00254"
+      },
+      "type": "CHURNED_STILL_MARKETED"
+    },
+    {
+      "customer_key": "ACC-00274",
+      "expected_fix": "unsubscribe_contact",
+      "expected_params": {
+        "contact_id": "MC-00261"
+      },
+      "type": "CHURNED_STILL_MARKETED"
+    },
+    {
+      "customer_key": "ACC-00306",
+      "expected_fix": "unsubscribe_contact",
+      "expected_params": {
+        "contact_id": "MC-00293"
+      },
+      "type": "CHURNED_STILL_MARKETED"
+    },
+    {
+      "customer_key": "ACC-00332",
+      "expected_fix": "unsubscribe_contact",
+      "expected_params": {
+        "contact_id": "MC-00318"
+      },
+      "type": "CHURNED_STILL_MARKETED"
+    },
+    {
+      "customer_key": "ACC-00338",
+      "expected_fix": "unsubscribe_contact",
+      "expected_params": {
+        "contact_id": "MC-00323"
+      },
+      "type": "CHURNED_STILL_MARKETED"
+    },
+    {
+      "customer_key": "ACC-00352",
+      "expected_fix": "unsubscribe_contact",
+      "expected_params": {
+        "contact_id": "MC-00336"
+      },
+      "type": "CHURNED_STILL_MARKETED"
+    },
+    {
+      "customer_key": "ACC-00377",
+      "expected_fix": "unsubscribe_contact",
+      "expected_params": {
+        "contact_id": "MC-00358"
+      },
+      "type": "CHURNED_STILL_MARKETED"
+    },
+    {
+      "customer_key": "ACC-00379",
+      "expected_fix": "unsubscribe_contact",
+      "expected_params": {
+        "contact_id": "MC-00360"
+      },
+      "type": "CHURNED_STILL_MARKETED"
+    },
+    {
+      "customer_key": "ACC-00387",
+      "expected_fix": "unsubscribe_contact",
+      "expected_params": {
+        "contact_id": "MC-00368"
+      },
+      "type": "CHURNED_STILL_MARKETED"
+    },
+    {
+      "customer_key": "ACC-00450",
+      "expected_fix": "unsubscribe_contact",
+      "expected_params": {
+        "contact_id": "MC-00429"
+      },
+      "type": "CHURNED_STILL_MARKETED"
+    },
+    {
+      "customer_key": "ACC-00106",
+      "expected_fix": "merge_billing_duplicates",
+      "expected_params": {
+        "keep_customer_id": "BC-00099",
+        "remove_customer_id": "BC-00100"
+      },
+      "type": "DUPLICATE_CUSTOMER"
+    },
+    {
+      "customer_key": "ACC-00139",
+      "expected_fix": "merge_billing_duplicates",
+      "expected_params": {
+        "keep_customer_id": "BC-00132",
+        "remove_customer_id": "BC-00133"
+      },
+      "type": "DUPLICATE_CUSTOMER"
+    },
+    {
+      "customer_key": "ACC-00140",
+      "expected_fix": "merge_billing_duplicates",
+      "expected_params": {
+        "keep_customer_id": "BC-00134",
+        "remove_customer_id": "BC-00135"
+      },
+      "type": "DUPLICATE_CUSTOMER"
+    },
+    {
+      "customer_key": "ACC-00148",
+      "expected_fix": "merge_billing_duplicates",
+      "expected_params": {
+        "keep_customer_id": "BC-00142",
+        "remove_customer_id": "BC-00143"
+      },
+      "type": "DUPLICATE_CUSTOMER"
+    },
+    {
+      "customer_key": "ACC-00212",
+      "expected_fix": "merge_billing_duplicates",
+      "expected_params": {
+        "keep_customer_id": "BC-00202",
+        "remove_customer_id": "BC-00203"
+      },
+      "type": "DUPLICATE_CUSTOMER"
+    },
+    {
+      "customer_key": "ACC-00233",
+      "expected_fix": "merge_billing_duplicates",
+      "expected_params": {
+        "keep_customer_id": "BC-00223",
+        "remove_customer_id": "BC-00224"
+      },
+      "type": "DUPLICATE_CUSTOMER"
+    },
+    {
+      "customer_key": "ACC-00235",
+      "expected_fix": "merge_billing_duplicates",
+      "expected_params": {
+        "keep_customer_id": "BC-00226",
+        "remove_customer_id": "BC-00227"
+      },
+      "type": "DUPLICATE_CUSTOMER"
+    },
+    {
+      "customer_key": "ACC-00240",
+      "expected_fix": "merge_billing_duplicates",
+      "expected_params": {
+        "keep_customer_id": "BC-00232",
+        "remove_customer_id": "BC-00233"
+      },
+      "type": "DUPLICATE_CUSTOMER"
+    },
+    {
+      "customer_key": "ACC-00242",
+      "expected_fix": "merge_billing_duplicates",
+      "expected_params": {
+        "keep_customer_id": "BC-00235",
+        "remove_customer_id": "BC-00236"
+      },
+      "type": "DUPLICATE_CUSTOMER"
+    },
+    {
+      "customer_key": "ACC-00247",
+      "expected_fix": "merge_billing_duplicates",
+      "expected_params": {
+        "keep_customer_id": "BC-00241",
+        "remove_customer_id": "BC-00242"
+      },
+      "type": "DUPLICATE_CUSTOMER"
+    },
+    {
+      "customer_key": "ACC-00254",
+      "expected_fix": "merge_billing_duplicates",
+      "expected_params": {
+        "keep_customer_id": "BC-00249",
+        "remove_customer_id": "BC-00250"
+      },
+      "type": "DUPLICATE_CUSTOMER"
+    },
+    {
+      "customer_key": "ACC-00346",
+      "expected_fix": "merge_billing_duplicates",
+      "expected_params": {
+        "keep_customer_id": "BC-00336",
+        "remove_customer_id": "BC-00337"
+      },
+      "type": "DUPLICATE_CUSTOMER"
+    },
+    {
+      "customer_key": "ACC-00437",
+      "expected_fix": "merge_billing_duplicates",
+      "expected_params": {
+        "keep_customer_id": "BC-00423",
+        "remove_customer_id": "BC-00424"
+      },
+      "type": "DUPLICATE_CUSTOMER"
+    },
+    {
+      "customer_key": "ACC-00438",
+      "expected_fix": "merge_billing_duplicates",
+      "expected_params": {
+        "keep_customer_id": "BC-00425",
+        "remove_customer_id": "BC-00426"
+      },
+      "type": "DUPLICATE_CUSTOMER"
+    },
+    {
+      "customer_key": "ACC-00475",
+      "expected_fix": "merge_billing_duplicates",
+      "expected_params": {
+        "keep_customer_id": "BC-00462",
+        "remove_customer_id": "BC-00463"
+      },
+      "type": "DUPLICATE_CUSTOMER"
+    },
+    {
+      "billing_has_crm_ref": true,
+      "customer_key": "ACC-00016",
+      "expected_fix": "flag_for_finance_review",
+      "expected_params": {},
+      "planted_billing_email": "ethanm@kestrel-studio.example",
+      "type": "EMAIL_MISMATCH"
+    },
+    {
+      "billing_has_crm_ref": true,
+      "customer_key": "ACC-00025",
+      "expected_fix": "flag_for_finance_review",
+      "expected_params": {},
+      "planted_billing_email": "accounts@maple-analytics.example",
+      "type": "EMAIL_MISMATCH"
+    },
+    {
+      "billing_has_crm_ref": true,
+      "customer_key": "ACC-00051",
+      "expected_fix": "flag_for_finance_review",
+      "expected_params": {},
+      "planted_billing_email": "ivanl@lumen-foods.example",
+      "type": "EMAIL_MISMATCH"
+    },
+    {
+      "billing_has_crm_ref": true,
+      "customer_key": "ACC-00104",
+      "expected_fix": "flag_for_finance_review",
+      "expected_params": {},
+      "planted_billing_email": "accounts@saffron-systems.example",
+      "type": "EMAIL_MISMATCH"
+    },
+    {
+      "billing_has_crm_ref": true,
+      "customer_key": "ACC-00154",
+      "expected_fix": "flag_for_finance_review",
+      "expected_params": {},
+      "planted_billing_email": "billing@mosaic-systems.example",
+      "type": "EMAIL_MISMATCH"
+    },
+    {
+      "billing_has_crm_ref": true,
+      "customer_key": "ACC-00207",
+      "expected_fix": "flag_for_finance_review",
+      "expected_params": {},
+      "planted_billing_email": "lmoreau@copper-logistics.example",
+      "type": "EMAIL_MISMATCH"
+    },
+    {
+      "billing_has_crm_ref": true,
+      "customer_key": "ACC-00216",
+      "expected_fix": "flag_for_finance_review",
+      "expected_params": {},
+      "planted_billing_email": "fhaddad@aspen-retail.example",
+      "type": "EMAIL_MISMATCH"
+    },
+    {
+      "billing_has_crm_ref": true,
+      "customer_key": "ACC-00223",
+      "expected_fix": "flag_for_finance_review",
+      "expected_params": {},
+      "planted_billing_email": "liamo@cobalt-systems.example",
+      "type": "EMAIL_MISMATCH"
+    },
+    {
+      "billing_has_crm_ref": true,
+      "customer_key": "ACC-00281",
+      "expected_fix": "flag_for_finance_review",
+      "expected_params": {},
+      "planted_billing_email": "billing@granite-logistics.example",
+      "type": "EMAIL_MISMATCH"
+    },
+    {
+      "billing_has_crm_ref": true,
+      "customer_key": "ACC-00316",
+      "expected_fix": "flag_for_finance_review",
+      "expected_params": {},
+      "planted_billing_email": "lpetrov@aspen-retail.example",
+      "type": "EMAIL_MISMATCH"
+    },
+    {
+      "billing_has_crm_ref": true,
+      "customer_key": "ACC-00372",
+      "expected_fix": "flag_for_finance_review",
+      "expected_params": {},
+      "planted_billing_email": "accounts@bluepeak-logistics.example",
+      "type": "EMAIL_MISMATCH"
+    },
+    {
+      "billing_has_crm_ref": true,
+      "customer_key": "ACC-00375",
+      "expected_fix": "flag_for_finance_review",
+      "expected_params": {},
+      "planted_billing_email": "sofia.achebe.finance@northwind-logistics.example",
+      "type": "EMAIL_MISMATCH"
+    },
+    {
+      "billing_has_crm_ref": true,
+      "customer_key": "ACC-00410",
+      "expected_fix": "flag_for_finance_review",
+      "expected_params": {},
+      "planted_billing_email": "diegon@fjord-logistics.example",
+      "type": "EMAIL_MISMATCH"
+    },
+    {
+      "billing_has_crm_ref": true,
+      "customer_key": "ACC-00415",
+      "expected_fix": "flag_for_finance_review",
+      "expected_params": {},
+      "planted_billing_email": "jtanaka@kestrel-labs.example",
+      "type": "EMAIL_MISMATCH"
+    },
+    {
+      "billing_has_crm_ref": true,
+      "customer_key": "ACC-00423",
+      "expected_fix": "flag_for_finance_review",
+      "expected_params": {},
+      "planted_billing_email": "liam.nguyen.finance@drift-health.example",
+      "type": "EMAIL_MISMATCH"
+    },
+    {
+      "billing_has_crm_ref": true,
+      "customer_key": "ACC-00428",
+      "expected_fix": "flag_for_finance_review",
+      "expected_params": {},
+      "planted_billing_email": "billing@helix-studio.example",
+      "type": "EMAIL_MISMATCH"
+    },
+    {
+      "billing_has_crm_ref": false,
+      "customer_key": "ACC-00436",
+      "expected_fix": "flag_for_finance_review",
+      "expected_params": {},
+      "planted_billing_email": "kreyes@indigo-retail.example",
+      "type": "EMAIL_MISMATCH"
+    },
+    {
+      "billing_has_crm_ref": true,
+      "customer_key": "ACC-00462",
+      "expected_fix": "flag_for_finance_review",
+      "expected_params": {},
+      "planted_billing_email": "billing@nimbus-labs.example",
+      "type": "EMAIL_MISMATCH"
+    },
+    {
+      "billing_has_crm_ref": false,
+      "customer_key": "ACC-00479",
+      "expected_fix": "flag_for_finance_review",
+      "expected_params": {},
+      "planted_billing_email": "accounts@coral-health.example",
+      "type": "EMAIL_MISMATCH"
+    },
+    {
+      "billing_has_crm_ref": true,
+      "customer_key": "ACC-00488",
+      "expected_fix": "flag_for_finance_review",
+      "expected_params": {},
+      "planted_billing_email": "accounts@mosaic-analytics.example",
+      "type": "EMAIL_MISMATCH"
+    },
+    {
+      "customer_key": "ACC-00009",
+      "expected_fix": "flag_for_finance_review",
+      "expected_params": {},
+      "type": "PAST_DUE_BUT_CRM_ACTIVE"
+    },
+    {
+      "customer_key": "ACC-00031",
+      "expected_fix": "flag_for_finance_review",
+      "expected_params": {},
+      "type": "PAST_DUE_BUT_CRM_ACTIVE"
+    },
+    {
+      "customer_key": "ACC-00043",
+      "expected_fix": "flag_for_finance_review",
+      "expected_params": {},
+      "type": "PAST_DUE_BUT_CRM_ACTIVE"
+    },
+    {
+      "customer_key": "ACC-00045",
+      "expected_fix": "flag_for_finance_review",
+      "expected_params": {},
+      "type": "PAST_DUE_BUT_CRM_ACTIVE"
+    },
+    {
+      "customer_key": "ACC-00081",
+      "expected_fix": "flag_for_finance_review",
+      "expected_params": {},
+      "type": "PAST_DUE_BUT_CRM_ACTIVE"
+    },
+    {
+      "customer_key": "ACC-00083",
+      "expected_fix": "flag_for_finance_review",
+      "expected_params": {},
+      "type": "PAST_DUE_BUT_CRM_ACTIVE"
+    },
+    {
+      "customer_key": "ACC-00094",
+      "expected_fix": "flag_for_finance_review",
+      "expected_params": {},
+      "type": "PAST_DUE_BUT_CRM_ACTIVE"
+    },
+    {
+      "customer_key": "ACC-00101",
+      "expected_fix": "flag_for_finance_review",
+      "expected_params": {},
+      "type": "PAST_DUE_BUT_CRM_ACTIVE"
+    },
+    {
+      "customer_key": "ACC-00134",
+      "expected_fix": "flag_for_finance_review",
+      "expected_params": {},
+      "type": "PAST_DUE_BUT_CRM_ACTIVE"
+    },
+    {
+      "customer_key": "ACC-00144",
+      "expected_fix": "flag_for_finance_review",
+      "expected_params": {},
+      "type": "PAST_DUE_BUT_CRM_ACTIVE"
+    },
+    {
+      "customer_key": "ACC-00194",
+      "expected_fix": "flag_for_finance_review",
+      "expected_params": {},
+      "type": "PAST_DUE_BUT_CRM_ACTIVE"
+    },
+    {
+      "customer_key": "ACC-00205",
+      "expected_fix": "flag_for_finance_review",
+      "expected_params": {},
+      "type": "PAST_DUE_BUT_CRM_ACTIVE"
+    },
+    {
+      "customer_key": "ACC-00285",
+      "expected_fix": "flag_for_finance_review",
+      "expected_params": {},
+      "type": "PAST_DUE_BUT_CRM_ACTIVE"
+    },
+    {
+      "customer_key": "ACC-00329",
+      "expected_fix": "flag_for_finance_review",
+      "expected_params": {},
+      "type": "PAST_DUE_BUT_CRM_ACTIVE"
+    },
+    {
+      "customer_key": "ACC-00340",
+      "expected_fix": "flag_for_finance_review",
+      "expected_params": {},
+      "type": "PAST_DUE_BUT_CRM_ACTIVE"
+    },
+    {
+      "customer_key": "ACC-00347",
+      "expected_fix": "flag_for_finance_review",
+      "expected_params": {},
+      "type": "PAST_DUE_BUT_CRM_ACTIVE"
+    },
+    {
+      "customer_key": "ACC-00356",
+      "expected_fix": "flag_for_finance_review",
+      "expected_params": {},
+      "type": "PAST_DUE_BUT_CRM_ACTIVE"
+    },
+    {
+      "customer_key": "ACC-00448",
+      "expected_fix": "flag_for_finance_review",
+      "expected_params": {},
+      "type": "PAST_DUE_BUT_CRM_ACTIVE"
+    },
+    {
+      "customer_key": "ACC-00481",
+      "expected_fix": "flag_for_finance_review",
+      "expected_params": {},
+      "type": "PAST_DUE_BUT_CRM_ACTIVE"
+    },
+    {
+      "customer_key": "ACC-00498",
+      "expected_fix": "flag_for_finance_review",
+      "expected_params": {},
+      "type": "PAST_DUE_BUT_CRM_ACTIVE"
+    },
+    {
+      "customer_key": "ACC-00019",
+      "expected_fix": "update_crm_plan",
+      "expected_params": {
+        "account_id": "ACC-00019",
+        "new_plan": "pro"
+      },
+      "type": "PLAN_MISMATCH"
+    },
+    {
+      "customer_key": "ACC-00054",
+      "expected_fix": "update_crm_plan",
+      "expected_params": {
+        "account_id": "ACC-00054",
+        "new_plan": "pro"
+      },
+      "type": "PLAN_MISMATCH"
+    },
+    {
+      "customer_key": "ACC-00064",
+      "expected_fix": "update_crm_plan",
+      "expected_params": {
+        "account_id": "ACC-00064",
+        "new_plan": "enterprise"
+      },
+      "type": "PLAN_MISMATCH"
+    },
+    {
+      "customer_key": "ACC-00069",
+      "expected_fix": "update_crm_plan",
+      "expected_params": {
+        "account_id": "ACC-00069",
+        "new_plan": "pro"
+      },
+      "type": "PLAN_MISMATCH"
+    },
+    {
+      "customer_key": "ACC-00092",
+      "expected_fix": "update_crm_plan",
+      "expected_params": {
+        "account_id": "ACC-00092",
+        "new_plan": "growth"
+      },
+      "type": "PLAN_MISMATCH"
+    },
+    {
+      "customer_key": "ACC-00111",
+      "expected_fix": "update_crm_plan",
+      "expected_params": {
+        "account_id": "ACC-00111",
+        "new_plan": "growth"
+      },
+      "type": "PLAN_MISMATCH"
+    },
+    {
+      "customer_key": "ACC-00120",
+      "expected_fix": "update_crm_plan",
+      "expected_params": {
+        "account_id": "ACC-00120",
+        "new_plan": "starter"
+      },
+      "type": "PLAN_MISMATCH"
+    },
+    {
+      "customer_key": "ACC-00151",
+      "expected_fix": "update_crm_plan",
+      "expected_params": {
+        "account_id": "ACC-00151",
+        "new_plan": "starter"
+      },
+      "type": "PLAN_MISMATCH"
+    },
+    {
+      "customer_key": "ACC-00160",
+      "expected_fix": "update_crm_plan",
+      "expected_params": {
+        "account_id": "ACC-00160",
+        "new_plan": "growth"
+      },
+      "type": "PLAN_MISMATCH"
+    },
+    {
+      "customer_key": "ACC-00170",
+      "expected_fix": "update_crm_plan",
+      "expected_params": {
+        "account_id": "ACC-00170",
+        "new_plan": "starter"
+      },
+      "type": "PLAN_MISMATCH"
+    },
+    {
+      "customer_key": "ACC-00209",
+      "expected_fix": "update_crm_plan",
+      "expected_params": {
+        "account_id": "ACC-00209",
+        "new_plan": "pro"
+      },
+      "type": "PLAN_MISMATCH"
+    },
+    {
+      "customer_key": "ACC-00219",
+      "expected_fix": "update_crm_plan",
+      "expected_params": {
+        "account_id": "ACC-00219",
+        "new_plan": "growth"
+      },
+      "type": "PLAN_MISMATCH"
+    },
+    {
+      "customer_key": "ACC-00229",
+      "expected_fix": "update_crm_plan",
+      "expected_params": {
+        "account_id": "ACC-00229",
+        "new_plan": "starter"
+      },
+      "type": "PLAN_MISMATCH"
+    },
+    {
+      "customer_key": "ACC-00234",
+      "expected_fix": "update_crm_plan",
+      "expected_params": {
+        "account_id": "ACC-00234",
+        "new_plan": "growth"
+      },
+      "type": "PLAN_MISMATCH"
+    },
+    {
+      "customer_key": "ACC-00246",
+      "expected_fix": "update_crm_plan",
+      "expected_params": {
+        "account_id": "ACC-00246",
+        "new_plan": "enterprise"
+      },
+      "type": "PLAN_MISMATCH"
+    },
+    {
+      "customer_key": "ACC-00256",
+      "expected_fix": "update_crm_plan",
+      "expected_params": {
+        "account_id": "ACC-00256",
+        "new_plan": "pro"
+      },
+      "type": "PLAN_MISMATCH"
+    },
+    {
+      "customer_key": "ACC-00263",
+      "expected_fix": "update_crm_plan",
+      "expected_params": {
+        "account_id": "ACC-00263",
+        "new_plan": "enterprise"
+      },
+      "type": "PLAN_MISMATCH"
+    },
+    {
+      "customer_key": "ACC-00282",
+      "expected_fix": "update_crm_plan",
+      "expected_params": {
+        "account_id": "ACC-00282",
+        "new_plan": "pro"
+      },
+      "type": "PLAN_MISMATCH"
+    },
+    {
+      "customer_key": "ACC-00308",
+      "expected_fix": "update_crm_plan",
+      "expected_params": {
+        "account_id": "ACC-00308",
+        "new_plan": "enterprise"
+      },
+      "type": "PLAN_MISMATCH"
+    },
+    {
+      "customer_key": "ACC-00321",
+      "expected_fix": "update_crm_plan",
+      "expected_params": {
+        "account_id": "ACC-00321",
+        "new_plan": "growth"
+      },
+      "type": "PLAN_MISMATCH"
+    },
+    {
+      "customer_key": "ACC-00376",
+      "expected_fix": "update_crm_plan",
+      "expected_params": {
+        "account_id": "ACC-00376",
+        "new_plan": "starter"
+      },
+      "type": "PLAN_MISMATCH"
+    },
+    {
+      "customer_key": "ACC-00402",
+      "expected_fix": "update_crm_plan",
+      "expected_params": {
+        "account_id": "ACC-00402",
+        "new_plan": "enterprise"
+      },
+      "type": "PLAN_MISMATCH"
+    },
+    {
+      "customer_key": "ACC-00434",
+      "expected_fix": "update_crm_plan",
+      "expected_params": {
+        "account_id": "ACC-00434",
+        "new_plan": "growth"
+      },
+      "type": "PLAN_MISMATCH"
+    },
+    {
+      "customer_key": "ACC-00440",
+      "expected_fix": "update_crm_plan",
+      "expected_params": {
+        "account_id": "ACC-00440",
+        "new_plan": "enterprise"
+      },
+      "type": "PLAN_MISMATCH"
+    },
+    {
+      "customer_key": "ACC-00445",
+      "expected_fix": "update_crm_plan",
+      "expected_params": {
+        "account_id": "ACC-00445",
+        "new_plan": "pro"
+      },
+      "type": "PLAN_MISMATCH"
+    }
+  ],
+  "counts": {
+    "CANCELLED_BUT_BILLING_ACTIVE": 20,
+    "CHURNED_STILL_MARKETED": 20,
+    "DUPLICATE_CUSTOMER": 15,
+    "EMAIL_MISMATCH": 20,
+    "PAST_DUE_BUT_CRM_ACTIVE": 20,
+    "PLAN_MISMATCH": 25
+  },
+  "n": 500,
+  "noise": {
+    "billing_without_crm_ref": 73,
+    "cancelled_without_marketing_contact": 22,
+    "email_case_or_space": 203,
+    "past_due_under_threshold": 8,
+    "plan_case_or_space": 59,
+    "trial_without_billing": 30
+  },
+  "profile": "default",
+  "seed": 42
+}

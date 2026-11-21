@@ -1,0 +1,13 @@
+**/__pycache__/
+**/.pytest_cache/
+**/.ruff_cache/
+**/.venv/
+**/node_modules/
+**/.next/
+**/dist/
+**/*.db
+**/*.sqlite3
+**/.env
+.idea/
+.vscode/
+*.pyc

@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+build/
+dist/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+
+# Secrets: never commit. Use .env.example for placeholders.
+.env
+.env.*
+!.env.example
+*.pem
+*.pfx
+*.key
+
+# Generated datasets (small committed samples live in data/samples/)
+data/generated/
+
+# MLflow / Databricks local artifacts
+mlruns/
+mlartifacts/
+.databricks/
+
+# Terraform (Phase 7)
+.terraform/
+*.tfstate
+*.tfstate.*
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local tool binaries (OPA)
+tools/
+
+# Local agent state: checkpoints, audit log, cases, drafts, ERP sandbox, dev tokens
+.invoiceflow/

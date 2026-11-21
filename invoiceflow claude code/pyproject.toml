@@ -1,0 +1,120 @@
+[project]
+name = "invoiceflow"
+version = "0.0.1"
+description = "Accounts Payable exception-resolution agent on Databricks (synthetic data only)"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+authors = [{ name = "Manoj" }]
+# Runtime dependencies are added in the phase that first needs them.
+dependencies = [
+    "databricks-ai-search>=0.80",
+    "databricks-sdk>=0.157.0",
+    "faker>=40.43.0",
+    "fastapi>=0.162.0",
+    "httpx>=0.28.1",
+    "langgraph>=1.2.17",
+    "langgraph-checkpoint-postgres>=3.2.0",
+    "langgraph-checkpoint-sqlite>=3.1.2",
+    "mlflow-skinny>=3.17.2",
+    "numpy>=2.5.4",
+    "openai>=3.37.0",
+    "pandas>=3.1.0",
+    "psycopg[binary]>=3.3.6",
+    "pydantic>=2.14.1",
+    "pydantic-settings>=2.16.1",
+    "pyjwt[crypto]>=2.15.1",
+    "pyyaml>=6.0.3",
+    "uvicorn>=0.54.0",
+]
+
+[project.scripts]
+invoiceflow = "invoiceflow.cli:main"
+
+[dependency-groups]
+dev = [
+    "hypothesis>=6.170.9",
+    "mypy>=2.4.0",
+    "pre-commit>=4.7.0",
+    "pytest>=9.1.1",
+    "pytest-cov>=7.1.0",
+    "ruff>=0.17.2",
+    "types-pyyaml>=6.0.12.20260906",
+]
+
+[build-system]
+requires = ["uv_build>=0.11.20,<0.12"]
+build-backend = "uv_build"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = [
+    "E", "W", "F",  # pycodestyle, pyflakes
+    "I",            # import sorting
+    "B",            # bugbear
+    "UP",           # pyupgrade
+    "S",            # bandit security checks
+    "SIM",          # simplifications
+    "C4",           # comprehensions
+    "N",            # naming
+    "PT",           # pytest style
+    "DTZ",          # timezone-aware datetimes (audit timestamps)
+    "RUF",
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["invoiceflow", "builders", "sqlite_runner"]
+
+[tool.ruff.lint.per-file-ignores]
+# assert is how pytest works; `Decimal as D` keeps money literals readable in tests.
+"tests/**" = ["S101", "N817"]
+# Synthetic data needs reproducible pseudo-randomness, not cryptographic randomness.
+"src/invoiceflow/data/generator/**" = ["S311"]
+# The inbox page is an embedded HTML/JS template; its long lines are markup, not Python.
+"src/invoiceflow/services/approvals/app.py" = ["E501", "B008"]  # Depends() defaults are FastAPI's idiom
+# DDL for Unity Catalog functions: only identifiers validated by identifier() are interpolated.
+"src/invoiceflow/adapters/databricks/setup.py" = ["S608"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+files = ["src", "tests"]
+mypy_path = "src,tests"
+plugins = ["pydantic.mypy"]
+
+[[tool.mypy.overrides]]
+# databricks-ai-search ships no type hints (no py.typed); its calls are wrapped in
+# adapters/databricks/retrieval.py and typed as Any there.
+module = ["databricks.ai_search.*"]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["tests"]  # lets tests `import builders`
+# Tests that need Docker or Databricks run only when asked for: `pytest -m integration`.
+addopts = [
+    "-ra", "--strict-markers", "--strict-config", "--import-mode=importlib",
+    "-m", "not integration and not databricks",
+]
+markers = [
+    "integration: needs local Docker services (Postgres)",
+    "databricks: needs a Databricks workspace",
+    "e2e: end-to-end agent runs",
+    "rule(rule_id, kind): the control-matrix rule a policy test covers; kind is allow or deny",
+]
+
+[tool.coverage.run]
+source = ["invoiceflow"]
+branch = true
+
+[tool.coverage.report]
+show_missing = true
+skip_empty = true
+exclude_also = ['if __name__ == "__main__":']
+
+[tool.uv]
+# The uv cache (C:) and this repo (D:) are on different drives, so hardlinks fail.
+link-mode = "copy"

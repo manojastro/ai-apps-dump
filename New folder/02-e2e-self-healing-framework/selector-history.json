@@ -1,0 +1,55 @@
+{
+  "login.usernameInput": {
+    "key": "login.usernameInput",
+    "current": "[data-test=\"username\"]",
+    "history": [
+      {
+        "selector": "#user-name",
+        "strategy": "fuzzy-dom",
+        "confidence": 0.81,
+        "healedAt": "2026-07-14T09:12:44.000Z"
+      }
+    ]
+  },
+  "login.passwordInput": {
+    "key": "login.passwordInput",
+    "current": "[data-test=\"password\"]",
+    "history": [
+      {
+        "selector": "#password",
+        "strategy": "fuzzy-dom",
+        "confidence": 0.83,
+        "healedAt": "2026-07-14T09:12:51.000Z"
+      }
+    ]
+  },
+  "login.loginButton": {
+    "key": "login.loginButton",
+    "current": "[data-test=\"login-button\"]",
+    "history": []
+  },
+  "dashboard.cartLink": {
+    "key": "dashboard.cartLink",
+    "current": "[data-test=\"shopping-cart-link\"]",
+    "history": [
+      {
+        "selector": "[aria-label=\"Shopping Cart\"]",
+        "strategy": "fuzzy-dom",
+        "confidence": 0.88,
+        "healedAt": "2026-07-21T14:03:19.000Z"
+      }
+    ]
+  },
+  "checkout.firstNameInput": {
+    "key": "checkout.firstNameInput",
+    "current": "[data-test=\"firstName\"]",
+    "history": [
+      {
+        "selector": "[placeholder=\"First Name\"]",
+        "strategy": "fuzzy-dom",
+        "confidence": 0.94,
+        "healedAt": "2026-07-21T14:05:02.000Z"
+      }
+    ]
+  }
+}

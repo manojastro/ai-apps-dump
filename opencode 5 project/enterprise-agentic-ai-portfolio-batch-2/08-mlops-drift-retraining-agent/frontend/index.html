@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MLOps Drift &amp; Safe Retraining Agent</title>
+<style>
+  :root {
+    --bg: #0d1117; --panel: #161b22; --border: #21262d; --text: #e6edf3;
+    --muted: #8b949e; --accent: #58a6ff; --green: #3fb950; --red: #f85149;
+    --amber: #d29922; --purple: #bc8cff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: "Segoe UI", system-ui, sans-serif; font-size: 14px; }
+  header { display: flex; justify-content: space-between; align-items: center; padding: 14px 24px; background: var(--panel); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 5;}
+  header h1 { font-size: 17px; font-weight: 600; letter-spacing: .4px; }
+  header .sub { color: var(--muted); font-size: 12px; }
+  .status-pill { padding: 4px 12px; border-radius: 999px; font-size: 12px; font-weight: 600; }
+  .ok { background: rgba(63,185,80,.15); color: var(--green); }
+  .down { background: rgba(248,81,73,.15); color: var(--red); }
+  main { padding: 18px; display: grid; grid-template-columns: repeat(12, 1fr); gap: 14px; max-width: 1600px; margin: 0 auto; }
+  .card { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; overflow: hidden; }
+  .card h2 { font-size: 12px; text-transform: uppercase; letter-spacing: 1.2px; color: var(--muted); margin-bottom: 10px; font-weight: 600; }
+  .c3 { grid-column: span 3; } .c4 { grid-column: span 4; } .c5 { grid-column: span 5; } .c6 { grid-column: span 6; } .c8 { grid-column: span 8; } .c12 { grid-column: span 12; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { text-align: left; color: var(--muted); font-weight: 500; padding: 4px 8px; border-bottom: 1px solid var(--border); white-space: nowrap;}
+  td { padding: 5px 8px; border-bottom: 1px solid rgba(33,38,45,.6); white-space: nowrap; }
+  tr.hot td { background: rgba(248,81,73,.08); }
+  tr.warn td { background: rgba(210,153,34,.07); }
+  .metric-big { font-size: 26px; font-weight: 700; }
+  .metric-row { display: flex; gap: 18px; flex-wrap: wrap; }
+  .metric-row > div { min-width: 90px; }
+  .label { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .8px; }
+  .bar-track { background: #0a0d12; border-radius: 4px; height: 8px; width: 100%; min-width: 70px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 4px; }
+  .psi-low { background: var(--green); } .psi-med { background: var(--amber); } .psi-high { background: var(--red); }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 600; }
+  .b-green { background: rgba(63,185,80,.15); color: var(--green); }
+  .b-red { background: rgba(248,81,73,.15); color: var(--red); }
+  .b-amber { background: rgba(210,153,34,.15); color: var(--amber); }
+  .b-blue { background: rgba(88,166,255,.15); color: var(--accent); }
+  .b-purple { background: rgba(188,140,255,.15); color: var(--purple); }
+  button { background: #21262d; color: var(--text); border: 1px solid #30363d; border-radius: 6px; padding: 5px 12px; font-size: 12px; cursor: pointer; }
+  button.approve { border-color: var(--green); color: var(--green); }
+  button.reject { border-color: var(--red); color: var(--red); }
+  button:hover { filter: brightness(1.2); }
+  .reasons { color: var(--muted); font-size: 12px; line-height: 1.5; }
+  .mono { font-family: Consolas, monospace; font-size: 12px; }
+  .gauge-wrap { margin-top: 6px; }
+  .empty { color: var(--muted); font-style: italic; padding: 8px 0; }
+  .scroll-y { max-height: 260px; overflow-y: auto; }
+  footer { text-align: center; color: var(--muted); font-size: 11px; padding: 16px; }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>Autonomous MLOps Drift Detection &amp; Safe Retraining Agent</h1>
+    <div class="sub">churn model monitoring | drift | retraining gate | approval-gated promotion</div>
+  </div>
+  <div id="readiness" class="status-pill down">checking readiness...</div>
+</header>
+
+<main>
+  <section class="card c4" id="prod-card">
+    <h2>Production Model (Champion)</h2>
+    <div id="champion-body"><div class="empty">no champion trained yet</div></div>
+  </section>
+
+  <section class="card c4">
+    <h2>Model Registry</h2>
+    <div class="scroll-y"><table><thead><tr><th>Version</th><th>Status</th><th>F1</th></tr></thead><tbody id="registry-body"></tbody></table></div>
+  </section>
+
+  <section class="card c4">
+    <h2>Deployment Status</h2>
+    <div id="deployment-body"><div class="empty">no promotions yet</div></div>
+    <table><thead><tr><th>Promotion</th><th>Candidate</th><th>State</th><th>Action</th></tr></thead><tbody id="promotion-body"></tbody></table>
+  </section>
+
+  <section class="card c6">
+    <h2>Feature Drift (latest window)</h2>
+    <div id="drift-body"><div class="empty">no evaluated windows yet</div></div>
+  </section>
+
+  <section class="card c3">
+    <h2>Prediction Drift</h2>
+    <div id="pred-drift-body"><div class="empty">n/a</div></div>
+  </section>
+
+  <section class="card c3">
+    <h2>Data Quality</h2>
+    <div id="quality-body"><div class="empty">n/a</div></div>
+  </section>
+
+  <section class="card c4">
+    <h2>Performance Trends</h2>
+    <div class="scroll-y"><table><thead><tr><th>Window</th><th>Model</th><th>F1</th><th>AUC</th><th>Brier</th></tr></thead><tbody id="perf-body"></tbody></table></div>
+    <div id="perf-spark" style="display:flex; gap:2px; align-items:flex-end; height:46px; margin-top:10px;"></div>
+  </section>
+
+  <section class="card c4">
+    <h2>Fairness (segment parity)</h2>
+    <div id="fairness-body"><div class="empty">n/a</div></div>
+  </section>
+
+  <section class="card c4">
+    <h2>Candidate Models &amp; Evaluation Gates</h2>
+    <div class="scroll-y"><table><thead><tr><th>Candidate</th><th>Verdict</th><th>dF1 vs champ</th><th>Fair</th><th>Robust</th></tr></thead><tbody id="candidates-body"></tbody></table></div>
+  </section>
+
+  <section class="card c6">
+    <h2>Retraining Decisions Log (gate reasoning)</h2>
+    <div class="scroll-y"><table><thead><tr><th>Window</th><th>Decision</th><th>Benefit</th><th>Reasoning</th></tr></thead><tbody id="decisions-body"></tbody></table></div>
+  </section>
+
+  <section class="card c3">
+    <h2>Shadow / Canary Results</h2>
+    <div id="shadow-body"><div class="empty">no shadow runs yet</div></div>
+  </section>
+
+  <section class="card c3">
+    <h2>Rollback History</h2>
+    <div id="rollback-body"><div class="empty">no rollbacks</div></div>
+    <table><thead><tr><th>From</th><th>To</th><th>Reason</th></tr></thead><tbody id="rollback-rows"></tbody></table>
+  </section>
+
+  <section class="card c12">
+    <h2>KPIs</h2>
+    <div class="metric-row" id="kpi-row"></div>
+  </section>
+</main>
+<footer>demo dashboard - data refreshes every 5s - mock LLM narration - local model registry</footer>
+
+<script>
+const API = "";
+async function getJSON(path) {
+  const r = await fetch(API + path);
+  if (!r.ok) return null;
+  return r.json();
+}
+function el(id) { return document.getElementById(id); }
+function fmt(x, d=4) { return (x === null || x === undefined || isNaN(x)) ? "-" : Number(x).toFixed(d); }
+function psiClass(psi) {
+  const v = psi || 0;
+  if (v >= 0.25) return "psi-high";
+  if (v >= 0.10) return "psi-med";
+  return "psi-low";
+}
+
+function renderReadiness(data) {
+  const pill = el("readiness");
+  if (data && data.ready) {
+    pill.className = "status-pill ok";
+    pill.textContent = "ready - champion " + (data.champion_version || "none");
+  } else {
+    pill.className = "status-pill down";
+    pill.textContent = "not ready";
+  }
+}
+
+function renderChampion(registry) {
+  const body = el("champion-body");
+  const champ = (registry.models || []).find(m => m.status === "champion");
+  if (!champ) { body.innerHTML = '<div class="empty">no champion trained yet</div>'; return; }
+  const m = champ.metrics || {};
+  body.innerHTML = `
+    <div class="metric-row" style="margin-bottom:10px;">
+      <div><div class="metric-big">${champ.version}</div><div class="label">${champ.algorithm}</div></div>
+      <div><div class="metric-big" style="color:var(--green)">${fmt(m.f1)}</div><div class="label">F1</div></div>
+      <div><div class="metric-big" style="color:var(--accent)">${fmt(m.roc_auc)}</div><div class="label">ROC AUC</div></div>
+      <div><div class="metric-big">${fmt(m.brier)}</div><div class="label">Brier</div></div>
+    </div>`;
+}
+
+function renderRegistry(registry) {
+  const rows = (registry.models || []).slice().reverse().map(m => `
+    <tr><td>${m.version}</td>
+    <td><span class="badge ${m.status === "champion" ? "b-green" : m.status === "retired" ? "b-red" : m.status === "shadow" ? "b-purple" : "b-blue"}">${m.status}</span></td>
+    <td>${fmt((m.metrics || {}).f1)}</td></tr>`).join("");
+  el("registry-body").innerHTML = rows || '<tr><td colspan="3" class="empty">empty registry</td></tr>';
+}
+
+function renderDrift(latest) {
+  const body = el("drift-body");
+  if (!latest || !latest.drift) { body.innerHTML = '<div class="empty">no evaluated windows yet</div>'; return; }
+  const maxPsi = Math.max(...latest.drift.map(d => d.psi || d.tv_delta || 0), 0.001);
+  const rows = latest.drift.slice().sort((a,b)=>(b.psi||b.tv_delta||0)-(a.psi||a.tv_delta||0)).map(d => {
+    const score = d.feature_type === "numeric" ? (d.psi||0) : (d.tv_delta||0);
+    const pct = Math.min(100, score / Math.max(maxPsi*1.2, 0.3) * 100);
+    const cls = score >= 0.25 ? "psi-high" : score >= 0.1 ? "psi-med" : "psi-low";
+    return `<tr class="${score >= 0.25 ? "hot" : score >= 0.1 ? "warn" : ""}">
+      <td>${d.feature}</td><td>${d.feature_type}</td>
+      <td style="width:130px;"><div class="bar-track"><div class="bar-fill ${cls}" style="width:${pct}%"></div></div></td>
+      <td class="mono">${d.psi !== null && d.psi !== undefined ? "PSI "+fmt(d.psi) : "TV "+fmt(d.tv_delta)}</td>
+      <td class="mono">miss Δ ${fmt(d.missing_delta)}</td>
+      <td><span class="badge ${score>=0.25?"b-red":score>=0.1?"b-amber":"b-green"}">${d.severity}</span></td>
+    </tr>`;
+  }).join("");
+  body.innerHTML = `<table><thead><tr><th>Feature</th><th>Type</th><th>Score</th><th>Value</th><th>Missing</th><th>Severity</th></tr></thead><tbody>${rows}</tbody></table>`;
+}
+
+function renderPredDrift(latest) {
+  const body = el("pred-drift-body");
+  const p = latest && latest.prediction_stats;
+  if (!p) { body.innerHTML = '<div class="empty">n/a</div>'; return; }
+  const deltaPct = Math.min(100, (p.absolute_delta / 0.20) * 100);
+  body.innerHTML = `
+    <div class="label">positive rate</div><div class="metric-big">${fmt(p.positive_rate)}</div>
+    <div class="label" style="margin-top:8px;">baseline</div><div class="metric-big">${fmt(p.baseline_positive_rate)}</div>
+    <div class="bar-track" style="margin-top:8px;"><div class="bar-fill ${p.drifted?"psi-high":"psi-low"}" style="width:${deltaPct}%"></div></div>
+    <div style="margin-top:6px;" class="reasons">delta ${fmt(p.absolute_delta)} ${p.drifted ? '<span class="badge b-red">DRIFTED</span>' : '<span class="badge b-green">stable</span>'}</div>`;
+}
+
+function renderQuality(latest) {
+  const body = el("quality-body");
+  const checks = latest && latest.quality;
+  if (!checks || !checks.length) { body.innerHTML = '<div class="empty">n/a</div>'; return; }
+  body.innerHTML = checks.map(c => `
+    <div style="display:flex;justify-content:space-between;padding:3px 0;">
+      <span>${c.check_name}</span>
+      <span class="badge ${c.passed ? "b-green":"b-red"}">${c.passed ? "PASS":"FAIL"}${c.value!==null&&c.value!==undefined? " "+c.value:""}</span>
+    </div>`).join("");
+}
+
+function renderPerformance(history) {
+  const results = (history.results || []).slice(-12);
+  el("perf-body").innerHTML = results.map(r => `
+    <tr><td>#${r.window_id}</td><td>${r.model_version}</td>
+    <td>${fmt(r.f1)}</td><td>${fmt(r.roc_auc)}</td><td>${fmt(r.brier)}</td></tr>`).join("")
+    || '<tr><td colspan="5" class="empty">no evaluations yet</td></tr>';
+  el("perf-spark").innerHTML = results.length < 2 ? "" : (() => {
+    const f1s = results.map(r => r.f1);
+    const lo = Math.min(...f1s) - 0.01, hi = Math.max(...f1s) + 0.01;
+    return f1s.map(v => {
+      const h = Math.max(4, ((v - lo) / Math.max(hi - lo, 1e-6)) * 44);
+      return `<div title="f1 ${fmt(v)}" style="width:10px;height:${h}px;background:var(--accent);border-radius:2px;"></div>`;
+    }).join("");
+  })();
+}
+
+function renderFairness(fairnessData) {
+  const body = el("fairness-body");
+  const f = fairnessData && fairnessData.fairness;
+  if (!f) { body.innerHTML = '<div class="empty">n/a</div>'; return; }
+  const ratio = f.disparity_ratio || 0;
+  const pct = Math.min(100, ratio * 100);
+  const cls = ratio >= f.threshold ? "psi-low" : "psi-high";
+  const rates = Object.entries(f.selection_rates || {}).map(([seg, r]) =>
+    `<span class="badge b-blue">${seg}: ${fmt(r)}</span>`).join(" ");
+  body.innerHTML = `
+    <div class="label">disparity ratio (min/max selection rate)</div>
+    <div class="metric-big" style="color:${ratio >= f.threshold ? "var(--green)" : "var(--red)"}">${fmt(ratio, 3)}</div>
+    <div class="bar-track gauge-wrap"><div class="bar-fill ${cls}" style="width:${pct}%"></div></div>
+    <div class="reasons" style="margin-top:6px;">threshold ${f.threshold} &nbsp; ${rates}</div>
+    <div style="margin-top:6px;"><span class="badge ${f.passed?"b-green":"b-red"}">${f.passed ? "PARITY OK" : "DISPARITY ALARM"}</span></div>`;
+}
+
+function renderCandidates(cands) {
+  const rows = (cands.evaluations || []).map(e => `
+    <tr><td>${e.version}</td>
+    <td><span class="badge ${e.verdict==="pass"?"b-green":e.verdict==="reject"?"b-red":"b-amber"}">${e.verdict}</span></td>
+    <td>${fmt((e.vs_champion||{}).f1_delta)}</td>
+    <td>${fmt(e.fairness_ratio, 3)}</td>
+    <td>${fmt(e.robustness_drop, 3)}</td></tr>`).join("");
+  el("candidates-body").innerHTML = rows || '<tr><td colspan="5" class="empty">no candidates yet</td></tr>';
+}
+
+function renderDecisions(decisions) {
+  const rows = (decisions.decisions || []).slice(0, 12).map(d => `
+    <tr><td>#${d.window_id}</td>
+    <td><span class="badge ${d.decision==="retrain"?"b-red":"b-blue"}">${d.decision}</span></td>
+    <td>${fmt(d.projected_benefit, 3)}</td>
+    <td class="reasons">${(d.reasons||[]).join("; ")}</td></tr>`).join("");
+  el("decisions-body").innerHTML = rows || '<tr><td colspan="4" class="empty">no decisions yet</td></tr>';
+}
+
+function renderShadow(shadow) {
+  const rows = (shadow.shadow_comparisons || []).slice(0, 5).map(s => `
+    <div style="padding:4px 0;border-bottom:1px solid var(--border);">
+      <span class="mono">${s.version}</span>
+      <span class="badge ${(s.disagreement_rate||0)>0.15?"b-red":"b-green"}" style="margin-left:8px;">disagree ${fmt(s.disagreement_rate,3)}</span>
+      <div class="reasons">n=${s.n_requests} mean|Δp|=${fmt(s.mean_abs_prob_diff,4)}</div>
+    </div>`).join("");
+  el("shadow-body").innerHTML = rows || '<div class="empty">no shadow runs yet</div>';
+}
+
+function renderPromotions(promos) {
+  const pending = (promos.promotions || []).filter(p => p.state === "AWAITING_APPROVAL");
+  el("promotion-body").innerHTML = (promos.promotions || []).slice(0, 6).map(p => `
+    <tr><td>#${p.id}</td><td>${p.candidate_version}</td>
+    <td><span class="badge ${p.state==="COMPLETED"?"b-green":p.state==="FAILED"||p.state==="ROLLED_BACK"?"b-red":"b-amber"}">${p.state}</span></td>
+    <td>${p.state === "AWAITING_APPROVAL"
+      ? `<button class="approve" onclick="act('approve', ${p.id})">Approve</button> <button class="reject" onclick="act('reject', ${p.id})">Reject</button>`
+      : "-"}</td></tr>`).join("")
+    || '<tr><td colspan="4" class="empty">no promotions yet</td></tr>';
+  const last = (promos.promotions || [])[0];
+  el("deployment-body").innerHTML = last
+    ? `<div style="margin-bottom:8px;">last promotion <span class="mono">#${last.id}</span> for <span class="mono">${last.candidate_version}</span>: <span class="badge ${last.state==="COMPLETED"?"b-green":"b-amber"}">${last.state}</span>${pending.length ? ` <span class="badge b-amber">${pending.length} awaiting approval</span>` : ""}</div>`
+    : '<div class="empty">no promotions yet</div>';
+}
+
+function renderRollbacks(rb) {
+  el("rollback-rows").innerHTML = (rb.rollbacks || []).slice(0, 6).map(r => `
+    <tr><td>${r.from_version}</td><td>${r.to_version}</td><td class="reasons">${r.reason || "-"}</td></tr>`).join("")
+    || '<tr><td colspan="3" class="empty">no rollbacks</td></tr>';
+}
+
+function renderKpis(kpis) {
+  const items = [
+    ["windows evaluated", kpis.windows_evaluated],
+    ["alerts", kpis.alerts_total],
+    ["false alert rate", kpis.false_alert_rate],
+    ["TTD (windows)", kpis.time_to_detection_windows ?? "-"],
+    ["decisions: retrain", kpis.retraining_decisions_retrain],
+    ["decisions: monitor", kpis.retraining_decisions_monitor],
+    ["bad candidates blocked", kpis.candidates_rejected_bad_model_prevention],
+    ["promotions", kpis.promotions_completed],
+    ["rollbacks", kpis.rollbacks],
+  ];
+  el("kpi-row").innerHTML = items.map(([k, v]) =>
+    `<div><div class="metric-big">${v}</div><div class="label">${k}</div></div>`).join("");
+}
+
+async function act(action, promotionId) {
+  let approver = prompt("approver id", "ml-ops-oncall");
+  if (approver === null) return;
+  await fetch(API + `/api/v1/promotions/${promotionId}/${action}`, {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({approver, comment: action + " via dashboard"}),
+  });
+  loadAll();
+}
+
+async function loadAll() {
+  try {
+    const readiness = await getJSON("/readiness");
+    renderReadiness(readiness);
+    const [registry, latest, perf, fairness, candidates, decisions, shadow, promos, rb, kpis] = await Promise.all([
+      getJSON("/api/v1/registry"),
+      getJSON("/api/v1/monitoring/latest"),
+      getJSON("/api/v1/monitoring/performance"),
+      getJSON("/api/v1/monitoring/fairness"),
+      getJSON("/api/v1/candidates"),
+      getJSON("/api/v1/retraining/decisions"),
+      getJSON("/api/v1/shadow/results"),
+      getJSON("/api/v1/promotions"),
+      getJSON("/api/v1/rollbacks"),
+      getJSON("/api/v1/kpis"),
+    ]);
+    if (registry) { renderChampion(registry); renderRegistry(registry); }
+    if (latest) { renderDrift(latest); renderPredDrift(latest); renderQuality(latest); }
+    if (perf) renderPerformance(perf);
+    if (fairness) renderFairness(fairness);
+    if (candidates) renderCandidates(candidates);
+    if (decisions) renderDecisions(decisions);
+    if (shadow) renderShadow(shadow);
+    if (promos) renderPromotions(promos);
+    if (rb) renderRollbacks(rb);
+    if (kpis) renderKpis(kpis);
+  } catch (err) {
+    console.error(err);
+  }
+}
+loadAll();
+setInterval(loadAll, 5000);
+</script>
+</body>
+</html>

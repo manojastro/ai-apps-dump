@@ -1,0 +1,58 @@
+name: evalharness-04
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: evalharness
+      POSTGRES_PASSWORD: evalharness
+      POSTGRES_DB: evalharness
+    ports:
+      - "5444:5432"
+    volumes:
+      - evalharness04-postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U evalharness"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+    networks: [evalharness04]
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    env_file: [.env]
+    environment:
+      DATABASE_URL: postgresql://evalharness:evalharness@postgres:5432/evalharness
+    ports:
+      - "8004:8004"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      demo-agent:
+        condition: service_started
+    networks: [evalharness04]
+  demo-agent:
+    build:
+      context: .
+      dockerfile: examples/demo_agent/Dockerfile
+    environment:
+      DEMO_AGENT_MODE: good
+    ports:
+      - "8104:8104"
+    networks: [evalharness04]
+  web:
+    build:
+      context: apps/web
+    environment:
+      API_URL: http://api:8004
+      NEXT_PUBLIC_API_URL: http://localhost:8004
+    ports:
+      - "3004:3004"
+    depends_on: [api]
+    networks: [evalharness04]
+volumes:
+  evalharness04-postgres:
+    name: evalharness04-postgres
+networks:
+  evalharness04:
+    name: evalharness04-network

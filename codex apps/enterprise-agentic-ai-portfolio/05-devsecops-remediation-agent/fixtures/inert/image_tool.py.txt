@@ -1,0 +1,6 @@
+"""INERT TEST FIXTURE. Never import or execute."""
+
+import subprocess
+
+def convert_image(input_path, output_path):
+    return subprocess.run(f"convert {input_path} {output_path}", shell=True, check=True)

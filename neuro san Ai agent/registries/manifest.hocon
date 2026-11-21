@@ -1,0 +1,5 @@
+{
+    # Root manifest. Served via AGENT_MANIFEST_FILE=./registries/manifest.hocon.
+    # Networks land in registries/digital_workplace_autopilot/ (M7). No networks yet in M1.
+    include "registries/digital_workplace_autopilot/manifest.hocon",
+}

@@ -1,0 +1,19 @@
+{"engine":"WebSearch","query":"AIOps Engineer jobs India Bengaluru Hyderabad 2026","relevant":7,"results_reviewed":8,"stream":"S1_aiops","unique_added":6}
+{"engine":"WebSearch","query":"AI SRE Observability AI Engineer jobs India 2026","relevant":6,"results_reviewed":8,"stream":"S1_aiops","unique_added":5}
+{"engine":"WebSearch","query":"ServiceNow AI ITOM predictive operations jobs India Pune Chennai 2026","relevant":6,"results_reviewed":8,"stream":"S1_aiops","unique_added":5}
+{"engine":"WebSearch","query":"Dynatrace Datadog Splunk AI engineer jobs India Mumbai Delhi 2026","relevant":5,"results_reviewed":8,"stream":"S1_aiops","unique_added":2}
+{"engine":"WebSearch","query":"AIOps openings Accenture TCS Infosys Wipro HCLTech India 2026","relevant":6,"results_reviewed":8,"stream":"S1_aiops","unique_added":4}
+{"engine":"WebSearch","query":"autonomous operations predictive operations engineer India GCC 2026 IBM Watson AIOps","relevant":2,"results_reviewed":8,"stream":"S1_aiops","unique_added":0}
+{"engine":"WebSearch","query":"site:jobs.lever.co AIOps OR observability India Bengaluru","relevant":6,"results_reviewed":8,"stream":"S1_aiops","unique_added":3}
+{"engine":"WebSearch","query":"site:myworkdayjobs.com AIOps engineer India","relevant":1,"results_reviewed":8,"stream":"S1_aiops","unique_added":0}
+{"engine":"WebSearch","query":"site:boards.greenhouse.io AIOps observability India","relevant":3,"results_reviewed":8,"stream":"S1_aiops","unique_added":1}
+{"engine":"WebSearch","query":"site:jobs.ashbyhq.com AIOps SRE India observability","relevant":5,"results_reviewed":8,"stream":"S1_aiops","unique_added":2}
+{"engine":"WebSearch","query":"AIOps Engineer Remote India observability platform hiring 2026","relevant":6,"results_reviewed":8,"stream":"S1_aiops","unique_added":4}
+{"engine":"WebSearch","query":"AIOps observability engineer Noida Gurugram Delhi NCR hiring 2026","relevant":6,"results_reviewed":8,"stream":"S1_aiops","unique_added":3}
+{"engine":"WebSearch","query":"Moogsoft BigPanda OpsRamp AIOps engineer jobs India Kochi Coimbatore Ahmedabad 2026","relevant":5,"results_reviewed":8,"stream":"S1_aiops","unique_added":4}
+{"engine":"WebSearch","query":"Harness CrowdStrike AI SRE engineer Bengaluru India hiring August 2026","relevant":4,"results_reviewed":8,"stream":"S1_aiops","unique_added":0}
+{"engine":"WebSearch","query":"AIOps ITOM observability jobs Pune Kolkata Jaipur Ahmedabad July August 2026 postings","relevant":6,"results_reviewed":8,"stream":"S1_aiops","unique_added":5}
+{"engine":"WebFetch","query":"fetch ashby Level AI Senior SRE (blocked, JS-only) + ashby Ciroos FDE (blocked, JS-only)","relevant":1,"results_reviewed":2,"stream":"S1_aiops","unique_added":1}
+{"engine":"WebFetch","query":"fetch greenhouse Point72 Observability Engineer (live) + smartrecruiters Bosch ITOM (expired) + wipro GTM (live) + accenture AIOps SME (live)","relevant":4,"results_reviewed":4,"stream":"S1_aiops","unique_added":0}
+{"engine":"WebFetch","query":"fetch UHG AI SRE (404) + shine Talent500 (live) + cutshort Fx31labs (live) + builtin Porch (removed Jul-27) + menlovc Harness (live)","relevant":5,"results_reviewed":5,"stream":"S1_aiops","unique_added":0}
+{"engine":"WebFetch","query":"fetch techgig Capgemini (live) + michaelpage COE (live) + builtinpune Northern Trust (removed, repost found) + shine EY Noida (live) + shine XaasIO (redirected)","relevant":5,"results_reviewed":5,"stream":"S1_aiops","unique_added":0}

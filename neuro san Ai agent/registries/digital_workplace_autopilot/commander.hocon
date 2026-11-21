@@ -1,0 +1,1051 @@
+# Digital Workplace Autopilot — 10-agent network (M7).
+# Front man: commander (first entry, LLM only — no class/toolbox).
+# Delegation: tools[] down-chains + AAOSA instructions. Commander picks
+# specialists per inquiry via route_request ranking — never a fixed chain.
+{
+    "metadata": {
+        "description": "Policy-governed multi-agent digital workplace operations: diagnose, verify, learn, heal."
+        "tags": ["operations", "digital-workplace"]
+        "sample_queries": [
+            "My laptop is extremely slow and Teams keeps freezing.",
+            "I changed my password and now my VPN won't connect.",
+            "How do I claim internet reimbursement?",
+        ]
+    },
+
+    include "registries/aaosa.hocon",
+
+    # Single Gemini default (M0 D003). Change model in one place.
+    include "config/llm_config.hocon",
+    "max_steps": 20000,
+    "max_execution_seconds": 1800,
+    "error_formatter": "json",
+    "error_fragments": ["Error:", "Exception:", "Traceback (most recent call last)"],
+    "tools": [
+        # 1. FRONT MAN — commander. No parameters by design (user-facing entry).
+        {
+            "name": "commander",
+            "function": {
+                "description": """
+Front door and orchestrator for digital workplace requests. Receives the
+user inquiry, resolves user and device context, ranks specialist agents,
+delegates only where useful, and returns one final user-facing response.
+"""
+            },
+            "instructions": ${aaosa_instructions} """
+You are the Digital Workplace Commander. Principle: AI THINKS, TOOLS
+OBSERVE, AGENTS COLLABORATE, POLICY AUTHORIZES, TOOLS EXECUTE, AI VERIFIES,
+SYSTEM LEARNS, FLEET HEALS.
+
+For each inquiry:
+1. Call get_user_context and get_case_context first.
+2. Call route_request for a RANKED specialist list, then search_known_workflows.
+3. Delegate ONLY to specialists whose rank and reason fit the inquiry. Never
+   call every specialist. Technical issues need endpoint/software/network/
+   identity plus rca_agent; knowledge questions need knowledge_agent only.
+4. If evidence is insufficient, ask rca_agent what is missing and delegate
+   follow-up investigation before concluding.
+5. Return ONE final response. If confidence is low or evidence conflicts,
+   say INSUFFICIENT EVIDENCE and escalate instead of guessing.
+6. You never execute remediation directly and never authorize actions;
+   authorization belongs to the deterministic control plane.
+""",
+            "tools": ["route_request", "get_user_context", "get_case_context", "search_known_workflows", "endpoint_agent", "software_agent", "network_agent", "identity_agent", "rca_agent", "knowledge_agent", "security_agent", "learning_agent", "servicenow_agent"]
+        },
+        # 2. Endpoint specialist (Nexthink/Tanium evidence).
+        {
+            "name": "endpoint_agent",
+            "function": {
+                "description": "Laptop health, CPU, RAM, disk, processes, boot, endpoint telemetry.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "inquiry": {"type": "string", "description": "What to investigate"},
+                        "device_id": {"type": "string", "description": "Aliased device, e.g. DEVICE_001"}
+                    },
+                    "required": ["inquiry"]
+                }
+            },
+            "instructions": ${aaosa_instructions} """
+You are the Endpoint Agent. Use query_device_health first, then let results
+guide you: high CPU or RAM means call query_processes; high disk means call
+query_disk_health; recent-change suspicion means call query_endpoint_events.
+Cross-check Nexthink against Tanium for important claims. Stop when evidence
+is sufficient and return normalized findings with device_id and values.
+""",
+            "tools": ["query_device_health", "query_nexthink", "query_tanium", "query_processes", "query_disk_health", "query_endpoint_events"]
+        },
+        # 3. Software specialist (Intune evidence).
+        {
+            "name": "software_agent",
+            "function": {
+                "description": "Installed software, versions, updates, app health, install requests, patch history.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "inquiry": {"type": "string", "description": "What to investigate"},
+                        "device_id": {"type": "string", "description": "Aliased device, e.g. DEVICE_001"}
+                    },
+                    "required": ["inquiry"]
+                }
+            },
+            "instructions": ${aaosa_instructions} """
+You are the Software Agent. Start with query_software_inventory, correlate
+unhealthy apps with query_recent_changes and query_patch_history, and use
+query_software_catalog only for install requests. Flag version regressions
+with before and after versions. Stop when evidence is sufficient.
+""",
+            "tools": ["query_intune", "query_software_inventory", "query_software_catalog", "query_recent_changes", "query_patch_history"]
+        },
+        # 4. Network specialist (Zscaler/Cloudflare evidence).
+        {
+            "name": "network_agent",
+            "function": {
+                "description": "VPN, proxy, DNS, packet loss, connectivity, secure web gateway, routes.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "inquiry": {"type": "string", "description": "What to investigate"},
+                        "device_id": {"type": "string", "description": "Aliased device, e.g. DEVICE_001"}
+                    },
+                    "required": ["inquiry"]
+                }
+            },
+            "instructions": ${aaosa_instructions} """
+You are the Network Agent. Start with query_network, then follow the fault:
+VPN symptoms mean query_vpn_state plus query_zscaler; name resolution means
+query_dns; slowness means query_network_path plus query_cloudflare. Isolate
+the layer before blaming it. Stop when evidence is sufficient.
+""",
+            "tools": ["query_network", "query_zscaler", "query_cloudflare", "query_dns", "query_vpn_state", "query_network_path"]
+        },
+        # 5. Identity specialist (Entra evidence).
+        {
+            "name": "identity_agent",
+            "function": {
+                "description": "Authentication, account state, sign-in events, MFA, lockout, entitlements.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "inquiry": {"type": "string", "description": "What to investigate"},
+                        "user_id": {"type": "string", "description": "Aliased user, e.g. USER_001"}
+                    },
+                    "required": ["inquiry"]
+                }
+            },
+            "instructions": ${aaosa_instructions} """
+You are the Identity and Access Agent. Start with query_account_state and
+query_signin_history, then query_mfa_state for auth failures and
+query_access_state for entitlement questions. Distinguish identity faults
+from downstream token staleness with timestamps. Stop when sufficient.
+""",
+            "tools": ["query_entra", "query_signin_history", "query_account_state", "query_mfa_state", "query_access_state"]
+        },
+        # 6. RCA fusion (competing hypotheses, calibrated confidence).
+        {
+            "name": "rca_agent",
+            "function": {
+                "description": "Correlate multi-system evidence into competing hypotheses with confidence.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "inquiry": {"type": "string", "description": "What to diagnose"}
+                    },
+                    "required": ["inquiry"]
+                }
+            },
+            "instructions": ${aaosa_instructions} """
+You are the RCA and Diagnostic Fusion Agent. Never merely summarize. Build
+competing hypotheses with generate_hypotheses, test each with
+score_hypothesis and check_confidence_threshold, correlate with
+correlate_evidence, consult search_runbooks and search_past_incidents, and
+render the causal chain with build_causal_graph.
+
+Output shape:
+HYPOTHESIS 1, Evidence, Confidence, SUPPORTED or REJECTED, repeated per
+hypothesis, then the final call. Reject red herrings explicitly with the
+evidence that refutes them. At 90 or above you may proceed under policy;
+70 to 89 needs human confirmation; below 70, or on conflicting or missing
+mandatory evidence, conclude INSUFFICIENT EVIDENCE and escalate. Never
+invent nodes without tool evidence.
+""",
+            "tools": ["correlate_evidence", "generate_hypotheses", "score_hypothesis", "search_runbooks", "search_past_incidents", "check_confidence_threshold", "build_causal_graph"]
+        },
+        # 7. Knowledge specialist (permission-aware).
+        {
+            "name": "knowledge_agent",
+            "function": {
+                "description": "HR, Finance, IT, Security and application policy, process and runbook knowledge.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "inquiry": {"type": "string", "description": "What to look up"}
+                    },
+                    "required": ["inquiry"]
+                }
+            },
+            "instructions": ${aaosa_instructions} """
+You are the Knowledge Agent. Retrieval is permission-aware: pass the caller
+role on every call, check get_document_access_context before quoting, and
+never let unauthorized content enter the conversation. Answer with the
+answer, source document, relevant section, and confidence via
+cite_knowledge_source. Denied documents get ACCESS DENIED, never excerpts.
+""",
+            "tools": ["search_enterprise_knowledge", "get_document_access_context", "cite_knowledge_source"]
+        },
+        # 8. Security advisor (advises; never authorizes).
+        {
+            "name": "security_agent",
+            "function": {
+                "description": "Security rules, device compliance, sensitive-action and control requirements.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "inquiry": {"type": "string", "description": "What to assess"}
+                    },
+                    "required": ["inquiry"]
+                }
+            },
+            "instructions": ${aaosa_instructions} """
+You are the Security and Compliance Advisor. Interpret posture with
+get_security_context and check_device_compliance, and requirements with
+check_compliance_requirements and check_privileged_action_requirements.
+You ADVISE only. Final execution authorization belongs to the deterministic
+coded control plane and you must never grant it yourself.
+""",
+            "tools": ["get_security_context", "check_device_compliance", "check_compliance_requirements", "check_privileged_action_requirements"]
+        },
+        # 9. Learning specialist (proposes; never self-approves).
+        {
+            "name": "learning_agent",
+            "function": {
+                "description": "Repeated-resolution patterns and governed reusable workflow candidates.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "inquiry": {"type": "string", "description": "What to learn from"}
+                    },
+                    "required": ["inquiry"]
+                }
+            },
+            "instructions": ${aaosa_instructions} """
+You are the Learning and Workflow Agent. Record outcomes with
+record_resolution_pattern, detect repeats with detect_workflow_pattern and
+get_workflow_statistics, propose reuse with create_workflow_candidate, and
+recall registry state with search_workflow_registry. You NEVER approve your
+own candidate; every candidate needs human approval before use.
+""",
+            "tools": ["record_resolution_pattern", "detect_workflow_pattern", "create_workflow_candidate", "search_workflow_registry", "get_workflow_statistics"]
+        },
+        # 10. ServiceNow coordinator (incident/problem lifecycle).
+        {
+            "name": "servicenow_agent",
+            "function": {
+                "description": "ServiceNow incident and problem lifecycle via the Table API.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "inquiry": {"type": "string", "description": "What to record"}
+                    },
+                    "required": ["inquiry"]
+                }
+            },
+            "instructions": ${aaosa_instructions} """
+You are the ServiceNow Coordinator. Own the incident lifecycle with
+create_incident, get_incident, search_incidents, add_work_note,
+update_incident, resolve_incident and escalate_incident, plus fleet-wide
+patterns with create_problem and link_incident_to_problem. Resolve only
+when verification evidence is present in the inquiry, never on execution
+alone. Credentials stay server-side; you only pass business fields.
+""",
+            "tools": ["create_incident", "get_incident", "search_incidents", "add_work_note", "update_incident", "resolve_incident", "escalate_incident", "create_problem", "link_incident_to_problem"]
+        },
+        # ---- coded tools: commander ----
+        {
+            "name": "route_request",
+            "class": "digital_workplace.commander_tools.RouteRequest",
+            "function": {
+                "description": "Rank specialist agents for an inquiry with reasons. Ranked, never a fixed chain.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "request_text": {"type": "string", "description": "User inquiry"}
+                    },
+                    "required": ["request_text"]
+                }
+            }
+        },
+        {
+            "name": "get_user_context",
+            "class": "digital_workplace.commander_tools.GetUserContext",
+            "function": {
+                "description": "Resolve user, device, role and department for an aliased user.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "user_id": {"type": "string", "description": "Aliased user, e.g. USER_001"},
+                        "device_id": {"type": "string", "description": "Aliased device override"}
+                    },
+                    "required": []
+                }
+            }
+        },
+        {
+            "name": "get_case_context",
+            "class": "digital_workplace.commander_tools.GetCaseContext",
+            "function": {
+                "description": "Load a case row by case_id from local state.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "case_id": {"type": "string", "description": "Case id"}
+                    },
+                    "required": []
+                }
+            }
+        },
+        {
+            "name": "search_known_workflows",
+            "class": "digital_workplace.commander_tools.SearchKnownWorkflows",
+            "function": {
+                "description": "Find approved reusable workflows by failure signature. Candidates excluded.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "failure_signature": {"type": "string", "description": "Failure signature"}
+                    },
+                    "required": []
+                }
+            }
+        },
+        # ---- coded tools: endpoint ----
+        {
+            "name": "query_device_health",
+            "class": "digital_workplace.observe.QueryDeviceHealth",
+            "function": {
+                "description": "Device CPU, RAM, disk, boot and compliance from Nexthink.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "device_id": {"type": "string", "description": "Aliased device"}
+                    },
+                    "required": ["device_id"]
+                }
+            }
+        },
+        {
+            "name": "query_nexthink",
+            "class": "digital_workplace.observe.QueryNexthink",
+            "function": {
+                "description": "Nexthink experience view for a device.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "device_id": {"type": "string", "description": "Aliased device"}
+                    },
+                    "required": ["device_id"]
+                }
+            }
+        },
+        {
+            "name": "query_tanium",
+            "class": "digital_workplace.observe.QueryTanium",
+            "function": {
+                "description": "Tanium live view for a device (cross-checks Nexthink).",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "device_id": {"type": "string", "description": "Aliased device"}
+                    },
+                    "required": ["device_id"]
+                }
+            }
+        },
+        {
+            "name": "query_processes",
+            "class": "digital_workplace.observe.QueryProcesses",
+            "function": {
+                "description": "Top processes with memory and CPU for a device.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "device_id": {"type": "string", "description": "Aliased device"}
+                    },
+                    "required": ["device_id"]
+                }
+            }
+        },
+        {
+            "name": "query_disk_health",
+            "class": "digital_workplace.observe.QueryDiskHealth",
+            "function": {
+                "description": "Disk utilization and health status for a device.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "device_id": {"type": "string", "description": "Aliased device"}
+                    },
+                    "required": ["device_id"]
+                }
+            }
+        },
+        {
+            "name": "query_endpoint_events",
+            "class": "digital_workplace.observe.QueryEndpointEvents",
+            "function": {
+                "description": "Recent endpoint changes and events for a device.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "device_id": {"type": "string", "description": "Aliased device"}
+                    },
+                    "required": ["device_id"]
+                }
+            }
+        },
+        # ---- coded tools: software ----
+        {
+            "name": "query_intune",
+            "class": "digital_workplace.observe.QueryIntune",
+            "function": {
+                "description": "Intune software summary with unhealthy apps for a device.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "device_id": {"type": "string", "description": "Aliased device"}
+                    },
+                    "required": ["device_id"]
+                }
+            }
+        },
+        {
+            "name": "query_software_inventory",
+            "class": "digital_workplace.observe.QuerySoftwareInventory",
+            "function": {
+                "description": "Full installed-software inventory for a device.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "device_id": {"type": "string", "description": "Aliased device"}
+                    },
+                    "required": ["device_id"]
+                }
+            }
+        },
+        {
+            "name": "query_software_catalog",
+            "class": "digital_workplace.observe.QuerySoftwareCatalog",
+            "function": {
+                "description": "Requestable software catalog, optionally filtered by name.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "query": {"type": "string", "description": "Name filter"}
+                    },
+                    "required": []
+                }
+            }
+        },
+        {
+            "name": "query_recent_changes",
+            "class": "digital_workplace.observe.QueryRecentChanges",
+            "function": {
+                "description": "Recent software changes for a device.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "device_id": {"type": "string", "description": "Aliased device"}
+                    },
+                    "required": ["device_id"]
+                }
+            }
+        },
+        {
+            "name": "query_patch_history",
+            "class": "digital_workplace.observe.QueryPatchHistory",
+            "function": {
+                "description": "OS and app patch history for a device.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "device_id": {"type": "string", "description": "Aliased device"}
+                    },
+                    "required": ["device_id"]
+                }
+            }
+        },
+        # ---- coded tools: network ----
+        {
+            "name": "query_network",
+            "class": "digital_workplace.observe.QueryNetwork",
+            "function": {
+                "description": "Network health: latency, loss, DNS, proxy and path.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "device_id": {"type": "string", "description": "Aliased device"}
+                    },
+                    "required": ["device_id"]
+                }
+            }
+        },
+        {
+            "name": "query_zscaler",
+            "class": "digital_workplace.observe.QueryZscaler",
+            "function": {
+                "description": "Zscaler secure-access view with VPN state.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "device_id": {"type": "string", "description": "Aliased device"}
+                    },
+                    "required": ["device_id"]
+                }
+            }
+        },
+        {
+            "name": "query_cloudflare",
+            "class": "digital_workplace.observe.QueryCloudflare",
+            "function": {
+                "description": "Cloudflare path and DNS view for a device.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "device_id": {"type": "string", "description": "Aliased device"}
+                    },
+                    "required": ["device_id"]
+                }
+            }
+        },
+        {
+            "name": "query_dns",
+            "class": "digital_workplace.observe.QueryDns",
+            "function": {
+                "description": "DNS resolution health for a device.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "device_id": {"type": "string", "description": "Aliased device"}
+                    },
+                    "required": ["device_id"]
+                }
+            }
+        },
+        {
+            "name": "query_vpn_state",
+            "class": "digital_workplace.observe.QueryVpnState",
+            "function": {
+                "description": "VPN connection state, gateway and last error.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "device_id": {"type": "string", "description": "Aliased device"}
+                    },
+                    "required": ["device_id"]
+                }
+            }
+        },
+        {
+            "name": "query_network_path",
+            "class": "digital_workplace.observe.QueryNetworkPath",
+            "function": {
+                "description": "Network path quality: route, latency and loss.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "device_id": {"type": "string", "description": "Aliased device"}
+                    },
+                    "required": ["device_id"]
+                }
+            }
+        },
+        # ---- coded tools: identity ----
+        {
+            "name": "query_entra",
+            "class": "digital_workplace.observe.QueryEntra",
+            "function": {
+                "description": "Entra identity state for an aliased user.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "user_id": {"type": "string", "description": "Aliased user"}
+                    },
+                    "required": ["user_id"]
+                }
+            }
+        },
+        {
+            "name": "query_signin_history",
+            "class": "digital_workplace.observe.QuerySigninHistory",
+            "function": {
+                "description": "Recent sign-in events for an aliased user.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "user_id": {"type": "string", "description": "Aliased user"},
+                        "limit": {"type": "integer", "description": "Max events"}
+                    },
+                    "required": ["user_id"]
+                }
+            }
+        },
+        {
+            "name": "query_account_state",
+            "class": "digital_workplace.observe.QueryAccountState",
+            "function": {
+                "description": "Account state and lockout for an aliased user.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "user_id": {"type": "string", "description": "Aliased user"}
+                    },
+                    "required": ["user_id"]
+                }
+            }
+        },
+        {
+            "name": "query_mfa_state",
+            "class": "digital_workplace.observe.QueryMfaState",
+            "function": {
+                "description": "MFA enrollment and health for an aliased user.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "user_id": {"type": "string", "description": "Aliased user"}
+                    },
+                    "required": ["user_id"]
+                }
+            }
+        },
+        {
+            "name": "query_access_state",
+            "class": "digital_workplace.observe.QueryAccessState",
+            "function": {
+                "description": "Access decision inputs for an aliased user.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "user_id": {"type": "string", "description": "Aliased user"}
+                    },
+                    "required": ["user_id"]
+                }
+            }
+        },
+        # ---- coded tools: rca ----
+        {
+            "name": "correlate_evidence",
+            "class": "digital_workplace.rca.CorrelateEvidence",
+            "function": {
+                "description": "Group evidence by entity and flag change-adjacent items.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "evidence": {"type": "array", "description": "Evidence objects with evidence_id"}
+                    },
+                    "required": ["evidence"]
+                }
+            }
+        },
+        {
+            "name": "generate_hypotheses",
+            "class": "digital_workplace.rca.GenerateHypotheses",
+            "function": {
+                "description": "Draft candidate hypotheses from evidence signals for judging.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "evidence": {"type": "array", "description": "Evidence objects"}
+                    },
+                    "required": ["evidence"]
+                }
+            }
+        },
+        {
+            "name": "score_hypothesis",
+            "class": "digital_workplace.rca.ScoreHypothesis",
+            "function": {
+                "description": "Score one hypothesis from supporting and refuting evidence counts.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "supporting": {"type": "array", "description": "Supporting evidence ids"},
+                        "refuting": {"type": "array", "description": "Refuting evidence ids"}
+                    },
+                    "required": []
+                }
+            }
+        },
+        {
+            "name": "search_runbooks",
+            "class": "digital_workplace.rca.SearchRunbooks",
+            "function": {
+                "description": "Search approved runbooks by query text.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "query": {"type": "string", "description": "Query text"}
+                    },
+                    "required": []
+                }
+            }
+        },
+        {
+            "name": "search_past_incidents",
+            "class": "digital_workplace.rca.SearchPastIncidents",
+            "function": {
+                "description": "Find past local incidents matching a signature.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "signature": {"type": "string", "description": "Signature text"}
+                    },
+                    "required": []
+                }
+            }
+        },
+        {
+            "name": "check_confidence_threshold",
+            "class": "digital_workplace.rca.CheckConfidenceThreshold",
+            "function": {
+                "description": "Map confidence to proceed, confirm or escalate.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "confidence": {"type": "number", "description": "Confidence 0-100"}
+                    },
+                    "required": ["confidence"]
+                }
+            }
+        },
+        {
+            "name": "build_causal_graph",
+            "class": "digital_workplace.rca.BuildCausalGraph",
+            "function": {
+                "description": "Build an evidence-backed causal graph with Mermaid output.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "evidence": {"type": "array", "description": "Evidence objects"},
+                        "root_cause": {"type": "string", "description": "Root cause label"}
+                    },
+                    "required": ["evidence"]
+                }
+            }
+        },
+        # ---- coded tools: knowledge ----
+        {
+            "name": "search_enterprise_knowledge",
+            "class": "digital_workplace.knowledge.SearchEnterpriseKnowledge",
+            "function": {
+                "description": "Search authorized knowledge for a role. Unauthorized docs never surface.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "query": {"type": "string", "description": "Query text"},
+                        "user_role": {"type": "string", "description": "Caller role"}
+                    },
+                    "required": ["query"]
+                }
+            }
+        },
+        {
+            "name": "get_document_access_context",
+            "class": "digital_workplace.knowledge.GetDocumentAccessContext",
+            "function": {
+                "description": "Check whether a role may access a document.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "doc_id": {"type": "string", "description": "Document id"},
+                        "user_role": {"type": "string", "description": "Caller role"}
+                    },
+                    "required": ["doc_id"]
+                }
+            }
+        },
+        {
+            "name": "cite_knowledge_source",
+            "class": "digital_workplace.knowledge.CiteKnowledgeSource",
+            "function": {
+                "description": "Record a knowledge citation with section and confidence.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "doc_id": {"type": "string", "description": "Document id"},
+                        "section": {"type": "string", "description": "Section"},
+                        "confidence": {"type": "number", "description": "Confidence 0-100"}
+                    },
+                    "required": ["doc_id"]
+                }
+            }
+        },
+        # ---- coded tools: security ----
+        {
+            "name": "get_security_context",
+            "class": "digital_workplace.security.GetSecurityContext",
+            "function": {
+                "description": "Advisory security context for a device and action. Never authorizes.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "device_id": {"type": "string", "description": "Aliased device"},
+                        "action_id": {"type": "string", "description": "Proposed action"}
+                    },
+                    "required": ["device_id"]
+                }
+            }
+        },
+        {
+            "name": "check_device_compliance",
+            "class": "digital_workplace.security.CheckDeviceCompliance",
+            "function": {
+                "description": "Advisory device compliance state. Never authorizes.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "device_id": {"type": "string", "description": "Aliased device"}
+                    },
+                    "required": ["device_id"]
+                }
+            }
+        },
+        {
+            "name": "check_compliance_requirements",
+            "class": "digital_workplace.security.CheckComplianceRequirements",
+            "function": {
+                "description": "Control requirements for a proposed action. Advisory only.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "action_id": {"type": "string", "description": "Proposed action"}
+                    },
+                    "required": ["action_id"]
+                }
+            }
+        },
+        {
+            "name": "check_privileged_action_requirements",
+            "class": "digital_workplace.security.CheckPrivilegedActionRequirements",
+            "function": {
+                "description": "Privilege analysis for a proposed action. Advisory only.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "action_id": {"type": "string", "description": "Proposed action"}
+                    },
+                    "required": ["action_id"]
+                }
+            }
+        },
+        # ---- coded tools: learning ----
+        {
+            "name": "record_resolution_pattern",
+            "class": "digital_workplace.ops.RecordResolutionPattern",
+            "function": {
+                "description": "Record a resolution outcome for pattern detection.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "case_id": {"type": "string", "description": "Case id"},
+                        "failure_signature": {"type": "string", "description": "Signature"},
+                        "success": {"type": "boolean", "description": "Outcome"}
+                    },
+                    "required": ["failure_signature"]
+                }
+            }
+        },
+        {
+            "name": "detect_workflow_pattern",
+            "class": "digital_workplace.ops.DetectWorkflowPattern",
+            "function": {
+                "description": "Detect repeated resolution patterns meeting thresholds.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "min_occurrences": {"type": "integer", "description": "Minimum repeats"}
+                    },
+                    "required": []
+                }
+            }
+        },
+        {
+            "name": "create_workflow_candidate",
+            "class": "digital_workplace.ops.CreateWorkflowCandidate",
+            "function": {
+                "description": "Propose a reusable workflow candidate. Always needs human approval.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "workflow_id": {"type": "string", "description": "Candidate id"},
+                        "name": {"type": "string", "description": "Name"},
+                        "failure_signature": {"type": "string", "description": "Signature"},
+                        "action_id": {"type": "string", "description": "Approved action"}
+                    },
+                    "required": ["failure_signature"]
+                }
+            }
+        },
+        {
+            "name": "search_workflow_registry",
+            "class": "digital_workplace.ops.SearchWorkflowRegistry",
+            "function": {
+                "description": "Search workflow registry by failure signature.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "failure_signature": {"type": "string", "description": "Signature"}
+                    },
+                    "required": []
+                }
+            }
+        },
+        {
+            "name": "get_workflow_statistics",
+            "class": "digital_workplace.ops.GetWorkflowStatistics",
+            "function": {
+                "description": "Run counts and success rate for a workflow.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "workflow_id": {"type": "string", "description": "Workflow id"}
+                    },
+                    "required": ["workflow_id"]
+                }
+            }
+        },
+        # ---- coded tools: servicenow ----
+        {
+            "name": "create_incident",
+            "class": "digital_workplace.ops.CreateIncident",
+            "function": {
+                "description": "Open a ServiceNow incident with a short description.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "short_description": {"type": "string", "description": "Summary"},
+                        "description": {"type": "string", "description": "Details"}
+                    },
+                    "required": ["short_description"]
+                }
+            }
+        },
+        {
+            "name": "get_incident",
+            "class": "digital_workplace.ops.GetIncident",
+            "function": {
+                "description": "Read one incident by sys_id.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "sys_id": {"type": "string", "description": "Incident sys_id"}
+                    },
+                    "required": ["sys_id"]
+                }
+            }
+        },
+        {
+            "name": "search_incidents",
+            "class": "digital_workplace.ops.SearchIncidents",
+            "function": {
+                "description": "Search incidents by query text.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "query": {"type": "string", "description": "Query text"},
+                        "limit": {"type": "integer", "description": "Max results"}
+                    },
+                    "required": []
+                }
+            }
+        },
+        {
+            "name": "add_work_note",
+            "class": "digital_workplace.ops.AddWorkNote",
+            "function": {
+                "description": "Append a work note to an incident.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "sys_id": {"type": "string", "description": "Incident sys_id"},
+                        "note": {"type": "string", "description": "Note text"}
+                    },
+                    "required": ["sys_id", "note"]
+                }
+            }
+        },
+        {
+            "name": "update_incident",
+            "class": "digital_workplace.ops.UpdateIncident",
+            "function": {
+                "description": "Update allowlisted incident fields.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "sys_id": {"type": "string", "description": "Incident sys_id"}
+                    },
+                    "required": ["sys_id"]
+                }
+            }
+        },
+        {
+            "name": "resolve_incident",
+            "class": "digital_workplace.ops.ResolveIncident",
+            "function": {
+                "description": "Resolve an incident with close notes. Verification evidence required by policy.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "sys_id": {"type": "string", "description": "Incident sys_id"},
+                        "close_notes": {"type": "string", "description": "Resolution notes"}
+                    },
+                    "required": ["sys_id", "close_notes"]
+                }
+            }
+        },
+        {
+            "name": "escalate_incident",
+            "class": "digital_workplace.ops.EscalateIncident",
+            "function": {
+                "description": "Escalate an incident with a note.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "sys_id": {"type": "string", "description": "Incident sys_id"},
+                        "note": {"type": "string", "description": "Escalation note"}
+                    },
+                    "required": ["sys_id", "note"]
+                }
+            }
+        },
+        {
+            "name": "create_problem",
+            "class": "digital_workplace.ops.CreateProblem",
+            "function": {
+                "description": "Open a problem record for a fleet-wide pattern.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "short_description": {"type": "string", "description": "Summary"},
+                        "description": {"type": "string", "description": "Details"}
+                    },
+                    "required": ["short_description"]
+                }
+            }
+        },
+        {
+            "name": "link_incident_to_problem",
+            "class": "digital_workplace.ops.LinkIncidentToProblem",
+            "function": {
+                "description": "Link an incident to a problem record.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "incident_sys_id": {"type": "string", "description": "Incident sys_id"},
+                        "problem_sys_id": {"type": "string", "description": "Problem sys_id"}
+                    },
+                    "required": ["incident_sys_id", "problem_sys_id"]
+                }
+            }
+        }
+    ]
+}

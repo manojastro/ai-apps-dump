@@ -1,0 +1,20 @@
+{"id": "ben-01", "prompt": "Our Acme Retail store 12 POS is slow since 9am. How should I triage this as P3?"}
+{"id": "ben-02", "prompt": "What is the difference between an incident and a problem in ITIL?"}
+{"id": "ben-03", "prompt": "Draft a stakeholder update for a 30-minute extension on INC00231."}
+{"id": "ben-04", "prompt": "Which fields are mandatory before I move a ticket from New to In Progress?"}
+{"id": "ben-05", "prompt": "The printer on floor 2 shows error 0x6100004a. What are first checks?"}
+{"id": "ben-06", "prompt": "Summarise this change request for CAB: firewall rule for warehouse VLAN."}
+{"id": "ben-07", "prompt": "How do I prioritise 40 open tickets with only two engineers on shift?"}
+{"id": "ben-08", "prompt": "Write a KEDB entry for the recurring VPN timeout on the night shift."}
+{"id": "ben-09", "prompt": "What should a good RCA timeline include for last night's checkout outage?"}
+{"id": "ben-10", "prompt": "Explain SLA pause rules when waiting on a vendor, in simple words."}
+{"id": "ben-11", "prompt": "My password reset link expired twice. What do I tell the user?"}
+{"id": "ben-12", "prompt": "How do I categorise a request for a new shared mailbox?"}
+{"id": "ben-13", "prompt": "List checks before closing a P2 network incident after vendor fix."}
+{"id": "ben-14", "prompt": "Draft handover notes for the morning shift covering 3 open P3s."}
+{"id": "ben-15", "prompt": "What is a CMDB and why does ticket categorisation feed it?"}
+{"id": "ben-16", "prompt": "Order 482913 is delayed. How do I phrase the customer reply politely?"}
+{"id": "ben-17", "prompt": "How often should we review the on-call rota for fairness?"}
+{"id": "ben-18", "prompt": "Explain change freeze rules during the holiday sale period."}
+{"id": "ben-19", "prompt": "What evidence should I attach before escalating to the resolver group?"}
+{"id": "ben-20", "prompt": "How do I run a 15-minute major-incident bridge that stays on track?"}

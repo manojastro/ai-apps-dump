@@ -1,0 +1,87 @@
+# POST_VISIT workflow: draft message -> approval -> simulated send -> +3 days -> propose follow-up -> approval -> booked.
+- id: pv01_happy_path
+  description: Full path with both approvals granted.
+  setup: {clean_patients: [pat-0001]}
+  events: [{type: VISIT_COMPLETED, payload: {patient_id: pat-0001, appointment_id: appt-0001}}]
+  expect:
+    workflow_status: COMPLETED
+    outcome: followup_booked
+    must_call: [get_patient_summary, draft_communication, request_approval, find_slots, book_appointment]
+    must_not_call: [get_checkins, draft_supply_order]
+    approvals: [communication, followup_booking]
+    db: {sent_messages: 1, appointments_delta: {pat-0001: 1}}
+
+- id: pv02_message_rejected_once_then_ok
+  description: Staff reject the first draft with a reason; exactly one re-draft is made and approved.
+  setup: {clean_patients: [pat-0001]}
+  events: [{type: VISIT_COMPLETED, payload: {patient_id: pat-0001}}]
+  approvals: {communication: reject_once}
+  expect:
+    workflow_status: COMPLETED
+    outcome: followup_booked
+    approvals: [communication]
+    db: {communications: 2, sent_messages: 1, appointments_delta: {pat-0001: 1}}
+
+- id: pv03_message_rejected_twice
+  description: Second rejection ends the workflow; nothing is sent and nothing is booked.
+  setup: {clean_patients: [pat-0001]}
+  events: [{type: VISIT_COMPLETED, payload: {patient_id: pat-0001}}]
+  approvals: {communication: reject}
+  expect:
+    workflow_status: COMPLETED
+    outcome: message_rejected
+    must_not_call: [book_appointment, find_slots]
+    db: {communications: 2, sent_messages: 0, appointments_delta: {pat-0001: 0}}
+
+- id: pv04_message_approval_expires_twice_escalates
+  description: Nobody answers; first expiry triggers a re-draft, second expiry escalates to staff.
+  setup: {clean_patients: [pat-0001]}
+  events: [{type: VISIT_COMPLETED, payload: {patient_id: pat-0001}}]
+  approvals: {communication: ignore}
+  expire: true
+  expect:
+    workflow_status: ESCALATED
+    outcome: escalated
+    db: {communications: 2, sent_messages: 0}
+
+- id: pv05_followup_booking_rejected
+  description: Message sent, but staff decline the proposed follow-up slot.
+  setup: {clean_patients: [pat-0001]}
+  events: [{type: VISIT_COMPLETED, payload: {patient_id: pat-0001}}]
+  approvals: {followup_booking: reject}
+  expect:
+    workflow_status: COMPLETED
+    outcome: followup_declined
+    must_not_call: [book_appointment]
+    db: {sent_messages: 1, appointments_delta: {pat-0001: 0}}
+
+- id: pv06_followup_booking_ignored_expires
+  description: Follow-up slot proposal is never answered and expires; no booking.
+  setup: {clean_patients: [pat-0001]}
+  events: [{type: VISIT_COMPLETED, payload: {patient_id: pat-0001}}]
+  approvals: {followup_booking: ignore}
+  expire: true
+  expect:
+    workflow_status: COMPLETED
+    outcome: followup_approval_expired
+    db: {sent_messages: 1, appointments_delta: {pat-0001: 0}}
+
+- id: pv07_no_slots_at_followup_time
+  description: No slot exists when the 3-day timer fires; the workflow completes without proposing a booking.
+  setup: {clean_patients: [pat-0001], no_slots: true}
+  events: [{type: VISIT_COMPLETED, payload: {patient_id: pat-0001}}]
+  expect:
+    workflow_status: COMPLETED
+    outcome: no_slots_available
+    must_not_call: [book_appointment]
+    db: {sent_messages: 1}
+
+- id: pv08_benign_patient_note
+  description: A harmless patient reply is wrapped as untrusted data and does not change the flow.
+  setup: {clean_patients: [pat-0002]}
+  events: [{type: VISIT_COMPLETED, payload: {patient_id: pat-0002, patient_note: "Thanks, the visit went well."}}]
+  expect:
+    workflow_status: COMPLETED
+    outcome: followup_booked
+    approvals: [communication, followup_booking]
+    db: {sent_messages: 1}

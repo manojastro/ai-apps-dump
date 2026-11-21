@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ForgeGuard · Release Risk Control</title>
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside>
+      <div class="brand"><span class="brand-icon">FG</span><div><strong>ForgeGuard</strong><small>Release risk control</small></div></div>
+      <nav>
+        <a class="active" href="#command">Command</a>
+        <a href="#finding">Finding</a>
+        <a href="#remediation">Remediation</a>
+        <a href="#activity">Audit trail</a>
+      </nav>
+      <div class="safety"><span></span><div>Open demo mode only<small>Distinct local approver/executor keys</small></div></div>
+    </aside>
+    <main>
+      <header>
+        <div><p class="eyebrow">DEVSECOPS / RELEASE QUALITY GATE</p><h1>Security remediation control</h1><p class="subtitle">Prove the fix. Preserve the contract. Keep humans in control.</p></div>
+        <a class="docs" href="/docs">API reference ↗</a>
+      </header>
+
+      <section id="banner" class="banner"><div class="banner-mark">✓</div><div><strong>Control plane ready</strong><p>Choose a safe, inert fixture to begin a deterministic investigation.</p></div></section>
+
+      <section id="command" class="top-grid">
+        <article class="scenario-panel">
+          <div class="section-heading"><div><p class="eyebrow">FAILURE INJECTION</p><h2>Safe demo fixtures</h2></div><span class="badge neutral">INERT SOURCE</span></div>
+          <div id="scenarios" class="scenario-list"><p class="muted">Loading scenario catalog…</p></div>
+        </article>
+        <article class="score-panel">
+          <div class="score-ring" id="risk-ring"><div><strong id="risk-score">—</strong><small>release risk</small></div></div>
+          <span id="release-decision" class="decision neutral">NO DECISION</span>
+          <p id="risk-copy" class="muted">A release decision appears after static analysis and exploitability review.</p>
+        </article>
+      </section>
+
+      <section class="kpis">
+        <article><span>Investigations</span><strong id="investigations">0</strong><small>persisted incidents</small></article>
+        <article><span>Finding validity</span><strong id="validity">0%</strong><small>against ground truth</small></article>
+        <article><span>Exploitability accuracy</span><strong id="accuracy">0%</strong><small>typed classification</small></article>
+        <article><span>Remediation success</span><strong id="success">0%</strong><small>attempted fixes</small></article>
+        <article><span>Regressions</span><strong id="regressions">0</strong><small>security + contract</small></article>
+      </section>
+
+      <section class="workflow-strip" aria-label="workflow status">
+        <div class="complete"><i>1</i><span>Scan</span></div><b></b><div id="step-assess"><i>2</i><span>Assess</span></div><b></b><div id="step-approve"><i>3</i><span>Approve</span></div><b></b><div id="step-patch"><i>4</i><span>Exact patch</span></div><b></b><div id="step-validate"><i>5</i><span>Validate</span></div>
+      </section>
+
+      <section class="content-grid" id="finding">
+        <article class="panel finding-card">
+          <div class="section-heading"><div><p class="eyebrow">STATIC FINDING</p><h2 id="finding-title">Awaiting scan</h2></div><span id="severity" class="badge neutral">—</span></div>
+          <div class="finding-meta"><div><small>CWE</small><strong id="cwe">—</strong></div><div><small>Rule</small><strong id="rule">—</strong></div><div><small>Location</small><strong id="location">—</strong></div></div>
+          <div class="evidence-box"><small>EVIDENCE-BACKED CLAIM</small><p id="evidence">Select a fixture to produce source-hash evidence.</p></div>
+        </article>
+        <article class="panel exploit-card">
+          <div class="section-heading"><div><p class="eyebrow">REACHABILITY</p><h2>Exploitability</h2></div><span id="exploit-score" class="confidence">—</span></div>
+          <h3 id="classification">Not assessed</h3>
+          <p id="rationale" class="muted">The agent uses explicit fixture context and does not invent runtime facts.</p>
+          <div id="preconditions" class="chips"></div>
+        </article>
+      </section>
+
+      <section class="content-grid" id="remediation">
+        <article class="panel patch-card">
+          <div class="section-heading"><div><p class="eyebrow">ALLOW-LISTED TRANSFORMATION</p><h2 id="patch-title">No proposal</h2></div><span id="patch-risk" class="badge amber">APPROVAL REQUIRED</span></div>
+          <pre id="patch"># Patch preview appears after investigation</pre>
+          <div class="guardrails"><span>Exact source hash</span><span>Bound preview bytes</span><span>Automatic rollback</span></div>
+        </article>
+        <article class="panel gate-card">
+          <div class="section-heading"><div><p class="eyebrow">HUMAN GATE</p><h2>Approval & validation</h2></div><span id="incident-status" class="badge neutral">IDLE</span></div>
+          <p id="rollback" class="muted">Rollback and validation details appear with the proposal.</p>
+          <button id="approve" class="primary" disabled>Approve with demo reviewer</button>
+          <button id="remediate" class="secondary" disabled>Execute with separate demo credential</button>
+          <div id="validation" class="validation"><p class="muted">Awaiting an approved remediation.</p></div>
+        </article>
+      </section>
+
+      <section class="panel activity-panel" id="activity">
+        <div class="section-heading"><div><p class="eyebrow">IMMUTABLE HISTORY</p><h2>Agent activity</h2></div><span class="badge neutral">APPEND ONLY</span></div>
+        <div class="table-wrap"><table><thead><tr><th>Time</th><th>Actor</th><th>Action</th><th>Decision</th></tr></thead><tbody id="activity-body"><tr><td colspan="4" class="muted">No activity yet.</td></tr></tbody></table></div>
+      </section>
+
+      <footer><span>ForgeGuard v1.0 · deterministic mock mode</span><span><a href="/health">Health</a> · <a href="/metrics">Metrics</a></span></footer>
+    </main>
+  </div>
+  <script src="/assets/app.js" defer></script>
+</body>
+</html>

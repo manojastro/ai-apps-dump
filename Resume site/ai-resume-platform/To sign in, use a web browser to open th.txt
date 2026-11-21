@@ -1,0 +1,2 @@
+To sign in, use a web browser to open the page https://login.microsoft.com/device and enter the code IMR3JZ42W to authenticate.
+This code will expire in 15 minutes.

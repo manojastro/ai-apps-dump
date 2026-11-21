@@ -1,0 +1,17 @@
+# Ground truth: email delays with NO related change (upstream provider).
+# LEARNER TASK (M2): learner wrote this file's evidence section.
+# Synthetic drill — tests that agents don't blame the nearest change.
+scenario: email-upstream-no-change
+incident_number: INC1000005
+ci: mail-relay-01
+true_root_cause: Upstream provider (mx-upstream-stub) degraded; local relay healthy, no local change in window.
+evidence:
+  - logs: mail-relay-01 WARN upstream delay + ERROR deferred 1.2k msgs, upstream timeout
+  - changes: list_recent_changes(mail-relay-01, 48h) returns nothing related
+  - blast: mail-relay-02 also affected via shared upstream (same dependency)
+related_changes: []
+red_herrings: [CHG0010007]
+expected_blast: []
+log_window: {service: email, minutes: 120}
+confidence: MEDIUM
+note: Correct answer is 'no local change; escalate to provider', not the nearest change.

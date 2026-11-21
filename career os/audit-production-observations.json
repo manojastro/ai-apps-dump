@@ -1,0 +1,269 @@
+{
+  "errors": [],
+  "failed": [
+    {
+      "path": "/api/ai/command",
+      "status": 401
+    }
+  ],
+  "measurements": [
+    {
+      "route": "/login",
+      "width": 1280,
+      "ready_ms": 2782,
+      "document_width": 1280
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "ready_ms": 427,
+      "document_width": 1440
+    },
+    {
+      "route": "/today",
+      "width": 1440,
+      "ready_ms": 1001,
+      "document_width": 1440
+    },
+    {
+      "route": "/planner",
+      "width": 1440,
+      "ready_ms": 733,
+      "document_width": 1440
+    },
+    {
+      "route": "/tasks",
+      "width": 1440,
+      "ready_ms": 234,
+      "document_width": 1440
+    },
+    {
+      "route": "/goals",
+      "width": 1440,
+      "ready_ms": 650,
+      "document_width": 1440
+    },
+    {
+      "route": "/skills",
+      "width": 1440,
+      "ready_ms": 409,
+      "document_width": 1440
+    },
+    {
+      "route": "/projects",
+      "width": 1440,
+      "ready_ms": 398,
+      "document_width": 1440
+    },
+    {
+      "route": "/networking",
+      "width": 1440,
+      "ready_ms": 603,
+      "document_width": 1440
+    },
+    {
+      "route": "/interviews",
+      "width": 1440,
+      "ready_ms": 388,
+      "document_width": 1440
+    },
+    {
+      "route": "/jobs",
+      "width": 1440,
+      "ready_ms": 424,
+      "document_width": 1440
+    },
+    {
+      "route": "/daily-log",
+      "width": 1440,
+      "ready_ms": 337,
+      "document_width": 1440
+    },
+    {
+      "route": "/copilot",
+      "width": 1440,
+      "ready_ms": 399,
+      "document_width": 1440
+    },
+    {
+      "route": "/more",
+      "width": 1440,
+      "ready_ms": 454,
+      "document_width": 1440
+    },
+    {
+      "route": "/settings",
+      "width": 1440,
+      "ready_ms": 627,
+      "document_width": 1440
+    },
+    {
+      "route": "/",
+      "width": 768,
+      "ready_ms": 225,
+      "document_width": 901
+    },
+    {
+      "route": "/today",
+      "width": 768,
+      "ready_ms": 250,
+      "document_width": 873
+    },
+    {
+      "route": "/planner",
+      "width": 768,
+      "ready_ms": 509,
+      "document_width": 882
+    },
+    {
+      "route": "/tasks",
+      "width": 768,
+      "ready_ms": 338,
+      "document_width": 871
+    },
+    {
+      "route": "/goals",
+      "width": 768,
+      "ready_ms": 275,
+      "document_width": 900
+    },
+    {
+      "route": "/skills",
+      "width": 768,
+      "ready_ms": 552,
+      "document_width": 870
+    },
+    {
+      "route": "/projects",
+      "width": 768,
+      "ready_ms": 246,
+      "document_width": 886
+    },
+    {
+      "route": "/networking",
+      "width": 768,
+      "ready_ms": 263,
+      "document_width": 904
+    },
+    {
+      "route": "/interviews",
+      "width": 768,
+      "ready_ms": 251,
+      "document_width": 890
+    },
+    {
+      "route": "/jobs",
+      "width": 768,
+      "ready_ms": 253,
+      "document_width": 910
+    },
+    {
+      "route": "/daily-log",
+      "width": 768,
+      "ready_ms": 339,
+      "document_width": 867
+    },
+    {
+      "route": "/copilot",
+      "width": 768,
+      "ready_ms": 229,
+      "document_width": 880
+    },
+    {
+      "route": "/more",
+      "width": 768,
+      "ready_ms": 251,
+      "document_width": 867
+    },
+    {
+      "route": "/settings",
+      "width": 768,
+      "ready_ms": 233,
+      "document_width": 886
+    },
+    {
+      "route": "/",
+      "width": 390,
+      "ready_ms": 241,
+      "document_width": 390
+    },
+    {
+      "route": "/today",
+      "width": 390,
+      "ready_ms": 274,
+      "document_width": 390
+    },
+    {
+      "route": "/planner",
+      "width": 390,
+      "ready_ms": 361,
+      "document_width": 390
+    },
+    {
+      "route": "/tasks",
+      "width": 390,
+      "ready_ms": 240,
+      "document_width": 390
+    },
+    {
+      "route": "/goals",
+      "width": 390,
+      "ready_ms": 252,
+      "document_width": 390
+    },
+    {
+      "route": "/skills",
+      "width": 390,
+      "ready_ms": 225,
+      "document_width": 390
+    },
+    {
+      "route": "/projects",
+      "width": 390,
+      "ready_ms": 270,
+      "document_width": 390
+    },
+    {
+      "route": "/networking",
+      "width": 390,
+      "ready_ms": 234,
+      "document_width": 390
+    },
+    {
+      "route": "/interviews",
+      "width": 390,
+      "ready_ms": 236,
+      "document_width": 390
+    },
+    {
+      "route": "/jobs",
+      "width": 390,
+      "ready_ms": 171,
+      "document_width": 390
+    },
+    {
+      "route": "/daily-log",
+      "width": 390,
+      "ready_ms": 222,
+      "document_width": 390
+    },
+    {
+      "route": "/copilot",
+      "width": 390,
+      "ready_ms": 211,
+      "document_width": 390
+    },
+    {
+      "route": "/more",
+      "width": 390,
+      "ready_ms": 244,
+      "document_width": 390
+    },
+    {
+      "route": "/settings",
+      "width": 390,
+      "ready_ms": 238,
+      "document_width": 390
+    }
+  ]
+}

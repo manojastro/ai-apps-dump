@@ -1,0 +1,23 @@
+services:
+  drift-agent-api:
+    build: .
+    container_name: mlops-drift-agent
+    ports:
+      - "8613:8613"
+    environment:
+      LLM_MODE: mock
+      DATABASE_URL: sqlite:////app/data/app.db
+      ARTIFACTS_DIR: /app/artifacts
+      WINDOW_DATA_DIR: /app/data/windows
+    volumes:
+      - app-data:/app/data
+      - app-artifacts:/app/artifacts
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8613/health')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+volumes:
+  app-data:
+  app-artifacts:

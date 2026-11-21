@@ -1,0 +1,7 @@
+{
+  "_comment": "Buyer-side canonical product master data used to define requests. Synthetic.",
+  "NW-PRO14-16-512": {"family": "Northwind Pro 14", "cpu": "Core i5-1335U", "ram_gb": 16, "ssd_gb": 512, "storage_type": "SSD", "display_in": 14, "os": "Windows 11 Pro"},
+  "NW-PRO14-8-512": {"family": "Northwind Pro 14", "cpu": "Core i5-1335U", "ram_gb": 8, "ssd_gb": 512, "storage_type": "SSD", "display_in": 14, "os": "Windows 11 Pro"},
+  "NW-PRO14-16-1024": {"family": "Northwind Pro 14", "cpu": "Core i5-1335U", "ram_gb": 16, "ssd_gb": 1024, "storage_type": "SSD", "display_in": 14, "os": "Windows 11 Pro"},
+  "CT-BOOK15-16-256": {"family": "Contoso Book 15", "cpu": "Ryzen 5 7530U", "ram_gb": 16, "ssd_gb": 256, "storage_type": "SSD", "display_in": 15.6, "os": "Windows 11 Home"}
+}

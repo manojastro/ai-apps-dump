@@ -1,0 +1,14 @@
+# Hand-labelled golden scenario. Expectations derive from reading the SQL and dashboards.yaml.
+id: s12_add_required_field
+description: Add required orders.region without default (registry-incompatible, no consumers)
+topic: orders.v1
+mutations:
+- op: add_field
+  field: region
+  type: string
+expected:
+  change_class: non_breaking
+  route: report
+  impacted: []
+  verdicts: {}
+  fix_should_pass: null

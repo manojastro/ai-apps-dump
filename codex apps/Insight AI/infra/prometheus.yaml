@@ -1,0 +1,6 @@
+global:
+  scrape_interval: 5s
+scrape_configs:
+  - job_name: productionlens-demo
+    static_configs:
+      - targets: [checkout:8100, payment:8100, inventory:8100]

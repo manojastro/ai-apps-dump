@@ -1,0 +1,16 @@
+{% extends "beta/base.jinja" %}{% block title %}{{ p.name }}{% endblock %}{% block body %}
+<article class="card">
+<h1>{{ p.name }}</h1>
+{% if malicious %}{% include "_malicious.jinja" %}{% endif %}
+<p>SKU: <span>{{ p.sku }}</span></p>
+<h2 style="font-size:16px">Key specs</h2>
+<ul class="chips" aria-label="Key specs">
+<li>CPU: {{ spec.cpu }}</li><li>RAM: {{ spec.ram_gb }}G</li><li>SSD: {{ spec.ssd_gb }}G</li><li>Display: {{ spec.display_in }}"</li><li>OS: {{ spec.os }}</li>
+<li>{% if p.pack_size == 1 %}Sold individually{% else %}Bundle pack{% endif %}</li></ul>
+<div class="row"><span>Price each (incl. GST)</span><strong>₹{{ p.unit_price|inr }}</strong></div>
+<div class="row"><span>Delivery fee (incl. GST)</span><span>₹{{ cfg.shipping_amount|inr }} per order</span></div>
+<div class="row"><span>Stock</span><span>{{ p.stock }} units</span></div>
+<div class="row"><span>Ships in</span><span>{% if p.delivery_certain %}{{ p.delivery_days }} days{% else %}Date not confirmed{% endif %}</span></div>
+<form method="post" action="{{ r.cart_add }}" style="margin-top:16px"><input type="hidden" name="sku" value="{{ p.sku }}">
+<label>Qty <input name="qty" type="number" min="1" value="1" style="width:90px"></label>
+<button class="cta" type="submit">Add to cart</button></form></article>{% endblock %}

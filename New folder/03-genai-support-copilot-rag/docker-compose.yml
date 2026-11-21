@@ -1,0 +1,17 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      LOG_LEVEL: INFO
+    volumes:
+      # Mount KB files so you can ingest without rebuilding the image.
+      - ./data:/app/data:ro
+    restart: unless-stopped
+
+# NOTE: Pinecone is an external managed vector DB — there is intentionally no
+# container for it here. Provide PINECONE_API_KEY / PINECONE_INDEX via .env.
+# The app also degrades gracefully when those variables are absent.

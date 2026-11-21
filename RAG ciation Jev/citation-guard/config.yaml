@@ -1,0 +1,73 @@
+# Citation Guard configuration. Secrets live in .env (see .env.example), never here.
+
+jev:
+  # Pinned concrete version. Never use the moving alias `jev-latest`.
+  # Source: https://docs.typesafe.ai/models.md (read 2026-11-21): current models are
+  # jev-1.14.0 (newest, released 2026-10-14) and jev-1.13.0. `client.models.list()` lists
+  # aliases only; versioned IDs are accepted regardless. models.list() was NOT run on
+  # 2026-11-21 because no TYPESAFE_API_KEY was available. Re-check with `citation-guard models`.
+  model: jev-1.14.0
+  timeout_s: 30.0
+  max_retries: 3          # passed to the SDK's RetryPolicy (no hand-written retry loop)
+
+pricing:
+  jev:
+    usd_per_million_input_tokens: 0.042   # output tokens are free
+    usd_per_million_output_tokens: 0.0
+    checked_on: "2026-11-21"
+    source: https://docs.typesafe.ai/models.md
+
+# OpenAI-compatible provider used by the generator (system under test) and the LLM baseline.
+# OpenRouter:   base_url https://openrouter.ai/api/v1,  api_key_env OPENROUTER_API_KEY
+# Azure OpenAI: base_url https://<resource>.openai.azure.com/openai/v1/, api_key_env AZURE_OPENAI_API_KEY
+llm_provider:
+  base_url: https://openrouter.ai/api/v1
+  api_key_env: OPENROUTER_API_KEY
+
+generator:
+  model: openai/gpt-4.1-mini
+  temperature: 0.0
+  max_tokens: 2500
+  max_claims_per_answer: 3
+  pricing:
+    usd_per_million_input_tokens: 0.40
+    usd_per_million_output_tokens: 1.60
+    checked_on: "2026-11-21"
+    source: https://openrouter.ai/api/v1/models
+
+llm_judge:
+  model: openai/gpt-4o-mini
+  temperature: 0.0
+  max_tokens: 300
+  pricing:
+    usd_per_million_input_tokens: 0.15
+    usd_per_million_output_tokens: 0.60
+    checked_on: "2026-11-21"
+    source: https://openrouter.ai/api/v1/models
+
+gate:
+  # Starting values. Code owns the decision; judges only supply probabilities.
+  pass_supports: 0.80      # P(supports) >= this  -> PASS
+  fail_contradicts: 0.50   # P(contradicts) >= this -> FAIL_CONTRADICTED
+
+quote:
+  min_chars: 20            # quotes shorter than this (after normalisation) -> HUMAN_REVIEW
+
+passage:
+  window_chars: 1500       # chars on each side of the quote, snapped to sentence boundaries
+
+run:
+  max_api_calls_per_run: 500
+  concurrency: 5
+  seed: 7519
+
+tuning:
+  # Threshold grid searched on the dev split only.
+  pass_supports_grid: [0.50, 0.55, 0.60, 0.65, 0.70, 0.75, 0.80, 0.85, 0.90, 0.95]
+  fail_contradicts_grid: [0.30, 0.40, 0.50, 0.60, 0.70]
+  # Policy: wrong-pass rate on dev must stay at or below this; then minimise false alarms.
+  # 0.0 = no bad claim may PASS on dev. On a tiny dev set this can push everything to review.
+  max_wrong_pass_rate: 0.0
+
+api:
+  judge: mock              # mock | jev | llm  (local API only, no auth)

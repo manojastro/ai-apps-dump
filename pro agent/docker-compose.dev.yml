@@ -1,0 +1,22 @@
+# Development dependencies only: PostgreSQL. Run app services locally with scripts/dev.*
+name: procnav-dev
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-devpostgres}
+      PROCNAV_OWNER_PASSWORD: ${PROCNAV_OWNER_PASSWORD:-devowner}
+      PROCNAV_APP_PASSWORD: ${PROCNAV_APP_PASSWORD:-devapp}
+      SUPPLIERS_DB_PASSWORD: ${SUPPLIERS_DB_PASSWORD:-devsuppliers}
+    ports:
+      - "127.0.0.1:55433:5432"
+    volumes:
+      - pgdata_dev:/var/lib/postgresql/data
+      - ./infra/postgres/init.sh:/docker-entrypoint-initdb.d/10-init.sh:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 3s
+      retries: 20
+volumes:
+  pgdata_dev:

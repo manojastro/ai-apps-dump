@@ -1,0 +1,13 @@
+<table id="order-summary" aria-label="Order summary"><tbody>
+<tr><th scope="row">Item</th><td>{{ line.sku }} {{ line.name }}</td></tr>
+<tr><th scope="row">Quantity</th><td>{{ totals.qty }}</td></tr>
+<tr><th scope="row">Unit price (excl. GST)</th><td>INR {{ totals.unit_price|inr }}</td></tr>
+<tr><th scope="row">Subtotal</th><td>INR {{ totals.subtotal|inr }}</td></tr>
+<tr><th scope="row">Discount</th><td>INR {{ totals.discount|inr }}</td></tr>
+<tr><th scope="row">GST (18%, synthetic, on goods)</th><td>INR {{ totals.tax|inr }}</td></tr>
+<tr><th scope="row">Shipping</th><td>INR {{ totals.shipping|inr }}</td></tr>
+<tr><th scope="row">Total payable</th><td><strong>INR {{ totals.total|inr }}</strong></td></tr>
+<tr><th scope="row">Currency</th><td>INR</td></tr>
+<tr><th scope="row">Estimated delivery date</th><td>{% if totals.delivery_certain %}{{ totals.delivery_date }}{% else %}To be confirmed{% endif %}</td></tr>
+<tr><th scope="row">Quote reference</th><td>{{ totals.quote_ref }}</td></tr>
+</tbody></table>

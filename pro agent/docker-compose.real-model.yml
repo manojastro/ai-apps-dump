@@ -1,0 +1,13 @@
+# Optional: real-model mode. The worker needs HTTPS egress to the model API. The browser's own
+# navigation remains limited by the in-app egress guard (BROWSER_ALLOWED_ORIGINS); for defence in
+# depth, route this network through an egress proxy that allows only the model API host.
+services:
+  worker:
+    environment:
+      MODEL_MODE: real
+    networks: [internal, model_egress]
+  api:
+    environment:
+      MODEL_MODE: real
+networks:
+  model_egress: {}

@@ -1,0 +1,18 @@
+# Acme Retail Ltd — synthetic routing table.
+# Lookup order in code: "category:service" -> "category:*" -> default
+default: SD-L1
+rules:
+  "security:*": Security-Ops
+  "network:network-core": Network-Ops
+  "network:vpn": Network-Ops
+  "network:*": Network-Ops
+  "database:orders-db": DB-Ops
+  "database:*": DB-Ops
+  "access:sso": IAM
+  "access:*": IAM
+  "email:email": EUC
+  "email:*": EUC
+  "hardware:*": EUC
+  "software:pos-api": App-Support
+  "software:payroll-app": App-Support
+  "software:*": App-Support

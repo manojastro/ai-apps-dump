@@ -1,0 +1,4258 @@
+# MASTER BUILD PROMPT
+
+# AI Career & Transition Operating System — 2026
+
+You are an elite:
+
+* Full-stack engineer
+* Product architect
+* TypeScript engineer
+* Data-model designer
+* UI/UX designer
+* Analytics engineer
+* Software quality engineer
+
+Your task is to DESIGN AND BUILD a complete, production-ready, highly interactive personal career-transition web application called:
+
+# AI Career & Transition Operating System — 2026
+
+Do not merely:
+
+* create a mockup
+* create a wireframe
+* create a static dashboard
+* create only components
+* create a partial prototype
+* create only a plan
+* describe how to build it
+
+Actually build the entire working application end-to-end.
+
+The product should feel like a premium combination of:
+
+* Linear
+* Vercel Dashboard
+* GitHub
+* Notion
+* modern engineering analytics products
+* lightweight CRM
+* personal operating system
+
+The application should be sophisticated, information-dense, fast, professional, dark-first, and suitable for an experienced technology professional.
+
+The application must NOT look like:
+
+* a student learning portal
+* a habit tracker
+* a motivational dashboard
+* a generic job tracker
+* a generic CRM
+* a course tracker
+
+Its real purpose is:
+
+> Help an experienced technology professional strategically transition into senior AI engineering roles by connecting learning, skills, portfolio evidence, projects, job targeting, networking, interviews, feedback, and offers into one execution system.
+
+---
+
+# 1. USER PROFILE
+
+Build the application around this career profile.
+
+Professional experience:
+
+**8.5 years**
+
+Previous professional background:
+
+**Enterprise IT Operations / Service Desk / enterprise technology operations**
+
+Current/baseline compensation:
+
+**₹11 LPA**
+
+Career transition year:
+
+**2026**
+
+Primary target compensation:
+
+**₹20–25+ LPA**
+
+Stretch compensation target:
+
+**₹30–35+ LPA**
+
+Long-term direction:
+
+**Senior Engineering / Technical Leadership / AI Architecture**
+
+Primary target roles:
+
+1. Agentic AI Engineer
+2. GenAI Engineer
+3. AIOps Engineer
+4. AI Solutions Engineer
+5. AI Solutions Architect
+6. Cloud AI Engineer
+7. Forward Deployed / AI Deployment Engineer
+8. Intelligent Automation Engineer
+9. AI Security Engineer
+10. LLM Engineer
+
+Primary target locations:
+
+* Bengaluru
+* Hyderabad
+* Chennai
+* Coimbatore
+* Remote India
+* Hybrid India
+
+Default locale:
+
+`en-IN`
+
+Default timezone:
+
+`Asia/Kolkata`
+
+Default currency:
+
+`INR`
+
+Compensation display:
+
+`LPA`
+
+---
+
+# 2. CAREER POSITIONING RULE
+
+The candidate is transitioning AWAY from support-focused professional positioning.
+
+Do NOT orient the portfolio around generic:
+
+* helpdesk automation
+* service desk chatbot
+* password-reset agent
+* ticket-routing assistant
+* employee IT-support bot
+* endpoint support
+* basic incident-ticket classification
+* FAQ bot
+* generic support automation
+
+Previous enterprise operations experience should be treated as valuable domain and enterprise experience.
+
+However, the future identity throughout the application should emphasize:
+
+* AI Engineer
+* Agentic AI Engineer
+* GenAI Engineer
+* AIOps Engineer
+* AI Solutions Engineer
+* Cloud AI Engineer
+* AI Solutions Architect
+* Forward Deployed AI Engineer
+
+Portfolio work should demonstrate:
+
+* production AI engineering
+* agentic systems
+* multi-agent systems
+* RAG
+* evaluation
+* LLMOps
+* observability
+* cloud architecture
+* AI security
+* autonomous reasoning
+* enterprise integration
+* human-in-the-loop architecture
+* system design
+* reliability
+* deployment
+* measurable outcomes
+* technical trade-offs
+
+---
+
+# 3. CORE PRODUCT PHILOSOPHY
+
+The product should organize the career transition around:
+
+# Learn → Build → Prove → Position → Apply → Interview → Improve → Convert
+
+The user should be able to open the application every morning and immediately answer:
+
+1. Where am I right now?
+2. How ready am I for my target roles?
+3. What is my current biggest career bottleneck?
+4. What evidence proves that I can perform these roles?
+5. What should I work on today?
+6. What skills are currently missing?
+7. What projects need completion or stronger evidence?
+8. Which jobs should I prioritize?
+9. Which applications require follow-up?
+10. Which interviews are approaching?
+11. What did previous interviews reveal about my weaknesses?
+12. Is my job-search strategy converting?
+13. Which resume version performs better?
+14. Which job channels create interviews?
+15. Which networking activities create referrals?
+16. Am I over-learning and under-building?
+17. Am I building enough senior-level evidence?
+18. Am I moving toward ₹20–35+ LPA opportunities?
+
+If the application only stores records but does not answer these questions, it is incomplete.
+
+---
+
+# 4. TECH STACK
+
+Use the latest stable, security-patched:
+
+**Next.js 16.x App Router**
+
+with:
+
+* TypeScript
+* React
+* Tailwind CSS
+* Zod
+* Lucide React
+* Radix UI / Shadcn-style components
+* Recharts
+* date-fns
+* Vitest
+* Playwright
+
+Use Zustand if useful for centralized application state.
+
+Do not use unnecessary dependencies.
+
+Avoid experimental framework functionality unless there is a compelling reason.
+
+Use strict TypeScript.
+
+Avoid `any` unless absolutely unavoidable.
+
+---
+
+# 5. VISUAL DESIGN SYSTEM
+
+Use a premium dark-first aesthetic.
+
+Primary background:
+
+`#090d16`
+
+Elevated background:
+
+`#0d1320`
+
+Primary card:
+
+`#111827`
+
+Secondary card:
+
+`#151d2c`
+
+Border:
+
+`rgba(148,163,184,0.12)`
+
+Primary accent families:
+
+* Emerald
+* Cyan
+* Indigo
+
+Semantic colors:
+
+* Green = success/completed/offer
+* Cyan/Blue = active/progress
+* Amber = attention/follow-up
+* Red = overdue/risk
+* Indigo/Purple = AI/research/strategy
+
+Avoid excessive gradients.
+
+Use gradients only for selected high-value visuals such as:
+
+* readiness ring
+* score highlight
+* major hero metric
+
+Cards should generally use:
+
+* 12–16px radius
+* subtle border
+* minimal shadow
+* compact spacing
+* strong information hierarchy
+
+Avoid huge headings.
+
+Primary interface typography:
+
+14–16px.
+
+Use tabular numerals for:
+
+* scores
+* compensation
+* percentages
+* counters
+
+Use polished hover, focus and transition states.
+
+Avoid childish illustrations.
+
+Avoid excessive emoji.
+
+Avoid unnecessary gamification.
+
+---
+
+# 6. RESPONSIVE DESIGN
+
+Desktop:
+
+* collapsible left sidebar
+* top command bar
+* multi-column dashboard
+* dense data tables
+* detail drawers/pages
+
+Tablet:
+
+* reduced column layouts
+* responsive cards
+
+Mobile:
+
+* stacked cards
+* major navigation through bottom navigation or compact drawer
+* horizontally scrollable filters
+* data tables adapt to cards when necessary
+
+All major features must work on mobile.
+
+---
+
+# 7. ACCESSIBILITY
+
+Target:
+
+# WCAG 2.2 AA
+
+Implement:
+
+* keyboard navigation
+* semantic controls
+* visible focus states
+* accessible dialogs
+* appropriate ARIA labels
+* focus trapping
+* skip navigation
+* adequate touch sizes
+* sufficient contrast
+* accessible chart summaries
+* no color-only meaning
+
+Use automated accessibility checks plus manual review of critical screens.
+
+---
+
+# 8. APPLICATION NAVIGATION
+
+Create these primary modules.
+
+## Dashboard / Command Center
+
+`/dashboard`
+
+or `/`
+
+## Today
+
+`/today`
+
+## Skills
+
+`/skills`
+
+## Projects
+
+`/projects`
+
+## Evidence
+
+`/evidence`
+
+## Roles
+
+`/roles`
+
+## Jobs
+
+`/jobs`
+
+## Companies
+
+`/companies`
+
+## Networking
+
+`/network`
+
+## Interview Prep
+
+`/interview`
+
+## Certifications
+
+`/certifications`
+
+## Research Lab
+
+`/research`
+
+## Weekly Execution
+
+`/execution`
+
+## Analytics
+
+`/analytics`
+
+## Career Assets
+
+`/assets`
+
+## Settings
+
+`/settings`
+
+Use stable deep links for major entities:
+
+`/projects/[id]`
+
+`/jobs/[id]`
+
+`/companies/[id]`
+
+`/contacts/[id]`
+
+`/roles/[id]`
+
+---
+
+# 9. TOP BAR
+
+Include:
+
+* application logo/name
+* transition phase
+* search
+* command palette
+* Quick Add
+* Save status
+* readiness indicator
+* Backup / Restore
+* Privacy Mode
+* settings
+
+Keyboard shortcut:
+
+`Ctrl/Cmd + K`
+
+Command palette should support:
+
+* Add Skill
+* Add Project
+* Add Job
+* Add Contact
+* Add Evidence
+* Add STAR Story
+* Add Research Topic
+* Add Interview Question
+* Add Task
+* Open Today's Priorities
+* Open Active Applications
+* Export State
+* Search Entire OS
+
+---
+
+# 10. STORAGE AND PERSISTENCE
+
+The application should work fully without a backend.
+
+Persist core state using browser storage.
+
+Required state key:
+
+`ai_career_os_state_v1`
+
+However:
+
+Do NOT tightly couple application logic to localStorage.
+
+Create a storage abstraction.
+
+Conceptual interface:
+
+```typescript
+interface StorageRepository {
+  load(): Promise<CareerOSState>;
+  save(state: CareerOSState): Promise<void>;
+  backup(): Promise<void>;
+  restore(): Promise<CareerOSState>;
+}
+```
+
+Core state can use localStorage.
+
+Future larger content such as:
+
+* PDFs
+* screenshots
+* resume files
+* architecture images
+* binary attachments
+
+should use IndexedDB rather than Base64 inside localStorage.
+
+Implement:
+
+* automatic save
+* safe hydration
+* schema versioning
+* state migration
+* last-known-good backup
+* storage-health monitoring
+* cross-tab synchronization
+* failure recovery
+
+Never silently overwrite corrupted state.
+
+---
+
+# 11. SAVE STATUS
+
+Display subtle application save state:
+
+* Saving…
+* Saved
+* Save Failed
+
+Persistence failures must be visible.
+
+Use safe debouncing if appropriate.
+
+---
+
+# 12. CROSS-TAB SYNCHRONIZATION
+
+Support state synchronization across multiple browser tabs using:
+
+* `storage` event
+  or
+* `BroadcastChannel`
+
+Avoid overwriting more recent state from another tab.
+
+---
+
+# 13. RECOVERY MODE
+
+If stored state becomes corrupted:
+
+Do not reset immediately.
+
+Show:
+
+# Recovery Mode
+
+Options:
+
+* Restore last known good state
+* Import backup
+* Export corrupted state for troubleshooting
+* Reset application
+
+Before schema migration:
+
+* create recovery copy
+* migrate
+* validate using Zod
+
+---
+
+# 14. BACKUP / RESTORE
+
+Create a premium modal.
+
+## JSON Export
+
+Support:
+
+* full-state export
+* pretty formatting
+* copy JSON
+* download JSON
+* schema version
+* export timestamp
+
+## JSON Import
+
+Support:
+
+* paste JSON
+* select JSON file
+* Zod validation
+* import preview
+* possible duplicate detection
+* confirmation before replacing state
+
+Include:
+
+* Create Backup Before Import
+* Reset Application
+* Restore Demo Workspace
+* Start Clean
+
+Never silently overwrite state.
+
+---
+
+# 15. CSV IMPORT / EXPORT
+
+Support CSV export for:
+
+* Jobs
+* Contacts
+* Skills
+* Projects
+
+At minimum support CSV import for:
+
+* Job Applications
+
+Allow column mapping.
+
+Preview:
+
+* valid rows
+* invalid rows
+* duplicates
+* updates
+* new records
+
+---
+
+# 16. SECURITY RULES
+
+Implement:
+
+* Content Security Policy
+* no unsafe imported HTML
+* no `dangerouslySetInnerHTML`
+* Zod runtime validation
+* safe URL handling
+* `noopener noreferrer`
+* no hardcoded secrets
+* no sensitive telemetry
+* no API keys stored in localStorage
+* no API keys inside export files
+
+If future LLM integrations are added:
+
+Browser → server endpoint → provider.
+
+Do not expose provider secrets client-side.
+
+---
+
+# 17. PRIVACY MODE
+
+Add:
+
+# Privacy / Presentation Mode
+
+When enabled, visually mask:
+
+* salary
+* offer values
+* private notes
+* personal contact details
+* referral names
+
+Clearly state:
+
+> Privacy Mode hides data visually. It does not encrypt stored information.
+
+---
+
+# 18. CORE DOMAIN TYPES
+
+Implement strict TypeScript interfaces.
+
+Use:
+
+```typescript
+export interface BaseEntity {
+  id: string;
+  createdAt: string;
+  updatedAt: string;
+  archivedAt?: string;
+  tags?: string[];
+}
+```
+
+---
+
+# 19. SKILL ITEM
+
+```typescript
+export interface SkillItem extends BaseEntity {
+  category:
+    | 'core_python'
+    | 'intermediate_python'
+    | 'llm_orchestration'
+    | 'agents'
+    | 'rag'
+    | 'serving_llmops';
+
+  name: string;
+
+  sourceLearned: string;
+  sourceUrl: string;
+
+  summary: string;
+  whatNext: string;
+
+  mappedRoles: string[];
+
+  status:
+    | 'to_learn'
+    | 'in_progress'
+    | 'mastered';
+}
+```
+
+---
+
+# 20. PROJECT ITEM
+
+```typescript
+export interface ProjectItem extends BaseEntity {
+  title: string;
+
+  category:
+    | 'AIOps'
+    | 'RAG'
+    | 'Agents'
+    | 'Security_LLMOps'
+    | 'FullStack_SaaS';
+
+  targetRole: string;
+
+  techStack: string[];
+
+  useCase: string;
+
+  architectureSummary: string;
+
+  githubUrl: string;
+
+  liveUrl: string;
+
+  starPitch: string;
+
+  status:
+    | 'planned'
+    | 'in_progress'
+    | 'deployed';
+}
+```
+
+---
+
+# 21. JOB APPLICATION
+
+```typescript
+export interface JobApplication extends BaseEntity {
+  company: string;
+
+  tier:
+    | 'GCC'
+    | 'Enterprise IT'
+    | 'AI Startup'
+    | 'Consulting';
+
+  role: string;
+
+  platform: string;
+
+  jobUrl?: string;
+
+  referralContact?: string;
+  referralContactId?: string;
+
+  resumeVariantId?: string;
+
+  dateApplied: string;
+
+  nextFollowUpDate: string;
+
+  status:
+    | 'Identified'
+    | 'Referred'
+    | 'Applied'
+    | 'Screening'
+    | 'Technical'
+    | 'Offer'
+    | 'Rejected';
+
+  notes: string;
+
+  outcomeReason?: ApplicationOutcomeReason;
+}
+```
+
+---
+
+# 22. APPLICATION OUTCOME REASON
+
+```typescript
+export type ApplicationOutcomeReason =
+  | 'No Response'
+  | 'Role Closed'
+  | 'Skill Gap'
+  | 'Experience Mismatch'
+  | 'Compensation'
+  | 'Location'
+  | 'Failed Interview'
+  | 'Candidate Withdrew'
+  | 'Accepted Another Offer'
+  | 'Unknown'
+  | 'Other';
+```
+
+Never infer rejection reasons.
+
+---
+
+# 23. NETWORKING CONTACT
+
+```typescript
+export interface NetworkingContact extends BaseEntity {
+  name: string;
+  designation: string;
+  company: string;
+
+  medium:
+    | 'LinkedIn'
+    | 'Topmate'
+    | 'Hackathon'
+    | 'Email'
+    | 'In-Person';
+
+  contactDate: string;
+
+  outreachFormulaUsed: boolean;
+
+  status:
+    | 'Reached Out'
+    | 'Connected'
+    | 'Call Scheduled'
+    | 'Mentorship Active';
+
+  helpfulRating:
+    | 'High'
+    | 'Medium'
+    | 'Low'
+    | 'Unresponsive';
+
+  keyTakeaway: string;
+
+  nextTouchpointDate?: string;
+}
+```
+
+---
+
+# 24. CERTIFICATION
+
+```typescript
+export interface CertificationItem extends BaseEntity {
+  name: string;
+
+  provider:
+    | 'Microsoft'
+    | 'AWS'
+    | 'Azure'
+    | 'Databricks'
+    | 'NVIDIA';
+
+  code: string;
+
+  status:
+    | 'Not Started'
+    | 'Studying'
+    | 'Scheduled'
+    | 'Certified';
+
+  examDate?: string;
+  credentialUrl?: string;
+
+  whatNext: string;
+
+  mappedTrack:
+    | 'Option A: Azure Enterprise'
+    | 'Option B: Cloud-Agnostic AWS'
+    | 'Option C: Agentic Specialist';
+}
+```
+
+---
+
+# 25. STAR STORY
+
+```typescript
+export interface StarStory extends BaseEntity {
+  category:
+    | 'Outage/RCA'
+    | 'System Architecture'
+    | 'Automation Impact'
+    | 'Conflict/Governance'
+    | 'LLM Trade-Offs';
+
+  title: string;
+
+  situation: string;
+  task: string;
+  action: string;
+  result: string;
+
+  techNotes: string;
+}
+```
+
+---
+
+# 26. RESEARCH TOPIC
+
+```typescript
+export interface ResearchTopic extends BaseEntity {
+  title: string;
+  coreConcept: string;
+  mathOrFormula: string;
+  tradeOffs: string;
+  interviewTalkingPoints: string;
+  isMastered: boolean;
+}
+```
+
+---
+
+# 27. CAREER SETTINGS
+
+```typescript
+export interface CareerSettings {
+  baselineCtc: number;
+  targetMinCtc: number;
+  targetMaxCtc: number;
+  stretchCtc: number;
+
+  targetRoles: string[];
+  targetLocations: string[];
+
+  transitionStartDate: string;
+  targetSwitchDate?: string;
+
+  weeklyLearningHoursTarget: number;
+  weeklyApplicationsTarget: number;
+  weeklyNetworkingTarget: number;
+  weeklyInterviewPracticeTarget: number;
+
+  weeklyAvailableHours: number;
+
+  maxActiveProjects: number;
+  maxActiveCourses: number;
+  maxPrimaryRoles: number;
+
+  locale: string;
+  timezone: string;
+  currency: string;
+}
+```
+
+---
+
+# 28. CAREER TASK
+
+```typescript
+export interface CareerTask extends BaseEntity {
+  title: string;
+
+  category:
+    | 'Learning'
+    | 'Project'
+    | 'Application'
+    | 'Networking'
+    | 'Interview'
+    | 'Research';
+
+  priority:
+    | 'Critical'
+    | 'High'
+    | 'Medium'
+    | 'Low';
+
+  dueDate?: string;
+
+  completed: boolean;
+
+  linkedEntityId?: string;
+
+  linkedRoleIds?: string[];
+
+  blockedByTaskIds?: string[];
+
+  estimatedMinutes?: number;
+}
+```
+
+---
+
+# 29. WEEKLY SPRINT
+
+```typescript
+export interface WeeklySprint extends BaseEntity {
+  weekStart: string;
+
+  title: string;
+
+  objectives: string[];
+  completedObjectives: string[];
+
+  learningHours: number;
+  applicationsSubmitted: number;
+  networkingActions: number;
+  interviewSessions: number;
+
+  retrospective: string;
+}
+```
+
+---
+
+# 30. INTERVIEW QUESTION
+
+```typescript
+export interface InterviewQuestion extends BaseEntity {
+  category:
+    | 'Python'
+    | 'LLM'
+    | 'RAG'
+    | 'Agents'
+    | 'System Design'
+    | 'Cloud'
+    | 'MLOps'
+    | 'Behavioral';
+
+  question: string;
+
+  answer: string;
+
+  confidence:
+    | 1
+    | 2
+    | 3
+    | 4
+    | 5;
+
+  lastPracticed?: string;
+
+  nextReviewDate?: string;
+
+  mastered: boolean;
+}
+```
+
+---
+
+# 31. TARGET ROLE PROFILE
+
+```typescript
+export interface TargetRoleProfile extends BaseEntity {
+  name: string;
+
+  priority:
+    | 'Primary'
+    | 'Secondary'
+    | 'Stretch'
+    | 'Parked';
+
+  active: boolean;
+
+  targetSeniority:
+    | 'Mid'
+    | 'Senior'
+    | 'Lead'
+    | 'Architect';
+
+  competencyRequirements: RoleCompetencyRequirement[];
+
+  notes: string;
+}
+```
+
+---
+
+# 32. ROLE COMPETENCY
+
+```typescript
+export interface RoleCompetencyRequirement {
+  competencyId: string;
+  importance: 1 | 2 | 3 | 4 | 5;
+  targetLevel: 1 | 2 | 3 | 4 | 5;
+  evidenceRequired: boolean;
+}
+```
+
+---
+
+# 33. COMPETENCY
+
+```typescript
+export interface Competency extends BaseEntity {
+  name: string;
+
+  domain:
+    | 'Python'
+    | 'LLM'
+    | 'RAG'
+    | 'Agents'
+    | 'Evaluation'
+    | 'LLMOps'
+    | 'Cloud'
+    | 'System Design'
+    | 'Security'
+    | 'Data'
+    | 'Backend'
+    | 'Observability'
+    | 'Communication';
+
+  description: string;
+
+  skillIds: string[];
+  researchTopicIds: string[];
+}
+```
+
+---
+
+# 34. EVIDENCE ARTIFACT
+
+```typescript
+export interface EvidenceArtifact extends BaseEntity {
+  title: string;
+
+  type:
+    | 'GitHub Repository'
+    | 'Live Demo'
+    | 'Architecture Diagram'
+    | 'Benchmark'
+    | 'Evaluation Report'
+    | 'Case Study'
+    | 'Resume Bullet'
+    | 'STAR Story'
+    | 'Technical Article'
+    | 'Credential'
+    | 'Presentation'
+    | 'Other';
+
+  url?: string;
+
+  description: string;
+
+  projectId?: string;
+
+  skillIds: string[];
+
+  competencyIds: string[];
+
+  mappedRoleIds: string[];
+
+  strength:
+    | 'Draft'
+    | 'Usable'
+    | 'Strong';
+
+  lastVerifiedAt?: string;
+}
+```
+
+---
+
+# 35. LEARNING SESSION
+
+```typescript
+export interface LearningSession extends BaseEntity {
+  skillId?: string;
+  researchTopicId?: string;
+
+  date: string;
+
+  durationMinutes: number;
+
+  activity:
+    | 'Course'
+    | 'Reading'
+    | 'Coding'
+    | 'Lab'
+    | 'Revision'
+    | 'Interview Practice';
+
+  notes: string;
+
+  evidenceCreated?: string;
+}
+```
+
+---
+
+# 36. PROJECT MILESTONE
+
+```typescript
+export interface ProjectMilestone extends BaseEntity {
+  projectId: string;
+
+  title: string;
+
+  category:
+    | 'Architecture'
+    | 'Implementation'
+    | 'Evaluation'
+    | 'Testing'
+    | 'Deployment'
+    | 'Documentation'
+    | 'Demo';
+
+  dueDate?: string;
+
+  status:
+    | 'Not Started'
+    | 'In Progress'
+    | 'Blocked'
+    | 'Complete';
+
+  notes: string;
+}
+```
+
+---
+
+# 37. ARCHITECTURE DECISION
+
+```typescript
+export interface ArchitectureDecision extends BaseEntity {
+  projectId: string;
+
+  title: string;
+
+  context: string;
+
+  decision: string;
+
+  alternativesConsidered: string;
+
+  tradeOffs: string;
+
+  consequences: string;
+}
+```
+
+---
+
+# 38. PROJECT METRIC
+
+```typescript
+export interface ProjectMetric extends BaseEntity {
+  projectId: string;
+
+  name: string;
+
+  baseline?: string;
+  achieved?: string;
+
+  unit?: string;
+
+  methodology: string;
+
+  notes: string;
+}
+```
+
+---
+
+# 39. RESUME VARIANT
+
+```typescript
+export interface ResumeVariant extends BaseEntity {
+  name: string;
+
+  targetRoleIds: string[];
+
+  versionLabel: string;
+
+  externalUrl?: string;
+
+  summary: string;
+
+  selectedProjectIds: string[];
+
+  selectedEvidenceIds: string[];
+
+  notes: string;
+
+  isActive: boolean;
+}
+```
+
+---
+
+# 40. JOB DESCRIPTION SNAPSHOT
+
+```typescript
+export interface JobDescriptionSnapshot extends BaseEntity {
+  applicationId: string;
+
+  sourceUrl?: string;
+
+  capturedAt: string;
+
+  rawText: string;
+
+  requiredSkills: string[];
+
+  preferredSkills: string[];
+
+  responsibilities: string[];
+
+  locationText?: string;
+
+  compensationText?: string;
+
+  notes: string;
+}
+```
+
+---
+
+# 41. INTERVIEW ROUND
+
+```typescript
+export interface InterviewRound extends BaseEntity {
+  applicationId: string;
+
+  roundNumber: number;
+
+  type:
+    | 'Recruiter'
+    | 'Hiring Manager'
+    | 'Technical'
+    | 'Coding'
+    | 'System Design'
+    | 'AI / ML'
+    | 'Project Discussion'
+    | 'Behavioral'
+    | 'Assignment'
+    | 'HR'
+    | 'Other';
+
+  scheduledAt?: string;
+
+  completedAt?: string;
+
+  interviewerName?: string;
+
+  interviewerRole?: string;
+
+  outcome:
+    | 'Upcoming'
+    | 'Passed'
+    | 'Failed'
+    | 'Pending'
+    | 'Cancelled';
+
+  questionsAsked: string[];
+
+  strongAreas: string[];
+
+  weakAreas: string[];
+
+  notes: string;
+
+  followUpDate?: string;
+}
+```
+
+---
+
+# 42. NETWORKING INTERACTION
+
+```typescript
+export interface NetworkingInteraction extends BaseEntity {
+  contactId: string;
+
+  date: string;
+
+  type:
+    | 'Message'
+    | 'Reply'
+    | 'Call'
+    | 'Referral Ask'
+    | 'Referral'
+    | 'Meeting'
+    | 'Follow-Up';
+
+  summary: string;
+
+  nextAction?: string;
+
+  nextActionDate?: string;
+}
+```
+
+---
+
+# 43. TARGET COMPANY
+
+```typescript
+export interface TargetCompany extends BaseEntity {
+  name: string;
+
+  tier:
+    | 'GCC'
+    | 'Enterprise IT'
+    | 'AI Startup'
+    | 'Consulting'
+    | 'Product';
+
+  priority:
+    | 'Dream'
+    | 'High'
+    | 'Medium'
+    | 'Watch';
+
+  targetRoleIds: string[];
+
+  careerUrl?: string;
+
+  locations: string[];
+
+  whyTarget: string;
+
+  notes: string;
+}
+```
+
+---
+
+# 44. CAREER CAMPAIGN
+
+```typescript
+export interface CareerCampaign extends BaseEntity {
+  name: string;
+
+  startDate: string;
+
+  endDate?: string;
+
+  targetRoleIds: string[];
+
+  targetCompanyIds: string[];
+
+  weeklyApplicationTarget: number;
+
+  weeklyNetworkingTarget: number;
+
+  resumeVariantIds: string[];
+
+  hypothesis: string;
+
+  retrospective: string;
+
+  status:
+    | 'Planned'
+    | 'Active'
+    | 'Completed';
+}
+```
+
+---
+
+# 45. ACHIEVEMENT ITEM
+
+```typescript
+export interface AchievementItem extends BaseEntity {
+  title: string;
+
+  context: string;
+
+  action: string;
+
+  result: string;
+
+  technologies: string[];
+
+  transferableCompetencies: string[];
+
+  mappedRoleIds: string[];
+
+  quantified: boolean;
+}
+```
+
+---
+
+# 46. OFFER ITEM
+
+```typescript
+export interface OfferItem extends BaseEntity {
+  applicationId: string;
+
+  roleTitle: string;
+
+  company: string;
+
+  fixedCtc?: number;
+
+  variableCtc?: number;
+
+  joiningBonus?: number;
+
+  equityEstimatedAnnual?: number;
+
+  totalFirstYear?: number;
+
+  totalRecurring?: number;
+
+  location?: string;
+
+  workMode?:
+    | 'Remote'
+    | 'Hybrid'
+    | 'Office';
+
+  joiningDate?: string;
+
+  aiRoleAlignment:
+    | 1
+    | 2
+    | 3
+    | 4
+    | 5;
+
+  learningPotential:
+    | 1
+    | 2
+    | 3
+    | 4
+    | 5;
+
+  roleScope:
+    | 1
+    | 2
+    | 3
+    | 4
+    | 5;
+
+  notes: string;
+}
+```
+
+---
+
+# 47. RESEARCH SOURCE
+
+```typescript
+export interface ResearchSource extends BaseEntity {
+  researchTopicId: string;
+
+  title: string;
+
+  url?: string;
+
+  sourceType:
+    | 'Documentation'
+    | 'Paper'
+    | 'Book'
+    | 'Course'
+    | 'Repository'
+    | 'Article'
+    | 'Video'
+    | 'Community'
+    | 'Other';
+
+  publishedDate?: string;
+
+  reviewedAt?: string;
+
+  credibility:
+    | 'Primary'
+    | 'Strong Secondary'
+    | 'Community'
+    | 'Unverified';
+
+  takeaway: string;
+}
+```
+
+---
+
+# 48. ACTIVITY EVENT
+
+```typescript
+export interface ActivityEvent extends BaseEntity {
+  occurredAt: string;
+
+  category:
+    | 'Skill'
+    | 'Project'
+    | 'Application'
+    | 'Interview'
+    | 'Networking'
+    | 'Research'
+    | 'Certification'
+    | 'Sprint'
+    | 'Evidence';
+
+  action: string;
+
+  entityId?: string;
+
+  metadata?: Record<string, string | number | boolean>;
+}
+```
+
+Only meaningful career actions should generate events.
+
+Opening a page should not.
+
+---
+
+# 49. SCORE SNAPSHOT
+
+```typescript
+export interface ScoreSnapshot {
+  id: string;
+
+  capturedAt: string;
+
+  globalReadiness: number;
+
+  capability: number;
+
+  evidence: number;
+
+  interview: number;
+
+  positioning: number;
+
+  marketExecution: number;
+
+  roleScores: Record<string, number>;
+}
+```
+
+Do not store the current score as authoritative state.
+
+Derive it.
+
+Snapshots are historical only.
+
+---
+
+# 50. ROOT STATE
+
+Create a centralized root state containing all major entities.
+
+Example:
+
+```typescript
+export interface CareerOSState {
+  version: number;
+
+  settings: CareerSettings;
+
+  skills: SkillItem[];
+
+  projects: ProjectItem[];
+
+  applications: JobApplication[];
+
+  contacts: NetworkingContact[];
+
+  certifications: CertificationItem[];
+
+  starStories: StarStory[];
+
+  researchTopics: ResearchTopic[];
+
+  weeklySprints: WeeklySprint[];
+
+  tasks: CareerTask[];
+
+  interviewQuestions: InterviewQuestion[];
+
+  targetRoles: TargetRoleProfile[];
+
+  competencies: Competency[];
+
+  evidenceArtifacts: EvidenceArtifact[];
+
+  learningSessions: LearningSession[];
+
+  projectMilestones: ProjectMilestone[];
+
+  architectureDecisions: ArchitectureDecision[];
+
+  projectMetrics: ProjectMetric[];
+
+  resumeVariants: ResumeVariant[];
+
+  jobDescriptions: JobDescriptionSnapshot[];
+
+  interviewRounds: InterviewRound[];
+
+  networkingInteractions: NetworkingInteraction[];
+
+  targetCompanies: TargetCompany[];
+
+  campaigns: CareerCampaign[];
+
+  achievements: AchievementItem[];
+
+  offers: OfferItem[];
+
+  researchSources: ResearchSource[];
+
+  activityEvents: ActivityEvent[];
+
+  scoreSnapshots: ScoreSnapshot[];
+}
+```
+
+---
+
+# 51. GLOBAL TRANSITION READINESS
+
+Create a 0–100:
+
+# Transition Readiness Score
+
+Recommended dimensions:
+
+```text
+Capability               25%
+Portfolio / Evidence     25%
+Interview Readiness      15%
+Market Execution         15%
+Positioning              10%
+Networking                5%
+Research / Certifications 5%
+```
+
+Centralize weights in one configuration file.
+
+Do not scatter scoring constants across components.
+
+---
+
+# 52. SCORE ANTI-GAMING
+
+Scores must reflect QUALITY.
+
+Do not reward raw record count.
+
+Examples:
+
+Ten planned projects must not outperform one excellent deployed project.
+
+Twenty certifications must not dominate engineering evidence.
+
+Fifty applications must not imply career readiness.
+
+A mastered skill with no evidence must not receive full evidence confidence.
+
+---
+
+# 53. SKILL SCORING
+
+Base:
+
+```text
+to_learn       0
+in_progress    0.5
+mastered       1
+```
+
+Then adjust evidence strength using:
+
+* source
+* notes
+* project application
+* evidence artifact
+* interview validation
+* competency mapping
+
+Show:
+
+`Mastery: Mastered`
+
+separately from:
+
+`Evidence Confidence: Medium`
+
+---
+
+# 54. PROJECT PRODUCTION-READINESS SCORE
+
+Use approximately:
+
+```text
+Problem clarity                 5
+Architecture depth             10
+AI engineering complexity      10
+Evaluation                     15
+Testing                        10
+Safety / guardrails            10
+Observability                  10
+Deployment                     10
+Failure handling                5
+Documentation                   5
+Measured benchmark             10
+--------------------------------
+Total                          100
+```
+
+Project depth matters far more than project count.
+
+---
+
+# 55. ROLE READINESS
+
+Calculate readiness for each active role.
+
+Example:
+
+```text
+Agentic AI Engineer          78%
+GenAI Engineer               73%
+AIOps Engineer               81%
+AI Solutions Engineer        72%
+AI Solutions Architect       63%
+```
+
+Use:
+
+Role → Competencies → Skills + Research + Project Evidence + Interview Evidence.
+
+Do not rely only on string matching.
+
+---
+
+# 56. ROLE GAP ANALYSIS
+
+Each role page should display:
+
+## Strong
+
+## Partial
+
+## Gap
+
+## Evidence Missing
+
+## Recommended Actions
+
+Example:
+
+```text
+Agent Evaluation
+Capability: Strong
+Evidence: Partial
+
+Next:
+Add benchmark report to Agent Evaluation Platform.
+```
+
+---
+
+# 57. SCORE EXPLAINABILITY
+
+Every score should support:
+
+`Why this score?`
+
+Example:
+
+```text
+Evidence Index: 63 / 100
+
+Deployment               18/20
+Architecture             14/15
+GitHub                   10/10
+Evaluation                7/15
+Observability             5/10
+Testing                   4/10
+Benchmarks                2/10
+Interview defense         3/5
+```
+
+---
+
+# 58. CORE DASHBOARD
+
+Dashboard should show only executive-level information.
+
+Top:
+
+# AI Career Transition — 2026
+
+Subtitle:
+
+`₹11 LPA → ₹20–35+ LPA AI Engineering`
+
+Hero cards:
+
+* Transition Readiness
+* Capability
+* Evidence
+* Interview Readiness
+* Market Execution
+* Active Interview Pipeline
+
+Then:
+
+## Current Career Bottleneck
+
+## Highest-Leverage Actions
+
+## Role Readiness
+
+## Transition Risks
+
+## Weekly Sprint
+
+## Application Funnel
+
+## Career Velocity
+
+Do not overload the dashboard with CRUD controls.
+
+---
+
+# 59. CURRENT BOTTLENECK ENGINE
+
+Possible bottlenecks:
+
+* Capability
+* Evidence
+* Positioning
+* Market Exposure
+* Screening Conversion
+* Interview Conversion
+* Offer Conversion
+
+Display one primary bottleneck.
+
+Example:
+
+> Current Bottleneck: Evidence
+
+> Your skill readiness is ahead of your production evidence. Complete deployment and evaluation work before starting another major course.
+
+---
+
+# 60. TRANSITION RISK ENGINE
+
+Detect:
+
+* Skill Sprawl
+* Project Sprawl
+* Market Starvation
+* Interview Preparation Lag
+* Evidence Gap
+* Follow-Up Debt
+* Positioning Dilution
+* Certification Overfocus
+
+Use deterministic rules.
+
+Do not call it AI-powered.
+
+---
+
+# 61. WHAT SHOULD I DO NEXT ENGINE
+
+Rank actions based on:
+
+```text
+Urgency
+Career impact
+Role relevance
+Evidence gain
+Interview relevance
+Market impact
+Dependency unlocking
+Deadline
+Current WIP
+```
+
+Show max 3–5 high-value actions.
+
+Example:
+
+```text
+Deploy Agent Evaluation Platform
+
+Priority: Very High
+
+Why:
+• major evidence gap
+• directly supports Agentic AI role
+• creates interview material
+• already 80% complete
+```
+
+---
+
+# 62. TODAY PAGE
+
+Create a focused execution page.
+
+Sections:
+
+## Top 3
+
+## Up Next
+
+## Due Today
+
+## Overdue
+
+## Waiting
+
+## Completed Today
+
+Avoid dumping the full task list here.
+
+---
+
+# 63. WIP LIMITS
+
+Allow configurable limits:
+
+* max active projects
+* max active learning paths
+* max Primary target roles
+
+Show warnings.
+
+Do not hard block.
+
+Example:
+
+> Four projects are currently in progress. Finishing one is likely more valuable than starting another.
+
+---
+
+# 64. SKILLS MODULE
+
+Organize skills under:
+
+## Core Python
+
+## Intermediate Python
+
+## LLM Orchestration
+
+## Agents
+
+## RAG
+
+## Serving / LLMOps
+
+Examples:
+
+* Python
+* OOP
+* async
+* Pydantic
+* FastAPI
+* structured output
+* tool calling
+* prompt architecture
+* agent loops
+* multi-agent architecture
+* vector retrieval
+* reranking
+* RAG evaluation
+* Docker
+* observability
+* model gateways
+* CI/CD
+* inference
+
+Features:
+
+* add/edit/delete
+* archive
+* search
+* filters
+* category
+* status
+* mapped roles
+* evidence confidence
+* learning source
+* summary
+* next step
+* learning sessions
+
+Views:
+
+* table
+* cards
+
+---
+
+# 65. LEARNING ACTIVITY
+
+Track actual learning sessions.
+
+Dashboard analytics should distinguish:
+
+* learning
+* building
+* interview prep
+* market execution
+
+Example:
+
+```text
+Last 30 Days
+
+Learning      28h
+Building      11h
+Interview      5h
+Job Search    14h
+```
+
+If learning dominates for multiple weeks but evidence remains weak, show an insight.
+
+---
+
+# 66. PROJECTS MODULE
+
+Projects are one of the most important modules.
+
+Differentiate:
+
+* Tutorial
+* Prototype
+* Portfolio Ready
+* Production Grade
+
+Each project page should contain:
+
+## Problem
+
+## Architecture
+
+## Technology
+
+## Milestones
+
+## Architecture Decisions
+
+## Evaluation
+
+## Testing
+
+## Safety
+
+## Observability
+
+## Deployment
+
+## Metrics
+
+## Evidence
+
+## STAR Pitch
+
+## Interview Defense
+
+## Resume Bullets
+
+## Missing Evidence
+
+---
+
+# 67. STARTER PROJECTS
+
+Seed strong examples such as:
+
+### Agent-Native Production Intelligence & Autonomous RCA Platform
+
+### Autonomous Database Performance Tuning Agent
+
+### Enterprise Agent Evaluation & CI Platform
+
+### Enterprise Knowledge Intelligence RAG Platform
+
+### AI Security Investigation Agent
+
+These are demo data only.
+
+---
+
+# 68. PROJECT DEFENSE MODE
+
+For every major project support answers to:
+
+* Why this project?
+* Explain architecture.
+* Why this model?
+* Why agentic instead of deterministic?
+* How is it evaluated?
+* What fails?
+* How does recovery work?
+* How does it scale?
+* What is the security model?
+* What are cost drivers?
+* Which alternatives did you reject?
+* What would you redesign?
+
+Provide:
+
+### 30-second answer
+
+### 2-minute explanation
+
+### Deep Dive
+
+---
+
+# 69. EVIDENCE LIBRARY
+
+Make Evidence a first-class module.
+
+Types:
+
+* GitHub
+* Live Demo
+* Architecture
+* Benchmark
+* Evaluation
+* Case Study
+* Resume Bullet
+* STAR Story
+* Article
+* Credential
+* Presentation
+
+Evidence should connect to:
+
+* projects
+* skills
+* competencies
+* roles
+
+---
+
+# 70. EVIDENCE GRAPH
+
+Show:
+
+Role → Competency → Evidence.
+
+Example:
+
+```text
+Agentic AI Engineer
+
+Agent Orchestration
+├─ Skill: LangGraph
+├─ Project: RCA Platform
+├─ Architecture Diagram
+├─ Evaluation Report
+└─ STAR Story
+
+LLM Evaluation
+├─ Skill
+├─ CI Evaluation Platform
+└─ GAP: No benchmark report
+```
+
+Use hierarchical matrices if graph UI becomes unnecessarily complex.
+
+---
+
+# 71. JOB PIPELINE
+
+Provide:
+
+## Kanban View
+
+* Identified
+* Referred
+* Applied
+* Screening
+* Technical
+* Offer
+* Rejected
+
+## Table View
+
+Columns:
+
+* Company
+* Tier
+* Role
+* Source
+* Date Applied
+* Follow-up
+* Resume
+* Referral
+* Status
+
+Support:
+
+* search
+* filter
+* sorting
+* edit
+* archive
+* status transitions
+* overdue indicators
+
+---
+
+# 72. JOB DESCRIPTION SNAPSHOTS
+
+Allow users to paste a JD.
+
+Save:
+
+* raw JD
+* required skills
+* preferred skills
+* responsibilities
+* location
+* compensation if available
+
+Do not require automated scraping.
+
+---
+
+# 73. JD → EVIDENCE COVERAGE
+
+For each job:
+
+```text
+Requirement               Coverage
+
+Python                    Strong
+Agents                    Strong
+RAG                       Strong
+AWS                       Partial
+Kubernetes                Gap
+Evaluation                Strong
+```
+
+Use:
+
+* Strong Evidence
+* Partial Evidence
+* Claimed / No Proof
+* Gap
+* Not Relevant
+
+Do NOT call this ATS Score.
+
+---
+
+# 74. OPPORTUNITY FIT ENGINE
+
+Evaluate:
+
+* role alignment
+* skills
+* evidence
+* seniority
+* compensation
+* location
+* company priority
+* referral strength
+* personal interest
+
+Outputs:
+
+* Strong Apply
+* Apply
+* Stretch
+* Low Priority
+* Constraint Conflict
+
+Do not auto-reject.
+
+---
+
+# 75. APPLICATION PREPARATION
+
+Before Applied, show optional checklist:
+
+```text
+✓ JD saved
+✓ Role fit reviewed
+✓ Resume selected
+✓ Projects mapped
+✓ Referral checked
+□ Follow-up date set
+```
+
+Do not block submission.
+
+---
+
+# 76. APPLICATION QUALITY
+
+Calculate a separate quality score from:
+
+* role alignment
+* JD captured
+* evidence reviewed
+* resume selected
+* referral attempted
+* follow-up date configured
+
+Application count should never substitute for application quality.
+
+---
+
+# 77. DUPLICATE JOB DETECTION
+
+Before adding:
+
+Compare normalized:
+
+* company
+* role
+* URL
+* location
+
+Warn about possible duplicate.
+
+Allow override.
+
+---
+
+# 78. APPLICATION TIMELINE
+
+Every application should have a chronological timeline.
+
+Example:
+
+```text
+Sep 1   Identified
+Sep 2   Referral Requested
+Sep 3   Applied
+Sep 7   Recruiter Screen
+Sep 11  Technical Round
+Sep 15  System Design
+```
+
+Do not depend only on current status.
+
+---
+
+# 79. INTERVIEW ROUNDS
+
+Track every round.
+
+Store:
+
+* date
+* type
+* interviewer
+* questions
+* strengths
+* weaknesses
+* outcome
+* follow-up
+
+When interview is completed, prompt:
+
+## What went well?
+
+## What was difficult?
+
+## What exposed a gap?
+
+## What should be revised?
+
+Allow converting weaknesses to:
+
+* Skill
+* Task
+* Research Topic
+* Interview Question
+
+---
+
+# 80. COMPANY-SPECIFIC INTERVIEW PACKET
+
+When a role reaches Screening or Technical, assemble:
+
+* company
+* role
+* JD
+* resume used
+* strongest competencies
+* projects
+* evidence
+* contacts
+* previous rounds
+* STAR stories
+* likely prep areas
+* gaps
+* preparation tasks
+
+Use stored data only.
+
+---
+
+# 81. INTERVIEW PREP CENTER
+
+Domains:
+
+* Python
+* Backend
+* LLM fundamentals
+* Context engineering
+* RAG
+* Agents
+* Agent evaluation
+* LLM evaluation
+* LLMOps
+* Cloud
+* AI security
+* Observability
+* Distributed systems
+* System design
+* AI cost/latency
+* Behavioral
+* Leadership
+
+Show confidence heatmap.
+
+---
+
+# 82. INTERVIEW PRACTICE MODE
+
+Flow:
+
+Question
+
+→ User answers
+
+→ Reveal stored answer
+
+→ Self-rate 1–5
+
+→ Record session
+
+→ Schedule next review
+
+Weak areas return sooner.
+
+Use a simple spaced-review strategy.
+
+---
+
+# 83. STAR STORY BUILDER
+
+Fields:
+
+* Situation
+* Task
+* Action
+* Result
+* Technical Notes
+
+Show completeness.
+
+If result lacks measurable evidence:
+
+`Quantification Missing`
+
+Do not prevent saving.
+
+---
+
+# 84. TRANSITION NARRATIVE
+
+Track:
+
+## 30-second introduction
+
+## 90-second career-transition story
+
+## Why AI?
+
+## Why now?
+
+## Why senior rather than entry level?
+
+## How previous 8.5 years strengthens AI engineering value
+
+Support evidence references.
+
+---
+
+# 85. ACHIEVEMENT BANK
+
+Past professional accomplishments should be retained.
+
+Use achievements for:
+
+* resume bullets
+* STAR stories
+* leadership stories
+* transition narrative
+* role evidence
+
+This helps position the candidate as experienced, not entry-level.
+
+---
+
+# 86. RESUME VERSION CONTROL
+
+Track role-specific resumes.
+
+Examples:
+
+* Agentic AI Engineer v3
+* AI Solutions Engineer v4
+* AIOps Engineer v2
+
+Store:
+
+* target roles
+* version
+* selected projects
+* selected evidence
+* external URL
+* active/inactive
+
+Every application can reference the resume used.
+
+---
+
+# 87. RESUME PERFORMANCE ANALYTICS
+
+Analyze:
+
+```text
+Resume                       Apps   Screen   Tech
+
+Agentic AI v3                10      4       2
+General AI v1                15      2       0
+```
+
+Show small-sample warnings.
+
+---
+
+# 88. RESUME BULLET LIBRARY
+
+Store evidence-backed bullets.
+
+Map each bullet to:
+
+* project
+* achievement
+* role
+* competency
+
+Never invent unsupported metrics.
+
+---
+
+# 89. COMPANY TARGET CRM
+
+Track target companies.
+
+Show:
+
+* priority
+* target roles
+* applications
+* contacts
+* referrals
+* interview history
+* notes
+
+---
+
+# 90. NETWORKING CRM
+
+Contacts should have interaction history.
+
+Track:
+
+* messages
+* calls
+* referral asks
+* referrals
+* meetings
+* follow-ups
+
+Highlight:
+
+* due today
+* overdue
+* upcoming
+
+Metrics:
+
+* outreach
+* connection rate
+* calls
+* referrals
+* active mentors
+
+---
+
+# 91. CAREER CAMPAIGNS
+
+Allow focused job-search campaigns.
+
+Example:
+
+`September Agentic AI + AI Solutions GCC Campaign`
+
+Track:
+
+* roles
+* companies
+* application target
+* networking target
+* resumes
+* hypothesis
+* outcome
+* retrospective
+
+This prevents random job searching.
+
+---
+
+# 92. CERTIFICATION ROADMAP
+
+Tracks:
+
+## Azure Enterprise
+
+## Cloud-Agnostic AWS
+
+## Agentic Specialist
+
+Certifications should remain a modest readiness signal.
+
+Do not let certificates dominate project and evidence scoring.
+
+---
+
+# 93. RESEARCH LAB
+
+Research categories:
+
+* transformers
+* inference
+* context windows
+* KV cache
+* quantization
+* routing
+* RAG retrieval
+* hybrid search
+* reranking
+* grounding
+* agents
+* ReAct
+* planning
+* agent evaluation
+* observability
+* LLMOps
+* distributed systems
+* caching
+* queues
+* resilience
+* security
+* cloud AI
+
+Each research topic stores:
+
+* core concept
+* formula/math
+* trade-offs
+* interview talking points
+* sources
+* mastery
+
+---
+
+# 94. RESEARCH SOURCES
+
+Classify sources:
+
+* Primary
+* Strong Secondary
+* Community
+* Unverified
+
+Track last review.
+
+Surface rapidly changing technical topics that may need refresh.
+
+Do not treat timeless theory as stale solely because the source is old.
+
+---
+
+# 95. RESEARCH → ACTION
+
+Allow research to become:
+
+* Skill
+* Task
+* Interview Question
+* Project Milestone
+* Architecture Decision
+
+Avoid passive note hoarding.
+
+---
+
+# 96. WEEKLY SPRINT
+
+Provide engineering-style weekly execution.
+
+Example:
+
+```text
+Week 6
+
+Learning
+□ Agent evaluation
+
+Portfolio
+□ Deploy RCA v1
+□ Finish benchmark
+
+Applications
+6 / 10
+
+Networking
+2 / 5
+
+Interview
+1 / 3
+```
+
+---
+
+# 97. WEEKLY CAPACITY
+
+Track available hours and allocation:
+
+* Learning
+* Building
+* Interview
+* Job Search
+* Networking
+
+Compare planned vs actual.
+
+Do not reward overwork.
+
+---
+
+# 98. WEEKLY RETROSPECTIVE
+
+Ask:
+
+* What moved forward?
+* What was blocked?
+* What produced interviews?
+* What strengthened capability?
+* What created evidence?
+* What should stop?
+* What is next week's priority?
+
+Distinguish:
+
+## Outputs
+
+from:
+
+## Outcomes
+
+---
+
+# 99. CAREER VELOCITY
+
+Use Recharts.
+
+Metrics:
+
+* readiness
+* evidence
+* deployed projects
+* mastery
+* applications
+* screenings
+* technical rounds
+* interviews
+* networking
+* learning hours
+
+Never fabricate history.
+
+Use ActivityEvent and ScoreSnapshot.
+
+---
+
+# 100. APPLICATION FUNNEL
+
+Visualize:
+
+Identified
+
+↓
+
+Referred
+
+↓
+
+Applied
+
+↓
+
+Screening
+
+↓
+
+Technical
+
+↓
+
+Offer
+
+Show counts and conversion.
+
+Rejected applications remain historical data.
+
+---
+
+# 101. FUNNEL ANALYTICS
+
+Analyze conversion by:
+
+* role
+* company tier
+* source
+* referral/direct
+* resume version
+* campaign
+* month
+
+Examples:
+
+Applied → Screening
+
+Screening → Technical
+
+Technical → Offer
+
+Show:
+
+`Insufficient Data`
+
+when sample is too small.
+
+---
+
+# 102. PLATFORM ANALYTICS
+
+Track:
+
+* LinkedIn
+* Naukri
+* Instahyre
+* Wellfound
+* Referral
+* Careers Page
+* Other
+
+Example:
+
+```text
+Source          Apps     Screening    Technical
+
+LinkedIn         12         2             1
+Referral          6         4             3
+Naukri            8         1             0
+```
+
+---
+
+# 103. SALARY TRANSITION
+
+Display:
+
+```text
+₹11L        ₹20L        ₹25L            ₹35L
+Current     Floor       Target          Stretch
+```
+
+If offers exist, plot them.
+
+Add:
+
+> Readiness is not a guarantee of compensation.
+
+---
+
+# 104. OFFER COMPARISON
+
+Compare:
+
+* fixed CTC
+* variable
+* bonus
+* equity
+* total first year
+* recurring
+* role alignment
+* scope
+* learning
+* location
+* work mode
+* start date
+
+Allow user-defined decision weights.
+
+Do not make the final decision automatically.
+
+---
+
+# 105. NEGOTIATION LOG
+
+Track:
+
+* initial offer
+* candidate expectation
+* counter
+* recruiter response
+* final
+* decision
+
+---
+
+# 106. CAREER ASSET CENTER
+
+Track:
+
+* resumes
+* LinkedIn
+* GitHub
+* portfolio
+* credentials
+* recruiter intro
+* transition narrative
+
+For each:
+
+* target role
+* URL
+* status
+* last reviewed
+* completeness
+
+---
+
+# 107. RECRUITER-READY PACK
+
+Allow building a clean private profile containing selected:
+
+* summary
+* skills
+* projects
+* GitHub
+* demos
+* architecture evidence
+* achievements
+* certifications
+
+Support:
+
+* printable view
+* copy as Markdown
+
+Do not expose private job-pipeline data.
+
+---
+
+# 108. MILESTONE TIMELINE
+
+Track actual milestones:
+
+* transition started
+* first AI skill mastered
+* first production project
+* first deployment
+* first architecture case study
+* first referral
+* first screening
+* first AI technical interview
+* first offer
+* target compensation achieved
+
+Only show milestones backed by data.
+
+---
+
+# 109. TRANSITION PHASE
+
+Possible phases:
+
+1. Foundation
+2. Building
+3. Evidence
+4. Market Activation
+5. Interview Conversion
+6. Offer Optimization
+7. Transition Complete
+
+Allow manual override.
+
+---
+
+# 110. NOTIFICATION CENTER
+
+Generate in-app notifications from state.
+
+Examples:
+
+* follow-up overdue
+* interview tomorrow
+* certification approaching
+* networking touchpoint due
+* milestone overdue
+* weekly retrospective due
+
+No external notification service required.
+
+---
+
+# 111. GLOBAL SEARCH
+
+Search:
+
+* jobs
+* companies
+* roles
+* skills
+* projects
+* evidence
+* contacts
+* interview questions
+* research
+* STAR stories
+* achievements
+
+Group results by entity.
+
+Support keyboard navigation.
+
+---
+
+# 112. QUICK ADD
+
+Add:
+
+* Skill
+* Project
+* Job
+* Contact
+* Evidence
+* STAR Story
+* Research Topic
+* Interview Question
+* Task
+* Achievement
+
+Use polished dialogs/drawers.
+
+---
+
+# 113. FORMS
+
+All forms need:
+
+* strong labels
+* validation
+* helpful defaults
+* cancel/save
+* archive/delete
+* date controls
+* URL validation
+* multi-select tags
+* helpful placeholders
+
+Avoid enormous forms.
+
+Use sections or progressive disclosure.
+
+---
+
+# 114. ARCHIVE / TRASH
+
+Default to Archive when appropriate.
+
+Use undo toast.
+
+Permanent deletion requires confirmation.
+
+---
+
+# 115. DATA HEALTH
+
+Create Settings → Data Health.
+
+Detect:
+
+* possible duplicates
+* invalid URLs
+* orphaned relationships
+* missing metadata
+* archived references
+* overdue stale records
+* import anomalies
+
+Provide safe repair actions.
+
+---
+
+# 116. FIRST RUN
+
+On first launch provide onboarding.
+
+Steps:
+
+1. Baseline
+2. Target roles
+3. Salary targets
+4. Locations/work mode
+5. Weekly capacity
+6. Start Clean or Demo Workspace
+
+Do not automatically insert demo data.
+
+Demo mode must be clearly labeled.
+
+Demo records must not mix into real analytics.
+
+---
+
+# 117. DEMO DATA
+
+If selected, populate realistic examples.
+
+Clearly label:
+
+`DEMO MODE`
+
+Provide:
+
+* Convert to My Workspace
+* Reset and Start Clean
+
+Do not use real-looking fictional application data without clearly indicating demo context.
+
+---
+
+# 118. ANALYTICS PAGE
+
+Sections:
+
+## Transition
+
+* readiness
+* score trends
+* phase
+
+## Capability
+
+* competency coverage
+* skill mastery
+
+## Evidence
+
+* production projects
+* evidence quality
+* missing evidence
+
+## Jobs
+
+* funnel
+* source performance
+* company tiers
+* role conversion
+* resume performance
+
+## Interviews
+
+* confidence
+* round performance
+* common gaps
+
+## Networking
+
+* outreach
+* connections
+* calls
+* referrals
+
+## Execution
+
+* target vs actual
+* learning/building ratio
+
+Use useful charts only.
+
+Avoid decorative visualizations.
+
+---
+
+# 119. ANALYTICS DATE FILTER
+
+Support:
+
+* 7 days
+* 30 days
+* 90 days
+* All Time
+* Custom
+
+---
+
+# 120. ANALYTICS TRUST
+
+Separate:
+
+### Facts
+
+Stored user data.
+
+### Derived Metrics
+
+Deterministic calculations.
+
+### Recommendations
+
+Rules-based interpretation.
+
+Never visually blur these categories.
+
+---
+
+# 121. NO FAKE AI
+
+Do not label deterministic logic as:
+
+"AI Powered"
+
+Use:
+
+* Career Insights
+* Gap Engine
+* Recommendation Engine
+* Priority Engine
+* Role Readiness
+
+Only use "AI Career Coach" if an actual AI model is integrated later.
+
+---
+
+# 122. NO FAKE MARKET DATA
+
+Do not invent:
+
+* employer salary benchmarks
+* demand data
+* hiring rates
+* ATS rankings
+* company hiring trends
+* offer probability
+
+All v1 analytics must come from user-entered data.
+
+---
+
+# 123. PROJECT STRUCTURE
+
+Use modular architecture similar to:
+
+```text
+src/
+├── app/
+│   ├── dashboard/
+│   ├── today/
+│   ├── skills/
+│   ├── projects/
+│   ├── evidence/
+│   ├── roles/
+│   ├── jobs/
+│   ├── companies/
+│   ├── network/
+│   ├── interview/
+│   ├── certifications/
+│   ├── research/
+│   ├── execution/
+│   ├── analytics/
+│   ├── assets/
+│   └── settings/
+│
+├── components/
+│   ├── dashboard/
+│   ├── shared/
+│   ├── forms/
+│   ├── charts/
+│   ├── projects/
+│   ├── jobs/
+│   ├── interview/
+│   └── analytics/
+│
+├── store/
+│   └── career-store.ts
+│
+├── lib/
+│   ├── scoring.ts
+│   ├── evidence.ts
+│   ├── role-readiness.ts
+│   ├── opportunity-fit.ts
+│   ├── recommendations.ts
+│   ├── risks.ts
+│   ├── priority-engine.ts
+│   ├── analytics.ts
+│   ├── storage.ts
+│   ├── migrations.ts
+│   ├── export-import.ts
+│   └── validation.ts
+│
+├── types/
+│   └── career.ts
+│
+└── data/
+    └── demo-data.ts
+```
+
+Adapt only when architecture benefits.
+
+---
+
+# 124. REUSABLE COMPONENTS
+
+Create reusable components including:
+
+```text
+MetricCard
+ProgressRing
+ProgressBar
+StatusBadge
+RoleBadge
+EvidenceBadge
+EmptyState
+SectionHeader
+FilterBar
+SearchInput
+ConfirmDialog
+QuickAddDialog
+BackupRestoreDialog
+ReadinessGauge
+RoleReadinessCard
+RecommendationCard
+RiskCard
+VelocityChart
+ApplicationFunnel
+ProjectEvidenceMeter
+FollowUpIndicator
+Timeline
+InterviewRoundCard
+EvidenceMatrix
+DataHealthPanel
+SaveStatus
+```
+
+Avoid giant page files.
+
+---
+
+# 125. STATE ACTIONS
+
+Provide centralized actions including:
+
+```text
+addSkill
+updateSkill
+archiveSkill
+
+addProject
+updateProject
+archiveProject
+
+addApplication
+updateApplication
+archiveApplication
+
+addContact
+updateContact
+archiveContact
+
+addCertification
+updateCertification
+
+addStarStory
+updateStarStory
+
+addResearchTopic
+updateResearchTopic
+
+addTask
+updateTask
+
+addInterviewQuestion
+updateInterviewQuestion
+
+addEvidence
+updateEvidence
+
+addLearningSession
+
+addProjectMilestone
+updateProjectMilestone
+
+addArchitectureDecision
+
+addProjectMetric
+
+addResumeVariant
+updateResumeVariant
+
+addJobDescription
+
+addInterviewRound
+updateInterviewRound
+
+addNetworkingInteraction
+
+addTargetCompany
+updateTargetCompany
+
+addCampaign
+updateCampaign
+
+addAchievement
+
+addOffer
+updateOffer
+
+updateSettings
+
+importState
+resetState
+restoreBackup
+```
+
+---
+
+# 126. ERROR HANDLING
+
+Implement:
+
+* route error boundaries
+* global error handling
+* form errors
+* storage errors
+* import errors
+
+Allow:
+
+`Export Diagnostic Information`
+
+Do not include sensitive career data unless explicitly selected.
+
+---
+
+# 127. PERFORMANCE
+
+Use:
+
+* route-level code splitting
+* lazy-loaded analytics
+* memoized selectors where useful
+* form-local drafts
+* minimal global rerenders
+
+Do not load all charts on every route.
+
+---
+
+# 128. PWA
+
+If core reliability is complete:
+
+make the application installable as a PWA.
+
+Offline functionality should include:
+
+* dashboard
+* skills
+* jobs
+* projects
+* tasks
+* interview notes
+* networking
+
+Do not destabilize the product for PWA support.
+
+---
+
+# 129. TESTING
+
+Unit tests must cover:
+
+* readiness scoring
+* role readiness
+* skill evidence
+* project score
+* opportunity fit
+* application quality
+* funnel metrics
+* small-sample warnings
+* priority engine
+* risk engine
+* date handling
+* duplicate detection
+* storage migration
+* import validation
+* snapshots
+
+---
+
+# 130. PLAYWRIGHT E2E
+
+Test:
+
+## Onboarding
+
+Open → setup → dashboard.
+
+## Persistence
+
+Create skill → refresh → remains.
+
+## Project
+
+Create → milestone → evidence → score changes.
+
+## Job
+
+Create → save JD → choose resume → apply.
+
+## Interview
+
+Create round → weakness → create practice question.
+
+## Networking
+
+Create contact → interaction → next touchpoint.
+
+## Backup
+
+Export → reset → import → restore.
+
+## Recovery
+
+Corrupted storage → Recovery Mode.
+
+## Migration
+
+Old schema → new schema → data survives.
+
+---
+
+# 131. README
+
+Create a polished README containing:
+
+* overview
+* screenshots placeholder
+* features
+* architecture
+* tech stack
+* installation
+* local development
+* production build
+* persistence
+* backup
+* imports
+* scoring
+* data model
+* project structure
+* testing
+* security
+* future architecture
+
+---
+
+# 132. FUTURE ARCHITECTURE
+
+Design clean boundaries for future:
+
+* PostgreSQL
+* Supabase
+* authentication
+* multi-device sync
+* Gmail
+* Google Calendar
+* GitHub
+* Notion
+* optional LLM integration
+
+Do NOT implement these unless required.
+
+V1 must work without any external service.
+
+---
+
+# 133. FEATURES TO AVOID IN V1
+
+Do not waste effort on:
+
+* generic chatbot
+* social feed
+* motivational quote widgets
+* avatars
+* leaderboards
+* fake ATS scores
+* job scraping
+* salary prediction
+* random AI-generated advice
+* excessive animations
+* complex calendar clone
+* excessive gamification
+
+---
+
+# 134. DESIGN PHILOSOPHY
+
+Prefer:
+
+**3 exceptional production AI projects**
+
+over:
+
+**15 shallow projects**
+
+Prefer:
+
+**5 high-quality applications**
+
+over:
+
+**50 irrelevant applications**
+
+Prefer:
+
+**evidence-backed mastery**
+
+over:
+
+**checkbox learning**
+
+Prefer:
+
+**interview feedback loops**
+
+over:
+
+**static question lists**
+
+Prefer:
+
+**focused role positioning**
+
+over:
+
+**targeting every AI title**
+
+---
+
+# 135. PRIMARY DASHBOARD LAYOUT
+
+Recommended:
+
+```text
+┌───────────────────────────────────────────────────────────────┐
+│ TOP BAR                                                       │
+├───────────────┬───────────────────────────────────────────────┤
+│               │ AI Career Transition — 2026                  │
+│ SIDEBAR       │ ₹11L → ₹20–35L                               │
+│               │                                               │
+│ Dashboard     │ [READINESS] [EVIDENCE] [INTERVIEW] [MARKET]  │
+│ Today         │                                               │
+│ Skills        │ [ CURRENT BOTTLENECK                         ] │
+│ Projects      │                                               │
+│ Evidence      │ [ HIGHEST LEVERAGE ACTIONS                  ] │
+│ Roles         │                                               │
+│ Jobs          │ [ ROLE READINESS MATRIX                     ] │
+│ Network       │                                               │
+│ Interview     │ [ TRANSITION RISKS ] [ WEEKLY SPRINT       ] │
+│ Research      │                                               │
+│ Analytics     │ [ APPLICATION FUNNEL                        ] │
+│               │                                               │
+│               │ [ CAREER VELOCITY                           ] │
+└───────────────┴───────────────────────────────────────────────┘
+```
+
+---
+
+# 136. ACCEPTANCE CRITERIA
+
+Before declaring the application complete, verify:
+
+### Navigation
+
+All routes work.
+
+### Skills
+
+CRUD works.
+
+### Projects
+
+CRUD, milestones, evidence and scoring work.
+
+### Evidence
+
+Relationships work.
+
+### Roles
+
+Readiness works.
+
+### Jobs
+
+Pipeline, JD, resume linkage, follow-up and timeline work.
+
+### Companies
+
+Target CRM works.
+
+### Networking
+
+Interaction history works.
+
+### Interview
+
+Questions, rounds, feedback and STAR work.
+
+### Research
+
+Topics and sources work.
+
+### Execution
+
+Tasks and sprints work.
+
+### Analytics
+
+Uses real state.
+
+### Backup
+
+Export/import works.
+
+### Persistence
+
+Refresh preserves data.
+
+### Migration
+
+Old schema migrates safely.
+
+### Recovery
+
+Corrupted state does not cause silent data loss.
+
+### Mobile
+
+All major features remain usable.
+
+### Accessibility
+
+Critical flows are keyboard accessible.
+
+### Production
+
+Type check succeeds.
+
+Lint succeeds.
+
+Tests succeed.
+
+Production build succeeds.
+
+No obvious console errors.
+
+---
+
+# 137. DEVELOPMENT EXECUTION ORDER
+
+Do not stop after planning.
+
+Implement in this order.
+
+## Phase 1 — Foundation
+
+* Next.js
+* TypeScript
+* Tailwind
+* layout
+* routes
+* types
+* design tokens
+
+## Phase 2 — Data Architecture
+
+* root state
+* storage abstraction
+* migrations
+* Zod validation
+* backup/recovery
+* demo mode
+
+## Phase 3 — Core Logic
+
+* scoring
+* role readiness
+* project evidence
+* recommendation engine
+* priority engine
+* risk engine
+
+## Phase 4 — Core Modules
+
+* Dashboard
+* Today
+* Skills
+* Projects
+* Evidence
+* Roles
+
+## Phase 5 — Market Modules
+
+* Jobs
+* Companies
+* Networking
+* Resume versions
+* JD snapshots
+
+## Phase 6 — Interview System
+
+* rounds
+* STAR
+* practice
+* feedback
+* company prep packets
+
+## Phase 7 — Research and Execution
+
+* research
+* sources
+* sprints
+* learning sessions
+* capacity tracking
+
+## Phase 8 — Analytics
+
+* funnel
+* role conversion
+* resume performance
+* velocity
+* evidence progress
+* career bottleneck
+
+## Phase 9 — Reliability
+
+* import/export
+* CSV
+* recovery
+* cross-tab
+* accessibility
+* responsive polish
+
+## Phase 10 — Verification
+
+Run:
+
+```bash
+npm run lint
+npm run typecheck
+npm run test
+npm run build
+```
+
+Run Playwright critical flows.
+
+Fix all meaningful failures.
+
+---
+
+# 138. FINAL PRODUCT TEST
+
+A successful user flow should be:
+
+```text
+I choose Agentic AI Engineer as a Primary target role.
+
+↓
+
+The OS shows the competencies required.
+
+↓
+
+I see my strongest capabilities and missing evidence.
+
+↓
+
+I complete learning and build a production-grade project.
+
+↓
+
+The project creates architecture, evaluation and benchmark evidence.
+
+↓
+
+That evidence becomes resume bullets and interview stories.
+
+↓
+
+I identify a target company and job.
+
+↓
+
+I save the JD.
+
+↓
+
+The OS shows JD → competency → evidence coverage.
+
+↓
+
+I select my Agentic AI resume version.
+
+↓
+
+I submit a high-quality application.
+
+↓
+
+I track the referral and follow-up.
+
+↓
+
+The recruiter schedules an interview.
+
+↓
+
+The OS assembles my company-specific interview packet.
+
+↓
+
+I complete the round.
+
+↓
+
+I record questions, strengths and weaknesses.
+
+↓
+
+Weaknesses automatically become practice/research actions.
+
+↓
+
+I become stronger for the next interview.
+
+↓
+
+My application funnel improves.
+
+↓
+
+I receive an offer.
+
+↓
+
+I compare compensation, AI role alignment, scope and growth.
+
+↓
+
+I negotiate.
+
+↓
+
+I accept the right AI role.
+
+↓
+
+The transition campaign is closed with a complete history.
+```
+
+If the application cannot support this flow coherently, it is incomplete.
+
+---
+
+# 139. FINAL NORTH STAR
+
+The system must optimize:
+
+# Evidence-Backed Career Progress
+
+Not:
+
+* number of records
+* hours spent
+* courses completed
+* certifications collected
+* applications sprayed
+* fake progress percentages
+
+The core philosophy is:
+
+> Learn what the target role requires.
+
+> Build enough to demonstrate it.
+
+> Create credible evidence.
+
+> Position that evidence correctly.
+
+> Apply to the right opportunities.
+
+> Use networking intelligently.
+
+> Prepare deeply for interviews.
+
+> Learn from every interview.
+
+> Improve the next attempt.
+
+> Convert the right opportunity.
+
+> Negotiate from evidence and role value.
+
+The finished product should feel like a private:
+
+# AI CAREER MISSION CONTROL
+
+for executing a transition from:
+
+**₹11 LPA enterprise technology professional**
+
+to:
+
+**₹20–35+ LPA senior AI engineering / Agentic AI / AIOps / AI Solutions / AI Architecture professional.**
+
+---
+
+# 140. FINAL IMPLEMENTATION INSTRUCTION
+
+Do not ask for additional approval after reading this specification.
+
+Do not stop at architecture planning.
+
+Make reasonable technical decisions yourself.
+
+If something is ambiguous:
+
+choose the solution that maximizes:
+
+1. data reliability
+2. usefulness to the career transition
+3. evidence quality
+4. clarity
+5. maintainability
+6. performance
+
+Proceed autonomously through implementation.
+
+Continuously verify the application during development.
+
+Do not knowingly leave:
+
+* dead buttons
+* broken pages
+* placeholder functionality
+* fake charts
+* fake interactions
+* TODO-only screens
+* TypeScript errors
+* runtime errors
+* persistence bugs
+* inaccessible critical controls
+
+Build the complete application.
+
+At the end, provide:
+
+1. what was built
+2. architecture summary
+3. routes
+4. major features
+5. scoring explanation
+6. data-storage behavior
+7. backup/recovery behavior
+8. test results
+9. build result
+10. commands to run locally
+11. known limitations, if any
+12. recommended Phase 2 enhancements
+
+The objective is not merely to create an attractive website.
+
+The objective is to create a production-quality operating system that materially improves the probability and quality of this AI career transition.
+
+# BUILD IT NOW.

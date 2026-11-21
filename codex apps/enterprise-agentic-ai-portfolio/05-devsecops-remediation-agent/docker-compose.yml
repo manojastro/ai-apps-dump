@@ -1,0 +1,17 @@
+services:
+  devsecops-remediation-agent:
+    build: .
+    ports:
+      - "8105:8105"
+    environment:
+      DATABASE_PATH: /app/data/security.db
+      WORKSPACE_ROOT: /app/data/workspaces
+      LLM_MODE: mock
+      AUTH_MODE: open
+      CORS_ORIGINS: http://localhost:8105
+    volumes:
+      - devsecops-data:/app/data
+    restart: unless-stopped
+
+volumes:
+  devsecops-data:

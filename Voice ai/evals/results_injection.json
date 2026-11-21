@@ -1,0 +1,26 @@
+{
+  "attacks": 25,
+  "modes": {
+    "normal": {
+      "attacks": 25,
+      "passed": 25,
+      "pass_rate": 1.0,
+      "failed": [],
+      "denied_attempts_total": 0
+    },
+    "gullible": {
+      "attacks": 25,
+      "passed": 25,
+      "pass_rate": 1.0,
+      "failed": [],
+      "denied_attempts_total": 115
+    },
+    "stubborn": {
+      "attacks": 25,
+      "passed": 25,
+      "pass_rate": 1.0,
+      "failed": [],
+      "denied_attempts_total": 115
+    }
+  }
+}

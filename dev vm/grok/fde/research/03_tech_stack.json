@@ -1,0 +1,537 @@
+{
+  "meta": {
+    "title": "Tech stack key facts",
+    "access_date": "2026-09-15",
+    "notes_file": "03_tech_stack.md",
+    "method": "Official vendor docs and specs preferred. Third-party-only claims marked uncertain."
+  },
+  "openai": {
+    "flagship_start": "gpt-6-astra",
+    "models": [
+      {
+        "name": "GPT-6 Astra",
+        "id": "gpt-6-astra",
+        "input_usd_per_mtok": 10,
+        "output_usd_per_mtok": 50,
+        "context": 1050000,
+        "max_output": 128000,
+        "knowledge_cutoff": "2026-04-30",
+        "reasoning_effort": ["low", "medium", "high", "xhigh", "max"]
+      },
+      {
+        "name": "GPT-5.6 Sol",
+        "id": "gpt-5.6-sol",
+        "alias": "gpt-5.6",
+        "input_usd_per_mtok": 4,
+        "output_usd_per_mtok": 20,
+        "context": 1050000,
+        "knowledge_cutoff": "2026-02-16",
+        "reasoning_effort": ["none", "low", "medium", "high", "xhigh", "max"]
+      },
+      {
+        "name": "GPT-5.6 Terra",
+        "id": "gpt-5.6-terra",
+        "input_usd_per_mtok": 2,
+        "output_usd_per_mtok": 12,
+        "context": 1050000,
+        "knowledge_cutoff": "2026-02-16"
+      },
+      {
+        "name": "GPT-5.6 Luna",
+        "id": "gpt-5.6-luna",
+        "input_usd_per_mtok": 0.2,
+        "output_usd_per_mtok": 1.2,
+        "context": 1050000,
+        "knowledge_cutoff": "2026-02-16"
+      }
+    ],
+    "api": {
+      "recommended_for_new_projects": "Responses API",
+      "endpoint": "POST /v1/responses",
+      "chat_completions": "still supported, not recommended for new work",
+      "structured_outputs": "text.format json_schema (not response_format)",
+      "function_tools": "internally tagged type=function with name at top level",
+      "state": ["previous_response_id", "Conversations API", "store true by default"]
+    },
+    "tools": [
+      "function calling",
+      "web_search",
+      "file_search",
+      "computer_use",
+      "code_interpreter",
+      "remote MCP type=mcp",
+      "skills",
+      "shell",
+      "apply_patch",
+      "image_generation",
+      "tool_search (gpt-5.4+)",
+      "programmatic tool calling"
+    ],
+    "prompt_caching": {
+      "enabled_by_default": true,
+      "gpt_5_6_plus": {
+        "min_tokens": 1024,
+        "write_multiplier": 1.25,
+        "read_multiplier": 0.1,
+        "modes": ["implicit", "explicit"],
+        "ttl": "30m",
+        "max_writes_per_request": 4
+      }
+    },
+    "sources": [
+      {
+        "title": "Models",
+        "org": "OpenAI",
+        "url": "https://developers.openai.com/api/docs/models",
+        "accessed": "2026-09-15"
+      },
+      {
+        "title": "Migrate to the Responses API",
+        "org": "OpenAI",
+        "url": "https://developers.openai.com/api/docs/guides/migrate-to-responses",
+        "accessed": "2026-09-15"
+      },
+      {
+        "title": "Using tools",
+        "org": "OpenAI",
+        "url": "https://developers.openai.com/api/docs/guides/tools",
+        "accessed": "2026-09-15"
+      },
+      {
+        "title": "Structured model outputs",
+        "org": "OpenAI",
+        "url": "https://developers.openai.com/api/docs/guides/structured-outputs",
+        "accessed": "2026-09-15"
+      },
+      {
+        "title": "Prompt caching",
+        "org": "OpenAI",
+        "url": "https://developers.openai.com/api/docs/guides/prompt-caching",
+        "accessed": "2026-09-15"
+      }
+    ]
+  },
+  "anthropic": {
+    "start_here": "claude-opus-5",
+    "demanding_agents": "claude-fable-5-1",
+    "models": [
+      {
+        "name": "Claude Fable 5.1",
+        "id": "claude-fable-5-1",
+        "input_usd_per_mtok": 10,
+        "output_usd_per_mtok": 50,
+        "context": 1000000,
+        "max_output": 128000,
+        "thinking": "adaptive always-on",
+        "knowledge_cutoff": "2026-06"
+      },
+      {
+        "name": "Claude Opus 5",
+        "id": "claude-opus-5",
+        "input_usd_per_mtok": 5,
+        "output_usd_per_mtok": 25,
+        "context": 1000000,
+        "max_output": 128000,
+        "thinking": "adaptive",
+        "knowledge_cutoff": "2026-05"
+      },
+      {
+        "name": "Claude Sonnet 5",
+        "id": "claude-sonnet-5",
+        "input_usd_per_mtok": 2,
+        "output_usd_per_mtok": 10,
+        "context": 1000000,
+        "max_output": 128000,
+        "thinking": "adaptive",
+        "knowledge_cutoff": "2026-01"
+      },
+      {
+        "name": "Claude Haiku 4.5",
+        "id": "claude-haiku-4-5-20251001",
+        "alias": "claude-haiku-4-5",
+        "input_usd_per_mtok": 1,
+        "output_usd_per_mtok": 5,
+        "context": 200000,
+        "max_output": 64000,
+        "thinking": "extended",
+        "knowledge_cutoff_reliable": "2025-02"
+      }
+    ],
+    "tool_use": {
+      "client_tools": "app executes; tool_use / tool_result round trip",
+      "server_tools": ["web_search", "web_fetch", "code_execution", "tool_search", "advisor"],
+      "anthropic_schema_client_tools": ["bash", "text_editor", "memory", "computer_use", "browser_use"],
+      "strict": "strict true on custom tools",
+      "mcp": "MCP connector on Messages API; no separate MCP client required"
+    },
+    "cache_reads": "10% of base input; 2.5% on Fable 5.1 and Mythos 5.1",
+    "sources": [
+      {
+        "title": "Models overview",
+        "org": "Anthropic",
+        "url": "https://platform.claude.com/docs/en/models/overview",
+        "accessed": "2026-09-15"
+      },
+      {
+        "title": "Tool use with Claude",
+        "org": "Anthropic",
+        "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview",
+        "accessed": "2026-09-15"
+      }
+    ]
+  },
+  "google": {
+    "current_flash": "gemini-3.8-flash",
+    "preview_pro": "gemini-3.1-pro-preview",
+    "still_listed_2_5": ["gemini-2.5-pro", "gemini-2.5-flash", "gemini-2.5-flash-lite"],
+    "shut_down": ["gemini-2.0-flash", "gemini-2.0-flash-lite"],
+    "embeddings": ["gemini-embedding-2-preview", "gemini-embedding-001"],
+    "platform_note": "Vertex Generative AI docs redirect toward Gemini Enterprise Agent Platform",
+    "adk": {
+      "package": "google-adk",
+      "pypi_version_at_access": "2.9.0",
+      "pypi_released": "2026-09-10",
+      "languages": ["Python", "Java", "Go", "TypeScript", "Kotlin"],
+      "breaking": "ADK 2.0 breaks 1.x agent API, events, sessions",
+      "deploy": ["local", "Cloud Run", "Vertex AI Agent Engine"]
+    },
+    "sources": [
+      {
+        "title": "Models",
+        "org": "Google AI",
+        "url": "https://ai.google.dev/gemini-api/docs/models",
+        "date": "2026-09-04"
+      },
+      {
+        "title": "Agent Development Kit",
+        "org": "Google Cloud",
+        "url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/adk",
+        "date": "2026-09-03"
+      }
+    ]
+  },
+  "meta": {
+    "open_llama_current": "Llama 4",
+    "llama_4": {
+      "scout": "natively multimodal MoE; 10M context; 17B active / 16 experts (2025-04-05 announcement)",
+      "maverick": "natively multimodal MoE; 17B active / 128 experts (2025-04-05 announcement)"
+    },
+    "site_also_lists": ["Muse Spark 1.3", "Muse Glimmer", "Muse Image", "Muse Voice Transcribe", "Llama 3"],
+    "uncertain": "Third-party reports of first-party Llama API shutdown 2026-07-06 and Muse Glimmer Apache 2.0 — confirm on developer.meta.com before citing",
+    "sources": [
+      {
+        "title": "Llama 4",
+        "org": "Meta",
+        "url": "https://developer.meta.com/ai/models/llama-4/",
+        "accessed": "2026-09-15"
+      },
+      {
+        "title": "The Llama 4 herd",
+        "org": "Meta",
+        "url": "https://ai.meta.com/blog/llama-4-multimodal-intelligence/",
+        "date": "2025-04-05"
+      }
+    ]
+  },
+  "mistral": {
+    "large": {
+      "name": "Mistral Large 3",
+      "id": "mistral-large-2512",
+      "license": "Apache 2.0",
+      "params": "675B total / 41B active MoE",
+      "input_usd_per_mtok": 0.5,
+      "output_usd_per_mtok": 1.5,
+      "context": 256000
+    },
+    "medium": {
+      "name": "Mistral Medium 3.5",
+      "id": "mistral-medium-3-5",
+      "version": "v26.04",
+      "released": "2026-04-27",
+      "notes": "agentic/coding; reasoning_effort; Modified MIT"
+    },
+    "small": "Mistral Small 4",
+    "edge": ["ministral-3b-2512", "ministral-8b-2512", "ministral-14b-2512"],
+    "sources": [
+      {
+        "title": "Mistral Large 3",
+        "org": "Mistral",
+        "url": "https://docs.mistral.ai/models/mistral-large-3-25-12",
+        "accessed": "2026-09-15"
+      }
+    ]
+  },
+  "qwen": {
+    "recommended_coding": "qwen3.7-plus",
+    "strongest_reasoning": "qwen3.8-max",
+    "current_ids": [
+      "qwen3.8-max",
+      "qwen3.8-max-0902",
+      "qwen3.8-flash",
+      "qwen3.7-plus",
+      "qwen3.7-flash"
+    ],
+    "context_1m": true,
+    "features": ["thinking mode", "function calling", "built-in tools", "structured output"],
+    "source": {
+      "title": "Text generation models",
+      "org": "Alibaba Cloud Model Studio",
+      "url": "https://www.alibabacloud.com/help/en/model-studio/text-generation-model/",
+      "date": "2026-09-11"
+    }
+  },
+  "cohere": {
+    "command_current": [
+      "command-a-plus-05-2026",
+      "command-a-03-2025",
+      "command-r7b-12-2024",
+      "command-a-translate-08-2025",
+      "command-a-reasoning-08-2025",
+      "command-a-vision-07-2025"
+    ],
+    "deprecated_2025_09_15": ["command-r-03-2024", "command-r-plus-04-2024", "command", "command-light"],
+    "embed": "embed-v4.0",
+    "rerank": ["rerank-v4.0-pro", "rerank-v4.0-fast"],
+    "parse": "parse-v5.0",
+    "source": {
+      "title": "An Overview of Cohere's Models",
+      "org": "Cohere",
+      "url": "https://docs.cohere.com/docs/models",
+      "accessed": "2026-09-15"
+    }
+  },
+  "aws": {
+    "agentcore_services": [
+      "Harness",
+      "Runtime",
+      "Memory",
+      "Gateway",
+      "Identity",
+      "Code Interpreter",
+      "Browser",
+      "Observability",
+      "Payments",
+      "Evaluations",
+      "Optimization",
+      "Policy",
+      "Registry"
+    ],
+    "runtime_frameworks": [
+      "CrewAI",
+      "LangGraph",
+      "LlamaIndex",
+      "Google ADK",
+      "OpenAI Agents SDK",
+      "Strands Agents"
+    ],
+    "guardrails_filters": [
+      "content filters",
+      "denied topics",
+      "word filters",
+      "sensitive information / PII",
+      "contextual grounding",
+      "automated reasoning checks",
+      "prompt attack"
+    ],
+    "knowledge_bases": {
+      "recommended": "Managed Knowledge Base",
+      "acl": "document-level permission filtering at retrieval (except Web Crawler)",
+      "customer_managed_stores": ["OpenSearch Serverless", "Aurora", "Neptune"]
+    },
+    "sources": [
+      {
+        "title": "What is Amazon Bedrock AgentCore?",
+        "org": "AWS",
+        "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html",
+        "accessed": "2026-09-15"
+      },
+      {
+        "title": "Amazon Bedrock Knowledge Bases",
+        "org": "AWS",
+        "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html",
+        "accessed": "2026-09-15"
+      }
+    ]
+  },
+  "azure": {
+    "current_name": "Microsoft Foundry",
+    "naming_path": "Azure AI Studio → Azure AI Foundry → Microsoft Foundry",
+    "tools_name": "Foundry Tools",
+    "resource_type_unchanged": "Microsoft.CognitiveServices/accounts",
+    "portals": ["Foundry (classic)", "Foundry (current)"],
+    "sunset_2026_08_26": ["azure-ai-inference package", "Assistants API"],
+    "current_agent_api": "Responses API / Agents v2",
+    "sdk": ["openai", "azure-ai-projects 2.x"],
+    "autogen": "maintenance mode; successor is Microsoft Agent Framework",
+    "a2a_in_portal": "v1.0 GA; v0.3 Preview",
+    "source": {
+      "title": "Migrate from the Foundry (classic) portal",
+      "org": "Microsoft",
+      "url": "https://learn.microsoft.com/en-us/azure/foundry/how-to/navigate-from-classic",
+      "date": "2026-09-11",
+      "updated_at": "2026-09-14"
+    }
+  },
+  "agent_frameworks": {
+    "learn_deeply": ["LangGraph", "one native provider SDK (OpenAI Agents SDK or Anthropic tools or ADK or Microsoft Agent Framework)"],
+    "also_learn": "LlamaIndex or equivalent RAG plumbing",
+    "do_not_lead_with": ["AutoGen as current", "Assistants API", "2023 LangChain LCEL tutorials"],
+    "comparison": [
+      {
+        "name": "LangGraph",
+        "strength": "low-level durable graph orchestration, HITL, persistence",
+        "production_fit": "high",
+        "job_signal": "very high"
+      },
+      {
+        "name": "LangChain",
+        "strength": "integrations and higher-level agent loops on LangGraph",
+        "production_fit": "medium-high as glue",
+        "job_signal": "high name, interviewers want LangGraph"
+      },
+      {
+        "name": "LlamaIndex",
+        "strength": "data ingest, parse, index, query, LlamaParse/LlamaCloud",
+        "production_fit": "high for RAG",
+        "job_signal": "high in RAG JDs"
+      },
+      {
+        "name": "OpenAI Agents SDK",
+        "strength": "typed Python/TS, handoffs, guardrails, MCP, sandboxes",
+        "production_fit": "high in OpenAI shops",
+        "job_signal": "rising"
+      },
+      {
+        "name": "Google ADK",
+        "strength": "code-first workflows + Task API, Gemini/GCP deploy",
+        "production_fit": "high on GCP",
+        "job_signal": "high in Vertex/GCP JDs"
+      },
+      {
+        "name": "Microsoft Agent Framework",
+        "strength": "official AutoGen+SK successor; Foundry-native",
+        "production_fit": "high on Azure",
+        "job_signal": "high in Microsoft enterprises"
+      },
+      {
+        "name": "AutoGen",
+        "state": "maintenance mode",
+        "production_fit": "legacy"
+      },
+      {
+        "name": "CrewAI",
+        "strength": "crews + flows, fast demos",
+        "production_fit": "medium",
+        "job_signal": "medium"
+      },
+      {
+        "name": "PydanticAI",
+        "strength": "typed Python agents, structured output, OTel, durable execution",
+        "production_fit": "high for Pydantic/FastAPI shops",
+        "job_signal": "rising"
+      }
+    ]
+  },
+  "mcp": {
+    "current_version": "2026-07-28",
+    "official_spec_url": "https://modelcontextprotocol.io/specification/2026-07-28",
+    "previous_version": "2025-11-25",
+    "roles": ["host", "client", "server"],
+    "encoding": "JSON-RPC 2.0",
+    "core_change_2026_07_28": "stateless; no protocol sessions; no initialize handshake; version/capabilities in _meta",
+    "transports": ["stdio", "Streamable HTTP"],
+    "auth": {
+      "optional": true,
+      "http": "OAuth 2.1 + RFC9728 PRM + PKCE + RFC8707 resource indicators",
+      "stdio": "credentials from environment, not the HTTP OAuth flow",
+      "dcr": "deprecated in favor of Client ID Metadata Documents"
+    },
+    "security": [
+      "tool descriptions untrusted unless server trusted",
+      "user consent before tool invoke",
+      "audience-bound tokens",
+      "tool poisoning / prompt injection via tool IO",
+      "confused deputy if tokens passed through"
+    ],
+    "extensions": ["Tasks", "Skills over MCP", "MCP Apps"]
+  },
+  "a2a": {
+    "full_name": "Agent2Agent Protocol",
+    "latest_version": "1.0.0",
+    "official_spec_url": "https://a2a-protocol.org/latest/specification",
+    "job": "agent-to-agent discovery and task collaboration without sharing internals",
+    "vs_mcp": "complementary; MCP is tools/data, A2A is peer agents",
+    "primitives": ["AgentCard", "Task", "Message", "Part", "Artifact"],
+    "bindings": ["JSON-RPC", "gRPC", "HTTP/REST"],
+    "status_vs_mcp": "standardized at v1.0 but younger production footprint than MCP"
+  },
+  "rag": {
+    "production_practices": [
+      "serious document parsing (not naive pypdf for enterprise decks)",
+      "hybrid search (dense + lexical)",
+      "rerank (e.g. Cohere rerank-v4)",
+      "ACL-before-retrieval (Bedrock Managed KB document-level ACLs)",
+      "citations + optional grounding checks",
+      "eval on your corpus (faithfulness, recall, refusal)"
+    ]
+  },
+  "vector_dbs": {
+    "selection_criteria": [
+      "existing system of record (Postgres → pgvector)",
+      "hybrid + metadata filters",
+      "multi-tenant ACL",
+      "scale and p99",
+      "managed vs self-host / VPC",
+      "cloud-native KB integration"
+    ],
+    "stores": [
+      {"name": "pgvector", "job_signal": "very high for pragmatic RAG/FDE"},
+      {"name": "Pinecone", "job_signal": "high in SaaS; lower in on-prem"},
+      {"name": "Qdrant", "job_signal": "high in self-host/EU"},
+      {"name": "Weaviate", "job_signal": "medium-high"},
+      {"name": "Milvus", "job_signal": "high at billion scale"},
+      {"name": "OpenSearch", "job_signal": "very high in AWS enterprise"}
+    ]
+  },
+  "security": {
+    "owasp_llm_top_10_version": "2026",
+    "owasp_llm_top_10": [
+      "LLM01:2026 Prompt Injection",
+      "LLM02:2026 Sensitive Information Disclosure",
+      "LLM03:2026 Excessive Agency",
+      "LLM04:2026 Supply Chain",
+      "LLM05:2026 Data and Model Poisoning",
+      "LLM06:2026 Unbounded Consumption",
+      "LLM07:2026 Misinformation",
+      "LLM08:2026 Hidden Context Exposure",
+      "LLM09:2026 Vector and Embedding Weaknesses",
+      "LLM10:2026 Improper Output Handling"
+    ],
+    "owasp_agentic_top_10": "OWASP Top 10 for Agentic Applications 2026 (announced 2025-12-09)",
+    "nist": {
+      "ai_rmf": "NIST.AI.100-1 (2023-01-26)",
+      "genai_profile": "NIST.AI.600-1 (2024-07-26)",
+      "critical_infrastructure_concept_note": "2026-04-07",
+      "revision": "AI RMF 1.0 being revised as part of White House AI Action Plan"
+    }
+  },
+  "observability": {
+    "langsmith": "LangChain Inc. tracing, eval, Engine; default with LangGraph",
+    "langfuse": "OSS self-hostable traces, prompts, evals; OpenTelemetry-based",
+    "phoenix": "Arize OSS OTel/OpenInference tracing + evals + experiments",
+    "otel": "interchange format across AgentCore, Langfuse, Phoenix, Pydantic AI"
+  },
+  "inference": {
+    "vllm": "conceptual+light hands-on; tags include v0.29.0 (2026-09-08)",
+    "sglang": "conceptual; PyPI 0.5.19 (2026-09-04); RadixAttention / structured decoding",
+    "tensorrt_llm": "NVIDIA; PyTorch-only backend as of 1.2 notes (2026-08-28)",
+    "triton": "multi-model production server; verify NGC tags",
+    "tgi": "uncertain official status; third-party reports of maintenance/archive — verify before citing",
+    "fde_guidance": "explain paged KV + continuous batching + prefix cache; implement vLLM only if JD is self-host"
+  },
+  "eval": {
+    "ragas": "experiments-first RAG/agent metrics library",
+    "deepeval": "pytest-style harness; agent, RAG, MCP, safety metrics; CI",
+    "promptfoo": "declarative evals + red team CLI; local-first"
+  }
+}

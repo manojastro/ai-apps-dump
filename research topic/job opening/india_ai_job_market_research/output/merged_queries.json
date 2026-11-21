@@ -1,0 +1,1618 @@
+[
+ {
+  "engine": "WebSearch",
+  "query": "AIOps Engineer jobs India Bengaluru Hyderabad 2026",
+  "relevant": 7,
+  "results_reviewed": 8,
+  "stream": "S1_aiops",
+  "unique_added": 6
+ },
+ {
+  "engine": "WebSearch",
+  "query": "AI SRE Observability AI Engineer jobs India 2026",
+  "relevant": 6,
+  "results_reviewed": 8,
+  "stream": "S1_aiops",
+  "unique_added": 5
+ },
+ {
+  "engine": "WebSearch",
+  "query": "ServiceNow AI ITOM predictive operations jobs India Pune Chennai 2026",
+  "relevant": 6,
+  "results_reviewed": 8,
+  "stream": "S1_aiops",
+  "unique_added": 5
+ },
+ {
+  "engine": "WebSearch",
+  "query": "Dynatrace Datadog Splunk AI engineer jobs India Mumbai Delhi 2026",
+  "relevant": 5,
+  "results_reviewed": 8,
+  "stream": "S1_aiops",
+  "unique_added": 2
+ },
+ {
+  "engine": "WebSearch",
+  "query": "AIOps openings Accenture TCS Infosys Wipro HCLTech India 2026",
+  "relevant": 6,
+  "results_reviewed": 8,
+  "stream": "S1_aiops",
+  "unique_added": 4
+ },
+ {
+  "engine": "WebSearch",
+  "query": "autonomous operations predictive operations engineer India GCC 2026 IBM Watson AIOps",
+  "relevant": 2,
+  "results_reviewed": 8,
+  "stream": "S1_aiops",
+  "unique_added": 0
+ },
+ {
+  "engine": "WebSearch",
+  "query": "site:jobs.lever.co AIOps OR observability India Bengaluru",
+  "relevant": 6,
+  "results_reviewed": 8,
+  "stream": "S1_aiops",
+  "unique_added": 3
+ },
+ {
+  "engine": "WebSearch",
+  "query": "site:myworkdayjobs.com AIOps engineer India",
+  "relevant": 1,
+  "results_reviewed": 8,
+  "stream": "S1_aiops",
+  "unique_added": 0
+ },
+ {
+  "engine": "WebSearch",
+  "query": "site:boards.greenhouse.io AIOps observability India",
+  "relevant": 3,
+  "results_reviewed": 8,
+  "stream": "S1_aiops",
+  "unique_added": 1
+ },
+ {
+  "engine": "WebSearch",
+  "query": "site:jobs.ashbyhq.com AIOps SRE India observability",
+  "relevant": 5,
+  "results_reviewed": 8,
+  "stream": "S1_aiops",
+  "unique_added": 2
+ },
+ {
+  "engine": "WebSearch",
+  "query": "AIOps Engineer Remote India observability platform hiring 2026",
+  "relevant": 6,
+  "results_reviewed": 8,
+  "stream": "S1_aiops",
+  "unique_added": 4
+ },
+ {
+  "engine": "WebSearch",
+  "query": "AIOps observability engineer Noida Gurugram Delhi NCR hiring 2026",
+  "relevant": 6,
+  "results_reviewed": 8,
+  "stream": "S1_aiops",
+  "unique_added": 3
+ },
+ {
+  "engine": "WebSearch",
+  "query": "Moogsoft BigPanda OpsRamp AIOps engineer jobs India Kochi Coimbatore Ahmedabad 2026",
+  "relevant": 5,
+  "results_reviewed": 8,
+  "stream": "S1_aiops",
+  "unique_added": 4
+ },
+ {
+  "engine": "WebSearch",
+  "query": "Harness CrowdStrike AI SRE engineer Bengaluru India hiring August 2026",
+  "relevant": 4,
+  "results_reviewed": 8,
+  "stream": "S1_aiops",
+  "unique_added": 0
+ },
+ {
+  "engine": "WebSearch",
+  "query": "AIOps ITOM observability jobs Pune Kolkata Jaipur Ahmedabad July August 2026 postings",
+  "relevant": 6,
+  "results_reviewed": 8,
+  "stream": "S1_aiops",
+  "unique_added": 5
+ },
+ {
+  "engine": "WebFetch",
+  "query": "fetch ashby Level AI Senior SRE (blocked, JS-only) + ashby Ciroos FDE (blocked, JS-only)",
+  "relevant": 1,
+  "results_reviewed": 2,
+  "stream": "S1_aiops",
+  "unique_added": 1
+ },
+ {
+  "engine": "WebFetch",
+  "query": "fetch greenhouse Point72 Observability Engineer (live) + smartrecruiters Bosch ITOM (expired) + wipro GTM (live) + accenture AIOps SME (live)",
+  "relevant": 4,
+  "results_reviewed": 4,
+  "stream": "S1_aiops",
+  "unique_added": 0
+ },
+ {
+  "engine": "WebFetch",
+  "query": "fetch UHG AI SRE (404) + shine Talent500 (live) + cutshort Fx31labs (live) + builtin Porch (removed Jul-27) + menlovc Harness (live)",
+  "relevant": 5,
+  "results_reviewed": 5,
+  "stream": "S1_aiops",
+  "unique_added": 0
+ },
+ {
+  "engine": "WebFetch",
+  "query": "fetch techgig Capgemini (live) + michaelpage COE (live) + builtinpune Northern Trust (removed, repost found) + shine EY Noida (live) + shine XaasIO (redirected)",
+  "relevant": 5,
+  "results_reviewed": 5,
+  "stream": "S1_aiops",
+  "unique_added": 0
+ },
+ {
+  "engine": "WebSearch",
+  "query": "Cloud AI Engineer jobs India 2026 Bengaluru Hyderabad",
+  "relevant": 0,
+  "results_reviewed": 0,
+  "stream": "S2_cloudai",
+  "unique_added": 0
+ },
+ {
+  "engine": "WebSearch",
+  "query": "site:boards.greenhouse.io Cloud AI engineer India",
+  "relevant": 0,
+  "results_reviewed": 0,
+  "stream": "S2_cloudai",
+  "unique_added": 0
+ },
+ {
+  "engine": "WebSearch",
+  "query": "site:jobs.lever.co Cloud AI ML engineer India",
+  "relevant": 0,
+  "results_reviewed": 0,
+  "stream": "S2_cloudai",
+  "unique_added": 0
+ },
+ {
+  "engine": "WebSearch",
+  "query": "site:myworkdayjobs.com Cloud AI engineer India",
+  "relevant": 0,
+  "results_reviewed": 0,
+  "stream": "S2_cloudai",
+  "unique_added": 0
+ },
+ {
+  "engine": "WebSearch",
+  "query": "site:jobs.ashbyhq.com Cloud AI engineer India",
+  "relevant": 0,
+  "results_reviewed": 0,
+  "stream": "S2_cloudai",
+  "unique_added": 0
+ },
+ {
+  "engine": "WebSearch",
+  "query": "AWS Bedrock engineer jobs India 2026",
+  "relevant": 0,
+  "results_reviewed": 0,
+  "stream": "S2_cloudai",
+  "unique_added": 0
+ },
+ {
+  "engine": "WebSearch",
+  "query": "Azure AI Foundry Azure OpenAI engineer jobs India 2026",
+  "relevant": 0,
+  "results_reviewed": 0,
+  "stream": "S2_cloudai",
+  "unique_added": 0
+ },
+ {
+  "engine": "WebSearch",
+  "query": "GCP Vertex AI engineer jobs India 2026",
+  "relevant": 0,
+  "results_reviewed": 0,
+  "stream": "S2_cloudai",
+  "unique_added": 0
+ },
+ {
+  "engine": "WebSearch",
+  "query": "Cloud AI Engineer jobs India 2026",
+  "relevant": 0,
+  "results_reviewed": 0,
+  "stream": "S2_cloudai",
+  "unique_added": 0
+ },
+ {
+  "engine": "WebSearch",
+  "query": "Cloud AI Engineer jobs India Bengaluru",
+  "relevant": 0,
+  "results_reviewed": 0,
+  "stream": "S2_cloudai",
+  "unique_added": 0
+ },
+ {
+  "engine": "WebSearch",
+  "query": "Teradata Senior Cloud AI Engineer Hyderabad posting",
+  "relevant": 0,
+  "results_reviewed": 0,
+  "stream": "S2_cloudai",
+  "unique_added": 0
+ },
+ {
+  "engine": "WebFetch",
+  "query": "Bing: Cloud AI Engineer jobs India Bengaluru 2026 (generic results, no usable postings)",
+  "relevant": 0,
+  "results_reviewed": 10,
+  "stream": "S2_cloudai",
+  "unique_added": 0
+ },
+ {
+  "engine": "WebFetch",
+  "query": "DuckDuckGo html: Cloud AI Engineer jobs India site:jobs.lever.co (bot captcha, no results)",
+  "relevant": 0,
+  "results_reviewed": 0,
+  "stream": "S2_cloudai",
+  "unique_added": 0
+ },
+ {
+  "engine": "WebFetch",
+  "query": "Fetch https://quantiphi.com/careers/ (found MyWorkday ATS link, no listings rendered)",
+  "relevant": 0,
+  "results_reviewed": 1,
+  "stream": "S2_cloudai",
+  "unique_added": 0
+ },
+ {
+  "engine": "WebFetch",
+  "query": "Fetch https://www.searce.com/careers/ and https://searce.com/careers (404)",
+  "relevant": 0,
+  "results_reviewed": 0,
+  "stream": "S2_cloudai",
+  "unique_added": 0
+ },
+ {
+  "engine": "WebFetch",
+  "query": "Fetch https://minfy.com/careers/ (transport error)",
+  "relevant": 0,
+  "results_reviewed": 0,
+  "stream": "S2_cloudai",
+  "unique_added": 0
+ },
+ {
+  "engine": "WebFetch",
+  "query": "Fetch https://jobs.ashbyhq.com/quantiphi (JS shell, no listings)",
+  "relevant": 0,
+  "results_reviewed": 0,
+  "stream": "S2_cloudai",
+  "unique_added": 0
+ },
+ {
+  "engine": "WebFetch",
+  "query": "Fetch Ashby API job-board/quantiphi (404, unknown board slug)",
+  "relevant": 0,
+  "results_reviewed": 0,
+  "stream": "S2_cloudai",
+  "unique_added": 0
+ },
+ {
+  "engine": "WebFetch",
+  "query": "Fetch https://quantiphi.wd1.myworkdayjobs.com/Careers_at_Quantiphi (empty JS page)",
+  "relevant": 0,
+  "results_reviewed": 0,
+  "stream": "S2_cloudai",
+  "unique_added": 0
+ },
+ {
+  "engine": "WebFetch",
+  "query": "Fetch https://cutshort.io/jobs/cloud-ai-engineer-jobs-in-india (generic page, no listings)",
+  "relevant": 0,
+  "results_reviewed": 0,
+  "stream": "S2_cloudai",
+  "unique_added": 0
+ },
+ {
+  "engine": "WebFetch",
+  "query": "Fetch https://in.jooble.org/jobs-Cloud-AI-engineer/India (403)",
+  "relevant": 0,
+  "results_reviewed": 0,
+  "stream": "S2_cloudai",
+  "unique_added": 0
+ },
+ {
+  "engine": "WebFetch",
+  "query": "Fetch https://www.careerjet.co.in/cloud-ai-jobs-in-india.html (404)",
+  "relevant": 0,
+  "results_reviewed": 0,
+  "stream": "S2_cloudai",
+  "unique_added": 0
+ },
+ {
+  "engine": "WebFetch",
+  "query": "Fetch https://www.foundit.in/srp/results?query=Cloud+AI+Engineer (JS shell, no listings)",
+  "relevant": 0,
+  "results_reviewed": 0,
+  "stream": "S2_cloudai",
+  "unique_added": 0
+ },
+ {
+  "engine": "WebFetch",
+  "query": "Fetch Indeed viewjob jk=74fd47acf98ef8ad Insight detail (401)",
+  "relevant": 0,
+  "results_reviewed": 0,
+  "stream": "S2_cloudai",
+  "unique_added": 0
+ },
+ {
+  "engine": "WebFetch",
+  "query": "Indeed: \"cloud AI engineer\" in India (Insight, Teradata x4, PwC x2)",
+  "relevant": 9,
+  "results_reviewed": 15,
+  "stream": "S2_cloudai",
+  "unique_added": 5
+ },
+ {
+  "engine": "WebFetch",
+  "query": "Indeed: AWS Bedrock engineer in India (Stellaspire, Cloudbyz)",
+  "relevant": 5,
+  "results_reviewed": 15,
+  "stream": "S2_cloudai",
+  "unique_added": 2
+ },
+ {
+  "engine": "WebFetch",
+  "query": "Indeed: Azure AI engineer in India (Saarthee, Relevance Labs, Luxoft, WebSenor Noida listed, Marlabs)",
+  "relevant": 7,
+  "results_reviewed": 15,
+  "stream": "S2_cloudai",
+  "unique_added": 3
+ },
+ {
+  "engine": "WebFetch",
+  "query": "Indeed: Vertex AI engineer in India (Techolution, The Strong AI)",
+  "relevant": 6,
+  "results_reviewed": 15,
+  "stream": "S2_cloudai",
+  "unique_added": 2
+ },
+ {
+  "engine": "WebFetch",
+  "query": "Indeed: \"AI Platform Engineer\" in India (eBay, Quest Global, Tvh India, Veltris, AHEAD)",
+  "relevant": 8,
+  "results_reviewed": 15,
+  "stream": "S2_cloudai",
+  "unique_added": 3
+ },
+ {
+  "engine": "WebFetch",
+  "query": "Indeed: \"ML Platform\" engineer in India (UST, Cartesia, Vikash, Eventrics/Wandercraft)",
+  "relevant": 7,
+  "results_reviewed": 15,
+  "stream": "S2_cloudai",
+  "unique_added": 4
+ },
+ {
+  "engine": "WebFetch",
+  "query": "Indeed: \"AI Infrastructure\" engineer in India (TalentNest, Together AI, Sarvam, Crowe)",
+  "relevant": 8,
+  "results_reviewed": 15,
+  "stream": "S2_cloudai",
+  "unique_added": 4
+ },
+ {
+  "engine": "WebFetch",
+  "query": "Indeed: \"Cloud Solutions\" AI engineer in India (AstraZeneca R-259465, Microsoft CSA)",
+  "relevant": 6,
+  "results_reviewed": 15,
+  "stream": "S2_cloudai",
+  "unique_added": 2
+ },
+ {
+  "engine": "WebFetch",
+  "query": "Indeed: Microsoft Cloud AI engineer in India (OpenAI Partner AWS, Acronotics)",
+  "relevant": 6,
+  "results_reviewed": 15,
+  "stream": "S2_cloudai",
+  "unique_added": 2
+ },
+ {
+  "engine": "WebFetch",
+  "query": "Indeed: Google Cloud AI engineer in India (Google Gurugram, Pune, Mumbai FDE/GenAI)",
+  "relevant": 6,
+  "results_reviewed": 15,
+  "stream": "S2_cloudai",
+  "unique_added": 3
+ },
+ {
+  "engine": "WebFetch",
+  "query": "Indeed: Quantiphi cloud AI in India (Snehal AWS AI Architect)",
+  "relevant": 5,
+  "results_reviewed": 15,
+  "stream": "S2_cloudai",
+  "unique_added": 1
+ },
+ {
+  "engine": "WebFetch",
+  "query": "Indeed: \"SageMaker\" engineer in India (Accenture Hyderabad AI/ML)",
+  "relevant": 5,
+  "results_reviewed": 15,
+  "stream": "S2_cloudai",
+  "unique_added": 1
+ },
+ {
+  "engine": "WebFetch",
+  "query": "Indeed: Cloud AI engineer in Mumbai (Husqvarna, PCDS, Aadmi, Google)",
+  "relevant": 7,
+  "results_reviewed": 15,
+  "stream": "S2_cloudai",
+  "unique_added": 3
+ },
+ {
+  "engine": "WebFetch",
+  "query": "Indeed: Cloud AI engineer in Hyderabad (Rupa, NTT, Teradata)",
+  "relevant": 8,
+  "results_reviewed": 15,
+  "stream": "S2_cloudai",
+  "unique_added": 2
+ },
+ {
+  "engine": "WebFetch",
+  "query": "Indeed: Cloud AI engineer in Chennai (AstraZeneca, Strong AI, UST, SES)",
+  "relevant": 5,
+  "results_reviewed": 15,
+  "stream": "S2_cloudai",
+  "unique_added": 0
+ },
+ {
+  "engine": "WebFetch",
+  "query": "Indeed: Cloud AI engineer in Pune (Kiash AWS Connect+Claude, Teradata, Mastercard)",
+  "relevant": 7,
+  "results_reviewed": 15,
+  "stream": "S2_cloudai",
+  "unique_added": 1
+ },
+ {
+  "engine": "WebFetch",
+  "query": "Indeed: Cloud AI engineer in New Delhi (Rohde & Schwarz, RMSI Noida, Quadcentrix)",
+  "relevant": 6,
+  "results_reviewed": 15,
+  "stream": "S2_cloudai",
+  "unique_added": 2
+ },
+ {
+  "engine": "WebFetch",
+  "query": "Indeed: Cloud AI engineer in Gurugram (EXL, Jinendra Copilot, NTT, Insight)",
+  "relevant": 8,
+  "results_reviewed": 15,
+  "stream": "S2_cloudai",
+  "unique_added": 2
+ },
+ {
+  "engine": "WebFetch",
+  "query": "Indeed: Searce OR Minfy cloud AI in India (0 results)",
+  "relevant": 0,
+  "results_reviewed": 0,
+  "stream": "S2_cloudai",
+  "unique_added": 0
+ },
+ {
+  "engine": "WebFetch",
+  "query": "Indeed: Cloud AI engineer in Kolkata (SS&C Bedrock/Azure/Vertex, Kabinav, Accenture)",
+  "relevant": 6,
+  "results_reviewed": 15,
+  "stream": "S2_cloudai",
+  "unique_added": 2
+ },
+ {
+  "stream": "S3_automation",
+  "query": "WebSearch: Intelligent Automation Engineer jobs India 2026 (parallel batch)",
+  "engine": "WebSearch",
+  "results_reviewed": 0,
+  "relevant": 0,
+  "unique_added": 0
+ },
+ {
+  "stream": "S3_automation",
+  "query": "WebSearch: Hyperautomation engineer jobs India Bangalore Hyderabad (parallel batch)",
+  "engine": "WebSearch",
+  "results_reviewed": 0,
+  "relevant": 0,
+  "unique_added": 0
+ },
+ {
+  "stream": "S3_automation",
+  "query": "WebSearch: Intelligent Process Automation IPA engineer India hiring (parallel batch)",
+  "engine": "WebSearch",
+  "results_reviewed": 0,
+  "relevant": 0,
+  "unique_added": 0
+ },
+ {
+  "stream": "S3_automation",
+  "query": "WebSearch: AI Automation Engineer jobs India 2026 (parallel batch)",
+  "engine": "WebSearch",
+  "results_reviewed": 0,
+  "relevant": 0,
+  "unique_added": 0
+ },
+ {
+  "stream": "S3_automation",
+  "query": "WebSearch: Agentic Automation engineer jobs India (parallel batch)",
+  "engine": "WebSearch",
+  "results_reviewed": 0,
+  "relevant": 0,
+  "unique_added": 0
+ },
+ {
+  "stream": "S3_automation",
+  "query": "WebSearch: Intelligent Automation Engineer jobs India 2026 (retry)",
+  "engine": "WebSearch",
+  "results_reviewed": 0,
+  "relevant": 0,
+  "unique_added": 0
+ },
+ {
+  "stream": "S3_automation",
+  "query": "WebSearch: Intelligent Automation Engineer India (retry)",
+  "engine": "WebSearch",
+  "results_reviewed": 0,
+  "relevant": 0,
+  "unique_added": 0
+ },
+ {
+  "stream": "S3_automation",
+  "query": "WebSearch: UiPath developer jobs Bangalore India (retry)",
+  "engine": "WebSearch",
+  "results_reviewed": 0,
+  "relevant": 0,
+  "unique_added": 0
+ },
+ {
+  "stream": "S3_automation",
+  "query": "Yahoo: \"intelligent automation engineer\" jobs India",
+  "engine": "WebFetch",
+  "results_reviewed": 8,
+  "relevant": 2,
+  "unique_added": 0
+ },
+ {
+  "stream": "S3_automation",
+  "query": "Yahoo: UiPath developer jobs India Bangalore naukri hirist",
+  "engine": "WebFetch",
+  "results_reviewed": 7,
+  "relevant": 4,
+  "unique_added": 0
+ },
+ {
+  "stream": "S3_automation",
+  "query": "Yahoo: hyperautomation engineer jobs India hirist naukri",
+  "engine": "WebFetch",
+  "results_reviewed": 7,
+  "relevant": 3,
+  "unique_added": 0
+ },
+ {
+  "stream": "S3_automation",
+  "query": "Yahoo: \"automation anywhere\" developer jobs India 2026 hirist cutshort",
+  "engine": "WebFetch",
+  "results_reviewed": 7,
+  "relevant": 4,
+  "unique_added": 0
+ },
+ {
+  "stream": "S3_automation",
+  "query": "Yahoo: \"blue prism\" developer jobs India Chennai Hyderabad 2026",
+  "engine": "WebFetch",
+  "results_reviewed": 8,
+  "relevant": 5,
+  "unique_added": 1
+ },
+ {
+  "stream": "S3_automation",
+  "query": "Yahoo: power automate developer \"power platform\" jobs India 2026 cutshort hirist",
+  "engine": "WebFetch",
+  "results_reviewed": 8,
+  "relevant": 5,
+  "unique_added": 2
+ },
+ {
+  "stream": "S3_automation",
+  "query": "Yahoo: \"intelligent process automation\" OR \"cognitive automation\" engineer jobs India 2026",
+  "engine": "WebFetch",
+  "results_reviewed": 7,
+  "relevant": 0,
+  "unique_added": 0
+ },
+ {
+  "stream": "S3_automation",
+  "query": "Yahoo: RPA AI engineer UiPath OR Automation Anywhere vacancy India Pune Chennai 2026",
+  "engine": "WebFetch",
+  "results_reviewed": 7,
+  "relevant": 3,
+  "unique_added": 0
+ },
+ {
+  "stream": "S3_automation",
+  "query": "Yahoo: \"power platform\" developer hyderabad OR pune jobs 2026 cutshort wellfound",
+  "engine": "WebFetch",
+  "results_reviewed": 8,
+  "relevant": 4,
+  "unique_added": 1
+ },
+ {
+  "stream": "S3_automation",
+  "query": "Yahoo URL extraction: PowerPlatform Developer AI Enablement KPI Partners naukri",
+  "engine": "WebFetch",
+  "results_reviewed": 7,
+  "relevant": 3,
+  "unique_added": 1
+ },
+ {
+  "stream": "S3_automation",
+  "query": "Yahoo URL extraction: capgemini careers Power Platform Developer Pune Bangalore Chennai Hyderabad",
+  "engine": "WebFetch",
+  "results_reviewed": 7,
+  "relevant": 5,
+  "unique_added": 1
+ },
+ {
+  "stream": "S3_automation",
+  "query": "Yahoo URL extraction: BNP Paribas Blue Prism Developer job offer India Solutions",
+  "engine": "WebFetch",
+  "results_reviewed": 7,
+  "relevant": 4,
+  "unique_added": 1
+ },
+ {
+  "stream": "S3_automation",
+  "query": "Yahoo: accenture OR deloitte OR EY intelligent automation OR hyperautomation hiring India 2026",
+  "engine": "WebFetch",
+  "results_reviewed": 7,
+  "relevant": 1,
+  "unique_added": 0
+ },
+ {
+  "stream": "S3_automation",
+  "query": "Yahoo: coforge OR hexaware OR UST uipath OR power automate developer jobs India 2026",
+  "engine": "WebFetch",
+  "results_reviewed": 7,
+  "relevant": 1,
+  "unique_added": 0
+ },
+ {
+  "stream": "S3_automation",
+  "query": "Yahoo: automation architect uipath OR power platform OR hyperautomation India Bangalore 2026",
+  "engine": "WebFetch",
+  "results_reviewed": 7,
+  "relevant": 1,
+  "unique_added": 0
+ },
+ {
+  "stream": "S3_automation",
+  "query": "Yahoo: uipath OR power automate developer jobs Kochi Coimbatore Ahmedabad Jaipur Indore remote India 2026",
+  "engine": "WebFetch",
+  "results_reviewed": 7,
+  "relevant": 1,
+  "unique_added": 0
+ },
+ {
+  "stream": "S3_automation",
+  "query": "Indeed fetch: uipath developer Bengaluru fromage=180 sort=date",
+  "engine": "WebFetch",
+  "results_reviewed": 16,
+  "relevant": 13,
+  "unique_added": 12
+ },
+ {
+  "stream": "S3_automation",
+  "query": "Indeed fetch: blue prism developer Chennai fromage=180 sort=date",
+  "engine": "WebFetch",
+  "results_reviewed": 4,
+  "relevant": 3,
+  "unique_added": 2
+ },
+ {
+  "stream": "S3_automation",
+  "query": "Indeed fetch: power automate developer Pune fromage=180 sort=date",
+  "engine": "WebFetch",
+  "results_reviewed": 17,
+  "relevant": 9,
+  "unique_added": 7
+ },
+ {
+  "stream": "S3_automation",
+  "query": "Indeed fetch: intelligent automation engineer Mumbai fromage=180 sort=date",
+  "engine": "WebFetch",
+  "results_reviewed": 16,
+  "relevant": 3,
+  "unique_added": 2
+ },
+ {
+  "stream": "S3_automation",
+  "query": "Indeed fetch: rpa developer uipath New Delhi fromage=180 (0 results)",
+  "engine": "WebFetch",
+  "results_reviewed": 0,
+  "relevant": 0,
+  "unique_added": 0
+ },
+ {
+  "stream": "S3_automation",
+  "query": "Indeed fetch: rpa developer Noida fromage=180 sort=date",
+  "engine": "WebFetch",
+  "results_reviewed": 15,
+  "relevant": 8,
+  "unique_added": 7
+ },
+ {
+  "stream": "S3_automation",
+  "query": "Indeed fetch: uipath developer Hyderabad fromage=180 sort=date",
+  "engine": "WebFetch",
+  "results_reviewed": 16,
+  "relevant": 10,
+  "unique_added": 7
+ },
+ {
+  "stream": "S3_automation",
+  "query": "Indeed fetch: rpa developer Kolkata fromage=180 sort=date",
+  "engine": "WebFetch",
+  "results_reviewed": 2,
+  "relevant": 1,
+  "unique_added": 1
+ },
+ {
+  "stream": "S3_automation",
+  "query": "Employer ATS fetch: careers.capgemini.com Power Platform Developer 1399452033",
+  "engine": "WebFetch",
+  "results_reviewed": 1,
+  "relevant": 1,
+  "unique_added": 1
+ },
+ {
+  "stream": "S3_automation",
+  "query": "Employer fetch: kpipartners.com/careers (culture page; listings JS-gated)",
+  "engine": "WebFetch",
+  "results_reviewed": 1,
+  "relevant": 1,
+  "unique_added": 0
+ },
+ {
+  "stream": "S3_automation",
+  "query": "Employer fetch blocked 403: group.bnpparibas blue-prism-developer",
+  "engine": "WebFetch",
+  "results_reviewed": 0,
+  "relevant": 0,
+  "unique_added": 0
+ },
+ {
+  "stream": "S3_automation",
+  "query": "Portal fetch blocked 403: foundit.in BNP blue prism detail",
+  "engine": "WebFetch",
+  "results_reviewed": 0,
+  "relevant": 0,
+  "unique_added": 0
+ },
+ {
+  "stream": "S3_automation",
+  "query": "Portal fetch empty (bot-block): naukri.com KPI PowerPlatform detail",
+  "engine": "WebFetch",
+  "results_reviewed": 0,
+  "relevant": 0,
+  "unique_added": 0
+ },
+ {
+  "stream": "S3_automation",
+  "query": "Aggregator fetch: simplyhired.co.in uipath developer India (256 listings, relative dates)",
+  "engine": "WebFetch",
+  "results_reviewed": 20,
+  "relevant": 14,
+  "unique_added": 9
+ },
+ {
+  "stream": "S3_automation",
+  "query": "Probe JS-gated/empty: hirist.tech, cutshort.io, foundit search, naukri search",
+  "engine": "WebFetch",
+  "results_reviewed": 4,
+  "relevant": 0,
+  "unique_added": 0
+ },
+ {
+  "stream": "S3_automation",
+  "query": "Probe blocked: jooble 403, careerjet captcha, DDG/Mojeek captcha, talent redirect, bnp/naukri detail",
+  "engine": "WebFetch",
+  "results_reviewed": 6,
+  "relevant": 0,
+  "unique_added": 0
+ },
+ {
+  "stream": "S3_cloudai",
+  "query": "\"Cloud AI Engineer\" India jobs hiring 2026",
+  "engine": "WebSearch",
+  "results_reviewed": 8,
+  "relevant": 3,
+  "unique_added": 0
+ },
+ {
+  "stream": "S3_cloudai",
+  "query": "\"AI Platform Engineer\" India jobs hiring",
+  "engine": "WebSearch",
+  "results_reviewed": 9,
+  "relevant": 6,
+  "unique_added": 0
+ },
+ {
+  "stream": "S3_cloudai",
+  "query": "\"MLOps Engineer\" India hiring GenAI LLM jobs 2026",
+  "engine": "WebSearch",
+  "results_reviewed": 7,
+  "relevant": 4,
+  "unique_added": 0
+ },
+ {
+  "stream": "S3_cloudai",
+  "query": "\"AWS Bedrock\" GenAI engineer India jobs Bengaluru Hyderabad",
+  "engine": "WebSearch",
+  "results_reviewed": 9,
+  "relevant": 7,
+  "unique_added": 0
+ },
+ {
+  "stream": "S3_cloudai",
+  "query": "\"Azure OpenAI\" engineer India jobs hiring Microsoft AI",
+  "engine": "WebSearch",
+  "results_reviewed": 7,
+  "relevant": 5,
+  "unique_added": 0
+ },
+ {
+  "stream": "S3_cloudai",
+  "query": "\"Vertex AI\" engineer India jobs Google Cloud hiring",
+  "engine": "WebSearch",
+  "results_reviewed": 10,
+  "relevant": 6,
+  "unique_added": 0
+ },
+ {
+  "stream": "S3_cloudai",
+  "query": "Infosys Topaz OR Wipro ai360 OR TCS cloud GenAI engineer jobs India 2026",
+  "engine": "WebSearch",
+  "results_reviewed": 6,
+  "relevant": 4,
+  "unique_added": 0
+ },
+ {
+  "stream": "S3_cloudai",
+  "query": "NVIDIA careers India AI infrastructure software engineer jobs",
+  "engine": "WebSearch",
+  "results_reviewed": 9,
+  "relevant": 6,
+  "unique_added": 0
+ },
+ {
+  "stream": "S3_cloudai",
+  "query": "SageMaker MLOps engineer jobs India AWS hiring",
+  "engine": "WebSearch",
+  "results_reviewed": 9,
+  "relevant": 4,
+  "unique_added": 0
+ },
+ {
+  "stream": "S3_cloudai",
+  "query": "site:myworkdayjobs.com India GenAI engineer",
+  "engine": "WebSearch",
+  "results_reviewed": 10,
+  "relevant": 9,
+  "unique_added": 0
+ },
+ {
+  "stream": "S3_cloudai",
+  "query": "\"GenAI Platform Engineer\" OR \"Cloud GenAI Engineer\" India jobs",
+  "engine": "WebSearch",
+  "results_reviewed": 9,
+  "relevant": 7,
+  "unique_added": 0
+ },
+ {
+  "stream": "S3_cloudai",
+  "query": "\"AI Infrastructure Engineer\" India jobs hiring 2026 Bengaluru",
+  "engine": "WebSearch",
+  "results_reviewed": 8,
+  "relevant": 7,
+  "unique_added": 0
+ },
+ {
+  "stream": "S3_cloudai",
+  "query": "Quantiphi OR CloudThat OR Searce OR Minfy OR Rapyder cloud AI engineer jobs India",
+  "engine": "WebSearch",
+  "results_reviewed": 13,
+  "relevant": 9,
+  "unique_added": 0
+ },
+ {
+  "engine": "WebSearch",
+  "query": "WebSearch attempts x9 (rate-limited, HTTP 429): 'AI Security Engineer' India 2026; GenAI Security India; LLM Security Bengaluru; MLSecOps India; AI Red Team India; Microsoft AI Red Team Hyderabad; AI Security Bengaluru Hyderabad; 'AI Security Engineer' OR 'LLM Security' India; banks/GCC AI security \u2014 fell back to WebFetch",
+  "relevant": 0,
+  "results_reviewed": 0,
+  "stream": "S4_aisec",
+  "unique_added": 0
+ },
+ {
+  "engine": "WebFetch",
+  "query": "Indeed India: q=AI Security Engineer l=India (https://in.indeed.com/jobs?q=AI+Security+Engineer&l=India)",
+  "relevant": 8,
+  "results_reviewed": 16,
+  "stream": "S4_aisec",
+  "unique_added": 6
+ },
+ {
+  "engine": "WebFetch",
+  "query": "Indeed India: q='AI Red Team' OR 'LLM Security' OR 'GenAI Security' l=India",
+  "relevant": 7,
+  "results_reviewed": 16,
+  "stream": "S4_aisec",
+  "unique_added": 5
+ },
+ {
+  "engine": "WebFetch",
+  "query": "Indeed India: q='AI governance' OR 'AI risk' OR 'AI safety' engineer l=India",
+  "relevant": 5,
+  "results_reviewed": 16,
+  "stream": "S4_aisec",
+  "unique_added": 3
+ },
+ {
+  "engine": "WebFetch",
+  "query": "Indeed India: q=Palo Alto OR CrowdStrike OR Cloudflare OR Zscaler AI security l=India",
+  "relevant": 6,
+  "results_reviewed": 16,
+  "stream": "S4_aisec",
+  "unique_added": 4
+ },
+ {
+  "engine": "WebFetch",
+  "query": "Indeed India: q=Standard Chartered OR HSBC OR JPMorgan OR 'Wells Fargo' AI security l=India (banks/GCC probe)",
+  "relevant": 2,
+  "results_reviewed": 16,
+  "stream": "S4_aisec",
+  "unique_added": 1
+ },
+ {
+  "engine": "WebFetch",
+  "query": "Shine: ai-security-engineer-jobs-in-india listing page",
+  "relevant": 8,
+  "results_reviewed": 20,
+  "stream": "S4_aisec",
+  "unique_added": 4
+ },
+ {
+  "engine": "WebFetch",
+  "query": "Shine: ai-security-engineer-jobs-in-bangalore listing page",
+  "relevant": 7,
+  "results_reviewed": 20,
+  "stream": "S4_aisec",
+  "unique_added": 5
+ },
+ {
+  "engine": "WebFetch",
+  "query": "Shine: application-security-engineer-jobs-in-bangalore listing page (ATS/employer variant)",
+  "relevant": 3,
+  "results_reviewed": 20,
+  "stream": "S4_aisec",
+  "unique_added": 1
+ },
+ {
+  "engine": "WebFetch",
+  "query": "Shine detail: Staff Security Engineer AI & Application Security / Marcura India / 19365874",
+  "relevant": 1,
+  "results_reviewed": 1,
+  "stream": "S4_aisec",
+  "unique_added": 1
+ },
+ {
+  "engine": "WebFetch",
+  "query": "Shine detail: AI Security Engineer / ANI Calls India / 19260189",
+  "relevant": 1,
+  "results_reviewed": 1,
+  "stream": "S4_aisec",
+  "unique_added": 1
+ },
+ {
+  "engine": "WebFetch",
+  "query": "Shine detail: Principal Security Engineer AI Enablement / Redwood Software / 19354909",
+  "relevant": 1,
+  "results_reviewed": 1,
+  "stream": "S4_aisec",
+  "unique_added": 1
+ },
+ {
+  "engine": "WebFetch",
+  "query": "Shine detail: AI Security / AI Engineer / KPMG Assurance and Consulting / 19525996",
+  "relevant": 1,
+  "results_reviewed": 1,
+  "stream": "S4_aisec",
+  "unique_added": 1
+ },
+ {
+  "engine": "WebFetch",
+  "query": "Shine detail: Customer Security Engineer API & AI Security Akto / Qureos / 19476584",
+  "relevant": 1,
+  "results_reviewed": 1,
+  "stream": "S4_aisec",
+  "unique_added": 1
+ },
+ {
+  "engine": "WebFetch",
+  "query": "Shine detail: Senior AI Security Engineer / IDecisions / 19525984",
+  "relevant": 1,
+  "results_reviewed": 1,
+  "stream": "S4_aisec",
+  "unique_added": 1
+ },
+ {
+  "engine": "WebFetch",
+  "query": "Shine detail: CloudSec AI Security Engineer / Zoetis / 19241500",
+  "relevant": 1,
+  "results_reviewed": 1,
+  "stream": "S4_aisec",
+  "unique_added": 1
+ },
+ {
+  "engine": "WebFetch",
+  "query": "Shine detail: AI Security Engineer / Volvo Group / 19259266",
+  "relevant": 1,
+  "results_reviewed": 1,
+  "stream": "S4_aisec",
+  "unique_added": 1
+ },
+ {
+  "engine": "WebFetch",
+  "query": "Shine detail: AI Platform & Security Engineer / Beghou Consulting / 19274194",
+  "relevant": 1,
+  "results_reviewed": 1,
+  "stream": "S4_aisec",
+  "unique_added": 1
+ },
+ {
+  "engine": "WebFetch",
+  "query": "Shine detail: Expert AI Security Engineer AppSec / CAP D+H (Finastra) / 19234619",
+  "relevant": 1,
+  "results_reviewed": 1,
+  "stream": "S4_aisec",
+  "unique_added": 1
+ },
+ {
+  "engine": "WebFetch",
+  "query": "Low-yield probes (no usable records): SimplyHired India search; Foundit SRP (JS shell, no cards); TimesJobs (transport error); Cutshort SEO page (no listings); Adzuna India (empty); CareerJet (bot-wall, skipped per ethics); RemoteOK AI page (JS shell); DSCI careers page (nav only, no discrete posting); Naukri/DDG/Mojeek/Talent/Jooble/Bing-site probes (blocked or empty)",
+  "relevant": 0,
+  "results_reviewed": 9,
+  "stream": "S4_aisec",
+  "unique_added": 0
+ },
+ {
+  "engine": "WebSearch",
+  "query": "Forward Deployed Engineer jobs India 2026",
+  "relevant": 7,
+  "results_reviewed": 8,
+  "stream": "S5_fde",
+  "unique_added": 6
+ },
+ {
+  "engine": "WebSearch",
+  "query": "\"Forward Deployed AI Engineer\" India hiring",
+  "relevant": 6,
+  "results_reviewed": 8,
+  "stream": "S5_fde",
+  "unique_added": 4
+ },
+ {
+  "engine": "WebSearch",
+  "query": "\"AI Deployment Engineer\" jobs India Bengaluru Hyderabad",
+  "relevant": 6,
+  "results_reviewed": 8,
+  "stream": "S5_fde",
+  "unique_added": 4
+ },
+ {
+  "engine": "WebSearch",
+  "query": "Palantir Forward Deployed Engineer India Bengaluru hiring",
+  "relevant": 3,
+  "results_reviewed": 8,
+  "stream": "S5_fde",
+  "unique_added": 0
+ },
+ {
+  "engine": "WebSearch",
+  "query": "Databricks \"Forward Deployed Engineer\" Bengaluru India",
+  "relevant": 5,
+  "results_reviewed": 8,
+  "stream": "S5_fde",
+  "unique_added": 1
+ },
+ {
+  "engine": "WebSearch",
+  "query": "Snowflake \"Professional Services\" consultant India deployment",
+  "relevant": 2,
+  "results_reviewed": 8,
+  "stream": "S5_fde",
+  "unique_added": 0
+ },
+ {
+  "engine": "WebSearch",
+  "query": "Fractal Mu Sigma \"Forward Deployed\" OR \"AI implementation\" jobs India",
+  "relevant": 7,
+  "results_reviewed": 8,
+  "stream": "S5_fde",
+  "unique_added": 6
+ },
+ {
+  "engine": "WebSearch",
+  "query": "\"Customer AI Engineer\" OR \"Field AI Engineer\" India jobs Bengaluru",
+  "relevant": 6,
+  "results_reviewed": 8,
+  "stream": "S5_fde",
+  "unique_added": 5
+ },
+ {
+  "engine": "WebSearch",
+  "query": "MongoDB \"Forward Deployed\" OR \"Professional Services\" India jobs",
+  "relevant": 6,
+  "results_reviewed": 8,
+  "stream": "S5_fde",
+  "unique_added": 3
+ },
+ {
+  "engine": "WebSearch",
+  "query": "Anthropic \"Deployment Strategist\" OR \"Forward Deployed\" India",
+  "relevant": 3,
+  "results_reviewed": 8,
+  "stream": "S5_fde",
+  "unique_added": 0
+ },
+ {
+  "engine": "WebSearch",
+  "query": "Accenture Hyderabad \"Forward Deployed Engineer\" Generative AI",
+  "relevant": 7,
+  "results_reviewed": 8,
+  "stream": "S5_fde",
+  "unique_added": 2
+ },
+ {
+  "engine": "WebSearch",
+  "query": "Salesforce \"Forward Deployed Engineer\" India Bangalore Mumbai hiring",
+  "relevant": 7,
+  "results_reviewed": 8,
+  "stream": "S5_fde",
+  "unique_added": 4
+ },
+ {
+  "engine": "WebSearch",
+  "query": "\"AI Implementation\" engineer deployment India GCC customer delivery",
+  "relevant": 3,
+  "results_reviewed": 8,
+  "stream": "S5_fde",
+  "unique_added": 1
+ },
+ {
+  "engine": "WebSearch",
+  "query": "OpenAI \"AI Deployment Engineer\" India Bangalore Delhi openings",
+  "relevant": 7,
+  "results_reviewed": 8,
+  "stream": "S5_fde",
+  "unique_added": 4
+ },
+ {
+  "engine": "WebFetch",
+  "query": "fetch employer/ATS/career pages for FDE evidence (globallogic, razorpay-greenhouse, handshake-ashby, turing-greenhouse, supervity, h2o-jazzhr, accenture, openai x2, salesforce-hiring.camp, fractal x4, cognizant, nextiva-jobera)",
+  "relevant": 14,
+  "results_reviewed": 19,
+  "stream": "S5_fde",
+  "unique_added": 14
+ },
+ {
+  "stream": "S6_genai",
+  "query": "Generative AI Engineer jobs Bengaluru India September 2026",
+  "engine": "WebSearch",
+  "results_reviewed": 8,
+  "relevant": 6,
+  "unique_added": 5
+ },
+ {
+  "stream": "S6_genai",
+  "query": "Agentic AI Engineer jobs Hyderabad India 2026",
+  "engine": "WebSearch",
+  "results_reviewed": 8,
+  "relevant": 6,
+  "unique_added": 5
+ },
+ {
+  "stream": "S6_genai",
+  "query": "LLM Engineer RAG LangChain jobs Pune Chennai India 2026",
+  "engine": "WebSearch",
+  "results_reviewed": 8,
+  "relevant": 6,
+  "unique_added": 5
+ },
+ {
+  "stream": "S6_genai",
+  "query": "AI Agent developer LangGraph MCP jobs Mumbai NCR India",
+  "engine": "WebSearch",
+  "results_reviewed": 8,
+  "relevant": 4,
+  "unique_added": 2
+ },
+ {
+  "stream": "S6_genai",
+  "query": "Applied AI Engineer Remote India GenAI LLM jobs 2026",
+  "engine": "WebSearch",
+  "results_reviewed": 8,
+  "relevant": 3,
+  "unique_added": 2
+ },
+ {
+  "stream": "S6_genai",
+  "query": "Sarvam Krutrim Fractal GenAI engineer hiring India 2026",
+  "engine": "WebSearch",
+  "results_reviewed": 8,
+  "relevant": 5,
+  "unique_added": 4
+ },
+ {
+  "stream": "S6_genai",
+  "query": "Infosys TCS Wipro GenAI LLM developer jobs India 2026",
+  "engine": "WebSearch",
+  "results_reviewed": 8,
+  "relevant": 5,
+  "unique_added": 4
+ },
+ {
+  "stream": "S6_genai",
+  "query": "Conversational AI engineer chatbot jobs India Bengaluru 2026",
+  "engine": "WebSearch",
+  "results_reviewed": 8,
+  "relevant": 2,
+  "unique_added": 1
+ },
+ {
+  "stream": "S6_genai",
+  "query": "LLMOps Multimodal AI engineer jobs India 2026",
+  "engine": "WebSearch",
+  "results_reviewed": 8,
+  "relevant": 2,
+  "unique_added": 1
+ },
+ {
+  "stream": "S6_genai",
+  "query": "GenAI engineer jobs Chennai Noida Gurgaon Delhi 2026 hiring",
+  "engine": "WebSearch",
+  "results_reviewed": 8,
+  "relevant": 4,
+  "unique_added": 3
+ },
+ {
+  "stream": "S6_genai",
+  "query": "site:lever.co OR site:greenhouse.io GenAI engineer India 2026",
+  "engine": "WebSearch",
+  "results_reviewed": 8,
+  "relevant": 4,
+  "unique_added": 4
+ },
+ {
+  "stream": "S6_genai",
+  "query": "Senior Generative AI Engineer Bengaluru Hyderabad job opening August 2026",
+  "engine": "WebSearch",
+  "results_reviewed": 8,
+  "relevant": 3,
+  "unique_added": 2
+ },
+ {
+  "stream": "S6_genai",
+  "query": "Krutrim AI careers Bengaluru hiring LLM engineer 2026",
+  "engine": "WebSearch",
+  "results_reviewed": 8,
+  "relevant": 3,
+  "unique_added": 1
+ },
+ {
+  "stream": "S6_genai",
+  "query": "GenAI engineer Wellfound Cutshort Hirist India startup jobs 2026",
+  "engine": "WebSearch",
+  "results_reviewed": 8,
+  "relevant": 3,
+  "unique_added": 1
+ },
+ {
+  "stream": "S6_genai",
+  "query": "AI Engineer RAG vector database OpenAI Anthropic Bengaluru job May June 2026",
+  "engine": "WebSearch",
+  "results_reviewed": 8,
+  "relevant": 4,
+  "unique_added": 2
+ },
+ {
+  "stream": "S6_genai",
+  "query": "WebFetch batch: 20 job-page fetch attempts (capco-greenhouse, mavq-ats, staples-ats, qure-ats, ey-careers, evolver-greenhouse, orion-board, earnin-board, vishvo-infosys, gravity-inoptra, sarvam-careers, tcs-ai-careers(403), pragma-blog, gravity-krutrim, opentalt-tcs, agentic-eng-hub, qualcomm-blog, transnational-blog, techgig-listing, fractal-board(fail))",
+  "engine": "WebFetch",
+  "results_reviewed": 20,
+  "relevant": 18,
+  "unique_added": 30
+ },
+ {
+  "stream": "S7_soleng",
+  "query": "\"AI Solutions Engineer\" jobs India 2026",
+  "engine": "WebSearch",
+  "results_reviewed": 8,
+  "relevant": 4,
+  "unique_added": 5
+ },
+ {
+  "stream": "S7_soleng",
+  "query": "\"GenAI Solutions Engineer\" OR \"Generative AI Solutions\" jobs India Bengaluru",
+  "engine": "WebSearch",
+  "results_reviewed": 8,
+  "relevant": 5,
+  "unique_added": 4
+ },
+ {
+  "stream": "S7_soleng",
+  "query": "\"AI Solutions Engineer\" OR \"Customer AI Engineer\" Mumbai Hyderabad 2026 hiring",
+  "engine": "WebSearch",
+  "results_reviewed": 8,
+  "relevant": 3,
+  "unique_added": 2
+ },
+ {
+  "stream": "S7_soleng",
+  "query": "\"AI Sales Engineer\" OR \"Presales\" AI \"Solutions Engineer\" India jobs",
+  "engine": "WebSearch",
+  "results_reviewed": 8,
+  "relevant": 4,
+  "unique_added": 3
+ },
+ {
+  "stream": "S7_soleng",
+  "query": "\"AI Solutions Engineer\" site:lever.co OR site:greenhouse.io India",
+  "engine": "WebSearch",
+  "results_reviewed": 8,
+  "relevant": 5,
+  "unique_added": 4
+ },
+ {
+  "stream": "S7_soleng",
+  "query": "\"Solutions Engineer\" AI Google Cloud OR AWS OR Microsoft India hiring 2026",
+  "engine": "WebSearch",
+  "results_reviewed": 8,
+  "relevant": 2,
+  "unique_added": 1
+ },
+ {
+  "stream": "S7_soleng",
+  "query": "Snowflake OR Databricks OR MongoDB OR Elastic \"Solutions Engineer\" India jobs 2026",
+  "engine": "WebSearch",
+  "results_reviewed": 8,
+  "relevant": 3,
+  "unique_added": 2
+ },
+ {
+  "stream": "S7_soleng",
+  "query": "\"AI Integration Engineer\" OR \"AI Technical Consultant\" jobs India 2026",
+  "engine": "WebSearch",
+  "results_reviewed": 8,
+  "relevant": 2,
+  "unique_added": 2
+ },
+ {
+  "stream": "S7_soleng",
+  "query": "\"AI Solutions Engineer\" Chennai Pune Delhi NCR hiring 2026 customer-facing",
+  "engine": "WebSearch",
+  "results_reviewed": 8,
+  "relevant": 3,
+  "unique_added": 2
+ },
+ {
+  "stream": "S7_soleng",
+  "query": "\"AI Solutions Engineer\" Infosys OR TCS OR Wipro OR LTIMindtree OR Persistent India",
+  "engine": "WebSearch",
+  "results_reviewed": 8,
+  "relevant": 2,
+  "unique_added": 1
+ },
+ {
+  "stream": "S7_soleng",
+  "query": "\"Solutions Specialist\" AI OR GenAI jobs India SaaS 2026",
+  "engine": "WebSearch",
+  "results_reviewed": 8,
+  "relevant": 3,
+  "unique_added": 2
+ },
+ {
+  "stream": "S7_soleng",
+  "query": "\"Customer Engineer\" AI OR GenAI Google OR Microsoft India 2026",
+  "engine": "WebSearch",
+  "results_reviewed": 8,
+  "relevant": 4,
+  "unique_added": 3
+ },
+ {
+  "stream": "S7_soleng",
+  "query": "\"AI Solutions Engineer\" India posted July OR August 2026 naukri OR foundit",
+  "engine": "WebSearch",
+  "results_reviewed": 8,
+  "relevant": 2,
+  "unique_added": 1
+ },
+ {
+  "stream": "S7_soleng",
+  "query": "Elastic OR MongoDB OR ServiceNow \"Solutions Engineer\" AI India 2026",
+  "engine": "WebSearch",
+  "results_reviewed": 8,
+  "relevant": 1,
+  "unique_added": 0
+ },
+ {
+  "stream": "S7_soleng",
+  "query": "\"AI Solutions Specialist\" Palo Alto Networks Bengaluru foundit contractor",
+  "engine": "WebSearch",
+  "results_reviewed": 8,
+  "relevant": 3,
+  "unique_added": 1
+ },
+ {
+  "stream": "S8_arch",
+  "query": "AI Solutions Architect jobs India Bangalore 2026",
+  "engine": "WebSearch",
+  "results_reviewed": 8,
+  "relevant": 6,
+  "unique_added": 5
+ },
+ {
+  "stream": "S8_arch",
+  "query": "AI Solution Architect hiring India Hyderabad 2026",
+  "engine": "WebSearch",
+  "results_reviewed": 8,
+  "relevant": 6,
+  "unique_added": 4
+ },
+ {
+  "stream": "S8_arch",
+  "query": "GenAI Architect jobs India 2026",
+  "engine": "WebSearch",
+  "results_reviewed": 8,
+  "relevant": 7,
+  "unique_added": 4
+ },
+ {
+  "stream": "S8_arch",
+  "query": "Agentic AI Architect jobs India 2026",
+  "engine": "WebSearch",
+  "results_reviewed": 0,
+  "relevant": 0,
+  "unique_added": 0
+ },
+ {
+  "stream": "S8_arch",
+  "query": "Enterprise AI Architect jobs India GCC 2026",
+  "engine": "WebSearch",
+  "results_reviewed": 0,
+  "relevant": 0,
+  "unique_added": 0
+ },
+ {
+  "stream": "S8_arch",
+  "query": "Cloud AI Architect AWS Azure GCP jobs India 2026",
+  "engine": "WebSearch",
+  "results_reviewed": 0,
+  "relevant": 0,
+  "unique_added": 0
+ },
+ {
+  "stream": "S8_arch",
+  "query": "LLM Architect jobs India Bangalore 2026",
+  "engine": "WebSearch",
+  "results_reviewed": 0,
+  "relevant": 0,
+  "unique_added": 0
+ },
+ {
+  "stream": "S8_arch",
+  "query": "ML Solutions Architect Databricks Snowflake India hiring 2026",
+  "engine": "WebSearch",
+  "results_reviewed": 8,
+  "relevant": 6,
+  "unique_added": 4
+ },
+ {
+  "stream": "S8_arch",
+  "query": "AI Architect Deloitte EY KPMG PwC India hiring 2026",
+  "engine": "WebSearch",
+  "results_reviewed": 8,
+  "relevant": 6,
+  "unique_added": 4
+ },
+ {
+  "stream": "S8_arch",
+  "query": "AI Solutions Architect TCS Infosys Wipro HCLTech job India 2026",
+  "engine": "WebSearch",
+  "results_reviewed": 8,
+  "relevant": 7,
+  "unique_added": 4
+ },
+ {
+  "stream": "S8_arch",
+  "query": "AI Architect bank financial services India jobs 2026",
+  "engine": "WebSearch",
+  "results_reviewed": 8,
+  "relevant": 6,
+  "unique_added": 3
+ },
+ {
+  "stream": "S8_arch",
+  "query": "AI Solutions Architect GCC India Chennai Pune Mumbai 2026",
+  "engine": "WebSearch",
+  "results_reviewed": 8,
+  "relevant": 3,
+  "unique_added": 1
+ },
+ {
+  "stream": "S8_arch",
+  "query": "AWS Azure Solutions Architect AI ML India Bangalore Hyderabad job 2026",
+  "engine": "WebSearch",
+  "results_reviewed": 8,
+  "relevant": 6,
+  "unique_added": 2
+ },
+ {
+  "stream": "S8_arch",
+  "query": "Agentic AI Architect Bangalore Hyderabad Chennai jobs August 2026",
+  "engine": "WebSearch",
+  "results_reviewed": 8,
+  "relevant": 7,
+  "unique_added": 3
+ },
+ {
+  "stream": "S8_arch",
+  "query": "AI Solutions Architect remote India hiring 2026 LinkedIn Naukri",
+  "engine": "WebSearch",
+  "results_reviewed": 8,
+  "relevant": 6,
+  "unique_added": 2
+ },
+ {
+  "stream": "S8_arch",
+  "query": "LLM Architect Anthropic startup jobs India Bangalore 2026",
+  "engine": "WebSearch",
+  "results_reviewed": 8,
+  "relevant": 5,
+  "unique_added": 2
+ },
+ {
+  "stream": "S8_arch",
+  "query": "Generative AI Architect jobs Mumbai Noida Gurgaon 2026 hiring",
+  "engine": "WebSearch",
+  "results_reviewed": 8,
+  "relevant": 7,
+  "unique_added": 3
+ },
+ {
+  "stream": "S8_arch",
+  "query": "site:greenhouse.io OR site:lever.co AI architect India 2026",
+  "engine": "WebSearch",
+  "results_reviewed": 8,
+  "relevant": 7,
+  "unique_added": 5
+ },
+ {
+  "stream": "S8_arch",
+  "query": "Chief Architect GenAI Enterprise AI Architect Kochi Ahmedabad Jaipur India 2026",
+  "engine": "WebSearch",
+  "results_reviewed": 8,
+  "relevant": 3,
+  "unique_added": 1
+ },
+ {
+  "stream": "S8_arch",
+  "query": "WebFetch employer/ATS verification batch (NTT, Cognizant, Lyzr, Wipro, EY, Databricks, Anthropic, Capco, NICE, Neuron7, Capgemini, Deloitte, Siemens, HCLTech, Citi)",
+  "engine": "WebFetch",
+  "results_reviewed": 22,
+  "relevant": 19,
+  "unique_added": 0
+ }
+]

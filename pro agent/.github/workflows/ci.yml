@@ -1,0 +1,72 @@
+name: ci
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  checks:
+    runs-on: ubuntu-24.04
+    services:
+      postgres:
+        image: postgres:17-alpine
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: ci
+        ports: ["55433:5432"]
+        options: >-
+          --health-cmd "pg_isready -U postgres" --health-interval 5s --health-retries 20
+    env:
+      APP_ENV: test
+      APP_DATABASE_URL: postgresql+psycopg://procnav_app:devapp@127.0.0.1:55433/procnav
+      APP_MIGRATION_DATABASE_URL: postgresql+psycopg://procnav_owner:devowner@127.0.0.1:55433/procnav
+      SUPPLIERS_DATABASE_URL: postgresql+psycopg://suppliers:devsuppliers@127.0.0.1:55433/suppliers
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with: { version: "0.11.20" }
+      - uses: actions/setup-node@v4
+        with: { node-version: "22", cache: npm, cache-dependency-path: frontend/package-lock.json }
+      - name: Initialise database roles
+        env: { PGPASSWORD: ci }
+        run: |
+          sudo apt-get install -y postgresql-client >/dev/null
+          export POSTGRES_USER=postgres PROCNAV_OWNER_PASSWORD=devowner PROCNAV_APP_PASSWORD=devapp SUPPLIERS_DB_PASSWORD=devsuppliers
+          sed 's/psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER"/psql -h 127.0.0.1 -p 55433 -v ON_ERROR_STOP=1 --username "$POSTGRES_USER"/' infra/postgres/init.sh > /tmp/init.sh
+          bash /tmp/init.sh
+      - name: Backend lint
+        working-directory: backend
+        run: uv sync --frozen && uv run ruff check .
+      - name: Migrations and seed
+        working-directory: backend
+        run: uv run python -m procnav.manage migrate && uv run python -m procnav.manage seed && uv run alembic check
+      - name: Backend unit and API security tests
+        working-directory: backend
+        run: uv run pytest -q -m "not browser"
+      - name: Supplier portal tests
+        working-directory: mock_portals
+        run: uv sync --frozen && uv run ruff check . && uv run pytest -q
+      - name: Frontend type-check and build
+        working-directory: frontend
+        run: npm ci && npm run typecheck && npm run build
+      - name: Browser scenarios (fixture mode, short flow)
+        run: |
+          (cd backend && uv run playwright install --with-deps chromium)
+          (cd mock_portals && uv run python -m mockportals.main > /tmp/portals.log 2>&1 &)
+          for i in $(seq 1 30); do curl -fs http://127.0.0.1:8309/healthz && break; sleep 1; done
+          cd backend && uv run pytest -q -m browser -k "happy_path or planted or timeout or duplicate or price_change_after"
+      - name: Fixture benchmark (gates)
+        working-directory: backend
+        run: uv run python -m procnav.evals.run --workflows bounded --scenarios happy_path,incompatible_spec,tax_budget_breach,ambiguous_pack,price_change_after_approval,price_change_before_approval,timeout_success --label "ci gates"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: evaluation-results
+          path: evals/results/*.json
+
+  real-model-benchmark:
+    # Optional, credentialed, spending-capped. Runs only when the secret exists and on manual dispatch.
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-24.04
+    steps:
+      - run: echo "Configure MODEL_API_KEY and MAX_RUN_COST secrets, then run python -m procnav.evals.run --mode real"

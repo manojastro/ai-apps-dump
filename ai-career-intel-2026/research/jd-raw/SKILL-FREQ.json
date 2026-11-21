@@ -1,0 +1,1138 @@
+{
+  "N": 455,
+  "freq": [
+    {
+      "skill": "Agentic / agents",
+      "n": 216,
+      "pct": 47.5
+    },
+    {
+      "skill": "Python",
+      "n": 153,
+      "pct": 33.6
+    },
+    {
+      "skill": "RAG",
+      "n": 121,
+      "pct": 26.6
+    },
+    {
+      "skill": "LangChain",
+      "n": 95,
+      "pct": 20.9
+    },
+    {
+      "skill": "Azure (cloud)",
+      "n": 73,
+      "pct": 16.0
+    },
+    {
+      "skill": "Azure OpenAI / Azure AI",
+      "n": 72,
+      "pct": 15.8
+    },
+    {
+      "skill": "LangGraph",
+      "n": 68,
+      "pct": 14.9
+    },
+    {
+      "skill": "OpenAI API",
+      "n": 52,
+      "pct": 11.4
+    },
+    {
+      "skill": "Prompt engineering",
+      "n": 51,
+      "pct": 11.2
+    },
+    {
+      "skill": "Vector DBs (any)",
+      "n": 46,
+      "pct": 10.1
+    },
+    {
+      "skill": "AWS / Bedrock",
+      "n": 44,
+      "pct": 9.7
+    },
+    {
+      "skill": "GCP / Vertex",
+      "n": 44,
+      "pct": 9.7
+    },
+    {
+      "skill": "REST / APIs",
+      "n": 40,
+      "pct": 8.8
+    },
+    {
+      "skill": "Copilot Studio",
+      "n": 39,
+      "pct": 8.6
+    },
+    {
+      "skill": "MLOps",
+      "n": 32,
+      "pct": 7.0
+    },
+    {
+      "skill": "CrewAI",
+      "n": 29,
+      "pct": 6.4
+    },
+    {
+      "skill": "LLMOps",
+      "n": 27,
+      "pct": 5.9
+    },
+    {
+      "skill": "AutoGen",
+      "n": 26,
+      "pct": 5.7
+    },
+    {
+      "skill": "ServiceNow / Now Assist",
+      "n": 26,
+      "pct": 5.7
+    },
+    {
+      "skill": "SQL",
+      "n": 25,
+      "pct": 5.5
+    },
+    {
+      "skill": "TensorFlow",
+      "n": 25,
+      "pct": 5.5
+    },
+    {
+      "skill": "AIOps",
+      "n": 25,
+      "pct": 5.5
+    },
+    {
+      "skill": "PyTorch",
+      "n": 24,
+      "pct": 5.3
+    },
+    {
+      "skill": "Power Platform",
+      "n": 24,
+      "pct": 5.3
+    },
+    {
+      "skill": "LlamaIndex",
+      "n": 23,
+      "pct": 5.1
+    },
+    {
+      "skill": "Java",
+      "n": 22,
+      "pct": 4.8
+    },
+    {
+      "skill": "Bedrock",
+      "n": 22,
+      "pct": 4.8
+    },
+    {
+      "skill": "Claude / Anthropic",
+      "n": 22,
+      "pct": 4.8
+    },
+    {
+      "skill": "MCP",
+      "n": 19,
+      "pct": 4.2
+    },
+    {
+      "skill": "Now Assist",
+      "n": 18,
+      "pct": 4.0
+    },
+    {
+      "skill": "Semantic Kernel",
+      "n": 17,
+      "pct": 3.7
+    },
+    {
+      "skill": "Kubernetes",
+      "n": 15,
+      "pct": 3.3
+    },
+    {
+      "skill": "Docker",
+      "n": 14,
+      "pct": 3.1
+    },
+    {
+      "skill": "Hugging Face",
+      "n": 14,
+      "pct": 3.1
+    },
+    {
+      "skill": "Pinecone",
+      "n": 13,
+      "pct": 2.9
+    },
+    {
+      "skill": "CI/CD",
+      "n": 12,
+      "pct": 2.6
+    },
+    {
+      "skill": "C# / .NET",
+      "n": 10,
+      "pct": 2.2
+    },
+    {
+      "skill": "FAISS",
+      "n": 10,
+      "pct": 2.2
+    },
+    {
+      "skill": "FastAPI",
+      "n": 9,
+      "pct": 2.0
+    },
+    {
+      "skill": "Git",
+      "n": 9,
+      "pct": 2.0
+    },
+    {
+      "skill": "JavaScript",
+      "n": 8,
+      "pct": 1.8
+    },
+    {
+      "skill": "Weaviate",
+      "n": 8,
+      "pct": 1.8
+    },
+    {
+      "skill": "ITIL / ITSM",
+      "n": 7,
+      "pct": 1.5
+    },
+    {
+      "skill": "n8n / RPA",
+      "n": 6,
+      "pct": 1.3
+    },
+    {
+      "skill": "TypeScript",
+      "n": 5,
+      "pct": 1.1
+    },
+    {
+      "skill": "Chroma",
+      "n": 5,
+      "pct": 1.1
+    },
+    {
+      "skill": "Milvus",
+      "n": 5,
+      "pct": 1.1
+    },
+    {
+      "skill": "Observability (Dynatrace/Splunk/Datadog)",
+      "n": 5,
+      "pct": 1.1
+    },
+    {
+      "skill": "Evals / guardrails",
+      "n": 5,
+      "pct": 1.1
+    },
+    {
+      "skill": "Terraform",
+      "n": 4,
+      "pct": 0.9
+    },
+    {
+      "skill": "Splunk",
+      "n": 3,
+      "pct": 0.7
+    },
+    {
+      "skill": "Dynatrace",
+      "n": 2,
+      "pct": 0.4
+    },
+    {
+      "skill": "Datadog",
+      "n": 2,
+      "pct": 0.4
+    },
+    {
+      "skill": "Go",
+      "n": 1,
+      "pct": 0.2
+    },
+    {
+      "skill": "Qdrant",
+      "n": 1,
+      "pct": 0.2
+    }
+  ],
+  "cooc_top40": [
+    {
+      "a": "Agentic / agents",
+      "b": "RAG",
+      "both": 80,
+      "pct_of_a": 37.0,
+      "pct_of_b": 66.1,
+      "pct_of_N": 17.6
+    },
+    {
+      "a": "Agentic / agents",
+      "b": "Python",
+      "both": 76,
+      "pct_of_a": 35.2,
+      "pct_of_b": 49.7,
+      "pct_of_N": 16.7
+    },
+    {
+      "a": "Agentic / agents",
+      "b": "LangChain",
+      "both": 61,
+      "pct_of_a": 28.2,
+      "pct_of_b": 64.2,
+      "pct_of_N": 13.4
+    },
+    {
+      "a": "Python",
+      "b": "RAG",
+      "both": 61,
+      "pct_of_a": 39.9,
+      "pct_of_b": 50.4,
+      "pct_of_N": 13.4
+    },
+    {
+      "a": "RAG",
+      "b": "LangChain",
+      "both": 59,
+      "pct_of_a": 48.8,
+      "pct_of_b": 62.1,
+      "pct_of_N": 13.0
+    },
+    {
+      "a": "LangChain",
+      "b": "LangGraph",
+      "both": 56,
+      "pct_of_a": 58.9,
+      "pct_of_b": 82.4,
+      "pct_of_N": 12.3
+    },
+    {
+      "a": "Python",
+      "b": "LangChain",
+      "both": 53,
+      "pct_of_a": 34.6,
+      "pct_of_b": 55.8,
+      "pct_of_N": 11.6
+    },
+    {
+      "a": "Agentic / agents",
+      "b": "LangGraph",
+      "both": 50,
+      "pct_of_a": 23.1,
+      "pct_of_b": 73.5,
+      "pct_of_N": 11.0
+    },
+    {
+      "a": "Azure (cloud)",
+      "b": "Azure OpenAI / Azure AI",
+      "both": 50,
+      "pct_of_a": 68.5,
+      "pct_of_b": 69.4,
+      "pct_of_N": 11.0
+    },
+    {
+      "a": "RAG",
+      "b": "LangGraph",
+      "both": 41,
+      "pct_of_a": 33.9,
+      "pct_of_b": 60.3,
+      "pct_of_N": 9.0
+    },
+    {
+      "a": "Agentic / agents",
+      "b": "Azure (cloud)",
+      "both": 39,
+      "pct_of_a": 18.1,
+      "pct_of_b": 53.4,
+      "pct_of_N": 8.6
+    },
+    {
+      "a": "Azure OpenAI / Azure AI",
+      "b": "Copilot Studio",
+      "both": 39,
+      "pct_of_a": 54.2,
+      "pct_of_b": 100.0,
+      "pct_of_N": 8.6
+    },
+    {
+      "a": "RAG",
+      "b": "Vector DBs (any)",
+      "both": 36,
+      "pct_of_a": 29.8,
+      "pct_of_b": 78.3,
+      "pct_of_N": 7.9
+    },
+    {
+      "a": "Python",
+      "b": "Azure (cloud)",
+      "both": 33,
+      "pct_of_a": 21.6,
+      "pct_of_b": 45.2,
+      "pct_of_N": 7.3
+    },
+    {
+      "a": "Python",
+      "b": "LangGraph",
+      "both": 33,
+      "pct_of_a": 21.6,
+      "pct_of_b": 48.5,
+      "pct_of_N": 7.3
+    },
+    {
+      "a": "Agentic / agents",
+      "b": "Azure OpenAI / Azure AI",
+      "both": 31,
+      "pct_of_a": 14.4,
+      "pct_of_b": 43.1,
+      "pct_of_N": 6.8
+    },
+    {
+      "a": "Azure (cloud)",
+      "b": "OpenAI API",
+      "both": 31,
+      "pct_of_a": 42.5,
+      "pct_of_b": 59.6,
+      "pct_of_N": 6.8
+    },
+    {
+      "a": "Python",
+      "b": "OpenAI API",
+      "both": 30,
+      "pct_of_a": 19.6,
+      "pct_of_b": 57.7,
+      "pct_of_N": 6.6
+    },
+    {
+      "a": "RAG",
+      "b": "Prompt engineering",
+      "both": 29,
+      "pct_of_a": 24.0,
+      "pct_of_b": 56.9,
+      "pct_of_N": 6.4
+    },
+    {
+      "a": "Agentic / agents",
+      "b": "Vector DBs (any)",
+      "both": 28,
+      "pct_of_a": 13.0,
+      "pct_of_b": 60.9,
+      "pct_of_N": 6.2
+    },
+    {
+      "a": "LangChain",
+      "b": "Vector DBs (any)",
+      "both": 28,
+      "pct_of_a": 29.5,
+      "pct_of_b": 60.9,
+      "pct_of_N": 6.2
+    },
+    {
+      "a": "Agentic / agents",
+      "b": "REST / APIs",
+      "both": 27,
+      "pct_of_a": 12.5,
+      "pct_of_b": 67.5,
+      "pct_of_N": 5.9
+    },
+    {
+      "a": "Python",
+      "b": "Prompt engineering",
+      "both": 27,
+      "pct_of_a": 17.6,
+      "pct_of_b": 52.9,
+      "pct_of_N": 5.9
+    },
+    {
+      "a": "Python",
+      "b": "Vector DBs (any)",
+      "both": 27,
+      "pct_of_a": 17.6,
+      "pct_of_b": 58.7,
+      "pct_of_N": 5.9
+    },
+    {
+      "a": "Azure OpenAI / Azure AI",
+      "b": "OpenAI API",
+      "both": 27,
+      "pct_of_a": 37.5,
+      "pct_of_b": 51.9,
+      "pct_of_N": 5.9
+    },
+    {
+      "a": "Agentic / agents",
+      "b": "OpenAI API",
+      "both": 25,
+      "pct_of_a": 11.6,
+      "pct_of_b": 48.1,
+      "pct_of_N": 5.5
+    },
+    {
+      "a": "Agentic / agents",
+      "b": "CrewAI",
+      "both": 25,
+      "pct_of_a": 11.6,
+      "pct_of_b": 86.2,
+      "pct_of_N": 5.5
+    },
+    {
+      "a": "RAG",
+      "b": "Azure (cloud)",
+      "both": 25,
+      "pct_of_a": 20.7,
+      "pct_of_b": 34.2,
+      "pct_of_N": 5.5
+    },
+    {
+      "a": "Agentic / agents",
+      "b": "Prompt engineering",
+      "both": 24,
+      "pct_of_a": 11.1,
+      "pct_of_b": 47.1,
+      "pct_of_N": 5.3
+    },
+    {
+      "a": "Agentic / agents",
+      "b": "AWS / Bedrock",
+      "both": 24,
+      "pct_of_a": 11.1,
+      "pct_of_b": 54.5,
+      "pct_of_N": 5.3
+    },
+    {
+      "a": "Python",
+      "b": "REST / APIs",
+      "both": 24,
+      "pct_of_a": 15.7,
+      "pct_of_b": 60.0,
+      "pct_of_N": 5.3
+    },
+    {
+      "a": "Azure OpenAI / Azure AI",
+      "b": "Power Platform",
+      "both": 24,
+      "pct_of_a": 33.3,
+      "pct_of_b": 100.0,
+      "pct_of_N": 5.3
+    },
+    {
+      "a": "Agentic / agents",
+      "b": "AutoGen",
+      "both": 23,
+      "pct_of_a": 10.6,
+      "pct_of_b": 88.5,
+      "pct_of_N": 5.1
+    },
+    {
+      "a": "Python",
+      "b": "Azure OpenAI / Azure AI",
+      "both": 23,
+      "pct_of_a": 15.0,
+      "pct_of_b": 31.9,
+      "pct_of_N": 5.1
+    },
+    {
+      "a": "LangChain",
+      "b": "LlamaIndex",
+      "both": 23,
+      "pct_of_a": 24.2,
+      "pct_of_b": 100.0,
+      "pct_of_N": 5.1
+    },
+    {
+      "a": "Python",
+      "b": "AWS / Bedrock",
+      "both": 22,
+      "pct_of_a": 14.4,
+      "pct_of_b": 50.0,
+      "pct_of_N": 4.8
+    },
+    {
+      "a": "Copilot Studio",
+      "b": "Power Platform",
+      "both": 22,
+      "pct_of_a": 56.4,
+      "pct_of_b": 91.7,
+      "pct_of_N": 4.8
+    },
+    {
+      "a": "Agentic / agents",
+      "b": "GCP / Vertex",
+      "both": 21,
+      "pct_of_a": 9.7,
+      "pct_of_b": 47.7,
+      "pct_of_N": 4.6
+    },
+    {
+      "a": "Python",
+      "b": "GCP / Vertex",
+      "both": 21,
+      "pct_of_a": 13.7,
+      "pct_of_b": 47.7,
+      "pct_of_N": 4.6
+    },
+    {
+      "a": "CrewAI",
+      "b": "AutoGen",
+      "both": 21,
+      "pct_of_a": 72.4,
+      "pct_of_b": 80.8,
+      "pct_of_N": 4.6
+    }
+  ],
+  "companies_top40": [
+    [
+      "Infosys",
+      27
+    ],
+    [
+      "Cognizant",
+      23
+    ],
+    [
+      "Tekskills",
+      19
+    ],
+    [
+      "Tata Consultancy Services",
+      18
+    ],
+    [
+      "Capgemini",
+      14
+    ],
+    [
+      "EY",
+      11
+    ],
+    [
+      "Accenture in India",
+      7
+    ],
+    [
+      "CGI",
+      6
+    ],
+    [
+      "HCLTech",
+      6
+    ],
+    [
+      "KPMG India",
+      6
+    ],
+    [
+      "Sonata Software",
+      6
+    ],
+    [
+      "Persistent Systems",
+      5
+    ],
+    [
+      "PwC",
+      5
+    ],
+    [
+      "TCS",
+      5
+    ],
+    [
+      "DXC Technology",
+      4
+    ],
+    [
+      "Infosys Limited",
+      4
+    ],
+    [
+      "Optum",
+      4
+    ],
+    [
+      "Purview Services",
+      4
+    ],
+    [
+      "Wipro",
+      4
+    ],
+    [
+      "Zensar Technologies",
+      4
+    ],
+    [
+      "Altimetrik",
+      3
+    ],
+    [
+      "Amgen",
+      3
+    ],
+    [
+      "Blend360",
+      3
+    ],
+    [
+      "Coforge",
+      3
+    ],
+    [
+      "Deloitte",
+      3
+    ],
+    [
+      "EPAM Systems",
+      3
+    ],
+    [
+      "IBM",
+      3
+    ],
+    [
+      "Persistent",
+      3
+    ],
+    [
+      "PwC India",
+      3
+    ],
+    [
+      "PwC Service Delivery Center",
+      3
+    ],
+    [
+      "Tech Mahindra",
+      3
+    ],
+    [
+      "UST",
+      3
+    ],
+    [
+      "Accenture",
+      2
+    ],
+    [
+      "Accenture Solutions",
+      2
+    ],
+    [
+      "Advance Career Solutions",
+      2
+    ],
+    [
+      "Allegis Group",
+      2
+    ],
+    [
+      "Amazon Web Services",
+      2
+    ],
+    [
+      "Aspyra HR Services",
+      2
+    ],
+    [
+      "Atos",
+      2
+    ],
+    [
+      "Blackstraw Technologies",
+      2
+    ]
+  ],
+  "exp_buckets": {
+    "9–12": 64,
+    "3–5": 109,
+    "unspecified": 79,
+    "6–8": 174,
+    "13+": 14,
+    "0–2": 15
+  },
+  "exp_mid_n": 376,
+  "java_Y": 24,
+  "sql_Y": 29,
+  "salary_n": 45,
+  "salary_rows": [
+    {
+      "company": "Adecco India",
+      "title": "MLops Engineer @ Pune & Bangalore Location",
+      "exp": "3-5 Yrs",
+      "salary": "14-20 Lacs PA",
+      "loc": "Hybrid - Pune, Bengaluru",
+      "url": "https://www.naukri.com/job-listings-mlops-engineer-pune-bangalore-location-adecco-india-pune-bengaluru-3-to-5-years-190826013903"
+    },
+    {
+      "company": "Advance Career Solutions",
+      "title": "Agentic AI Engineer",
+      "exp": "8-13 Yrs",
+      "salary": "20-27.5 Lacs PA",
+      "loc": "Hyderabad, Pune, Bengaluru",
+      "url": "https://www.naukri.com/job-listings-agentic-ai-engineer-advance-career-solutions-hyderabad-pune-bengaluru-8-to-13-years-210826009123"
+    },
+    {
+      "company": "Air India",
+      "title": "Agentic AI Architect",
+      "exp": "10-17 Yrs",
+      "salary": "30-60 Lacs PA",
+      "loc": "Gurugram",
+      "url": "https://www.naukri.com/job-listings-agentic-ai-architect-air-india-gurugram-10-to-17-years-200826033590"
+    },
+    {
+      "company": "Alois Solutions",
+      "title": "Ai Ml Engineer",
+      "exp": "8-13 Yrs",
+      "salary": "20-30 Lacs PA",
+      "loc": "Hyderabad, Pune, Bengaluru",
+      "url": "https://www.naukri.com/job-listings-ai-ml-engineer-alois-solutions-hyderabad-pune-bengaluru-8-to-13-years-200826033116"
+    },
+    {
+      "company": "Aspyra HR Services",
+      "title": "Artificial Intelligence Engineer (LangGraph/LangChain)",
+      "exp": "4-9 Yrs",
+      "salary": "20-35 Lacs PA",
+      "loc": "Gurugram, Bengaluru, Delhi / NCR",
+      "url": "https://www.naukri.com/job-listings-artificial-intelligence-engineer-langgraph-langchain-aspyra-hr-services-gurugram-bengaluru-delhi-ncr-4-to-9-years-180626012578"
+    },
+    {
+      "company": "Aspyra HR Services",
+      "title": "Senior Data Scientist - Agentic AI & LLMs",
+      "exp": "4-9 Yrs",
+      "salary": "20-35 Lacs PA",
+      "loc": "Gurugram, Bengaluru, Delhi / NCR",
+      "url": "https://www.naukri.com/job-listings-senior-data-scientist-agentic-ai-llms-aspyra-hr-services-gurugram-bengaluru-delhi-ncr-4-to-9-years-210826004664"
+    },
+    {
+      "company": "Aspyra HR Services (US MNC analytics client)",
+      "title": "MLOps Engineer",
+      "exp": "4-9 Yrs",
+      "salary": "25-35 Lacs PA",
+      "loc": "Hybrid - Noida, Gurugram, Delhi / NCR",
+      "url": "https://www.naukri.com/job-listings-mlops-engineer-aspyra-hr-services-noida-gurugram-delhi-ncr-4-to-9-years-200826007680"
+    },
+    {
+      "company": "BigRio",
+      "title": "Generative AI Engineer (Backend & REST API Focus)",
+      "exp": "10-15 yrs",
+      "salary": "₹22L - ₹55L / yr",
+      "loc": "Chennai",
+      "url": "https://cutshort.io/job/Generative-AI-Engineer-Backend-REST-API-Focus-Chennai-BigRio-7OnD1BB3"
+    },
+    {
+      "company": "Blackstraw Technologies",
+      "title": "Agentic AI Engineer - Blackstraw.ai",
+      "exp": "2-7 Yrs",
+      "salary": "13-23 Lacs PA",
+      "loc": "Pune, Chennai, Bengaluru",
+      "url": "https://www.naukri.com/job-listings-agentic-ai-engineer-blackstraw-ai-blackstraw-technologies-pune-chennai-bengaluru-2-to-7-years-280526020386"
+    },
+    {
+      "company": "Bluvin Solutions",
+      "title": "Gen AI Engineer",
+      "exp": "5-10 Yrs",
+      "salary": "10-15 Lacs PA",
+      "loc": "Hyderabad, Pune, Chennai, Bengaluru, Delhi / NCR, Mumbai",
+      "url": "https://www.naukri.com/job-listings-gen-ai-engineer-bluvin-solutions-hyderabad-pune-chennai-bengaluru-delhi-ncr-mumbai-all-areas-5-to-10-years-190826031962"
+    },
+    {
+      "company": "CDK Global",
+      "title": "Microsoft Copilot Studio Engineer",
+      "exp": "6-10 years (JD also states 2–4 years copilots/Power Platform)",
+      "salary": "15-20 Lacs P.A.",
+      "loc": "Hyderabad",
+      "url": "https://www.naukri.com/job-listings-microsoft-copilot-studio-engineer-cdk-global-hyderabad-6-to-10-years-160726033680"
+    },
+    {
+      "company": "Cloudxtreme",
+      "title": "MLOps Engineer- python,react,kubernets",
+      "exp": "6-11 Yrs",
+      "salary": "9.5-15 Lacs PA",
+      "loc": "Hyderabad, Bengaluru, Delhi / NCR",
+      "url": "https://www.naukri.com/job-listings-mlops-engineer-python-react-kubernets-cloudxtreme-hyderabad-bengaluru-delhi-ncr-6-to-11-years-200826008546"
+    },
+    {
+      "company": "Cognizant",
+      "title": "AI Engineer Python, Langchain, LangGraph, Agentic AI, API, LLMs",
+      "exp": "7 to 13 years; NP Immediate to 90 days",
+      "salary": "₹5L - ₹10L (Glassdoor Est. — not employer-stated)",
+      "loc": "Bengaluru",
+      "url": "https://www.glassdoor.co.in/job-listing/ai-engineer-python-langchain-langgraph-agentic-ai-api-llms-cognizant-technology-solutions-JV_IC2940587_KO0,58_KE59,89.htm?jl=1010104809518"
+    },
+    {
+      "company": "Conduent",
+      "title": "Artificial Intelligence Architect",
+      "exp": "12-22 Yrs",
+      "salary": "25-40 Lacs PA",
+      "loc": "Hybrid - Noida, Hyderabad, Bengaluru",
+      "url": "https://www.naukri.com/job-listings-artificial-intelligence-architect-conduent-noida-hyderabad-bengaluru-12-to-22-years-120826043879"
+    },
+    {
+      "company": "Cyclotron",
+      "title": "Microsoft Copilot Studio Architect",
+      "exp": "10-20 years band; JD 5+ architecture",
+      "salary": "25-40 Lacs P.A.",
+      "loc": "Remote India (hiring office Pune)",
+      "url": "https://www.naukri.com/job-listings-microsoft-copilot-studio-architect-cyclotron-pune-10-to-20-years-140126019305"
+    },
+    {
+      "company": "EaseMyTrip",
+      "title": "Generative AI Engineer",
+      "exp": "1-4 Yrs",
+      "salary": "8-18 Lacs PA",
+      "loc": "Gurugram",
+      "url": "https://www.naukri.com/job-listings-generative-ai-engineer-easemytrip-com-gurugram-1-to-4-years-120525010837"
+    },
+    {
+      "company": "Experis (CMM Level 5 IT Company)",
+      "title": "AI Platform Engineer",
+      "exp": "3-5 Yrs",
+      "salary": "4-6 Lacs PA (platform-engineer-jobs SERP card)",
+      "loc": "Pune",
+      "url": "https://www.naukri.com/job-listings-ai-platform-engineer-experis-pune-3-to-5-years-190826010981"
+    },
+    {
+      "company": "Fractal",
+      "title": "Gen AI Agentic AI Architect",
+      "exp": "Mid-senior (hands-on architect)",
+      "salary": "Confidential",
+      "loc": "Bengaluru on-site",
+      "url": "https://platform.uplers.com/talent/opportunities/HR1177408208047650"
+    },
+    {
+      "company": "HCLTech",
+      "title": "Walk-in || Mega Walk-in Drive | GenAI, MLOps & Data Science",
+      "exp": "3-8 Yrs (body 3 to 10 Years)",
+      "salary": "5-14 Lacs PA",
+      "loc": "Hyderabad, Chennai, Bengaluru",
+      "url": "https://www.naukri.com/job-listings-mega-walk-in-drive-genai-mlops-data-science-hcltech-hyderabad-chennai-bengaluru-3-to-8-years-180826045921"
+    },
+    {
+      "company": "Hexaware Technologies",
+      "title": "GenAI + Agentic AI Developer",
+      "exp": "5-10 Yrs",
+      "salary": "12-22 Lacs P.A. (employer)",
+      "loc": "Hybrid Hyderabad, Bengaluru, Pune",
+      "url": "https://www.naukri.com/job-listings-genai-agentic-ai-developer-hexaware-technologies-hyderabad-pune-bengaluru-5-to-10-years-060726026354"
+    },
+    {
+      "company": "Infosys",
+      "title": "Agentic AI Engineer",
+      "exp": "6-10 Yrs (2+ years agentic/LLM apps)",
+      "salary": "15-27.5 Lacs P.A. (employer)",
+      "loc": "Bengaluru, Pune, Chennai (Hybrid)",
+      "url": "https://www.naukri.com/job-listings-agentic-ai-engineer-infosys-pune-chennai-bengaluru-6-to-10-years-241125033029"
+    },
+    {
+      "company": "Infosys",
+      "title": "GEN AI Engineer",
+      "exp": "3-5 Yrs AI/ML with GenAI exposure",
+      "salary": "EST (not employer): Glassdoor ₹5-10 LPA",
+      "loc": "Bengaluru",
+      "url": "https://www.glassdoor.co.in/job-listing/gen-ai-engineer-infosys-JV_IC2940587_KO0,15_KE16,23.htm?jl=1010089163801"
+    },
+    {
+      "company": "Infosys Limited",
+      "title": "Agentic AI Engineer",
+      "exp": "3–7 Years",
+      "salary": "₹18,00,000 - ₹30,00,000 a year",
+      "loc": "Bangalore City, Bengaluru, Karnataka",
+      "url": "https://in.indeed.com/viewjob?jk=63743131dcf8d453"
+    },
+    {
+      "company": "iSoftStone",
+      "title": "Azure AI & Copilot Studio Developer",
+      "exp": "5-10 years",
+      "salary": "50,000 P.A. (as printed on Naukri card — likely data error vs monthly; treat as unverified)",
+      "loc": "Remote (hiring office Bengaluru)",
+      "url": "https://www.naukri.com/job-listings-azure-ai-copilot-studio-developer-isoftstone-bengaluru-5-to-10-years-050126013995"
+    },
+    {
+      "company": "Kasmoprav",
+      "title": "Lead GenAI / Agentic AI Engineer",
+      "exp": "8+ Years",
+      "salary": "₹1.30 LPM + GST",
+      "loc": "Remote",
+      "url": "https://www.glassdoor.co.in/job-listing/lead-genai-agentic-ai-engineer-kasmoprav-JV_KO0,30_KE31,40.htm?jl=1010230203181"
+    },
+    {
+      "company": "Lancesoft",
+      "title": "Azure AI/ Agentic AI",
+      "exp": "4-6 Yrs",
+      "salary": "6-13 Lacs PA",
+      "loc": "Bengaluru",
+      "url": "https://www.naukri.com/job-listings-azure-ai-agentic-ai-lancesoft-bengaluru-4-to-6-years-230726023277"
+    },
+    {
+      "company": "Logikality",
+      "title": "Generative AI Engineer",
+      "exp": "2-8 yrs (JD 3-8)",
+      "salary": "₹15L - ₹20L / yr (ESOP available)",
+      "loc": "Bengaluru (Bangalore)",
+      "url": "https://cutshort.io/job/Generative-AI-Engineer-Bengaluru-Bangalore-Logikality-4hMaAJBo"
+    },
+    {
+      "company": "MantriAI (search partner)",
+      "title": "ML & LLM Ops Software Engineer",
+      "exp": "4 to 12 years total; at least 2.5 on ML systems in production",
+      "salary": "₹30-45 LPA fixed plus equity",
+      "loc": "Remote India; open to Bangalore end-2026",
+      "url": "https://in.linkedin.com/jobs/view/ml-llm-ops-software-engineer-at-mantriai-4447780207"
+    },
+    {
+      "company": "Nisum",
+      "title": "Machine Learning & Generative AI Engineer",
+      "exp": "5-10 Yrs",
+      "salary": "15-25 Lacs PA",
+      "loc": "Hyderabad, Bhubaneswar",
+      "url": "https://www.naukri.com/job-listings-machine-learning-generative-ai-engineer-nisum-bhubaneswar-hyderabad-5-to-10-years-170826027688"
+    },
+    {
+      "company": "Randstad Digital",
+      "title": "Salesforce (AI) Platform Engineer",
+      "exp": "4-9 Yrs",
+      "salary": "18-27.5 Lacs PA",
+      "loc": "Hyderabad, Bengaluru",
+      "url": "https://www.naukri.com/job-listings-salesforce-ai-platform-engineer-randstad-hyderabad-bengaluru-4-to-9-years-170826006510"
+    },
+    {
+      "company": "Sentiaflow",
+      "title": "Agent Application Engineer (Backend / Agentic AI) — Level 1",
+      "exp": "3-8 yrs",
+      "salary": "₹24L - ₹35L / yr",
+      "loc": "Pune, Bengaluru, Delhi, Gurugram, Noida, Ghaziabad, Faridabad",
+      "url": "https://cutshort.io/job/Agent-Application-Engineer-Backend-Agentic-AI-Level-1-Pune-Bengaluru-Bangalore-Delhi-Gurugram-Noida-Ghaziabad-Faridabad-Sentiaflow-xjeWMlax"
+    },
+    {
+      "company": "Solarix Technologies",
+      "title": "ServiceNow Now Assist (GenAI) Senior Developer",
+      "exp": "5-10 Yrs",
+      "salary": "20-30 Lacs PA (related SERP card)",
+      "loc": "Hyderabad, Chennai, Bengaluru",
+      "url": "https://www.naukri.com/job-listings-servicenow-now-assist-genai-senior-developer-solarix-technologies-hyderabad-chennai-bengaluru-5-to-10-years-120826031223"
+    },
+    {
+      "company": "SourcingXPress",
+      "title": "Power Platform Engineer (Microsoft Copilot / Power Platform)",
+      "exp": "",
+      "salary": "₹ 12-45 Lacs PA",
+      "loc": "Hyderabad, Telangana",
+      "url": "https://in.linkedin.com/jobs/view/power-platform-engineer-at-sourcingxpress-4456466593"
+    },
+    {
+      "company": "Stack Digital",
+      "title": "Senior Applied AI / ML Engineer - Agentic & Intelligent Automation",
+      "exp": "7-12 Yrs",
+      "salary": "20-27.5 Lacs PA",
+      "loc": "NCR (Panipat/Yamunanagar/Faridabad/Sonipat/Gurugram/Hisar listed)",
+      "url": "https://www.naukri.com/job-listings-senior-applied-ai-ml-engineer-agentic-intelligent-automation-stack-digital-panipat-yamunanagar-faridabad-sonipat-gurugram-hisar-7-to-12-years-180826502192"
+    },
+    {
+      "company": "SysTechCorp Inc",
+      "title": "AIOps Engineer",
+      "exp": "6+ years",
+      "salary": "max 10LPA",
+      "loc": "Bengaluru; Hybrid",
+      "url": "https://in.linkedin.com/jobs/view/aiops-engineer-at-systechcorp-inc-4407833559"
+    },
+    {
+      "company": "Tata Consultancy Services",
+      "title": "GEN AI Engineer",
+      "exp": "Developer (Job Id 385214)",
+      "salary": "EST (not employer): Glassdoor ₹5-8 LPA",
+      "loc": "Bengaluru",
+      "url": "https://www.glassdoor.co.in/job-listing/gen-ai-engineer-tata-consultancy-services-JV_IC2940587_KO0,15_KE16,41.htm?jl=1009966161130"
+    },
+    {
+      "company": "Tata Consultancy Services",
+      "title": "Generative AI Engineer",
+      "exp": "4-8 years",
+      "salary": "2-7 Lacs P.A.",
+      "loc": "Hyderabad, Bengaluru",
+      "url": "https://www.naukri.com/job-listings-generative-ai-engineer-tata-consultancy-services-hyderabad-bengaluru-4-to-8-years-310326010830"
+    },
+    {
+      "company": "TCS",
+      "title": "Gen-AI/Agentic AI Engineer",
+      "exp": "Developer (Job Id 388730)",
+      "salary": "EST (not employer): Glassdoor ₹5-7 LPA",
+      "loc": "Chennai",
+      "url": "https://www.glassdoor.co.in/job-listing/gen-ai-agentic-ai-engineer-tata-consultancy-services-JV_IC2833209_KO0,26_KE27,52.htm?jl=1009988712911"
+    },
+    {
+      "company": "Unique Occupational (global digital engineering MNC client)",
+      "title": "GEN AI Engineer (Agentic AI)",
+      "exp": "7-9 yrs",
+      "salary": "₹32L - ₹35L / yr",
+      "loc": "Gurugram (Hybrid)",
+      "url": "https://cutshort.io/job/GEN-AI-Engineer-Agentic-AI-Gurugram-Unique-Occupational-Azu4hRm1"
+    },
+    {
+      "company": "VGreen Technology Solutions (VGreenTEK)",
+      "title": "Power Platform & Copilot Studio Developer- 100% Remote",
+      "exp": "6-7 yrs (5+ SWE; 3+ Power Platform)",
+      "salary": "Budget: 1 LPM",
+      "loc": "Bengaluru South listed; 100% Remote",
+      "url": "https://in.linkedin.com/jobs/view/power-platform-copilot-studio-developer-100%25-remote-at-vgreen-technology-solutions-vgreentek-4364238453"
+    },
+    {
+      "company": "Wipro",
+      "title": "Generative AI Lead Engineer (6+ Years)",
+      "exp": "6-10 Yrs",
+      "salary": "24-30 Lacs P.A. (employer; posted by Yminds for Wipro)",
+      "loc": "Bengaluru (PAN India available)",
+      "url": "https://www.naukri.com/job-listings-generative-ai-lead-engineer-6-years-overall-experience-yminds-artificial-intelligence-llp-bengaluru-6-to-10-years-310126016208"
+    },
+    {
+      "company": "Wipro",
+      "title": "Sr AIML/GenAI Lead/Architect",
+      "exp": "10-20 Yrs (body 10+)",
+      "salary": "35-40 Lacs P.A. (employer; posted by Orcapod for Wipro)",
+      "loc": "Bengaluru (Wipro Kodathi, 5 days WFO)",
+      "url": "https://www.naukri.com/job-listings-aiml-ai-gen-lead-orcapod-consulting-services-bengaluru-10-to-20-years-230326009971"
+    },
+    {
+      "company": "Zalway",
+      "title": "Generative AI Engineer",
+      "exp": "5-10 Yrs",
+      "salary": "50000 PA",
+      "loc": "Coimbatore / Remote",
+      "url": "https://www.naukri.com/job-listings-generative-ai-engineer-zalway-coimbatore-5-to-10-years-300426019675"
+    },
+    {
+      "company": "ZeroToOne.AI",
+      "title": "MLOps Engineer (Remote)",
+      "exp": "3-5 years MLOps / ML platform / ML infra",
+      "salary": "₹25-40 LPA depending on experience",
+      "loc": "Remote within India",
+      "url": "https://in.linkedin.com/jobs/view/mlops-engineer-remote-at-zerotoone-ai-4405021949"
+    },
+    {
+      "company": "Zippyops Consulting",
+      "title": "AI / LLM Infrastructure Engineer",
+      "exp": "3-8 Yrs",
+      "salary": "9-15 Lacs PA",
+      "loc": "Remote",
+      "url": "https://www.naukri.com/job-listings-ai-llm-infrastructure-engineer-zippy-ops-remote-3-to-8-years-210826503813"
+    }
+  ]
+}

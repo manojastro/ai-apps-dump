@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Evidence-first AI agent reliability control plane">
+  <title>Relay // Agent Reliability</title>
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/">
+      <span class="mark" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span><strong>RELAY</strong><small>AGENT RELIABILITY CONTROL PLANE</small></span>
+    </a>
+    <div class="system-state"><span class="pulse"></span><span>LOCAL CONTROL PLANE</span><b id="mode">MOCK</b></div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">FLEET OBSERVABILITY / OUTCOME ASSURANCE</p>
+        <h1>Trust the evidence.<br><em>Not the final message.</em></h1>
+        <p class="lede">Observe trajectories, verify real outcomes, explain failures, and gate unsafe agent releases.</p>
+      </div>
+      <div class="hero-actions">
+        <label for="scenario">FAULT INJECTION</label>
+        <select id="scenario">
+          <option value="hallucinated_success">Hallucinated success</option>
+          <option value="looping">Agent loop</option>
+          <option value="expensive">Cost + context spike</option>
+          <option value="wrong_tool">Wrong tool</option>
+          <option value="partial_completion">Partial completion</option>
+          <option value="slow">Latency regression</option>
+          <option value="unsafe_action">Unsafe action attempt</option>
+          <option value="retrieval_failure">Retrieval failure</option>
+          <option value="reliable">Reliable baseline</option>
+        </select>
+        <button id="run-scenario" class="primary">Run investigation <span>↗</span></button>
+        <button id="run-evaluation" class="secondary">Benchmark evaluator</button>
+      </div>
+    </section>
+
+    <section class="metrics" aria-label="Fleet metrics">
+      <article><small>SUCCESS RATE</small><strong id="success-rate">—</strong><span class="bar"><i id="success-bar"></i></span></article>
+      <article><small>COST / TASK</small><strong id="cost-task">—</strong><span>USD · SYNTHETIC</span></article>
+      <article><small>P95 LATENCY</small><strong id="p95">—</strong><span>END-TO-END</span></article>
+      <article><small>TOOL ACCURACY</small><strong id="tool-accuracy">—</strong><span>ALLOW-LIST + CONTRACT</span></article>
+      <article class="alert-metric"><small>FAILED TRAJECTORIES</small><strong id="failed">—</strong><span id="loop-rate">LOOP RATE —</span></article>
+    </section>
+
+    <section class="control-grid">
+      <article class="panel investigations">
+        <div class="panel-head"><div><small>LIVE QUEUE</small><h2>Investigations</h2></div><button id="refresh" class="icon-button" aria-label="Refresh">↻</button></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>SEVERITY</th><th>INCIDENT</th><th>ROOT CAUSE</th><th>CONF.</th><th>STATE</th></tr></thead>
+            <tbody id="incident-rows"><tr><td colspan="5" class="empty">Run a fault scenario to populate the investigation queue.</td></tr></tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="panel verification">
+        <div class="panel-head"><div><small>INDEPENDENT CHECK</small><h2>Outcome contract</h2></div><span id="outcome-badge" class="badge neutral">NO RUN</span></div>
+        <div class="contract-flow">
+          <div><small>CLAIMED</small><strong id="claimed">Awaiting trace</strong></div><span>→</span>
+          <div><small>EXPECTED</small><strong id="expected">Artifact + checksum</strong></div><span>→</span>
+          <div><small>VERIFIED</small><strong id="verified">Awaiting evidence</strong></div>
+        </div>
+        <ul id="verification-checks" class="check-list"><li>No independent checks recorded yet.</li></ul>
+      </article>
+
+      <article class="panel rca-panel">
+        <div class="panel-head"><div><small>EVIDENCE SYNTHESIS</small><h2>Root cause analysis</h2></div><span class="mono" id="rca-confidence">—</span></div>
+        <p id="rca-summary" class="rca-summary">Run an investigation to see a typed RCA tied to persisted trace evidence.</p>
+        <div id="evidence-list" class="evidence-list"></div>
+      </article>
+
+      <article class="panel gate-panel">
+        <div class="panel-head"><div><small>RELEASE CONTROL</small><h2>Quality gate</h2></div><span id="gate-decision" class="badge neutral">NOT RUN</span></div>
+        <div class="version-row"><div><small>CURRENT</small><b>1.0.0</b></div><span>VS</span><div><small>CANDIDATE</small><select id="candidate"><option value="1.1.0-safe">1.1.0-safe</option><option value="1.1.0-regressed">1.1.0-regressed</option></select></div></div>
+        <button id="compare" class="secondary full">Compare same benchmark</button>
+        <div id="gate-checks" class="gate-checks"></div>
+      </article>
+
+      <article class="panel actions-panel">
+        <div class="panel-head"><div><small>HUMAN CONTROL</small><h2>Approval queue</h2></div><span class="lock">SAFE MODE</span></div>
+        <div id="action-list" class="action-list"><p class="empty">No remediation actions proposed.</p></div>
+      </article>
+
+      <article class="panel trajectory-panel">
+        <div class="panel-head"><div><small>AGENT ACTIVITY</small><h2>Latest trajectory</h2></div><span id="run-id" class="mono">—</span></div>
+        <div id="trajectory" class="trajectory"><p class="empty">Trace steps will appear here.</p></div>
+      </article>
+    </section>
+  </main>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script src="/assets/app.js" defer></script>
+</body>
+</html>

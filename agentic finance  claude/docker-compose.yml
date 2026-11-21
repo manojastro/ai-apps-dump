@@ -1,0 +1,80 @@
+# Local environment. `docker compose up --build` -> web on http://localhost:3000 (demo mode).
+# Live agents: `docker compose --profile live up --build` (needs AI_GATEWAY_API_KEY in your shell).
+name: spreadlens
+
+x-engine-env: &engine-env
+  SPREADLENS_DATABASE_URL: postgresql+psycopg://spreadlens:spreadlens@postgres:5432/spreadlens
+  SPREADLENS_STORAGE_ROOT: /data/files
+  SPREADLENS_AGENT_MODE: ${SPREADLENS_AGENT_MODE:-demo}
+  SPREADLENS_SEED_PASSWORD: ${SPREADLENS_SEED_PASSWORD:-spreadlens-demo}
+  SPREADLENS_EVE_SERVICE_TOKEN: ${EVE_SERVICE_TOKEN:-local-dev-service-token-change-me}
+  SPREADLENS_AGENT_TOOL_TOKEN: ${SPREADLENS_AGENT_TOOL_TOKEN:-local-dev-tool-token-change-me}
+  SPREADLENS_EVE_DOCUMENT_UNDERSTANDING_URL: http://agents:3101
+  SPREADLENS_EVE_TABLE_EXTRACTION_URL: http://agents:3102
+  SPREADLENS_EVE_FINANCIAL_MAPPING_URL: http://agents:3103
+  SPREADLENS_EVE_RECONCILIATION_URL: http://agents:3104
+  SPREADLENS_EVE_ANALYST_PACK_URL: http://agents:3105
+  SPREADLENS_CORS_ORIGINS: '["http://localhost:3000"]'
+
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: spreadlens
+      POSTGRES_PASSWORD: spreadlens
+      POSTGRES_DB: spreadlens
+    ports: ["5433:5432"]
+    volumes: [pgdata:/var/lib/postgresql/data]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U spreadlens"]
+      interval: 3s
+      retries: 20
+
+  migrate:
+    build: ./engine
+    command: ["sh", "-c", "alembic upgrade head && python -m spreadlens.seed"]
+    environment: *engine-env
+    depends_on:
+      postgres: { condition: service_healthy }
+
+  engine:
+    build: ./engine
+    environment:
+      <<: *engine-env
+      SPREADLENS_RUN_WORKER_IN_API: "false"
+    ports: ["8000:8000"]
+    volumes: [files:/data/files]
+    depends_on:
+      migrate: { condition: service_completed_successfully }
+
+  worker:
+    build: ./engine
+    command: ["python", "-m", "spreadlens.workflow.worker"]
+    environment: *engine-env
+    volumes: [files:/data/files]
+    depends_on:
+      migrate: { condition: service_completed_successfully }
+
+  web:
+    build: ./web
+    environment:
+      ENGINE_URL: http://engine:8000
+    ports: ["3000:3000"]
+    depends_on: [engine]
+
+  agents:
+    profiles: ["live"]
+    build: ./agent-runtime
+    environment:
+      AI_GATEWAY_API_KEY: ${AI_GATEWAY_API_KEY:-}
+      SPREADLENS_EVE_MODEL: ${SPREADLENS_EVE_MODEL:-anthropic/claude-sonnet-5}
+      EVE_SERVICE_TOKEN: ${EVE_SERVICE_TOKEN:-local-dev-service-token-change-me}
+      SPREADLENS_AGENT_TOOL_TOKEN: ${SPREADLENS_AGENT_TOOL_TOKEN:-local-dev-tool-token-change-me}
+      SPREADLENS_ENGINE_URL: http://engine:8000
+      EVE_HOST: 0.0.0.0
+    volumes: [evedata:/app/agents]
+
+volumes:
+  pgdata: {}
+  files: {}
+  evedata: {}

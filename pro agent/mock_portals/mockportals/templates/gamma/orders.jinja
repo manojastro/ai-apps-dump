@@ -1,0 +1,5 @@
+{% extends "gamma/base.jinja" %}{% block title %}Purchase history{% endblock %}{% block body %}
+<h1>Purchase history</h1>
+{% if orders %}<table class="grid" aria-label="Purchase history"><tr><th>Sales order no.</th><th>Buyer PO reference</th><th>Date</th><th>Part number</th><th>Order quantity</th><th>Order value</th><th>Status</th></tr>
+{% for o in orders %}<tr><td><a href="{{ r.order.replace('{ref}', o.order_ref) }}">{{ o.order_ref }}</a></td><td>{{ o.po_reference }}</td><td>{{ o.created_at.isoformat() }}</td><td>{{ o.sku }}</td><td>{{ o.qty }}</td><td>INR {{ o.total|inr }}</td><td>{{ o.status }}</td></tr>{% endfor %}
+</table>{% else %}<p>No purchase orders.</p>{% endif %}{% endblock %}

@@ -1,0 +1,5 @@
+{% extends "alpha/base.jinja" %}{% block title %}My orders{% endblock %}{% block body %}
+<h1>My orders</h1>
+{% if orders %}<table id="order-history"><thead><tr><th>Order reference</th><th>PO number</th><th>Date</th><th>Item</th><th>Quantity</th><th>Total</th><th>Status</th></tr></thead><tbody>
+{% for o in orders %}<tr><td><a href="{{ r.order.replace('{ref}', o.order_ref) }}">{{ o.order_ref }}</a></td><td>{{ o.po_reference }}</td><td>{{ o.created_at.isoformat() }}</td><td>{{ o.sku }}</td><td>{{ o.qty }}</td><td>INR {{ o.total|inr }}</td><td>{{ o.status }}</td></tr>{% endfor %}
+</tbody></table>{% else %}<p>No orders yet.</p>{% endif %}{% endblock %}

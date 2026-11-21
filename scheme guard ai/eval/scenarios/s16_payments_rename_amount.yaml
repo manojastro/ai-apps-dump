@@ -1,0 +1,28 @@
+# Hand-labelled golden scenario. Expectations derive from reading the SQL and dashboards.yaml.
+id: s16_payments_rename_amount
+description: Rename payments.amount -> captured_amount
+topic: payments.v1
+mutations:
+- op: rename_field
+  field: amount
+  to: captured_amount
+expected:
+  change_class: breaking
+  route: approval
+  impacted:
+  - column:mart.fct_orders.paid_amount
+  - column:stg.stg_payments.paid_amount
+  - dashboard:Finance Reconciliation
+  - dashboard:Sales Overview
+  - visual:Finance Reconciliation/Paid vs Ordered
+  - visual:Sales Overview/Payment Mix
+  verdicts:
+    column:stg.stg_payments.paid_amount: breaking
+    column:mart.fct_orders.paid_amount: breaking
+    visual:Sales Overview/Payment Mix: breaking
+    visual:Finance Reconciliation/Paid vs Ordered: breaking
+    dashboard:Sales Overview: breaking
+    dashboard:Finance Reconciliation: breaking
+  fix_should_pass: true
+  failing_tables:
+  - stg.stg_payments

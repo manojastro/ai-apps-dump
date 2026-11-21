@@ -1,0 +1,9 @@
+{
+    # Single Gemini default (M0 D003). Verified syntax: docs/FRAMEWORK_FACTS.md §11.
+    # Key comes from runtime environment (see .env.example); never stored here.
+    # temperature 1.0 is mandatory for Gemini 3 (0.7 loops).
+    "llm_config": {
+        "model_name": "gemini-3-flash",
+        "temperature": 1.0
+    }
+}

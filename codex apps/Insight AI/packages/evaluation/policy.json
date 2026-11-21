@@ -1,0 +1,10 @@
+{
+  "version": "release-policy-v1",
+  "minimum_diagnosis_accuracy": 0.85,
+  "maximum_regression": 0.02,
+  "maximum_case_latency_ms": 10000,
+  "maximum_prohibited_effects": 0,
+  "require_reviewed_cases": true,
+  "require_live_model_evaluation": true,
+  "note": "Initial project policy, not an industry standard. Scripted plumbing alone cannot authorize a live agent release."
+}

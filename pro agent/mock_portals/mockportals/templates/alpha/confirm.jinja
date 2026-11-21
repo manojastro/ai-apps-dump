@@ -1,0 +1,9 @@
+{% extends "alpha/base.jinja" %}{% block title %}Confirm order{% endblock %}{% block body %}
+<h1>Confirm your order</h1>
+{% if problem %}<p role="alert">Your basket cannot be ordered. Return to the basket.</p>{% else %}
+{% include "alpha/_totals.jinja" %}
+<p>Deliver to: {{ address.label }} ({{ address.ref }})</p>
+<form method="post" action="{{ r.place }}">
+<input type="hidden" name="quote_ref" value="{{ totals.quote_ref }}"><input type="hidden" name="address_ref" value="{{ address.ref }}">
+<p><label for="po">PO number</label> <input id="po" name="po_reference" required minlength="8" maxlength="128"></p>
+<button class="btn" type="submit">Place order</button></form>{% endif %}{% endblock %}

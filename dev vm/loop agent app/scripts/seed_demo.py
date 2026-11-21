@@ -1,0 +1,16 @@
+#!/usr/bin/env python3
+from __future__ import annotations
+
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "backend"))
+
+from app.services.seed import seed_all  # noqa: E402
+
+
+if __name__ == "__main__":
+    force = "--force" in sys.argv
+    result = seed_all(force=force)
+    print(result)

@@ -1,0 +1,27 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      LLM_MODE: mock
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Lint
+        run: ruff check .
+      - name: Tests (MOCK mode, offline)
+        run: pytest -q
+      - name: Generate data + detection eval
+        run: |
+          python -m data.generator.generate --seed 42 --n 500
+          git diff --exit-code data/generator/ground_truth.json  # generator must stay deterministic
+          python -m evals.detection_eval

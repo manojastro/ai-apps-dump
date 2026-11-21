@@ -1,0 +1,112 @@
+name: rca03
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-incident_rca}
+      POSTGRES_USER: ${POSTGRES_USER:-rca03}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-rca03}
+    ports: ["5435:5432"]
+    volumes: ["rca03_postgres:/var/lib/postgresql/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-rca03} -d ${POSTGRES_DB:-incident_rca}"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+    networks: [rca03]
+
+  neo4j:
+    image: neo4j:5.26-community
+    environment:
+      NEO4J_AUTH: neo4j/${NEO4J_PASSWORD:-rca03-local-password}
+    ports: ["7477:7474", "7689:7687"]
+    volumes: ["rca03_neo4j:/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:7474 >/dev/null || exit 1"]
+      interval: 8s
+      timeout: 5s
+      retries: 15
+    networks: [rca03]
+
+  api:
+    build: ./backend
+    environment:
+      API_PORT: 8003
+      DATABASE_URL: postgresql://${POSTGRES_USER:-rca03}:${POSTGRES_PASSWORD:-rca03}@postgres:5432/${POSTGRES_DB:-incident_rca}
+      NEO4J_URI: bolt://neo4j:7687
+      NEO4J_PASSWORD: ${NEO4J_PASSWORD:-rca03-local-password}
+      LLM_MODE: ${LLM_MODE:-deterministic}
+    ports: ["8003:8003"]
+    depends_on:
+      postgres: { condition: service_healthy }
+      neo4j: { condition: service_healthy }
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8003/healthz')"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+    networks: [rca03]
+
+  web:
+    build:
+      context: ./frontend
+      args:
+        API_URL: http://api:8003
+        NEXT_PUBLIC_API_URL: http://localhost:8003
+    environment:
+      API_URL: http://api:8003
+      NEXT_PUBLIC_API_URL: http://localhost:8003
+    ports: ["3003:3003"]
+    depends_on:
+      api: { condition: service_healthy }
+    networks: [rca03]
+
+  prometheus:
+    image: prom/prometheus:v2.55.1
+    command: ["--config.file=/etc/prometheus/prometheus.yml"]
+    volumes: ["./observability/prometheus.yml:/etc/prometheus/prometheus.yml:ro"]
+    ports: ["9093:9090"]
+    depends_on: [api, storefront, checkout-api, payment-api, auth-service, orders-db]
+    networks: [rca03]
+
+  storefront: &demo-service
+    build: ./backend
+    command: ["uvicorn", "app.demo_service:app", "--host", "0.0.0.0", "--port", "9101"]
+    environment: { DEMO_SERVICE_NAME: storefront, DEMO_DEPENDENCIES: "checkout-api,auth-service" }
+    ports: ["9101:9101"]
+    networks: [rca03]
+
+  checkout-api:
+    <<: *demo-service
+    command: ["uvicorn", "app.demo_service:app", "--host", "0.0.0.0", "--port", "9102"]
+    environment: { DEMO_SERVICE_NAME: checkout-api, DEMO_DEPENDENCIES: "payment-api,auth-service,orders-db" }
+    ports: ["9102:9102"]
+
+  payment-api:
+    <<: *demo-service
+    command: ["uvicorn", "app.demo_service:app", "--host", "0.0.0.0", "--port", "9103"]
+    environment: { DEMO_SERVICE_NAME: payment-api, DEMO_DEPENDENCIES: "" }
+    ports: ["9103:9103"]
+
+  auth-service:
+    <<: *demo-service
+    command: ["uvicorn", "app.demo_service:app", "--host", "0.0.0.0", "--port", "9104"]
+    environment: { DEMO_SERVICE_NAME: auth-service, DEMO_DEPENDENCIES: "" }
+    ports: ["9104:9104"]
+
+  orders-db:
+    <<: *demo-service
+    command: ["uvicorn", "app.demo_service:app", "--host", "0.0.0.0", "--port", "9105"]
+    environment: { DEMO_SERVICE_NAME: orders-db, DEMO_DEPENDENCIES: "" }
+    ports: ["9105:9105"]
+
+networks:
+  rca03:
+    name: rca03_network
+
+volumes:
+  rca03_postgres:
+    name: rca03_postgres_data
+  rca03_neo4j:
+    name: rca03_neo4j_data

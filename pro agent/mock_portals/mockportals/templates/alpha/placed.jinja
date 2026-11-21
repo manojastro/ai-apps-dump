@@ -1,0 +1,5 @@
+{% extends "alpha/base.jinja" %}{% block title %}Order placed{% endblock %}{% block body %}
+<h1>Thank you - order placed</h1>
+<p role="status">Order reference: <strong id="order-ref">{{ order.order_ref }}</strong></p>
+<p>PO number: {{ order.po_reference }} · Total: INR {{ order.total|inr }}</p>
+<p><a href="{{ r.order.replace('{ref}', order.order_ref) }}">View order</a></p>{% endblock %}

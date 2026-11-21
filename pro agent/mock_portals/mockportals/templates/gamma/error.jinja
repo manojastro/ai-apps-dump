@@ -1,0 +1,2 @@
+{% extends "gamma/base.jinja" %}{% block title %}{{ title }}{% endblock %}{% block body %}
+<h1>{{ title }}</h1><p class="err" role="alert" data-error-code="{{ code or '' }}">{{ message }}</p><p><a href="{{ r.cart }}">Return to quote cart</a></p>{% endblock %}

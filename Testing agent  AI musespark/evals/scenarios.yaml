@@ -1,0 +1,13 @@
+# Golden scenarios (Phase 5 target: >=40). Phase 1 placeholder — schema only.
+- id: GOLD-001
+  flow: create Lead with valid data
+  expected: pass
+- id: GOLD-002
+  flow: validation rule removed (should fail every run)
+  expected: real_bug
+- id: GOLD-003
+  flow: artificially slow component (fails 1-2/3)
+  expected: flaky
+- id: GOLD-004
+  flow: org unreachable / login expired
+  expected: blocked

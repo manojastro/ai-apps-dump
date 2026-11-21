@@ -1,0 +1,17 @@
+# Hand-labelled golden scenario. Expectations derive from reading the SQL and dashboards.yaml.
+id: s11_add_nullable_field
+description: Add nullable orders.channel
+topic: orders.v1
+mutations:
+- op: add_field
+  field: channel
+  type:
+  - 'null'
+  - string
+  default: null
+expected:
+  change_class: non_breaking
+  route: report
+  impacted: []
+  verdicts: {}
+  fix_should_pass: null

@@ -1,0 +1,7 @@
+{% extends "beta/base.jinja" %}{% block title %}Cart{% endblock %}{% block body %}
+<h1>Cart</h1>
+{% for l in lines %}<div class="card" style="margin-bottom:10px" data-line="{{ l.sku }}">
+<h2 style="font-size:16px">{{ l.name }}</h2><p>SKU {{ l.sku }} · Qty {{ l.qty }} · ₹{{ l.unit_price|inr }} each incl. GST</p>
+<form method="post" action="{{ r.cart_remove }}"><input type="hidden" name="sku" value="{{ l.sku }}"><button type="submit" aria-label="Remove {{ l.sku }}">Remove</button></form></div>
+{% else %}<p>Your cart is empty.</p>{% endfor %}
+{% if lines %}<a class="cta" href="{{ r.checkout }}">Checkout</a>{% endif %}{% endblock %}

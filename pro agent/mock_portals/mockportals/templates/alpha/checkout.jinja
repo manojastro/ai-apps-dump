@@ -1,0 +1,8 @@
+{% extends "alpha/base.jinja" %}{% block title %}Checkout{% endblock %}{% block body %}
+<h1>Checkout preview</h1>
+{% if problem == 'empty' %}<p>Your basket is empty.</p>{% elif problem %}<p role="alert">Only one item line can be ordered at a time. Remove extra items from your basket.</p>{% else %}
+<p>Prices exclude GST. GST is added below.</p>
+{% include "alpha/_totals.jinja" %}
+<form method="get" action="{{ r.confirm }}"><p><label for="address">Delivery address</label>
+<select id="address" name="address">{% for a in addresses %}<option value="{{ a.ref }}" {% if a.ref == address.ref %}selected{% endif %}>{{ a.label }} ({{ a.ref }})</option>{% endfor %}</select></p>
+<button class="btn" type="submit">Continue to confirmation</button></form>{% endif %}{% endblock %}

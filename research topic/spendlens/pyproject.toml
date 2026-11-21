@@ -1,0 +1,87 @@
+[project]
+name = "spendlens"
+version = "0.1.0"
+description = "SpendLens — evidence-backed cloud cost optimization and savings verification"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "Apache-2.0" }
+authors = [{ name = "SpendLens" }]
+dependencies = [
+    "fastapi>=0.115.6",
+    "uvicorn[standard]>=0.34.0",
+    "pydantic>=2.10.4",
+    "pydantic-settings>=2.7.1",
+    "sqlalchemy>=2.0.36",
+    "alembic>=1.14.1",
+    "psycopg[binary]>=3.2.3",
+    "pyjwt>=2.10.1",
+    "bcrypt>=4.2.1",
+    "python-multipart>=0.0.20",
+    "httpx>=0.28.1",
+    "boto3>=1.36.0",
+    "botocore>=1.36.0",
+    "langgraph>=0.3.0",
+    "langgraph-checkpoint-postgres>=2.0.21",
+    "langchain-core>=0.3.28",
+    "openai>=1.59.0",
+    "sse-starlette>=2.2.1",
+    "orjson>=3.10.13",
+    "email-validator>=2.2.0",
+    "python-dotenv>=1.0.1",
+    "structlog>=24.4.0",
+    "tenacity>=9.0.0",
+    "croniter>=5.0.1",
+    "zoneinfo; python_version < '3.9'",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3.4",
+    "pytest-asyncio>=0.25.0",
+    "ruff>=0.8.6",
+    "mypy>=1.14.0",
+    "types-boto3>=1.0.2",
+]
+lab = [
+    "psutil>=6.1.1",
+]
+
+[project.scripts]
+spendlens-api = "spendlens.api.main:run"
+spendlens-worker = "spendlens.worker.main:run"
+spendlens-seed = "spendlens.seed.cli:main"
+spendlens-lab = "spendlens.lab.workload:run"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/spendlens"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/spendlens", "fixtures", "alembic", "README.md"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]
+pythonpath = ["src"]
+filterwarnings = [
+    "ignore::DeprecationWarning",
+]
+
+[tool.ruff]
+line-length = 110
+target-version = "py312"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "N"]
+ignore = ["E501", "B008", "N818"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = false
+ignore_missing_imports = true
+packages = ["spendlens"]

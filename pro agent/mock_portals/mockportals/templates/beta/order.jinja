@@ -1,0 +1,13 @@
+{% extends "beta/base.jinja" %}{% block title %}Order {{ o.order_ref }}{% endblock %}{% block body %}
+<article class="card"><h1>Order number {{ o.order_ref }}</h1>
+<div class="row"><span>Status</span><span>{{ status }}</span></div>
+<div class="row"><span>Your reference</span><span>{{ o.po_reference }}</span></div>
+<div class="row"><span>Quote reference</span><span>{{ o.quote_ref }}</span></div>
+<div class="row"><span>Product</span><span>{{ o.sku }} {{ o.product_name }}</span></div>
+<div class="row"><span>Qty</span><span>{{ o.qty }}</span></div>
+<div class="row"><span>Grand total</span><span>₹{{ o.total|inr }}</span></div>
+<div class="row"><span>Currency</span><span>{{ o.currency }}</span></div>
+<div class="row"><span>Arrives by</span><span>{{ o.delivery_date }}</span></div>
+<div class="row"><span>Ship to</span><span>{{ o.address_ref }}{% if address %} — {{ address.line }}{% endif %}</span></div>
+{% if status == 'Confirmed' %}<p><a class="cta" href="{{ r.receipt.replace('{ref}', o.order_ref) }}" download>Download receipt</a></p>{% else %}<p role="status">Processing — the receipt will be available shortly.</p>{% endif %}
+</article>{% endblock %}

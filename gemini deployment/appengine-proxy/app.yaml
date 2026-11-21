@@ -1,0 +1,32 @@
+# App Engine Flexible front door for Helpdesk Anywhere.
+#
+# Gives the deployment the https://<project>.el.r.appspot.com URL. Nothing of the
+# application runs here: nginx forwards every request — WebSocket upgrades
+# included — over the VPC to Caddy on the Compute Engine VM, where the app, its
+# audit log and the .exe live. Re-encrypted on that leg too (TLS to Caddy), so
+# credential-mode elevation still never crosses a cleartext hop.
+runtime: custom
+env: flex
+service: default
+
+# Exactly one instance: the relay pairs sockets on the VM, but a single proxy
+# keeps every WebSocket on one path and the bill predictable.
+manual_scaling:
+  instances: 1
+
+resources:
+  cpu: 1
+  memory_gb: 0.6
+  disk_size_gb: 10
+
+network:
+  name: default
+  session_affinity: true
+
+# Answered by nginx itself — never proxied, so a VM hiccup does not get the
+# proxy instance recycled, and the console's Basic auth is not in the way.
+liveness_check:
+  path: "/liveness_check"
+readiness_check:
+  path: "/readiness_check"
+  app_start_timeout_sec: 300

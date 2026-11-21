@@ -1,0 +1,40 @@
+{
+  "conflict": {
+    "customer_key": "ACC-00126",
+    "evidence": {
+      "crm_account_id": "ACC-00126",
+      "crm_email": "zara.fischer@glade-retail.example",
+      "crm_name": "Zara Fischer",
+      "crm_plan": "pro",
+      "crm_status": "cancelled",
+      "marketing": [
+        {
+          "contact_id": "MC-00122",
+          "last_campaign": "onboarding_day7",
+          "lifecycle_stage": "onboarding",
+          "marketing_email": "zara.fischer@glade-retail.example",
+          "match_confidence": 0.95,
+          "match_method": "email",
+          "subscribed": true
+        }
+      ]
+    },
+    "id": "cf_067d37c612db",
+    "type": "CHURNED_STILL_MARKETED"
+  },
+  "created_at": "2026-11-16T03:20:09+00:00",
+  "expect_mock": {
+    "failure_category": "incompatible_action",
+    "status": "FAILED"
+  },
+  "expected_action": "unsubscribe_contact",
+  "id": "rg_guard_79c552cc1d",
+  "note": "allowed action, but not compatible with CHURNED_STILL_MARKETED",
+  "prompt_version": "v1",
+  "recorded_responses": [
+    "{\"explanation\": \"CRM says cancelled but billing is still charging.\", \"action\": \"cancel_subscription\", \"params\": {\"subscription_id\": \"x\"}, \"confidence\": 0.9, \"needs_human_note\": null}",
+    "{\"explanation\": \"CRM says cancelled but billing is still charging.\", \"action\": \"cancel_subscription\", \"params\": {\"subscription_id\": \"x\"}, \"confidence\": 0.9, \"needs_human_note\": null}",
+    "{\"explanation\": \"CRM says cancelled but billing is still charging.\", \"action\": \"cancel_subscription\", \"params\": {\"subscription_id\": \"x\"}, \"confidence\": 0.9, \"needs_human_note\": null}"
+  ],
+  "source": "guard"
+}

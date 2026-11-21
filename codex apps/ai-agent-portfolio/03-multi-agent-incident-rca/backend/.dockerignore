@@ -1,0 +1,12 @@
+.venv
+.venv313
+.pytestdeps
+.testdeps
+__pycache__
+*.pyc
+*.db
+.pytest_cache
+.ruff_cache
+tests
+*.egg-info
+

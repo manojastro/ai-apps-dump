@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "checks": [
+    "saved candidate and one trial on rerun",
+    "actual single-case completion",
+    "simulated failure is terminal and visible"
+  ]
+}

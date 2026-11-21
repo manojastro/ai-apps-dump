@@ -1,0 +1,21 @@
+{"scenarios": [
+  {"id": "change_without_memory", "description": "Update alone is not a diagnosis",
+   "evidence": [{"id": "E1", "m": "change", "v": "Teams updated 3.7.9 to 3.8.4", "s": "Change: Teams updated", "e": "Teams"}],
+   "expected": {"verdict": "INSUFFICIENT", "top": null, "reject": []}},
+  {"id": "vpn_healthy", "description": "VPN up is not a token fault",
+   "evidence": [{"id": "E1", "m": "vpn", "v": "True", "s": "VPN up: no error"}],
+   "expected": {"verdict": "INSUFFICIENT", "top": null, "reject": ["Stale secure-access token"]}},
+  {"id": "locked_account_only", "description": "Locked account without fault context",
+   "evidence": [{"id": "E1", "m": "identity", "v": "locked", "s": "Account locked locked=True"}],
+   "expected": {"verdict": "INSUFFICIENT", "top": null, "reject": []}},
+  {"id": "medium_never_auto", "description": "Borderline support must confirm, never auto",
+   "evidence": [{"id": "E1", "m": "process_memory", "v": "4500.0", "s": "Teams 4500.0MB", "e": "Teams"},
+                {"id": "E2", "m": "software_version", "v": "3.7.9", "s": "Teams 3.7.9", "e": "Teams"},
+                {"id": "E3", "m": "disk", "v": "42.0", "s": "Disk 42.0%"}],
+   "expected": {"verdict": "ESCALATE", "top": "Teams excessive memory after update", "reject": ["Teams excessive memory after update"]}},
+  {"id": "cpu_79_below_everything", "description": "Sub-threshold readings everywhere",
+   "evidence": [{"id": "E1", "m": "cpu", "v": "79.0", "s": "CPU 79.0%"},
+                {"id": "E2", "m": "ram", "v": "69.0", "s": "RAM 69.0%"},
+                {"id": "E3", "m": "disk", "v": "60.0", "s": "Disk 60.0%"}],
+   "expected": {"verdict": "INSUFFICIENT", "top": null, "reject": []}}
+ ]}

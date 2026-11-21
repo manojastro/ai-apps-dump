@@ -1,0 +1,116 @@
+# Full stack: PostgreSQL, migrations+seed, API (serves the UI), worker, synthetic supplier portals.
+#   cp .env.example .env   (edit secrets)
+#   docker compose up -d --build
+# Production adds docker-compose.prod.yml (Caddy TLS reverse proxy).
+name: procnav
+
+x-app-env: &app-env
+  APP_ENV: ${APP_ENV:-development}
+  APP_BASE_URL: ${APP_BASE_URL:-http://localhost:8300}
+  APP_DATABASE_URL: postgresql+psycopg://procnav_app:${PROCNAV_APP_PASSWORD:-devapp}@db:5432/procnav
+  APP_MIGRATION_DATABASE_URL: postgresql+psycopg://procnav_owner:${PROCNAV_OWNER_PASSWORD:-devowner}@db:5432/procnav
+  SESSION_SECRET: ${SESSION_SECRET:-dev-session-secret-change-me}
+  COOKIE_SECURE: ${COOKIE_SECURE:-false}
+  CREDENTIALS_KEY: ${CREDENTIALS_KEY:-}
+  SUPPLIER_CREDENTIALS_JSON: ${SUPPLIER_CREDENTIALS_JSON:-}
+  MODEL_MODE: ${MODEL_MODE:-fixture}
+  MODEL_PROVIDER: ${MODEL_PROVIDER:-anthropic}
+  MODEL_NAME: ${MODEL_NAME:-claude-opus-5-5}
+  MODEL_API_KEY: ${MODEL_API_KEY:-}
+  MODEL_ENDPOINT: ${MODEL_ENDPOINT:-}
+  BROWSER_ALLOWED_ORIGINS: http://mock-suppliers:8301,http://mock-suppliers:8302,http://mock-suppliers:8303
+  ALPHA_URL: http://mock-suppliers:8301
+  BETA_URL: http://mock-suppliers:8302
+  GAMMA_URL: http://mock-suppliers:8303
+  MAX_BROWSER_ACTIONS: ${MAX_BROWSER_ACTIONS:-80}
+  ACTIVE_RUN_TIMEOUT_SECONDS: ${ACTIVE_RUN_TIMEOUT_SECONDS:-900}
+  MAX_RUN_COST: ${MAX_RUN_COST:-1.00}
+  MAX_CONCURRENT_RUNS: ${MAX_CONCURRENT_RUNS:-2}
+  APPROVAL_TTL_SECONDS: ${APPROVAL_TTL_SECONDS:-3600}
+  DRY_RUN: ${DRY_RUN:-true}
+  FIXTURE_CONTROL_URL: http://mock-suppliers:8309
+  FIXTURE_CONTROL_TOKEN: ${FIXTURE_CONTROL_TOKEN:-dev-control-token}
+  OTEL_EXPORTER_OTLP_ENDPOINT: ${OTEL_EXPORTER_OTLP_ENDPOINT:-}
+  DEMO_PASSWORD: ${DEMO_PASSWORD:-}
+
+services:
+  db:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-devpostgres}
+      PROCNAV_OWNER_PASSWORD: ${PROCNAV_OWNER_PASSWORD:-devowner}
+      PROCNAV_APP_PASSWORD: ${PROCNAV_APP_PASSWORD:-devapp}
+      SUPPLIERS_DB_PASSWORD: ${SUPPLIERS_DB_PASSWORD:-devsuppliers}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./infra/postgres/init.sh:/docker-entrypoint-initdb.d/10-init.sh:ro
+    networks: [internal]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      retries: 20
+
+  mock-suppliers:
+    build: { context: ., dockerfile: infra/docker/mock.Dockerfile }
+    restart: unless-stopped
+    environment:
+      SUPPLIERS_DATABASE_URL: postgresql+psycopg://suppliers:${SUPPLIERS_DB_PASSWORD:-devsuppliers}@db:5432/suppliers
+      FIXTURE_CONTROL_TOKEN: ${FIXTURE_CONTROL_TOKEN:-dev-control-token}
+    depends_on: { db: { condition: service_healthy } }
+    networks: [internal]
+    # Portals and control API are reachable only on the internal network. For a local demo you can
+    # browse them via `docker compose -f docker-compose.yml -f docker-compose.ports.yml up`.
+
+  migrate:
+    build: { context: ., dockerfile: infra/docker/app.Dockerfile }
+    image: procnav-app:local
+    environment: *app-env
+    command: ["sh", "-c", "python -m procnav.manage migrate && python -m procnav.manage seed"]
+    depends_on: { db: { condition: service_healthy } }
+    networks: [internal]
+    restart: "no"
+
+  api:
+    image: procnav-app:local
+    restart: unless-stopped
+    environment: *app-env
+    depends_on:
+      migrate: { condition: service_completed_successfully }
+    volumes: [evidence:/app/var/evidence]
+    networks: [internal, edge]
+    ports: ["127.0.0.1:8300:8300"]
+
+  worker:
+    image: procnav-app:local
+    restart: unless-stopped
+    environment: *app-env
+    command: ["python", "-m", "procnav.workers.main"]
+    depends_on:
+      migrate: { condition: service_completed_successfully }
+      mock-suppliers: { condition: service_started }
+    volumes: [evidence:/app/var/evidence]
+    # Browser execution: bounded CPU/memory/concurrency; Chromium sandbox kept on via seccomp profile.
+    cpus: 2.0
+    mem_limit: 2g
+    shm_size: 1g
+    security_opt:
+      - seccomp=./infra/docker/seccomp_profile.json
+      - no-new-privileges:true
+    ipc: private
+    # Egress: the internal network has no route to the internet, so the browser can reach only the
+    # fixture services. Real-model mode adds a model-API egress path (see docker-compose.real-model.yml).
+    networks: [internal]
+    healthcheck:
+      test: ["CMD", "python", "-c", "import sys; sys.exit(0)"]
+      interval: 30s
+
+networks:
+  internal:
+    internal: true
+  edge: {}
+
+volumes:
+  pgdata:
+  evidence:

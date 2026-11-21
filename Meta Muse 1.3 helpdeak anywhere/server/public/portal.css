@@ -1,0 +1,10 @@
+/* Helpdesk Anywhere — Agent console styles (Phase 1 functional, minimal). */
+body { font-family: system-ui, sans-serif; margin: 2rem; max-width: 900px; }
+#code { font-size: 3rem; font-weight: 700; letter-spacing: 0.5rem; }
+#codeBox { border: 1px solid #ccc; padding: 1rem; margin: 1rem 0; }
+#status { font-weight: 600; }
+#uacBanner { background: #fff3cd; border: 1px solid #e0a800; padding: 0.5rem; margin: 0.5rem 0; }
+canvas { border: 1px solid #ccc; max-width: 100%; background: #111; }
+section { margin-bottom: 2rem; }
+textarea { width: 100%; max-width: 100%; }
+pre { background: #f6f6f6; padding: 0.5rem; white-space: pre-wrap; }

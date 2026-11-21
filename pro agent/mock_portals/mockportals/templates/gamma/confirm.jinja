@@ -1,0 +1,9 @@
+{% extends "gamma/base.jinja" %}{% block title %}Purchase confirmation{% endblock %}{% block body %}
+<h1>Purchase - step 2 of 2</h1>
+{% if problem %}<p class="err" role="alert">The quote cart cannot be purchased.</p>{% else %}
+{% include "gamma/_totals.jinja" %}
+<p>Consignee: {{ address.label }} ({{ address.ref }})</p>
+<form method="post" action="{{ r.place }}">
+<input type="hidden" name="quote_ref" value="{{ totals.quote_ref }}"><input type="hidden" name="address_ref" value="{{ address.ref }}">
+<p><label for="bref">Buyer PO reference</label> <input id="bref" name="po_reference" required minlength="8" maxlength="128"></p>
+<button class="button" type="submit">Submit purchase order</button></form>{% endif %}{% endblock %}

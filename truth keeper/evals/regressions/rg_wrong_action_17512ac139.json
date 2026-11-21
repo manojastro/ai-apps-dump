@@ -1,0 +1,38 @@
+{
+  "conflict": {
+    "customer_key": "ACC-00428",
+    "evidence": {
+      "crm_account_id": "ACC-00428",
+      "crm_email": "elena.moreau@helix-studio.example",
+      "crm_name": "Elena Moreau",
+      "crm_plan": "starter",
+      "crm_status": "active",
+      "mismatches": [
+        {
+          "currency": "USD",
+          "match_confidence": 1.0,
+          "match_method": "id",
+          "monthly_amount": 49.0,
+          "other_email": "billing@helix-studio.example",
+          "record_id": "BC-00414",
+          "system": "billing"
+        }
+      ]
+    },
+    "id": "cf_4c5b7f81dee0",
+    "type": "EMAIL_MISMATCH"
+  },
+  "created_at": "2026-11-16T03:20:13+00:00",
+  "expect_mock": {
+    "action": "no_action",
+    "status": "PENDING_REVIEW"
+  },
+  "expected_action": "flag_for_finance_review",
+  "id": "rg_wrong_action_17512ac139",
+  "note": "proposed no_action, ground truth expects flag_for_finance_review",
+  "prompt_version": "v1",
+  "recorded_responses": [
+    "{\"explanation\": \"The CRM email for ACC-00428 is elena.moreau@helix-studio.example, but the billing record BC-00414 uses billing@helix-studio.example. Invoices or notices may reach the wrong person. Which address is correct needs a human decision.\", \"action\": \"no_action\", \"params\": {}, \"confidence\": 0.55, \"needs_human_note\": \"Confirm the correct billing contact with the account owner.\"}"
+  ],
+  "source": "wrong_action"
+}

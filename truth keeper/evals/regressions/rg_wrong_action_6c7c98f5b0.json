@@ -1,0 +1,43 @@
+{
+  "conflict": {
+    "customer_key": "ACC-00194",
+    "evidence": {
+      "billing": [
+        {
+          "billing_customer_id": "BC-00189",
+          "billing_email": "ivan.rossi@cobalt-retail.example",
+          "billing_plan": "starter",
+          "billing_status": "active",
+          "currency": "USD",
+          "match_confidence": 1.0,
+          "match_method": "id",
+          "monthly_amount": 49.0,
+          "next_charge_date": "2026-11-07",
+          "past_due_since": null,
+          "subscription_id": "SUB-00189"
+        }
+      ],
+      "crm_account_id": "ACC-00194",
+      "crm_email": "ivan.rossi@cobalt-retail.example",
+      "crm_name": "Ivan Rossi",
+      "crm_plan": "starter",
+      "crm_status": "cancelled"
+    },
+    "id": "cf_26b2c36bbe3c",
+    "type": "CANCELLED_BUT_BILLING_ACTIVE"
+  },
+  "created_at": "2026-11-16T03:20:13+00:00",
+  "expect_mock": {
+    "action": "no_action",
+    "status": "PENDING_REVIEW"
+  },
+  "expected_action": "cancel_subscription",
+  "id": "rg_wrong_action_6c7c98f5b0",
+  "note": "proposed no_action, ground truth expects cancel_subscription",
+  "prompt_version": "v1",
+  "recorded_responses": [
+    "{\"explanation\": \"The CRM marks account ACC-00194 as cancelled, but billing subscription SUB-00189 is still active at 49.0 USD per month. The customer will be charged after cancelling.\", \"action\": \"cancel_subscription\", \"params\": {\"subscription_id\": \"SUB-99999\"}, \"confidence\": 0.9, \"needs_human_note\": \"Check whether a refund for past charges is owed.\"}",
+    "{\"explanation\": \"The CRM marks account ACC-00194 as cancelled, but billing subscription SUB-00189 is still active at 49.0 USD per month. The customer will be charged after cancelling.\", \"action\": \"no_action\", \"params\": {}, \"confidence\": 0.55, \"needs_human_note\": \"Check whether a refund for past charges is owed.\"}"
+  ],
+  "source": "wrong_action"
+}

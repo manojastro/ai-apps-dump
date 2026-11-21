@@ -1,0 +1,44 @@
+{
+  "conflict": {
+    "customer_key": "ACC-00017",
+    "evidence": {
+      "billing": [
+        {
+          "billing_customer_id": "BC-00016",
+          "billing_email": "theo.fischer@mosaic-labs.example",
+          "billing_plan": "pro",
+          "billing_status": "past_due",
+          "currency": "USD",
+          "days_past_due": 76,
+          "match_confidence": 0.95,
+          "match_method": "email",
+          "monthly_amount": 399.0,
+          "next_charge_date": null,
+          "past_due_since": "2026-08-17",
+          "subscription_id": "SUB-00016"
+        }
+      ],
+      "crm_account_id": "ACC-00017",
+      "crm_email": "theo.fischer@mosaic-labs.example",
+      "crm_name": "Theo Fischer",
+      "crm_plan": "pro",
+      "crm_status": "active",
+      "threshold_days": 30
+    },
+    "id": "cf_2596ff1ef81e",
+    "type": "PAST_DUE_BUT_CRM_ACTIVE"
+  },
+  "created_at": "2026-11-16T03:20:13+00:00",
+  "expect_mock": {
+    "action": "no_action",
+    "status": "PENDING_REVIEW"
+  },
+  "expected_action": "flag_for_finance_review",
+  "id": "rg_wrong_action_1305465250",
+  "note": "proposed no_action, ground truth expects flag_for_finance_review",
+  "prompt_version": "v1",
+  "recorded_responses": [
+    "{\"explanation\": \"Billing shows subscription SUB-00016 past due for 76 days, but the CRM still lists ACC-00017 as an active, healthy account. Sales and support do not know the account is at risk.\", \"action\": \"no_action\", \"params\": {}, \"confidence\": 0.55, \"needs_human_note\": null}"
+  ],
+  "source": "wrong_action"
+}

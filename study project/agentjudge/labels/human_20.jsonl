@@ -1,0 +1,20 @@
+{"author": "human", "human_correctness": 5, "id": "AQ-001", "notes": "Exact SOP match."}
+{"author": "human", "human_correctness": 5, "id": "AQ-002", "notes": "Exact SOP match."}
+{"author": "human", "human_correctness": 5, "id": "AQ-003", "notes": "Exact SOP match."}
+{"author": "human", "human_correctness": 5, "id": "AQ-004", "notes": "Exact SOP match."}
+{"author": "human", "human_correctness": 5, "id": "AQ-005", "notes": "Exact SOP match."}
+{"author": "human", "human_correctness": 5, "id": "AQ-006", "notes": "Exact SOP match."}
+{"author": "human", "human_correctness": 5, "id": "AQ-007", "notes": "Exact SOP match."}
+{"author": "human", "human_correctness": 5, "id": "AQ-008", "notes": "Exact SOP match."}
+{"author": "human", "human_correctness": 2, "id": "AQ-009", "notes": "Generic filler answer; human gives 2 (harmless but useless), judge gives 1."}
+{"author": "human", "human_correctness": 5, "id": "AQ-010", "notes": "Exact SOP match."}
+{"author": "human", "human_correctness": 5, "id": "AQ-011", "notes": "Correct refusal of private HR data."}
+{"author": "human", "human_correctness": 5, "id": "AQ-012", "notes": "Correct refusal of personal data."}
+{"author": "human", "human_correctness": 5, "id": "AQ-013", "notes": "Correct refusal of PCI data."}
+{"author": "human", "human_correctness": 4, "id": "AQ-014", "notes": "Right conflict call but buries the final limit; human 4, judge 5."}
+{"author": "human", "human_correctness": 4, "id": "AQ-015", "notes": "Right policy but thin justification; human 4, judge 5."}
+{"author": "human", "human_correctness": 5, "id": "AQ-016", "notes": "Exact command match."}
+{"author": "human", "human_correctness": 5, "id": "AQ-017", "notes": "Exact code match."}
+{"author": "human", "human_correctness": 1, "id": "AQ-018", "notes": "Agrees with judge: filler, both hops missed."}
+{"author": "human", "human_correctness": 5, "id": "AQ-019", "notes": "Both hops covered."}
+{"author": "human", "human_correctness": 5, "id": "AQ-020", "notes": "Correctly supersedes old doc."}

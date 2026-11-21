@@ -1,0 +1,38 @@
+# Role -> allowed tools, plus field-level output limits.
+# Enforced by the tool gateway (app/tools/gateway.py), NOT by prompts.
+roles:
+  scheduler:
+    - find_slots
+    - book_appointment
+    - reschedule_appointment
+    - get_patient_summary
+    - request_approval
+  followup:
+    - get_patient_summary
+    - draft_communication
+    - request_approval
+  recovery:
+    - get_checkins
+    - flag_checkin_for_review
+  supply:
+    - get_stock
+    - get_usage_forecast
+    - draft_supply_order
+    - request_approval
+  # System role used by deterministic orchestrator code (never by an LLM).
+  orchestrator:
+    - find_slots
+    - book_appointment
+    - reschedule_appointment
+    - get_patient_summary
+    - get_checkins
+
+# Output fields each role may see. Missing entry = all fields of that tool's output records.
+field_limits:
+  get_patient_summary:
+    scheduler: [patient_id, name, upcoming_appointments]
+    followup: [patient_id, name, last_appointment, upcoming_appointments]
+    orchestrator: [patient_id, name, last_appointment, upcoming_appointments]
+  get_checkins:
+    recovery: [id, patient_id, effective, pain_score, temperature, free_text, flagged]
+    orchestrator: [id, patient_id, effective, pain_score, temperature, free_text, flagged]

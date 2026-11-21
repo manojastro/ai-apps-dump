@@ -1,0 +1,5 @@
+"""INERT TEST FIXTURE. Never import or execute."""
+
+def find_user(cursor, user_id):
+    query = f"SELECT id, email FROM users WHERE id = '{user_id}'"
+    return cursor.execute(query).fetchone()

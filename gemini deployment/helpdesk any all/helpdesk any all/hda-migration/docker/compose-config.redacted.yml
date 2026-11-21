@@ -1,0 +1,104 @@
+name: helpdeskanywhere
+services:
+  app:
+    build:
+      context: /home/ubuntu/Helpdesk Anywhere/server
+      dockerfile: Dockerfile
+    environment:
+      AGENT_NAME: Support Agent
+      ALLOW_INSECURE_DEV: "0"
+      ALLOWED_ORIGINS: ""
+      AUDIT_DIR: /app/audit
+      CONSOLE_USER: agent
+      CREATE_ATTEMPTS_PER_MINUTE: "10"
+      ELEVATION_ATTEMPTS_PER_SESSION: "5"
+      JOIN_ATTEMPTS_PER_MINUTE: "5"
+      MAX_LIVE_SESSIONS: "500"
+      PORT: "8080"
+      PUBLIC_HOST: sarah-wanted-councils-lewis.trycloudflare.com
+      SESSION_CODE_TTL_MS: "600000"
+      TRUST_PROXY: "1"
+    expose:
+      - "8080"
+    logging:
+      driver: json-file
+      options:
+        max-file: "5"
+        max-size: 10m
+    networks:
+      default: null
+    restart: unless-stopped
+    user: 1000:1000
+    volumes:
+      - type: bind
+        source: /home/ubuntu/Helpdesk Anywhere/audit
+        target: /app/audit
+        bind:
+          create_host_path: true
+      - type: bind
+        source: /home/ubuntu/Helpdesk Anywhere/server/public/download
+        target: /app/public/download
+        read_only: true
+        bind:
+          create_host_path: true
+  caddy:
+    profiles:
+      - tls
+    depends_on:
+      app:
+        condition: service_healthy
+        required: true
+    environment:
+      PUBLIC_HOST: sarah-wanted-councils-lewis.trycloudflare.com
+    image: caddy:2-alpine
+    logging:
+      driver: json-file
+      options:
+        max-file: "5"
+        max-size: 10m
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 80
+        published: "80"
+        protocol: tcp
+      - mode: ingress
+        target: 443
+        published: "443"
+        protocol: tcp
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /home/ubuntu/Helpdesk Anywhere/Caddyfile
+        target: /etc/caddy/Caddyfile
+        read_only: true
+        bind:
+          create_host_path: true
+      - type: bind
+        source: /home/ubuntu/Helpdesk Anywhere/server/public
+        target: /srv/public
+        read_only: true
+        bind:
+          create_host_path: true
+      - type: volume
+        source: caddy_data
+        target: /data
+        volume: {}
+      - type: volume
+        source: caddy_config
+        target: /config
+        volume: {}
+networks:
+  default:
+    name: helpdeskanywhere_default
+volumes:
+  caddy_config:
+    name: helpdeskanywhere_caddy_config
+  caddy_data:
+    name: helpdeskanywhere_caddy_data
+x-logging:
+  driver: json-file
+  options:
+    max-file: "5"
+    max-size: 10m

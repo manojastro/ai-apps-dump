@@ -1,0 +1,92 @@
+import type { TemplateId, TemplateStyleTokens } from "./resumeSchema";
+import { normalizeTemplateId } from "./resumeSchema";
+
+export const TEMPLATES: Record<TemplateId, TemplateStyleTokens> = {
+  "blue-clean": {
+    id: "blue-clean",
+    name: "Blue Clean",
+    description: "Blue & white clean professional layout",
+    sourcePdf: "Blue and White Clean and Professional Resume (1).pdf",
+    fontFamily: "system-ui, -apple-system, sans-serif",
+    headingFontFamily: "system-ui, -apple-system, sans-serif",
+    accentColor: "#1d4ed8",
+    textColor: "#1e293b",
+    mutedColor: "#64748b",
+    headingSize: "1.625rem",
+    bodySize: "0.875rem",
+    sectionSpacing: "1.25rem",
+    bulletStyle: "disc",
+    layout: "left",
+  },
+  "tech-pro": {
+    id: "tech-pro",
+    name: "Tech Pro",
+    description: "White & black tech professional style",
+    sourcePdf: "White and Black Tech Professional Resume (1).pdf",
+    fontFamily: "'Segoe UI', system-ui, sans-serif",
+    headingFontFamily: "'Segoe UI', system-ui, sans-serif",
+    accentColor: "#0f172a",
+    textColor: "#0f172a",
+    mutedColor: "#475569",
+    headingSize: "1.75rem",
+    bodySize: "0.875rem",
+    sectionSpacing: "1.125rem",
+    bulletStyle: "disc",
+    layout: "left",
+  },
+  "ats-friendly": {
+    id: "ats-friendly",
+    name: "ATS Friendly",
+    description: "Black & white ATS-optimized structure",
+    sourcePdf: "Black and White Professional ATS Friendly Resume.pdf",
+    fontFamily: "Arial, Helvetica, sans-serif",
+    headingFontFamily: "Arial, Helvetica, sans-serif",
+    accentColor: "#000000",
+    textColor: "#1a1a1a",
+    mutedColor: "#333333",
+    headingSize: "1.375rem",
+    bodySize: "0.875rem",
+    sectionSpacing: "1rem",
+    bulletStyle: "disc",
+    layout: "ats",
+  },
+  "modern-bw": {
+    id: "modern-bw",
+    name: "Modern BW",
+    description: "Black & white modern professional",
+    sourcePdf: "Black and White Modern Professional Resume (1).pdf",
+    fontFamily: "system-ui, -apple-system, sans-serif",
+    headingFontFamily: "system-ui, -apple-system, sans-serif",
+    accentColor: "#000000",
+    textColor: "#171717",
+    mutedColor: "#525252",
+    headingSize: "1.5rem",
+    bodySize: "0.875rem",
+    sectionSpacing: "1.25rem",
+    bulletStyle: "dash",
+    layout: "centered",
+  },
+  "corporate-minimal": {
+    id: "corporate-minimal",
+    name: "Corporate",
+    description: "White & blue minimalist corporate ATS",
+    sourcePdf: "White and Blue Minimalist Professional Corporate ATS Resume.pdf",
+    fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
+    headingFontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
+    accentColor: "#2563eb",
+    textColor: "#1f2937",
+    mutedColor: "#6b7280",
+    headingSize: "1.375rem",
+    bodySize: "0.8125rem",
+    sectionSpacing: "1.5rem",
+    bulletStyle: "disc",
+    layout: "left",
+  },
+};
+
+export const TEMPLATE_LIST = Object.values(TEMPLATES);
+
+export function getTemplate(id: string): TemplateStyleTokens {
+  const normalized = normalizeTemplateId(id);
+  return TEMPLATES[normalized];
+}

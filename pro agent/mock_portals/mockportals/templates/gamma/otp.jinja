@@ -1,0 +1,5 @@
+{% extends "gamma/base.jinja" %}{% block title %}OTP{% endblock %}{% block body %}
+<h1>One-time password required</h1><p>An OTP was sent to the registered mobile number.</p>
+{% if error %}<p class="err" role="alert">{{ error }}</p>{% endif %}
+<form method="post" action="{{ r.otp }}"><label for="otp">OTP</label> <input id="otp" name="code">
+<button class="button" type="submit">Submit OTP</button></form>{% endblock %}

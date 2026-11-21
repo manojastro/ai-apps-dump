@@ -1,0 +1,105 @@
+{
+  "meta": {
+    "title": "India Job Market Snapshot",
+    "asOf": "2026 Q4",
+    "currency": "INR LPA",
+    "note": "Indicative sample data for demo purposes. Plug in a live jobs API (e.g. Adzuna, Naukri, LinkedIn) for real-time numbers."
+  },
+  "summary": {
+    "totalOpenings": 1248000,
+    "avgSalaryLPA": 11.6,
+    "citiesTracked": 12,
+    "fastestGrowing": "Generative AI / ML Engineering",
+    "remoteShare": 22
+  },
+  "cities": [
+    { "name": "Bengaluru", "openings": 268000, "avgSalaryLPA": 15.2, "growth": 14, "topDomains": ["AI/ML", "Cloud", "Full Stack"] },
+    { "name": "Hyderabad", "openings": 176000, "avgSalaryLPA": 13.4, "growth": 16, "topDomains": ["Cloud", "Data", "Cybersecurity"] },
+    { "name": "Pune", "openings": 132000, "avgSalaryLPA": 11.8, "growth": 11, "topDomains": ["Full Stack", "Embedded", "QA Automation"] },
+    { "name": "Delhi NCR", "openings": 158000, "avgSalaryLPA": 12.6, "growth": 10, "topDomains": ["Product", "Fintech", "Digital Marketing"] },
+    { "name": "Mumbai", "openings": 141000, "avgSalaryLPA": 13.1, "growth": 9, "topDomains": ["Fintech", "Data", "Finance"] },
+    { "name": "Chennai", "openings": 118000, "avgSalaryLPA": 10.9, "growth": 12, "topDomains": ["SaaS", "Cloud", "Automotive Tech"] },
+    { "name": "Kolkata", "openings": 52000, "avgSalaryLPA": 8.4, "growth": 7, "topDomains": ["IT Services", "BFSI", "Analytics"] },
+    { "name": "Ahmedabad", "openings": 47000, "avgSalaryLPA": 8.1, "growth": 9, "topDomains": ["Manufacturing Tech", "Fintech", "Web Dev"] },
+    { "name": "Kochi", "openings": 31000, "avgSalaryLPA": 7.6, "growth": 13, "topDomains": ["IT Services", "Healthtech", "Mobile"] },
+    { "name": "Coimbatore", "openings": 26000, "avgSalaryLPA": 7.2, "growth": 12, "topDomains": ["Embedded", "SaaS", "QA"] },
+    { "name": "Jaipur", "openings": 22000, "avgSalaryLPA": 6.9, "growth": 10, "topDomains": ["Web Dev", "Digital Marketing", "Support"] },
+    { "name": "Remote (India)", "openings": 77000, "avgSalaryLPA": 14.1, "growth": 18, "topDomains": ["Full Stack", "AI/ML", "DevOps"] }
+  ],
+  "domains": [
+    { "name": "Generative AI & ML", "openings": 98000, "avgSalaryLPA": 24.5, "fresherLPA": 8, "experiencedLPA": 38, "growth": 46, "difficulty": 5, "skills": ["Python", "PyTorch", "LLMs", "RAG", "MLOps"], "roles": ["ML Engineer", "AI Engineer", "Applied Scientist"] },
+    { "name": "Cloud & DevOps", "openings": 121000, "avgSalaryLPA": 18.2, "fresherLPA": 6, "experiencedLPA": 30, "growth": 24, "difficulty": 4, "skills": ["AWS/GCP/Azure", "Kubernetes", "Terraform", "CI/CD", "Linux"], "roles": ["DevOps Engineer", "SRE", "Cloud Architect"] },
+    { "name": "Data Science & Analytics", "openings": 112000, "avgSalaryLPA": 15.8, "fresherLPA": 5.5, "experiencedLPA": 28, "growth": 21, "difficulty": 4, "skills": ["SQL", "Python", "Power BI", "Statistics", "Spark"], "roles": ["Data Analyst", "Data Scientist", "Analytics Engineer"] },
+    { "name": "Full Stack Development", "openings": 186000, "avgSalaryLPA": 13.6, "fresherLPA": 5, "experiencedLPA": 26, "growth": 15, "difficulty": 3, "skills": ["React", "Node.js", "TypeScript", "REST APIs", "SQL"], "roles": ["Full Stack Developer", "Frontend Engineer", "Backend Engineer"] },
+    { "name": "Cybersecurity", "openings": 64000, "avgSalaryLPA": 17.4, "fresherLPA": 5.5, "experiencedLPA": 32, "growth": 28, "difficulty": 4, "skills": ["Network Security", "SIEM", "Cloud Security", "Pen Testing", "IAM"], "roles": ["SOC Analyst", "Security Engineer", "Pen Tester"] },
+    { "name": "Data Engineering", "openings": 72000, "avgSalaryLPA": 19.1, "fresherLPA": 6.5, "experiencedLPA": 33, "growth": 26, "difficulty": 4, "skills": ["SQL", "Spark", "Airflow", "dbt", "Snowflake/BigQuery"], "roles": ["Data Engineer", "Big Data Engineer", "ETL Developer"] },
+    { "name": "Product Management", "openings": 38000, "avgSalaryLPA": 26.8, "fresherLPA": 10, "experiencedLPA": 45, "growth": 12, "difficulty": 4, "skills": ["Product Strategy", "Analytics", "User Research", "Roadmapping", "SQL"], "roles": ["Associate PM", "Product Manager", "Group PM"] },
+    { "name": "QA & Test Automation", "openings": 89000, "avgSalaryLPA": 9.8, "fresherLPA": 4, "experiencedLPA": 18, "growth": 9, "difficulty": 2, "skills": ["Selenium", "Playwright", "API Testing", "Java/Python", "CI"], "roles": ["QA Engineer", "SDET", "Automation Tester"] },
+    { "name": "Mobile Development", "openings": 54000, "avgSalaryLPA": 13.2, "fresherLPA": 5, "experiencedLPA": 25, "growth": 11, "difficulty": 3, "skills": ["Kotlin", "Swift", "Flutter", "React Native", "Firebase"], "roles": ["Android Developer", "iOS Developer", "Flutter Developer"] },
+    { "name": "UI/UX Design", "openings": 36000, "avgSalaryLPA": 11.4, "fresherLPA": 4.5, "experiencedLPA": 22, "growth": 13, "difficulty": 2, "skills": ["Figma", "Design Systems", "Prototyping", "User Research", "Accessibility"], "roles": ["UI Designer", "UX Designer", "Product Designer"] },
+    { "name": "Digital Marketing", "openings": 78000, "avgSalaryLPA": 7.6, "fresherLPA": 3.5, "experiencedLPA": 15, "growth": 10, "difficulty": 1, "skills": ["SEO", "Google Ads", "Content", "Analytics", "Social Media"], "roles": ["SEO Specialist", "Performance Marketer", "Content Strategist"] },
+    { "name": "Blockchain & Web3", "openings": 9000, "avgSalaryLPA": 21.0, "fresherLPA": 7, "experiencedLPA": 36, "growth": 6, "difficulty": 5, "skills": ["Solidity", "Rust", "Smart Contracts", "Cryptography", "Node.js"], "roles": ["Blockchain Developer", "Smart Contract Auditor"] },
+    { "name": "Embedded & IoT", "openings": 41000, "avgSalaryLPA": 12.1, "fresherLPA": 4.5, "experiencedLPA": 24, "growth": 14, "difficulty": 4, "skills": ["C/C++", "RTOS", "Microcontrollers", "Linux Kernel", "Protocols"], "roles": ["Embedded Engineer", "Firmware Engineer", "IoT Developer"] },
+    { "name": "Customer Success & Support", "openings": 104000, "avgSalaryLPA": 5.8, "fresherLPA": 3, "experiencedLPA": 12, "growth": 8, "difficulty": 1, "skills": ["Communication", "CRM", "Problem Solving", "SaaS Tools", "Ticketing"], "roles": ["Support Engineer", "Customer Success Manager"] }
+  ],
+  "trendingJobs": [
+    { "role": "AI / LLM Engineer", "growth": 52, "openings": 41000, "avgSalaryLPA": 26 },
+    { "role": "MLOps Engineer", "growth": 38, "openings": 14000, "avgSalaryLPA": 22 },
+    { "role": "Cloud Security Engineer", "growth": 34, "openings": 12000, "avgSalaryLPA": 21 },
+    { "role": "Data Engineer", "growth": 26, "openings": 52000, "avgSalaryLPA": 18 },
+    { "role": "Site Reliability Engineer", "growth": 24, "openings": 23000, "avgSalaryLPA": 20 },
+    { "role": "Prompt / AI Product Specialist", "growth": 31, "openings": 8000, "avgSalaryLPA": 15 },
+    { "role": "Full Stack (TypeScript)", "growth": 17, "openings": 74000, "avgSalaryLPA": 14 },
+    { "role": "SOC Analyst", "growth": 22, "openings": 19000, "avgSalaryLPA": 9 },
+    { "role": "Analytics Engineer (dbt)", "growth": 29, "openings": 9000, "avgSalaryLPA": 17 },
+    { "role": "Product Designer", "growth": 14, "openings": 15000, "avgSalaryLPA": 13 }
+  ],
+  "highPaying": [
+    { "role": "Principal / Staff ML Engineer", "minLPA": 45, "maxLPA": 95 },
+    { "role": "Cloud Solutions Architect", "minLPA": 35, "maxLPA": 70 },
+    { "role": "Group Product Manager", "minLPA": 40, "maxLPA": 80 },
+    { "role": "Engineering Manager", "minLPA": 40, "maxLPA": 75 },
+    { "role": "Security Architect", "minLPA": 32, "maxLPA": 65 },
+    { "role": "Lead Data Scientist", "minLPA": 30, "maxLPA": 60 },
+    { "role": "Blockchain Architect", "minLPA": 30, "maxLPA": 60 },
+    { "role": "Staff Data Engineer", "minLPA": 30, "maxLPA": 55 },
+    { "role": "Senior SRE", "minLPA": 28, "maxLPA": 50 },
+    { "role": "Quant Developer", "minLPA": 35, "maxLPA": 90 }
+  ],
+  "easyEntry": [
+    { "role": "Data Analyst (SQL + Power BI)", "learnMonths": 3, "fresherLPA": 4.5, "openings": 46000 },
+    { "role": "QA / Manual-to-Automation Tester", "learnMonths": 3, "fresherLPA": 4, "openings": 38000 },
+    { "role": "Frontend Developer (React)", "learnMonths": 4, "fresherLPA": 4.5, "openings": 61000 },
+    { "role": "Digital Marketing / SEO", "learnMonths": 2, "fresherLPA": 3.5, "openings": 42000 },
+    { "role": "Technical Support Engineer", "learnMonths": 1, "fresherLPA": 3.2, "openings": 57000 },
+    { "role": "UI Designer (Figma)", "learnMonths": 3, "fresherLPA": 4, "openings": 14000 },
+    { "role": "SOC Analyst (L1)", "learnMonths": 4, "fresherLPA": 4.2, "openings": 11000 },
+    { "role": "Business Analyst", "learnMonths": 3, "fresherLPA": 5, "openings": 26000 },
+    { "role": "Cloud Support Associate", "learnMonths": 3, "fresherLPA": 4.5, "openings": 18000 },
+    { "role": "Salesforce Admin", "learnMonths": 3, "fresherLPA": 4.8, "openings": 12000 }
+  ],
+  "freshers": [
+    { "role": "Full Stack Developer", "openings": 58000, "avgLPA": 5.2 },
+    { "role": "Data Analyst", "openings": 46000, "avgLPA": 4.8 },
+    { "role": "QA Automation Engineer", "openings": 34000, "avgLPA": 4.2 },
+    { "role": "Cloud Support / DevOps Associate", "openings": 22000, "avgLPA": 5.5 },
+    { "role": "Junior ML / AI Engineer", "openings": 18000, "avgLPA": 7.5 },
+    { "role": "Android / Flutter Developer", "openings": 16000, "avgLPA": 4.8 },
+    { "role": "SOC Analyst L1", "openings": 11000, "avgLPA": 4.2 },
+    { "role": "Business Analyst", "openings": 21000, "avgLPA": 5.0 },
+    { "role": "Technical Support Engineer", "openings": 52000, "avgLPA": 3.2 },
+    { "role": "Digital Marketing Executive", "openings": 30000, "avgLPA": 3.4 }
+  ],
+  "experienced": [
+    { "role": "Senior ML / GenAI Engineer", "openings": 23000, "avgLPA": 34 },
+    { "role": "Senior DevOps / SRE", "openings": 31000, "avgLPA": 27 },
+    { "role": "Senior Data Engineer", "openings": 27000, "avgLPA": 29 },
+    { "role": "Solutions Architect", "openings": 14000, "avgLPA": 42 },
+    { "role": "Senior Full Stack Engineer", "openings": 48000, "avgLPA": 24 },
+    { "role": "Product Manager", "openings": 16000, "avgLPA": 32 },
+    { "role": "Security Engineer", "openings": 15000, "avgLPA": 28 },
+    { "role": "Engineering Manager", "openings": 9000, "avgLPA": 52 },
+    { "role": "Lead Data Scientist", "openings": 11000, "avgLPA": 38 },
+    { "role": "SDET Lead", "openings": 12000, "avgLPA": 19 }
+  ]
+}

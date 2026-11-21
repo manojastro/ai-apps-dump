@@ -1,0 +1,254 @@
+{
+  "title": "2026 Forward-Deployed Engineer job-market brief",
+  "access_date": "2026-09-15",
+  "census_observed": "2026-09-12",
+  "census_source": {
+    "name": "Plank FDE job-market census",
+    "license": "CC BY 4.0",
+    "n": 1333
+  },
+  "sample_sizes": {
+    "census_rows": 1333,
+    "official_ats_jds_read_in_full": 24,
+    "additional_india_board_jds_with_substantial_text": 12,
+    "total_unique_jds_qualification_sections_read": 36,
+    "census_india_location_rows": 29
+  },
+  "census": {
+    "unique_companies": 565,
+    "unique_titles": 672,
+    "exact_title_forward_deployed_engineer": 319,
+    "regions": {
+      "United States": 728,
+      "Other / unspecified": 198,
+      "UK & Europe": 198,
+      "Asia-Pacific": 94,
+      "Remote": 50,
+      "Canada": 25,
+      "Latin America": 24,
+      "Middle East": 16
+    },
+    "seniority": {
+      "Mid-level / unspecified": 935,
+      "Senior": 195,
+      "Leadership": 85,
+      "Early career": 61,
+      "Staff / Principal": 57
+    },
+    "top_verticals": {
+      "Enterprise software": 741,
+      "Data & AI platforms": 164,
+      "Defense & data platforms": 108,
+      "Foundation models": 59
+    },
+    "named_company_counts": {
+      "Databricks": 121,
+      "Palantir": 75,
+      "Salesforce": 26,
+      "Airkit_Salesforce": 2,
+      "OpenAI": 21,
+      "OpenAI_Deployment_Company": 5,
+      "Cohere": 20,
+      "Scale_AI": 10,
+      "Mistral_AI": 10,
+      "Anthropic": 7,
+      "Microsoft": 6,
+      "Google": 4,
+      "Amazon_AWS_Data_Services": 2,
+      "Amazon_AWS_ProServe": 1
+    },
+    "named_company_india_rows": {
+      "Databricks": 4,
+      "Palantir": 0,
+      "Salesforce": 0,
+      "OpenAI": 0,
+      "Anthropic": 0,
+      "Cohere": 0,
+      "Mistral_AI": 0,
+      "Scale_AI": 1,
+      "Microsoft_in_census": 0,
+      "Google": 0,
+      "Amazon": 0
+    },
+    "india_city_counts_from_location_string": {
+      "Bangalore_Bengaluru": 14,
+      "India_remote_or_unspecified": 12,
+      "Hyderabad": 2,
+      "Chennai": 1,
+      "Gurugram": 1,
+      "Pune": 0,
+      "Noida": 0,
+      "Mumbai": 0,
+      "Kochi": 0,
+      "Coimbatore": 0
+    },
+    "salary": {
+      "rows_with_numeric_band": 388,
+      "india_rows_with_salary": 0,
+      "us_n": 319,
+      "us_median_band_midpoint_usd": 196000,
+      "us_p10_mid_usd": 148250,
+      "us_p90_mid_usd": 266000,
+      "note": "Currency unlabeled in JSON; US-region bands treated as USD. Latin America [5000, 6500] excluded from typical USD interpretation."
+    }
+  },
+  "posted_compensation_verified": [
+    {
+      "company": "Palantir",
+      "role": "Forward Deployed Software Engineer",
+      "location": "New York / Washington DC",
+      "base_usd": [135000, 200000],
+      "url": "https://jobs.lever.co/palantir/dab396d4-2f14-4796-aac0-0d82883dccf0"
+    },
+    {
+      "company": "OpenAI",
+      "role": "Forward Deployed Engineer (FDE) - NYC",
+      "location": "New York City",
+      "base_usd": [185000, 300000],
+      "equity": true,
+      "url": "https://jobs.ashbyhq.com/openai/9471b38b-f65c-4a01-9626-bd33fca90f1d"
+    },
+    {
+      "company": "Anthropic",
+      "role": "Forward Deployed Engineer",
+      "location": "NYC / SF / Seattle",
+      "base_usd": [280000, 320000],
+      "url": "https://job-boards.greenhouse.io/anthropic/jobs/5302966008"
+    },
+    {
+      "company": "Cohere",
+      "role": "Forward Deployed Engineer, Agentic Platform",
+      "location": "US CA/NY/WA",
+      "base_usd": [140000, 325000],
+      "url": "https://jobs.ashbyhq.com/cohere/b0bcef37-1d20-414f-aade-c54942d63df9"
+    },
+    {
+      "company": "Microsoft",
+      "role": "Forward Deployed Engineer (FDE) IC3",
+      "location": "Mountain View / US",
+      "base_usd": [100600, 199000],
+      "sf_nyc_base_usd": [131400, 215400],
+      "status": "posting closed; mirrored",
+      "url": "https://jobs.anitab.org/companies/microsoft/jobs/59269026-forward-deployed-engineer-fde"
+    },
+    {
+      "company": "Cartesia",
+      "role": "Forward Deployed Engineer (India)",
+      "location": "Bangalore",
+      "base_inr": [7000000, 9000000],
+      "equity": true,
+      "url": "https://jobs.ashbyhq.com/cartesia/6d860f5a-b9d9-4df2-b5e5-b12ac80632a4"
+    }
+  ],
+  "mint_1_55_crore_claim": {
+    "verified_as_published": true,
+    "treat_as_typical": false,
+    "article": {
+      "title": "Plenty of coders, few AI implementers: Why Forward Deployed Engineers can earn up to ₹1.55 crore in India",
+      "org": "Mint",
+      "author": "Arshdeep Kaur",
+      "date": "2026-09-15",
+      "url": "https://www.livemint.com/ai/artificial-intelligence/plenty-of-coders-few-deployers-india-s-ai-skill-gap-sparks-rs-1-55-crore-salary-boom-11789442981155.html"
+    },
+    "attributed_to": "FDE Academy, The Forward Deployed Engineer Talent Landscape in India",
+    "study_indicative_medians_inr": {
+      "0_3_years": 3200000,
+      "4_8_years": 5500000,
+      "9_15_years": 8800000,
+      "above_15_years": 15500000
+    },
+    "primary_study_pdf_located": false
+  },
+  "skill_frequency": {
+    "denominator": 24,
+    "denominator_definition": "Full-text official/ATS JDs coded 2026-09-15; Augrade BIM role excluded; India-board snippets not in this table",
+    "required_counts": {
+      "customer_facing_or_travel": 22,
+      "python": 16,
+      "cloud_aws_azure_gcp": 12,
+      "agents_agentic_mcp": 11,
+      "llm_genai": 11,
+      "backend_apis": 11,
+      "typescript_or_javascript": 10,
+      "rag": 7,
+      "evals": 7,
+      "security_compliance_clearance": 6,
+      "cicd": 6,
+      "docker_containers": 5,
+      "sql": 5,
+      "java": 5,
+      "frontend_or_fullstack": 5,
+      "prompt_engineering": 5,
+      "kubernetes": 3,
+      "spark_or_databricks_internals": 3,
+      "fine_tuning": 3,
+      "langchain_dspy_hf": 3,
+      "vector_db": 3,
+      "mlops_llmops": 3,
+      "cpp": 3,
+      "scala": 2,
+      "go": 0
+    }
+  },
+  "india_vs_global": {
+    "census_india_share": 0.022,
+    "frontier_labs_india_fde_in_census": 0,
+    "palantir_india_fde_in_census": 0,
+    "microsoft_bangalore_fde_found_outside_census": true,
+    "microsoft_bangalore_job_id": "200029969",
+    "naukri_fde_index_snippet": {
+      "listed_vacancies": 180,
+      "bengaluru": 83,
+      "hyderabad": 36,
+      "chennai": 29,
+      "delhi_ncr": 26,
+      "html_page_accessible": false,
+      "treat_as": "board-index upper bound, not audited FDE headcount"
+    },
+    "kochi_coimbatore_verified_postings": 0
+  },
+  "jd_read_in_full": [
+    "Palantir FDSE New York",
+    "Palantir FDSE US Government Washington DC",
+    "OpenAI FDE NYC",
+    "Anthropic FDE NYC/SF/Seattle",
+    "Databricks FDE Remote India",
+    "Databricks AI Engineer FDE Remote India",
+    "Databricks Senior FDE Bengaluru",
+    "Scale AI FDE Gen AI India",
+    "Cohere FDE Agentic Platform US",
+    "Mistral Applied AI FDE Palo Alto",
+    "Microsoft FDE US job 1876152 (closed, mirrored)",
+    "Cartesia FDE India Bangalore",
+    "DevRev FDE Bangalore",
+    "MongoDB Staff FDE Gurugram",
+    "HackerRank FDE Bengaluru",
+    "Emergent FDE Bangalore",
+    "Nanonets FDE Bengaluru",
+    "Handshake FDE I India",
+    "LiveKit FDE India Remote",
+    "Blitzy FDE India HQ / Pune",
+    "Kognitos FDE Bengaluru",
+    "Reltio Staff FDE Bangalore",
+    "Arcesium FDE Bengaluru/Hyderabad",
+    "Redwood Forward Deployed Senior SWE Hyderabad"
+  ],
+  "could_not_verify": [
+    "Salesforce FDE JD body (JS careers page)",
+    "Live Google Careers FDE posting (US URLs 404)",
+    "AWS amazon.jobs FDE JD body",
+    "Palantir/OpenAI/Anthropic/Cohere/Mistral India FDE postings",
+    "Naukri HTML (Akamai 403) and Cutshort inventory",
+    "FDE Academy study microdata behind Mint table",
+    "Typical India FDE salary (secondary sources conflict; only Cartesia ATS range verified)",
+    "Census salary currency for non-US rows"
+  ],
+  "role_comparison_one_liners": {
+    "FDE": "Customer-embedded production engineer; one customer, many capabilities; writes code; measured on adoption/outcome.",
+    "SWE": "Product engineer; one capability, many customers; long-lived shared codebase.",
+    "SE": "Pre-sales technical win; demos/PoCs; not usually production owner.",
+    "SA": "Architecture and design authority; often does not stay to implement.",
+    "CE": "Vendor platform adoption specialist; historically lighter build than FDE.",
+    "Implementation_consultant": "SOW/config delivery; SI 'FDE' titles in India often this with an AI toolchain."
+  }
+}

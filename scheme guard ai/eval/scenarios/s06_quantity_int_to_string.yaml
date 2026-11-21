@@ -1,0 +1,26 @@
+# Hand-labelled golden scenario. Expectations derive from reading the SQL and dashboards.yaml.
+id: s06_quantity_int_to_string
+description: orders.quantity int -> string; sum() in daily_revenue breaks
+topic: orders.v1
+mutations:
+- op: change_type
+  field: quantity
+  type: string
+expected:
+  change_class: breaking
+  route: approval
+  impacted:
+  - column:mart.daily_revenue.items_sold
+  - column:mart.fct_orders.quantity
+  - column:stg.stg_orders.quantity
+  - dashboard:Sales Overview
+  - visual:Sales Overview/Items Sold by Day
+  verdicts:
+    column:stg.stg_orders.quantity: degraded
+    column:mart.fct_orders.quantity: degraded
+    column:mart.daily_revenue.items_sold: breaking
+    visual:Sales Overview/Items Sold by Day: breaking
+    dashboard:Sales Overview: breaking
+  fix_should_pass: true
+  failing_tables:
+  - mart.daily_revenue

@@ -1,0 +1,3 @@
+data/sources/*.txt -text
+data/processed/*.txt -text
+*.jsonl text eol=lf

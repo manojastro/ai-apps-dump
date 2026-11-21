@@ -1,0 +1,65 @@
+name: deploy
+
+# Manual only. The `production` environment must be configured in the repo settings with required
+# reviewers, so every run waits for a human approval before touching Azure.
+on:
+  workflow_dispatch:
+    inputs:
+      resource_group:
+        description: Azure resource group (must already exist)
+        required: true
+      image_tag:
+        description: Image tag to build and deploy
+        required: true
+        default: manual
+
+permissions:
+  id-token: write   # OIDC federated login, no stored Azure secrets
+  contents: read
+
+concurrency:
+  group: deploy-${{ inputs.resource_group }}
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Azure login (OIDC)
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Validate Bicep
+        run: az bicep build --file infra/bicep/main.bicep --stdout > /dev/null
+
+      - name: Deploy infrastructure
+        id: infra
+        run: |
+          out=$(az deployment group create \
+            --resource-group "${{ inputs.resource_group }}" \
+            --template-file infra/bicep/main.bicep \
+            --parameters infra/bicep/main.parameters.json \
+            --parameters imageTag="${{ inputs.image_tag }}" postgresAdminPassword="${{ secrets.POSTGRES_ADMIN_PASSWORD }}" \
+            --query properties.outputs -o json)
+          echo "acr=$(echo "$out" | jq -r .registryLoginServer.value)" >> "$GITHUB_OUTPUT"
+
+      - name: Build and push images (ACR build, no local Docker daemon needed)
+        run: |
+          for target in api worker; do
+            az acr build --registry "${{ steps.infra.outputs.acr }}" \
+              --image "schemaguard-${target}:${{ inputs.image_tag }}" --target "$target" .
+          done
+
+      - name: Roll container apps to the new image
+        run: |
+          for target in api worker; do
+            az containerapp update -g "${{ inputs.resource_group }}" -n "schemaguard-${target}" \
+              --image "${{ steps.infra.outputs.acr }}/schemaguard-${target}:${{ inputs.image_tag }}"
+          done

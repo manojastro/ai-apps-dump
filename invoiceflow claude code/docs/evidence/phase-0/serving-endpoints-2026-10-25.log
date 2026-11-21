@@ -1,0 +1,22 @@
+# Databricks serving endpoints available in the InvoiceFlow Free Edition workspace
+# date: 2026-10-25 11:25:15 +05:30
+# command: databricks serving-endpoints list --profile invoiceflow -o json
+# cli: Databricks CLI v1.22.1
+# Sanitized: workspace host omitted; only name, task, state and served model kept. Listed as READY; not yet queried.
+
+endpoint                               task              state model                       entity
+--------                               ----              ----- -----                       ------
+databricks-deepseek-v4-flash-0731      llm/v1/chat       READY DeepSeek V4 Flash (0731)    system.ai.databricks-deepseek-v4-flash-0731
+databricks-gemma-3-12b                 llm/v1/chat       READY Gemma 3 12B                 system.ai.gemma-3-12b-it
+databricks-gpt-oss-120b                llm/v1/chat       READY GPT OSS 120B                system.ai.gpt-oss-120b
+databricks-gpt-oss-20b                 llm/v1/chat       READY GPT OSS 20B                 system.ai.gpt-oss-20b
+databricks-llama-4-maverick            llm/v1/chat       READY Llama 4 Maverick            system.ai.llama-4-maverick
+databricks-meta-llama-3-1-8b-instruct  llm/v1/chat       READY Meta Llama 3.1 8B Instruct  system.ai.meta_llama_v3_1_8b_instruct
+databricks-meta-llama-3-3-70b-instruct llm/v1/chat       READY Meta Llama 3.3 70B Instruct system.ai.llama_v3_3_70b_instruct
+databricks-qwen3-next-80b-a3b-instruct llm/v1/chat       READY Qwen3 Next Instruct         system.ai.qwen3-next-80b-a3b-instruct
+databricks-qwen35-122b-a10b            llm/v1/chat       READY Qwen3.5 122B A10B           system.ai.databricks-qwen35-122b-a10b
+databricks-bge-large-en                llm/v1/embeddings READY BGE Large (En)              system.ai.bge_large_en_v1_5
+databricks-gte-large-en                llm/v1/embeddings READY GTE Large (En)              system.ai.gte_large_en_v1_5
+databricks-qwen3-embedding-0-6b        llm/v1/embeddings READY Qwen3 Embedding 0.6B        system.ai.qwen3-embedding-0-6b
+
+# total: 12 (chat: 9, embeddings: 3)

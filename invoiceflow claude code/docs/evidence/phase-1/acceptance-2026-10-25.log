@@ -1,0 +1,98 @@
+# Phase 1 acceptance run (unit, policy, coverage, data, baseline; integration tests need Docker and are logged separately)
+# date: 2026-10-25 12:22:45 +05:30
+# commit: f62cf05 on branch phase/1-data-core; clean: True
+
+## $ uv sync --locked
+Resolved 39 packages in 3ms
+Checked 39 packages in 8ms
+## exit code: 0
+
+## $ uv run ruff check .
+All checks passed!
+## exit code: 0
+
+## $ uv run ruff format --check .
+86 files already formatted
+## exit code: 0
+
+## $ uv run mypy
+Success: no issues found in 65 source files
+## exit code: 0
+
+## $ uv run pytest --color=no -q
+........................................................................ [ 29%]
+........................................................................ [ 58%]
+........................................................................ [ 87%]
+..............................                                           [100%]
+246 passed, 5 deselected in 21.78s
+## exit code: 0
+
+## $ uv run pytest --color=no -q --cov=invoiceflow.core --cov=invoiceflow.policy --cov-report=term --cov-fail-under=90
+........................................................................ [ 29%]
+........................................................................ [ 58%]
+........................................................................ [ 87%]
+..............................                                           [100%]
+=============================== tests coverage ================================
+______________ coverage: platform win32, python 3.12.13-final-0 _______________
+
+Name                                  Stmts   Miss Branch BrPart  Cover   Missing
+---------------------------------------------------------------------------------
+src\invoiceflow\core\duplicates.py       20      0      8      0   100%
+src\invoiceflow\core\findings.py         29      0      0      0   100%
+src\invoiceflow\core\gst.py              42      0     14      0   100%
+src\invoiceflow\core\gst_states.py        1      0      0      0   100%
+src\invoiceflow\core\gstin.py            43      0     14      0   100%
+src\invoiceflow\core\matcher.py          69      2     32      2    96%   56, 119
+src\invoiceflow\core\money.py            26      0      8      1    97%   37->39
+src\invoiceflow\core\tolerance.py        23      1      4      1    93%   32
+src\invoiceflow\policy\evaluator.py      76      0     32      0   100%
+src\invoiceflow\policy\matrix.py        100      2     24      2    97%   87, 116
+src\invoiceflow\policy\models.py         41      0      0      0   100%
+---------------------------------------------------------------------------------
+TOTAL                                   470      5    136      6    98%
+
+2 empty files skipped.
+Required test coverage of 90% reached. Total coverage: 98.18%
+246 passed, 5 deselected in 35.05s
+## exit code: 0
+
+## $ uv run invoiceflow data generate --out SCRATCH/gen --contracts SCRATCH/contracts --samples SCRATCH/samples
+dataset d82a2336ce47af65 (seed 20261025): vendors 30, purchase_orders 200, goods_receipts 276, invoices 325, ground_truth 325, contracts 6
+wrote SCRATCH\gen, SCRATCH\contracts, SCRATCH\samples
+## exit code: 0
+
+## $ uv run invoiceflow baseline --split dev --report SCRATCH/report.md --evidence SCRATCH/evidence.json
+baseline on 196 dev invoices (memory): exception 99.0%, action 96.9%, approver 99.0%, policy denials 0
+wrote SCRATCH\report.md and SCRATCH\evidence.json
+## exit code: 0
+
+## $ uv run invoiceflow baseline --split eval
+error: the held-out eval split is locked until Phase 5
+## exit code: 2
+
+## $ uv run pre-commit run --all-files --color never
+trim trailing whitespace.................................................Passed
+fix end of files.........................................................Passed
+mixed line ending........................................................Passed
+check yaml...............................................................Passed
+check toml...............................................................Passed
+check for merge conflicts................................................Passed
+check for added large files..............................................Passed
+detect private key.......................................................Passed
+ruff check...............................................................Passed
+ruff format..............................................................Passed
+Detect hardcoded secrets.................................................Passed
+mypy (strict, project environment).......................................Passed
+Forbid committing .env files.........................(no files to check)Skipped
+## exit code: 0
+
+# Mutation checks: each deliberate break must make its tests fail. Files are restored with git checkout.
+caught   drop the final % 36 in the GSTIN check character  (tests/unit/core/test_gstin.py)
+caught   make the Rs 5,000 limit exclusive  (tests/unit/core/test_tolerance.py)
+caught   make the 7-day window exclusive  (tests/unit/core/test_duplicates.py)
+caught   treat the PO validity date as expired  (tests/unit/core/test_matcher.py)
+caught   skip the bank-change check  (tests/unit/core/test_matcher.py)
+caught   remove segregation of duties  (tests/policy)
+caught   let APPROVE ignore the price tolerance  (tests/policy)
+caught   let the agent and auditors approve  (tests/policy)
+# tree clean after mutation checks: True

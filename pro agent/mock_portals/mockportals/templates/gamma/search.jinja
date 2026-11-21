@@ -1,0 +1,8 @@
+{% extends "gamma/base.jinja" %}{% block title %}Product finder{% endblock %}{% block body %}
+<h1>Product finder</h1>
+<form role="search" method="get" action="{{ r.search }}"><label for="kw">Keyword</label> <input id="kw" name="keyword" value="{{ query }}">
+<button class="button" type="submit">Find</button></form>
+{% if malicious %}{% include "_malicious.jinja" %}{% endif %}
+{% if query %}<ol class="hits">
+{% for p in items %}<li><a href="{{ r.product.replace('{sku}', p.sku) }}">{{ p.name }}</a> &mdash; part no. {{ p.sku }} &mdash; rate INR {{ p.unit_price|inr }} ex-tax</li>
+{% else %}<li>No matching parts.</li>{% endfor %}</ol>{% endif %}{% endblock %}

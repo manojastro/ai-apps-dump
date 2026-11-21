@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Join Support Session — Helpdesk Anywhere</title>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 2rem; max-width: 640px; }
+    #code { font-size: 2.5rem; font-weight: 700; letter-spacing: 0.4rem; }
+    #dl { display: inline-block; font-size: 1.25rem; padding: 0.75rem 1.5rem;
+      background: #0b5fff; color: #fff; text-decoration: none; border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Join your support session</h1>
+    <p>Your session code:</p>
+    <div id="code" aria-live="polite">------</div>
+    <p><a id="dl" href="/download/HelpdeskAnywhere.exe">Download</a></p>
+    <ol>
+      <li>Click <strong>Download</strong> above to get <code>HelpdeskAnywhere.exe</code>.</li>
+      <li>Open the downloaded file. If Windows shows SmartScreen, click <strong>More info → Run anyway</strong>.</li>
+      <li>When the app opens, type code <strong id="code2">######</strong> exactly as shown.</li>
+      <li>Click <strong>Accept</strong> when asked to allow viewing and control.</li>
+    </ol>
+    <p id="note">Keep this page open until your agent connects. You can end the session at any time from the red indicator.</p>
+  </main>
+  <script>
+    (() => {
+      const parts = location.pathname.split("/").filter(Boolean);
+      // /j/482913 -> last segment
+      const code = (parts[parts.length - 1] || "").slice(0, 6);
+      const ok = /^[0-9]{6}$/.test(code);
+      document.getElementById("code").textContent = ok ? code : "------";
+      document.getElementById("code2").textContent = ok ? code : "######";
+      if (!ok) {
+        document.getElementById("note").textContent =
+          "That link looks incomplete. Ask your agent for a fresh 6-digit code link.";
+      }
+    })();
+  </script>
+</body>
+</html>

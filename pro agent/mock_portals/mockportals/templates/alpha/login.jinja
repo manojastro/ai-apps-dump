@@ -1,0 +1,8 @@
+{% extends "alpha/base.jinja" %}{% block title %}Sign in{% endblock %}{% block body %}
+<h1>Buyer sign in</h1>
+{% if notice %}<p class="notice" role="status">{{ notice }}</p>{% endif %}
+{% if error %}<p class="error" role="alert">{{ error }}</p>{% endif %}
+<form method="post" action="{{ r.login }}">
+<p><label for="username">Username</label><br><input id="username" name="username" autocomplete="username"></p>
+<p><label for="password">Password</label><br><input id="password" name="password" type="password" autocomplete="current-password"></p>
+<button class="btn" type="submit">Sign in</button></form>{% endblock %}

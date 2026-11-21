@@ -1,0 +1,15 @@
+.git
+.venv
+.schemaguard
+.sandbox
+.env
+**/__pycache__
+.pytest_cache
+.mypy_cache
+.ruff_cache
+demo_pipeline/data
+**/*.duckdb
+eval/results
+infra
+docs
+tests

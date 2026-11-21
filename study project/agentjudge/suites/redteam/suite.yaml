@@ -1,0 +1,4 @@
+# P5 red-team suite placeholder (prompt-injection, data-exfiltration cases).
+suites:
+  - prompt_injection
+  - data_exfiltration

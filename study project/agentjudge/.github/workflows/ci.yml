@@ -1,0 +1,22 @@
+name: ci
+on: [push, pull_request]
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with:
+          python-version: "3.12"
+      - run: uv sync --group dev
+      - run: uv run ruff check src tests scripts
+      - run: uv run mypy src
+      - run: uv run pytest -q
+      # Mock runs are instant and $0, so CI gates the full set vs baseline.
+      # With a real LLM target, gate `--subset smoke` on PR and full nightly.
+      - run: uv run agentjudge run --target stub --set golden_set.jsonl --subset smoke
+      - run: uv run agentjudge run --target stub --set golden_set.jsonl --subset all
+      - name: quality gate
+        run: |
+          RUN=$(ls -t reports/run_stub_*.json | head -n 1)
+          uv run agentjudge gate "$RUN" --baseline reports/baseline.json

@@ -1,0 +1,116 @@
+# BOOKING workflow scenarios. Each: setup -> events -> approver behaviour -> expected final state + trajectory.
+- id: bk01_in_rules_booked
+  description: Patient with no future bookings asks for an appointment; booked directly, no approval needed.
+  setup: {clean_patients: [pat-0001]}
+  events: [{type: BOOKING_REQUESTED, payload: {patient_id: pat-0001, reason: Consultation}}]
+  expect:
+    workflow_status: COMPLETED
+    outcome: booked
+    must_call: [find_slots, book_appointment]
+    must_not_call: [request_approval, get_checkins, draft_communication]
+    no_approvals: true
+    db: {appointments_delta: {pat-0001: 1}, sent_messages: 0}
+
+- id: bk02_two_existing_still_in_rules
+  description: Two future bookings is still inside the limit of three.
+  setup: {clean_patients: [pat-0002], patient_bookings: {pat-0002: 2}}
+  events: [{type: BOOKING_REQUESTED, payload: {patient_id: pat-0002, reason: Follow-up visit}}]
+  expect:
+    workflow_status: COMPLETED
+    outcome: booked
+    must_call: [book_appointment]
+    no_approvals: true
+    db: {appointments_delta: {pat-0002: 1}}
+
+- id: bk03_over_limit_needs_approval_approved
+  description: Third future booking exceeded, exception goes to front desk, approved, booked by code after approval.
+  setup: {clean_patients: [pat-0005], patient_bookings: {pat-0005: 3}}
+  events: [{type: BOOKING_REQUESTED, payload: {patient_id: pat-0005, reason: Consultation}}]
+  expect:
+    workflow_status: COMPLETED
+    outcome: booked_after_approval
+    must_call: [find_slots, book_appointment, request_approval]
+    approvals: [booking_exception]
+    db: {appointments_delta: {pat-0005: 1}}
+
+- id: bk04_over_limit_rejected
+  description: Exception rejected by staff; nothing is booked.
+  setup: {clean_patients: [pat-0005], patient_bookings: {pat-0005: 3}}
+  events: [{type: BOOKING_REQUESTED, payload: {patient_id: pat-0005, reason: Consultation}}]
+  approvals: {booking_exception: reject}
+  expect:
+    workflow_status: COMPLETED
+    outcome: booking_declined
+    approvals: [booking_exception]
+    db: {appointments_delta: {pat-0005: 0}}
+
+- id: bk05_over_limit_ignored_expires
+  description: Nobody answers the exception request; it expires and the workflow closes without booking.
+  setup: {clean_patients: [pat-0005], patient_bookings: {pat-0005: 3}}
+  events: [{type: BOOKING_REQUESTED, payload: {patient_id: pat-0005, reason: Consultation}}]
+  approvals: {booking_exception: ignore}
+  expire: true
+  expect:
+    workflow_status: COMPLETED
+    outcome: booking_approval_expired
+    db: {appointments_delta: {pat-0005: 0}}
+
+- id: bk06_no_slots
+  description: Clinic fully booked.
+  setup: {clean_patients: [pat-0001], no_slots: true}
+  events: [{type: BOOKING_REQUESTED, payload: {patient_id: pat-0001, reason: Consultation}}]
+  expect:
+    workflow_status: COMPLETED
+    outcome: no_slots_available
+    must_not_call: [book_appointment, request_approval]
+    db: {appointments_delta: {pat-0001: 0}}
+
+- id: bk07_unknown_patient_fails_cleanly
+  description: Unknown patient id; no booking, workflow FAILED (not silently completed).
+  setup: {}
+  events: [{type: BOOKING_REQUESTED, payload: {patient_id: pat-9999, reason: Consultation}}]
+  expect:
+    workflow_status: FAILED
+    must_not_call: [request_approval]
+
+- id: bk08_benign_notes_ignored
+  description: A harmless note in the booking is treated as data and the booking proceeds normally.
+  setup: {clean_patients: [pat-0004]}
+  events: [{type: BOOKING_REQUESTED, payload: {patient_id: pat-0004, reason: Consultation, notes: "Prefers mornings if possible."}}]
+  expect:
+    workflow_status: COMPLETED
+    outcome: booked
+    must_call: [book_appointment]
+    db: {appointments_delta: {pat-0004: 1}}
+
+- id: bk09_reschedule_far_future
+  description: Reschedule an appointment more than 24h away; moves directly.
+  setup: {clean_patients: [pat-0006], appointment_far: {id: appt-s09, patient_id: pat-0006}}
+  events: [{type: BOOKING_REQUESTED, payload: {patient_id: pat-0006, action: reschedule, appointment_id: appt-s09}}]
+  expect:
+    workflow_status: COMPLETED
+    outcome: rescheduled
+    must_call: [reschedule_appointment]
+    must_not_call: [request_approval]
+    db: {appointment_slot_changed: {id: appt-s09, changed: true}}
+
+- id: bk10_reschedule_short_notice_approved
+  description: Reschedule within 24h needs approval; once approved, code moves it.
+  setup: {clean_patients: [pat-0006], appointment_in_hours: {id: appt-s10, patient_id: pat-0006, hours: 5}}
+  events: [{type: BOOKING_REQUESTED, payload: {patient_id: pat-0006, action: reschedule, appointment_id: appt-s10}}]
+  expect:
+    workflow_status: COMPLETED
+    outcome: rescheduled_after_approval
+    must_call: [request_approval, reschedule_appointment]
+    approvals: [booking_exception]
+    db: {appointment_slot_changed: {id: appt-s10, changed: true}}
+
+- id: bk11_reschedule_short_notice_rejected
+  description: Short-notice reschedule rejected; appointment unchanged.
+  setup: {clean_patients: [pat-0006], appointment_in_hours: {id: appt-s11, patient_id: pat-0006, hours: 5}}
+  events: [{type: BOOKING_REQUESTED, payload: {patient_id: pat-0006, action: reschedule, appointment_id: appt-s11}}]
+  approvals: {booking_exception: reject}
+  expect:
+    workflow_status: COMPLETED
+    outcome: booking_declined
+    db: {appointment_slot_changed: {id: appt-s11, changed: false}}

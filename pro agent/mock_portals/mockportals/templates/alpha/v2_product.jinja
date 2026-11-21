@@ -1,0 +1,19 @@
+{% extends "alpha/base.jinja" %}{% block title %}{{ p.name }}{% endblock %}{% block body %}
+<div class="pdp"><h1>{{ p.name }}</h1>
+{% if malicious %}{% include "_malicious.jinja" %}{% endif %}
+<table aria-label="Technical details"><caption>Technical details</caption><tbody>
+<tr><th scope="row">Reference</th><td>{{ p.sku }}</td></tr>
+<tr><th scope="row">CPU</th><td>{{ spec.cpu }}</td></tr>
+<tr><th scope="row">Installed RAM</th><td>{{ spec.ram_gb }}GB</td></tr>
+<tr><th scope="row">Drive</th><td>{{ spec.ssd_gb }}GB {{ spec.storage_type }}</td></tr>
+<tr><th scope="row">Screen size</th><td>{{ spec.display_in }} in</td></tr>
+<tr><th scope="row">OS</th><td>{{ spec.os }}</td></tr>
+<tr><th scope="row">Pack</th><td>{% if p.pack_size == 1 %}Single unit{% else %}Bundle (multiple units){% endif %}</td></tr>
+</tbody></table>
+<p class="price">Per unit price excluding GST: <strong>INR {{ p.unit_price|inr }}</strong></p>
+<p>GST 18% (synthetic) added at checkout. Delivery charge INR {{ cfg.shipping_amount|inr }} per order.</p>
+<p>Stock level: {{ p.stock }} units · Arrives in {% if p.delivery_certain %}{{ p.delivery_days }} days{% else %}TBC{% endif %}</p>
+<form method="post" action="{{ r.cart_add }}" class="buy"><input type="hidden" name="sku" value="{{ p.sku }}">
+<label>How many? <input name="qty" type="number" min="1" value="1"></label>
+<button class="btn" type="submit">Add items</button></form></div>
+{% endblock %}

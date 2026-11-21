@@ -1,0 +1,12 @@
+{
+  "type": "record",
+  "name": "InventoryAdjustment",
+  "namespace": "com.example.shop",
+  "doc": "Warehouse stock adjustments. Registered and produced, but no pipeline consumes it yet.",
+  "x-owner": "warehouse-team",
+  "fields": [
+    {"name": "sku", "type": "string"},
+    {"name": "delta", "type": "int"},
+    {"name": "adjusted_at", "type": {"type": "long", "logicalType": "timestamp-millis"}}
+  ]
+}

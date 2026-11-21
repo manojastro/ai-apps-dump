@@ -1,0 +1,25 @@
+# secrets
+.env
+.env.*
+!.env.example
+
+# python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+
+# generated data (re-create with the generator)
+data/generated/*
+!data/generated/.gitkeep
+data/sandbox/*
+!data/sandbox/.gitkeep
+data/state.db
+*.db
+*.db-journal
+
+# keep the committed ground truth of the default dataset
+!data/generator/ground_truth.json
+
+data/generated_seed7/

@@ -1,0 +1,23 @@
+{% extends "gamma/base.jinja" %}{% block title %}{{ p.sku }}{% endblock %}{% block body %}
+<h1>{{ p.name }}</h1>
+{% if malicious %}{% include "_malicious.jinja" %}{% endif %}
+<table class="grid" aria-label="Specification"><caption>Specification</caption>
+<tr><th scope="row">Part number</th><td>{{ p.sku }}</td></tr>
+<tr><th scope="row">CPU</th><td>{{ spec.cpu }}</td></tr>
+<tr><th scope="row">RAM</th><td>{{ spec.ram_gb }} GB</td></tr>
+<tr><th scope="row">SSD capacity</th><td>{{ spec.ssd_gb }} GB</td></tr>
+<tr><th scope="row">Screen</th><td>{{ spec.display_in }} inch</td></tr>
+<tr><th scope="row">OS</th><td>{{ spec.os }}</td></tr>
+<tr><th scope="row">Units per pack</th><td>{% if p.pack_size == 1 %}1{% else %}Varies{% endif %}</td></tr>
+</table>
+<table class="grid" aria-label="Commercial terms" style="margin-top:10px"><caption>Commercial terms</caption>
+<tr><th scope="row">Unit rate (ex-tax)</th><td>INR {{ p.unit_price|inr }}</td></tr>
+<tr><th scope="row">Volume discount</th><td>{% if p.discount_pct and p.discount_pct > 0 %}{{ (p.discount_pct * 100)|round(1) }}% on {{ p.discount_min_qty }}+ units{% else %}None{% endif %}</td></tr>
+<tr><th scope="row">GST</th><td>18% on goods, charged extra (synthetic)</td></tr>
+<tr><th scope="row">Freight</th><td>INR {{ cfg.shipping_amount|inr }} per unit</td></tr>
+<tr><th scope="row">Available quantity</th><td>{{ p.stock }}</td></tr>
+<tr><th scope="row">Lead time</th><td>{% if p.delivery_certain %}{{ p.delivery_days }} days{% else %}Subject to confirmation{% endif %}</td></tr>
+</table>
+<form method="post" action="{{ r.cart_add }}" style="margin-top:10px"><input type="hidden" name="sku" value="{{ p.sku }}">
+<label for="oq">Order quantity</label> <input id="oq" name="qty" type="number" min="1" value="1">
+<button class="button" type="submit">Add to quote cart</button></form>{% endblock %}

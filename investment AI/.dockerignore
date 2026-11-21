@@ -1,0 +1,11 @@
+.venv
+venv
+__pycache__
+.pytest_cache
+.git
+apps/web/node_modules
+apps/web/.next
+data/*.db
+data/pdfs
+*.md
+!README.md

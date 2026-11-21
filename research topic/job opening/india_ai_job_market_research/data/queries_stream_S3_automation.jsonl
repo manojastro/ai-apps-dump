@@ -1,0 +1,40 @@
+{"stream": "S3_automation", "query": "WebSearch: Intelligent Automation Engineer jobs India 2026 (parallel batch)", "engine": "WebSearch", "results_reviewed": 0, "relevant": 0, "unique_added": 0}
+{"stream": "S3_automation", "query": "WebSearch: Hyperautomation engineer jobs India Bangalore Hyderabad (parallel batch)", "engine": "WebSearch", "results_reviewed": 0, "relevant": 0, "unique_added": 0}
+{"stream": "S3_automation", "query": "WebSearch: Intelligent Process Automation IPA engineer India hiring (parallel batch)", "engine": "WebSearch", "results_reviewed": 0, "relevant": 0, "unique_added": 0}
+{"stream": "S3_automation", "query": "WebSearch: AI Automation Engineer jobs India 2026 (parallel batch)", "engine": "WebSearch", "results_reviewed": 0, "relevant": 0, "unique_added": 0}
+{"stream": "S3_automation", "query": "WebSearch: Agentic Automation engineer jobs India (parallel batch)", "engine": "WebSearch", "results_reviewed": 0, "relevant": 0, "unique_added": 0}
+{"stream": "S3_automation", "query": "WebSearch: Intelligent Automation Engineer jobs India 2026 (retry)", "engine": "WebSearch", "results_reviewed": 0, "relevant": 0, "unique_added": 0}
+{"stream": "S3_automation", "query": "WebSearch: Intelligent Automation Engineer India (retry)", "engine": "WebSearch", "results_reviewed": 0, "relevant": 0, "unique_added": 0}
+{"stream": "S3_automation", "query": "WebSearch: UiPath developer jobs Bangalore India (retry)", "engine": "WebSearch", "results_reviewed": 0, "relevant": 0, "unique_added": 0}
+{"stream": "S3_automation", "query": "Yahoo: \"intelligent automation engineer\" jobs India", "engine": "WebFetch", "results_reviewed": 8, "relevant": 2, "unique_added": 0}
+{"stream": "S3_automation", "query": "Yahoo: UiPath developer jobs India Bangalore naukri hirist", "engine": "WebFetch", "results_reviewed": 7, "relevant": 4, "unique_added": 0}
+{"stream": "S3_automation", "query": "Yahoo: hyperautomation engineer jobs India hirist naukri", "engine": "WebFetch", "results_reviewed": 7, "relevant": 3, "unique_added": 0}
+{"stream": "S3_automation", "query": "Yahoo: \"automation anywhere\" developer jobs India 2026 hirist cutshort", "engine": "WebFetch", "results_reviewed": 7, "relevant": 4, "unique_added": 0}
+{"stream": "S3_automation", "query": "Yahoo: \"blue prism\" developer jobs India Chennai Hyderabad 2026", "engine": "WebFetch", "results_reviewed": 8, "relevant": 5, "unique_added": 1}
+{"stream": "S3_automation", "query": "Yahoo: power automate developer \"power platform\" jobs India 2026 cutshort hirist", "engine": "WebFetch", "results_reviewed": 8, "relevant": 5, "unique_added": 2}
+{"stream": "S3_automation", "query": "Yahoo: \"intelligent process automation\" OR \"cognitive automation\" engineer jobs India 2026", "engine": "WebFetch", "results_reviewed": 7, "relevant": 0, "unique_added": 0}
+{"stream": "S3_automation", "query": "Yahoo: RPA AI engineer UiPath OR Automation Anywhere vacancy India Pune Chennai 2026", "engine": "WebFetch", "results_reviewed": 7, "relevant": 3, "unique_added": 0}
+{"stream": "S3_automation", "query": "Yahoo: \"power platform\" developer hyderabad OR pune jobs 2026 cutshort wellfound", "engine": "WebFetch", "results_reviewed": 8, "relevant": 4, "unique_added": 1}
+{"stream": "S3_automation", "query": "Yahoo URL extraction: PowerPlatform Developer AI Enablement KPI Partners naukri", "engine": "WebFetch", "results_reviewed": 7, "relevant": 3, "unique_added": 1}
+{"stream": "S3_automation", "query": "Yahoo URL extraction: capgemini careers Power Platform Developer Pune Bangalore Chennai Hyderabad", "engine": "WebFetch", "results_reviewed": 7, "relevant": 5, "unique_added": 1}
+{"stream": "S3_automation", "query": "Yahoo URL extraction: BNP Paribas Blue Prism Developer job offer India Solutions", "engine": "WebFetch", "results_reviewed": 7, "relevant": 4, "unique_added": 1}
+{"stream": "S3_automation", "query": "Yahoo: accenture OR deloitte OR EY intelligent automation OR hyperautomation hiring India 2026", "engine": "WebFetch", "results_reviewed": 7, "relevant": 1, "unique_added": 0}
+{"stream": "S3_automation", "query": "Yahoo: coforge OR hexaware OR UST uipath OR power automate developer jobs India 2026", "engine": "WebFetch", "results_reviewed": 7, "relevant": 1, "unique_added": 0}
+{"stream": "S3_automation", "query": "Yahoo: automation architect uipath OR power platform OR hyperautomation India Bangalore 2026", "engine": "WebFetch", "results_reviewed": 7, "relevant": 1, "unique_added": 0}
+{"stream": "S3_automation", "query": "Yahoo: uipath OR power automate developer jobs Kochi Coimbatore Ahmedabad Jaipur Indore remote India 2026", "engine": "WebFetch", "results_reviewed": 7, "relevant": 1, "unique_added": 0}
+{"stream": "S3_automation", "query": "Indeed fetch: uipath developer Bengaluru fromage=180 sort=date", "engine": "WebFetch", "results_reviewed": 16, "relevant": 13, "unique_added": 12}
+{"stream": "S3_automation", "query": "Indeed fetch: blue prism developer Chennai fromage=180 sort=date", "engine": "WebFetch", "results_reviewed": 4, "relevant": 3, "unique_added": 2}
+{"stream": "S3_automation", "query": "Indeed fetch: power automate developer Pune fromage=180 sort=date", "engine": "WebFetch", "results_reviewed": 17, "relevant": 9, "unique_added": 7}
+{"stream": "S3_automation", "query": "Indeed fetch: intelligent automation engineer Mumbai fromage=180 sort=date", "engine": "WebFetch", "results_reviewed": 16, "relevant": 3, "unique_added": 2}
+{"stream": "S3_automation", "query": "Indeed fetch: rpa developer uipath New Delhi fromage=180 (0 results)", "engine": "WebFetch", "results_reviewed": 0, "relevant": 0, "unique_added": 0}
+{"stream": "S3_automation", "query": "Indeed fetch: rpa developer Noida fromage=180 sort=date", "engine": "WebFetch", "results_reviewed": 15, "relevant": 8, "unique_added": 7}
+{"stream": "S3_automation", "query": "Indeed fetch: uipath developer Hyderabad fromage=180 sort=date", "engine": "WebFetch", "results_reviewed": 16, "relevant": 10, "unique_added": 7}
+{"stream": "S3_automation", "query": "Indeed fetch: rpa developer Kolkata fromage=180 sort=date", "engine": "WebFetch", "results_reviewed": 2, "relevant": 1, "unique_added": 1}
+{"stream": "S3_automation", "query": "Employer ATS fetch: careers.capgemini.com Power Platform Developer 1399452033", "engine": "WebFetch", "results_reviewed": 1, "relevant": 1, "unique_added": 1}
+{"stream": "S3_automation", "query": "Employer fetch: kpipartners.com/careers (culture page; listings JS-gated)", "engine": "WebFetch", "results_reviewed": 1, "relevant": 1, "unique_added": 0}
+{"stream": "S3_automation", "query": "Employer fetch blocked 403: group.bnpparibas blue-prism-developer", "engine": "WebFetch", "results_reviewed": 0, "relevant": 0, "unique_added": 0}
+{"stream": "S3_automation", "query": "Portal fetch blocked 403: foundit.in BNP blue prism detail", "engine": "WebFetch", "results_reviewed": 0, "relevant": 0, "unique_added": 0}
+{"stream": "S3_automation", "query": "Portal fetch empty (bot-block): naukri.com KPI PowerPlatform detail", "engine": "WebFetch", "results_reviewed": 0, "relevant": 0, "unique_added": 0}
+{"stream": "S3_automation", "query": "Aggregator fetch: simplyhired.co.in uipath developer India (256 listings, relative dates)", "engine": "WebFetch", "results_reviewed": 20, "relevant": 14, "unique_added": 9}
+{"stream": "S3_automation", "query": "Probe JS-gated/empty: hirist.tech, cutshort.io, foundit search, naukri search", "engine": "WebFetch", "results_reviewed": 4, "relevant": 0, "unique_added": 0}
+{"stream": "S3_automation", "query": "Probe blocked: jooble 403, careerjet captcha, DDG/Mojeek captcha, talent redirect, bnp/naukri detail", "engine": "WebFetch", "results_reviewed": 6, "relevant": 0, "unique_added": 0}

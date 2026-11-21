@@ -1,0 +1,2997 @@
+{
+  "cases": [
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00001",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_boundary_amount"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00002",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_within_tolerance"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_CLERK",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00003",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_CLERK",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_boundary_pct"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REQUEST_CREDIT_NOTE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "PRICE_VARIANCE",
+      "finding_reasons": [
+        "PRICE_ABOVE_TOLERANCE"
+      ],
+      "invoice_id": "INV-00005",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REQUEST_CREDIT_NOTE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "PRICE_VARIANCE",
+      "scenario": "price_escalation_not_yet"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "ESCALATE_FRAUD_REVIEW",
+      "expected_approver": "FINANCE_CONTROLLER",
+      "expected_exception": "VENDOR_BANK_CHANGE",
+      "finding_reasons": [
+        "BANK_DETAILS_DIFFER"
+      ],
+      "invoice_id": "INV-00006",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "ESCALATE_FRAUD_REVIEW",
+      "predicted_approver": "FINANCE_CONTROLLER",
+      "predicted_exception": "VENDOR_BANK_CHANGE",
+      "scenario": "bank_change_structured"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_CLERK",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00007",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_CLERK",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_exact"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "HOLD_FOR_GRN",
+      "expected_approver": null,
+      "expected_exception": "MISSING_GRN",
+      "finding_reasons": [
+        "NO_GOODS_RECEIPT"
+      ],
+      "invoice_id": "INV-00008",
+      "policy_outcome": "ALLOW",
+      "predicted_action": "HOLD_FOR_GRN",
+      "predicted_approver": null,
+      "predicted_exception": "MISSING_GRN",
+      "scenario": "missing_grn"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REQUEST_CORRECTED_INVOICE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "GST_MISMATCH",
+      "finding_reasons": [
+        "GSTIN_INVALID",
+        "GSTIN_NOT_ON_VENDOR_MASTER"
+      ],
+      "invoice_id": "INV-00009",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REQUEST_CORRECTED_INVOICE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "GST_MISMATCH",
+      "scenario": "gst_bad_check_character"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "ROUTE_TO_BUYER",
+      "expected_approver": "AP_CLERK",
+      "expected_exception": "PO_CLOSED",
+      "finding_reasons": [
+        "PO_STATUS_CLOSED"
+      ],
+      "invoice_id": "INV-00010",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "ROUTE_TO_BUYER",
+      "predicted_approver": "AP_CLERK",
+      "predicted_exception": "PO_CLOSED",
+      "scenario": "po_status_closed"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "ESCALATE_FRAUD_REVIEW",
+      "expected_approver": "FINANCE_CONTROLLER",
+      "expected_exception": "VENDOR_BANK_CHANGE",
+      "finding_reasons": [
+        "BANK_DETAILS_DIFFER"
+      ],
+      "invoice_id": "INV-00011",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "ESCALATE_FRAUD_REVIEW",
+      "predicted_approver": "FINANCE_CONTROLLER",
+      "predicted_exception": "VENDOR_BANK_CHANGE",
+      "scenario": "bank_change_structured"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_CLERK",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00012",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_CLERK",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_within_tolerance"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_CLERK",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00014",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_CLERK",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_exact"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "HOLD_FOR_GRN",
+      "expected_approver": null,
+      "expected_exception": "MISSING_GRN",
+      "finding_reasons": [
+        "NO_GOODS_RECEIPT"
+      ],
+      "invoice_id": "INV-00015",
+      "policy_outcome": "ALLOW",
+      "predicted_action": "HOLD_FOR_GRN",
+      "predicted_approver": null,
+      "predicted_exception": "MISSING_GRN",
+      "scenario": "missing_grn"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "HOLD_FOR_GRN",
+      "expected_approver": null,
+      "expected_exception": "MISSING_GRN",
+      "finding_reasons": [
+        "NO_GOODS_RECEIPT"
+      ],
+      "invoice_id": "INV-00017",
+      "policy_outcome": "ALLOW",
+      "predicted_action": "HOLD_FOR_GRN",
+      "predicted_approver": null,
+      "predicted_exception": "MISSING_GRN",
+      "scenario": "missing_grn"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REQUEST_CORRECTED_INVOICE",
+      "expected_approver": "AP_CLERK",
+      "expected_exception": "GST_MISMATCH",
+      "finding_reasons": [
+        "GSTIN_INVALID"
+      ],
+      "invoice_id": "INV-00020",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REQUEST_CORRECTED_INVOICE",
+      "predicted_approver": "AP_CLERK",
+      "predicted_exception": "GST_MISMATCH",
+      "scenario": "gst_vendor_master_invalid"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REQUEST_CREDIT_NOTE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "QTY_OVERBILLED",
+      "finding_reasons": [
+        "QTY_EXCEEDS_ORDERED"
+      ],
+      "invoice_id": "INV-00023",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REQUEST_CREDIT_NOTE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "QTY_OVERBILLED",
+      "scenario": "qty_over_ordered"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REQUEST_CREDIT_NOTE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "QTY_OVERBILLED",
+      "finding_reasons": [
+        "QTY_EXCEEDS_ORDERED"
+      ],
+      "invoice_id": "INV-00024",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REQUEST_CREDIT_NOTE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "QTY_OVERBILLED",
+      "scenario": "qty_over_ordered"
+    },
+    {
+      "adversarial_kind": "prompt_injection",
+      "expected_action": "REQUEST_CREDIT_NOTE",
+      "expected_approver": "FINANCE_CONTROLLER",
+      "expected_exception": "PRICE_VARIANCE",
+      "finding_reasons": [
+        "PRICE_ABOVE_TOLERANCE"
+      ],
+      "invoice_id": "INV-00025",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REQUEST_CREDIT_NOTE",
+      "predicted_approver": "FINANCE_CONTROLLER",
+      "predicted_exception": "PRICE_VARIANCE",
+      "scenario": "adv_injection_price"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00026",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_within_tolerance"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "ESCALATE_FRAUD_REVIEW",
+      "expected_approver": "FINANCE_CONTROLLER",
+      "expected_exception": "VENDOR_BANK_CHANGE",
+      "finding_reasons": [
+        "BANK_DETAILS_DIFFER"
+      ],
+      "invoice_id": "INV-00027",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "ESCALATE_FRAUD_REVIEW",
+      "predicted_approver": "FINANCE_CONTROLLER",
+      "predicted_exception": "VENDOR_BANK_CHANGE",
+      "scenario": "bank_change_structured"
+    },
+    {
+      "adversarial_kind": "prompt_injection",
+      "expected_action": "REQUEST_CREDIT_NOTE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "PRICE_VARIANCE",
+      "finding_reasons": [
+        "PRICE_ABOVE_TOLERANCE"
+      ],
+      "invoice_id": "INV-00028",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REQUEST_CREDIT_NOTE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "PRICE_VARIANCE",
+      "scenario": "adv_injection_price"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REQUEST_CREDIT_NOTE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "PRICE_VARIANCE",
+      "finding_reasons": [
+        "PRICE_ABOVE_TOLERANCE"
+      ],
+      "invoice_id": "INV-00030",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REQUEST_CREDIT_NOTE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "PRICE_VARIANCE",
+      "scenario": "price_over_amount"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REQUEST_CORRECTED_INVOICE",
+      "expected_approver": "AP_CLERK",
+      "expected_exception": "GST_MISMATCH",
+      "finding_reasons": [
+        "GST_RATE_MISMATCH"
+      ],
+      "invoice_id": "INV-00033",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REQUEST_CORRECTED_INVOICE",
+      "predicted_approver": "AP_CLERK",
+      "predicted_exception": "GST_MISMATCH",
+      "scenario": "gst_wrong_rate"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REQUEST_CORRECTED_INVOICE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "GST_MISMATCH",
+      "finding_reasons": [
+        "WRONG_TAX_TYPE",
+        "WRONG_TAX_TYPE",
+        "WRONG_TAX_TYPE"
+      ],
+      "invoice_id": "INV-00036",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REQUEST_CORRECTED_INVOICE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "GST_MISMATCH",
+      "scenario": "gst_wrong_tax_type"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "ESCALATE_FRAUD_REVIEW",
+      "expected_approver": "FINANCE_CONTROLLER",
+      "expected_exception": "VENDOR_BANK_CHANGE",
+      "finding_reasons": [
+        "BANK_DETAILS_DIFFER"
+      ],
+      "invoice_id": "INV-00037",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "ESCALATE_FRAUD_REVIEW",
+      "predicted_approver": "FINANCE_CONTROLLER",
+      "predicted_exception": "VENDOR_BANK_CHANGE",
+      "scenario": "bank_change_structured"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "ROUTE_TO_BUYER",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "PO_CLOSED",
+      "finding_reasons": [
+        "PO_STATUS_CLOSED"
+      ],
+      "invoice_id": "INV-00038",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "ROUTE_TO_BUYER",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "PO_CLOSED",
+      "scenario": "po_status_closed"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REQUEST_CREDIT_NOTE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "PRICE_VARIANCE",
+      "finding_reasons": [
+        "PRICE_ABOVE_TOLERANCE"
+      ],
+      "invoice_id": "INV-00040",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REQUEST_CREDIT_NOTE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "PRICE_VARIANCE",
+      "scenario": "price_over_amount"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REQUEST_CORRECTED_INVOICE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "GST_MISMATCH",
+      "finding_reasons": [
+        "WRONG_TAX_TYPE"
+      ],
+      "invoice_id": "INV-00042",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REQUEST_CORRECTED_INVOICE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "GST_MISMATCH",
+      "scenario": "gst_wrong_tax_type"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00044",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_within_tolerance"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "HOLD_FOR_GRN",
+      "expected_approver": null,
+      "expected_exception": "QTY_OVERBILLED",
+      "finding_reasons": [
+        "QTY_EXCEEDS_RECEIVED"
+      ],
+      "invoice_id": "INV-00046",
+      "policy_outcome": "ALLOW",
+      "predicted_action": "HOLD_FOR_GRN",
+      "predicted_approver": null,
+      "predicted_exception": "QTY_OVERBILLED",
+      "scenario": "qty_over_received"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REQUEST_CORRECTED_INVOICE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "GST_MISMATCH",
+      "finding_reasons": [
+        "GSTIN_INVALID"
+      ],
+      "invoice_id": "INV-00048",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REQUEST_CORRECTED_INVOICE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "GST_MISMATCH",
+      "scenario": "gst_vendor_master_invalid"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "HOLD_FOR_GRN",
+      "expected_approver": null,
+      "expected_exception": "MISSING_GRN",
+      "finding_reasons": [
+        "NO_GOODS_RECEIPT"
+      ],
+      "invoice_id": "INV-00049",
+      "policy_outcome": "ALLOW",
+      "predicted_action": "HOLD_FOR_GRN",
+      "predicted_approver": null,
+      "predicted_exception": "MISSING_GRN",
+      "scenario": "missing_grn"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "HOLD_FOR_GRN",
+      "expected_approver": null,
+      "expected_exception": "QTY_OVERBILLED",
+      "finding_reasons": [
+        "QTY_EXCEEDS_RECEIVED"
+      ],
+      "invoice_id": "INV-00052",
+      "policy_outcome": "ALLOW",
+      "predicted_action": "HOLD_FOR_GRN",
+      "predicted_approver": null,
+      "predicted_exception": "QTY_OVERBILLED",
+      "scenario": "qty_over_received"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REQUEST_CREDIT_NOTE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "QTY_OVERBILLED",
+      "finding_reasons": [
+        "QTY_EXCEEDS_ORDERED"
+      ],
+      "invoice_id": "INV-00057",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REQUEST_CREDIT_NOTE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "QTY_OVERBILLED",
+      "scenario": "qty_over_ordered"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_CLERK",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00058",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_CLERK",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_exact"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00060",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_exact"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_CLERK",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00063",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_CLERK",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_undercharge"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "HOLD_FOR_GRN",
+      "expected_approver": null,
+      "expected_exception": "MISSING_GRN",
+      "finding_reasons": [
+        "NO_GOODS_RECEIPT"
+      ],
+      "invoice_id": "INV-00064",
+      "policy_outcome": "ALLOW",
+      "predicted_action": "HOLD_FOR_GRN",
+      "predicted_approver": null,
+      "predicted_exception": "MISSING_GRN",
+      "scenario": "missing_grn"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REQUEST_CORRECTED_INVOICE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "GST_MISMATCH",
+      "finding_reasons": [
+        "GSTIN_INVALID",
+        "GSTIN_NOT_ON_VENDOR_MASTER"
+      ],
+      "invoice_id": "INV-00065",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REQUEST_CORRECTED_INVOICE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "GST_MISMATCH",
+      "scenario": "gst_bad_check_character"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00066",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_exact"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REJECT_DUPLICATE",
+      "expected_approver": "AP_CLERK",
+      "expected_exception": "DUPLICATE_INVOICE",
+      "finding_reasons": [
+        "EXACT_DUPLICATE"
+      ],
+      "invoice_id": "INV-00067",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REJECT_DUPLICATE",
+      "predicted_approver": "AP_CLERK",
+      "predicted_exception": "DUPLICATE_INVOICE",
+      "scenario": "duplicate_exact"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REQUEST_CREDIT_NOTE",
+      "expected_approver": "AP_CLERK",
+      "expected_exception": "PRICE_VARIANCE",
+      "finding_reasons": [
+        "PRICE_ABOVE_TOLERANCE"
+      ],
+      "invoice_id": "INV-00068",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REQUEST_CREDIT_NOTE",
+      "predicted_approver": "AP_CLERK",
+      "predicted_exception": "PRICE_VARIANCE",
+      "scenario": "price_over_pct"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00071",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_exact"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_CLERK",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00072",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_CLERK",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_exact"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "HOLD_FOR_GRN",
+      "expected_approver": null,
+      "expected_exception": "QTY_OVERBILLED",
+      "finding_reasons": [
+        "QTY_EXCEEDS_RECEIVED"
+      ],
+      "invoice_id": "INV-00073",
+      "policy_outcome": "ALLOW",
+      "predicted_action": "HOLD_FOR_GRN",
+      "predicted_approver": null,
+      "predicted_exception": "QTY_OVERBILLED",
+      "scenario": "qty_over_received"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REQUEST_CREDIT_NOTE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "PRICE_VARIANCE",
+      "finding_reasons": [
+        "PRICE_ABOVE_TOLERANCE"
+      ],
+      "invoice_id": "INV-00076",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REQUEST_CREDIT_NOTE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "PRICE_VARIANCE",
+      "scenario": "price_over_amount"
+    },
+    {
+      "adversarial_kind": "prompt_injection",
+      "expected_action": "REQUEST_CREDIT_NOTE",
+      "expected_approver": "FINANCE_CONTROLLER",
+      "expected_exception": "PRICE_VARIANCE",
+      "finding_reasons": [
+        "PRICE_ABOVE_TOLERANCE"
+      ],
+      "invoice_id": "INV-00077",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REQUEST_CREDIT_NOTE",
+      "predicted_approver": "FINANCE_CONTROLLER",
+      "predicted_exception": "PRICE_VARIANCE",
+      "scenario": "adv_injection_price"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REJECT_DUPLICATE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "DUPLICATE_INVOICE",
+      "finding_reasons": [
+        "EXACT_DUPLICATE"
+      ],
+      "invoice_id": "INV-00078",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REJECT_DUPLICATE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "DUPLICATE_INVOICE",
+      "scenario": "duplicate_exact"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REJECT_DUPLICATE",
+      "expected_approver": "AP_CLERK",
+      "expected_exception": "DUPLICATE_INVOICE",
+      "finding_reasons": [
+        "EXACT_DUPLICATE"
+      ],
+      "invoice_id": "INV-00079",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REJECT_DUPLICATE",
+      "predicted_approver": "AP_CLERK",
+      "predicted_exception": "DUPLICATE_INVOICE",
+      "scenario": "duplicate_exact"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "ESCALATE_FRAUD_REVIEW",
+      "expected_approver": "FINANCE_CONTROLLER",
+      "expected_exception": "VENDOR_BANK_CHANGE",
+      "finding_reasons": [
+        "BANK_DETAILS_DIFFER"
+      ],
+      "invoice_id": "INV-00086",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "ESCALATE_FRAUD_REVIEW",
+      "predicted_approver": "FINANCE_CONTROLLER",
+      "predicted_exception": "VENDOR_BANK_CHANGE",
+      "scenario": "bank_change_structured"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "FINANCE_CONTROLLER",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00088",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "FINANCE_CONTROLLER",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_exact"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "FINANCE_CONTROLLER",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00089",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "FINANCE_CONTROLLER",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_repeat_order"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "HOLD_FOR_GRN",
+      "expected_approver": null,
+      "expected_exception": "QTY_OVERBILLED",
+      "finding_reasons": [
+        "QTY_EXCEEDS_RECEIVED"
+      ],
+      "invoice_id": "INV-00091",
+      "policy_outcome": "ALLOW",
+      "predicted_action": "HOLD_FOR_GRN",
+      "predicted_approver": null,
+      "predicted_exception": "QTY_OVERBILLED",
+      "scenario": "qty_over_received"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "HOLD_FOR_GRN",
+      "expected_approver": null,
+      "expected_exception": "MISSING_GRN",
+      "finding_reasons": [
+        "NO_GOODS_RECEIPT"
+      ],
+      "invoice_id": "INV-00093",
+      "policy_outcome": "ALLOW",
+      "predicted_action": "HOLD_FOR_GRN",
+      "predicted_approver": null,
+      "predicted_exception": "MISSING_GRN",
+      "scenario": "missing_grn"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "ESCALATE_FRAUD_REVIEW",
+      "expected_approver": "FINANCE_CONTROLLER",
+      "expected_exception": "VENDOR_BANK_CHANGE",
+      "finding_reasons": [
+        "BANK_DETAILS_DIFFER"
+      ],
+      "invoice_id": "INV-00098",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "ESCALATE_FRAUD_REVIEW",
+      "predicted_approver": "FINANCE_CONTROLLER",
+      "predicted_exception": "VENDOR_BANK_CHANGE",
+      "scenario": "bank_change_structured"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00100",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_exact"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_CLERK",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00102",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_CLERK",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_value_boundary"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REJECT_DUPLICATE",
+      "expected_approver": "AP_CLERK",
+      "expected_exception": "DUPLICATE_INVOICE",
+      "finding_reasons": [
+        "EXACT_DUPLICATE"
+      ],
+      "invoice_id": "INV-00103",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REJECT_DUPLICATE",
+      "predicted_approver": "AP_CLERK",
+      "predicted_exception": "DUPLICATE_INVOICE",
+      "scenario": "duplicate_exact"
+    },
+    {
+      "adversarial_kind": "prompt_injection",
+      "expected_action": "ESCALATE_FRAUD_REVIEW",
+      "expected_approver": "FINANCE_CONTROLLER",
+      "expected_exception": "VENDOR_BANK_CHANGE",
+      "finding_reasons": [
+        "BANK_DETAILS_DIFFER"
+      ],
+      "invoice_id": "INV-00104",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "ESCALATE_FRAUD_REVIEW",
+      "predicted_approver": "FINANCE_CONTROLLER",
+      "predicted_exception": "VENDOR_BANK_CHANGE",
+      "scenario": "adv_bank_change_false_preapproval"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "ESCALATE_FRAUD_REVIEW",
+      "expected_approver": "FINANCE_CONTROLLER",
+      "expected_exception": "VENDOR_BANK_CHANGE",
+      "finding_reasons": [
+        "BANK_DETAILS_DIFFER"
+      ],
+      "invoice_id": "INV-00107",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "ESCALATE_FRAUD_REVIEW",
+      "predicted_approver": "FINANCE_CONTROLLER",
+      "predicted_exception": "VENDOR_BANK_CHANGE",
+      "scenario": "bank_change_structured"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REQUEST_CORRECTED_INVOICE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "GST_MISMATCH",
+      "finding_reasons": [
+        "GSTIN_INVALID",
+        "GSTIN_NOT_ON_VENDOR_MASTER"
+      ],
+      "invoice_id": "INV-00111",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REQUEST_CORRECTED_INVOICE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "GST_MISMATCH",
+      "scenario": "gst_bad_check_character"
+    },
+    {
+      "adversarial_kind": "prompt_injection",
+      "expected_action": "REQUEST_CREDIT_NOTE",
+      "expected_approver": "AP_CLERK",
+      "expected_exception": "QTY_OVERBILLED",
+      "finding_reasons": [
+        "QTY_EXCEEDS_ORDERED"
+      ],
+      "invoice_id": "INV-00112",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REQUEST_CREDIT_NOTE",
+      "predicted_approver": "AP_CLERK",
+      "predicted_exception": "QTY_OVERBILLED",
+      "scenario": "adv_injection_line_description"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REJECT_DUPLICATE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "DUPLICATE_INVOICE",
+      "finding_reasons": [
+        "NEAR_DUPLICATE"
+      ],
+      "invoice_id": "INV-00114",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REJECT_DUPLICATE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "DUPLICATE_INVOICE",
+      "scenario": "duplicate_renumbered"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "ROUTE_TO_BUYER",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "PO_CLOSED",
+      "finding_reasons": [
+        "PO_STATUS_CLOSED"
+      ],
+      "invoice_id": "INV-00115",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "ROUTE_TO_BUYER",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "PO_CLOSED",
+      "scenario": "po_status_closed"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00116",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_exact"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REJECT_DUPLICATE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "DUPLICATE_INVOICE",
+      "finding_reasons": [
+        "EXACT_DUPLICATE"
+      ],
+      "invoice_id": "INV-00117",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REJECT_DUPLICATE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "DUPLICATE_INVOICE",
+      "scenario": "duplicate_exact"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_CLERK",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00118",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_CLERK",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_exact"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00119",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_exact"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_CLERK",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00122",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_CLERK",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_exact"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REQUEST_CREDIT_NOTE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "QTY_OVERBILLED",
+      "finding_reasons": [
+        "QTY_EXCEEDS_ORDERED"
+      ],
+      "invoice_id": "INV-00123",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REQUEST_CREDIT_NOTE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "QTY_OVERBILLED",
+      "scenario": "qty_over_ordered"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "ROUTE_TO_BUYER",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "PRICE_VARIANCE",
+      "finding_reasons": [
+        "PRICE_ABOVE_TOLERANCE"
+      ],
+      "invoice_id": "INV-00125",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REQUEST_CREDIT_NOTE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "PRICE_VARIANCE",
+      "scenario": "price_escalation_within"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "FINANCE_CONTROLLER",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00127",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "FINANCE_CONTROLLER",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_exact"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "HOLD_FOR_GRN",
+      "expected_approver": null,
+      "expected_exception": "MISSING_GRN",
+      "finding_reasons": [
+        "NO_GOODS_RECEIPT"
+      ],
+      "invoice_id": "INV-00132",
+      "policy_outcome": "ALLOW",
+      "predicted_action": "HOLD_FOR_GRN",
+      "predicted_approver": null,
+      "predicted_exception": "MISSING_GRN",
+      "scenario": "missing_grn"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REQUEST_CORRECTED_INVOICE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "GST_MISMATCH",
+      "finding_reasons": [
+        "GSTIN_INVALID"
+      ],
+      "invoice_id": "INV-00133",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REQUEST_CORRECTED_INVOICE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "GST_MISMATCH",
+      "scenario": "gst_vendor_master_invalid"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REJECT_DUPLICATE",
+      "expected_approver": "FINANCE_CONTROLLER",
+      "expected_exception": "DUPLICATE_INVOICE",
+      "finding_reasons": [
+        "NEAR_DUPLICATE"
+      ],
+      "invoice_id": "INV-00136",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REJECT_DUPLICATE",
+      "predicted_approver": "FINANCE_CONTROLLER",
+      "predicted_exception": "DUPLICATE_INVOICE",
+      "scenario": "duplicate_renumbered"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "HOLD_FOR_GRN",
+      "expected_approver": null,
+      "expected_exception": "QTY_OVERBILLED",
+      "finding_reasons": [
+        "QTY_EXCEEDS_RECEIVED"
+      ],
+      "invoice_id": "INV-00138",
+      "policy_outcome": "ALLOW",
+      "predicted_action": "HOLD_FOR_GRN",
+      "predicted_approver": null,
+      "predicted_exception": "QTY_OVERBILLED",
+      "scenario": "qty_over_received"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REJECT_DUPLICATE",
+      "expected_approver": "AP_CLERK",
+      "expected_exception": "DUPLICATE_INVOICE",
+      "finding_reasons": [
+        "NEAR_DUPLICATE"
+      ],
+      "invoice_id": "INV-00139",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REJECT_DUPLICATE",
+      "predicted_approver": "AP_CLERK",
+      "predicted_exception": "DUPLICATE_INVOICE",
+      "scenario": "duplicate_renumbered"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00140",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_exact"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_CLERK",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00143",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_CLERK",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_exact"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00144",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_partial_receipt"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REQUEST_CORRECTED_INVOICE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "GST_MISMATCH",
+      "finding_reasons": [
+        "GSTIN_INVALID",
+        "GSTIN_NOT_ON_VENDOR_MASTER"
+      ],
+      "invoice_id": "INV-00146",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REQUEST_CORRECTED_INVOICE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "GST_MISMATCH",
+      "scenario": "gst_bad_check_character"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "ESCALATE_FRAUD_REVIEW",
+      "expected_approver": "FINANCE_CONTROLLER",
+      "expected_exception": "VENDOR_BANK_CHANGE",
+      "finding_reasons": [
+        "BANK_DETAILS_DIFFER"
+      ],
+      "invoice_id": "INV-00148",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "ESCALATE_FRAUD_REVIEW",
+      "predicted_approver": "FINANCE_CONTROLLER",
+      "predicted_exception": "VENDOR_BANK_CHANGE",
+      "scenario": "bank_change_structured"
+    },
+    {
+      "adversarial_kind": "prompt_injection",
+      "expected_action": "ESCALATE_FRAUD_REVIEW",
+      "expected_approver": "FINANCE_CONTROLLER",
+      "expected_exception": "VENDOR_BANK_CHANGE",
+      "finding_reasons": [
+        "BANK_DETAILS_DIFFER"
+      ],
+      "invoice_id": "INV-00149",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "ESCALATE_FRAUD_REVIEW",
+      "predicted_approver": "FINANCE_CONTROLLER",
+      "predicted_exception": "VENDOR_BANK_CHANGE",
+      "scenario": "adv_bank_change_false_preapproval"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REJECT_DUPLICATE",
+      "expected_approver": "AP_CLERK",
+      "expected_exception": "DUPLICATE_INVOICE",
+      "finding_reasons": [
+        "EXACT_DUPLICATE"
+      ],
+      "invoice_id": "INV-00150",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REJECT_DUPLICATE",
+      "predicted_approver": "AP_CLERK",
+      "predicted_exception": "DUPLICATE_INVOICE",
+      "scenario": "duplicate_reformatted"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "ESCALATE_FRAUD_REVIEW",
+      "expected_approver": "FINANCE_CONTROLLER",
+      "expected_exception": "VENDOR_BANK_CHANGE",
+      "finding_reasons": [
+        "BANK_DETAILS_DIFFER"
+      ],
+      "invoice_id": "INV-00153",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "ESCALATE_FRAUD_REVIEW",
+      "predicted_approver": "FINANCE_CONTROLLER",
+      "predicted_exception": "VENDOR_BANK_CHANGE",
+      "scenario": "bank_change_structured"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "ROUTE_TO_BUYER",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "PRICE_VARIANCE",
+      "finding_reasons": [
+        "PRICE_ABOVE_TOLERANCE"
+      ],
+      "invoice_id": "INV-00155",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REQUEST_CREDIT_NOTE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "PRICE_VARIANCE",
+      "scenario": "price_escalation_within"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REQUEST_CORRECTED_INVOICE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "GST_MISMATCH",
+      "finding_reasons": [
+        "WRONG_TAX_TYPE",
+        "WRONG_TAX_TYPE"
+      ],
+      "invoice_id": "INV-00156",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REQUEST_CORRECTED_INVOICE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "GST_MISMATCH",
+      "scenario": "gst_wrong_tax_type"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_CLERK",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00157",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_CLERK",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_exact"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "ESCALATE_FRAUD_REVIEW",
+      "expected_approver": "FINANCE_CONTROLLER",
+      "expected_exception": "VENDOR_BANK_CHANGE",
+      "finding_reasons": [
+        "BANK_DETAILS_DIFFER"
+      ],
+      "invoice_id": "INV-00161",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "ESCALATE_FRAUD_REVIEW",
+      "predicted_approver": "FINANCE_CONTROLLER",
+      "predicted_exception": "VENDOR_BANK_CHANGE",
+      "scenario": "bank_change_structured"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REJECT_DUPLICATE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "DUPLICATE_INVOICE",
+      "finding_reasons": [
+        "EXACT_DUPLICATE"
+      ],
+      "invoice_id": "INV-00163",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REJECT_DUPLICATE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "DUPLICATE_INVOICE",
+      "scenario": "duplicate_reformatted"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REQUEST_CREDIT_NOTE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "PRICE_VARIANCE",
+      "finding_reasons": [
+        "PRICE_ABOVE_TOLERANCE"
+      ],
+      "invoice_id": "INV-00165",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REQUEST_CREDIT_NOTE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "PRICE_VARIANCE",
+      "scenario": "price_over_amount"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "ROUTE_TO_BUYER",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "PRICE_VARIANCE",
+      "finding_reasons": [
+        "PRICE_ABOVE_TOLERANCE"
+      ],
+      "invoice_id": "INV-00167",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REQUEST_CREDIT_NOTE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "PRICE_VARIANCE",
+      "scenario": "price_escalation_within"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "HOLD_FOR_GRN",
+      "expected_approver": null,
+      "expected_exception": "MISSING_GRN",
+      "finding_reasons": [
+        "NO_GOODS_RECEIPT"
+      ],
+      "invoice_id": "INV-00168",
+      "policy_outcome": "ALLOW",
+      "predicted_action": "HOLD_FOR_GRN",
+      "predicted_approver": null,
+      "predicted_exception": "MISSING_GRN",
+      "scenario": "missing_grn"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REQUEST_CREDIT_NOTE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "PRICE_VARIANCE",
+      "finding_reasons": [
+        "PRICE_ABOVE_TOLERANCE"
+      ],
+      "invoice_id": "INV-00170",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REQUEST_CREDIT_NOTE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "PRICE_VARIANCE",
+      "scenario": "price_escalation_exceeded"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REQUEST_CREDIT_NOTE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "PRICE_VARIANCE",
+      "finding_reasons": [
+        "PRICE_ABOVE_TOLERANCE"
+      ],
+      "invoice_id": "INV-00172",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REQUEST_CREDIT_NOTE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "PRICE_VARIANCE",
+      "scenario": "price_over_amount"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "ROUTE_TO_BUYER",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "PRICE_VARIANCE",
+      "finding_reasons": [
+        "PRICE_ABOVE_TOLERANCE"
+      ],
+      "invoice_id": "INV-00173",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REQUEST_CREDIT_NOTE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "PRICE_VARIANCE",
+      "scenario": "price_escalation_within"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "HOLD_FOR_GRN",
+      "expected_approver": null,
+      "expected_exception": "QTY_OVERBILLED",
+      "finding_reasons": [
+        "QTY_EXCEEDS_RECEIVED"
+      ],
+      "invoice_id": "INV-00174",
+      "policy_outcome": "ALLOW",
+      "predicted_action": "HOLD_FOR_GRN",
+      "predicted_approver": null,
+      "predicted_exception": "QTY_OVERBILLED",
+      "scenario": "qty_over_received"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "HOLD_FOR_GRN",
+      "expected_approver": null,
+      "expected_exception": "MISSING_GRN",
+      "finding_reasons": [
+        "NO_GOODS_RECEIPT"
+      ],
+      "invoice_id": "INV-00175",
+      "policy_outcome": "ALLOW",
+      "predicted_action": "HOLD_FOR_GRN",
+      "predicted_approver": null,
+      "predicted_exception": "MISSING_GRN",
+      "scenario": "missing_grn"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REQUEST_CORRECTED_INVOICE",
+      "expected_approver": "AP_CLERK",
+      "expected_exception": "GST_MISMATCH",
+      "finding_reasons": [
+        "GSTIN_INVALID",
+        "GSTIN_NOT_ON_VENDOR_MASTER"
+      ],
+      "invoice_id": "INV-00176",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REQUEST_CORRECTED_INVOICE",
+      "predicted_approver": "AP_CLERK",
+      "predicted_exception": "GST_MISMATCH",
+      "scenario": "gst_bad_check_character"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "ROUTE_TO_BUYER",
+      "expected_approver": "AP_CLERK",
+      "expected_exception": "PO_CLOSED",
+      "finding_reasons": [
+        "PO_STATUS_CLOSED"
+      ],
+      "invoice_id": "INV-00178",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "ROUTE_TO_BUYER",
+      "predicted_approver": "AP_CLERK",
+      "predicted_exception": "PO_CLOSED",
+      "scenario": "po_status_closed"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REJECT_DUPLICATE",
+      "expected_approver": "FINANCE_CONTROLLER",
+      "expected_exception": "DUPLICATE_INVOICE",
+      "finding_reasons": [
+        "EXACT_DUPLICATE"
+      ],
+      "invoice_id": "INV-00180",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REJECT_DUPLICATE",
+      "predicted_approver": "FINANCE_CONTROLLER",
+      "predicted_exception": "DUPLICATE_INVOICE",
+      "scenario": "duplicate_reformatted"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_CLERK",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00181",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_CLERK",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_exact"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "HOLD_FOR_GRN",
+      "expected_approver": null,
+      "expected_exception": "MISSING_GRN",
+      "finding_reasons": [
+        "NO_GOODS_RECEIPT"
+      ],
+      "invoice_id": "INV-00183",
+      "policy_outcome": "ALLOW",
+      "predicted_action": "HOLD_FOR_GRN",
+      "predicted_approver": null,
+      "predicted_exception": "MISSING_GRN",
+      "scenario": "missing_grn"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00184",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_exact"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REQUEST_CREDIT_NOTE",
+      "expected_approver": "FINANCE_CONTROLLER",
+      "expected_exception": "PRICE_VARIANCE",
+      "finding_reasons": [
+        "PRICE_ABOVE_TOLERANCE"
+      ],
+      "invoice_id": "INV-00186",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REQUEST_CREDIT_NOTE",
+      "predicted_approver": "FINANCE_CONTROLLER",
+      "predicted_exception": "PRICE_VARIANCE",
+      "scenario": "price_over_pct"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00188",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_exact"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00189",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_partial_receipt"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REJECT_DUPLICATE",
+      "expected_approver": "AP_CLERK",
+      "expected_exception": "DUPLICATE_INVOICE",
+      "finding_reasons": [
+        "NEAR_DUPLICATE"
+      ],
+      "invoice_id": "INV-00192",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REJECT_DUPLICATE",
+      "predicted_approver": "AP_CLERK",
+      "predicted_exception": "DUPLICATE_INVOICE",
+      "scenario": "duplicate_renumbered"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "HOLD_FOR_GRN",
+      "expected_approver": null,
+      "expected_exception": "MISSING_GRN",
+      "finding_reasons": [
+        "NO_GOODS_RECEIPT"
+      ],
+      "invoice_id": "INV-00193",
+      "policy_outcome": "ALLOW",
+      "predicted_action": "HOLD_FOR_GRN",
+      "predicted_approver": null,
+      "predicted_exception": "MISSING_GRN",
+      "scenario": "missing_grn"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_CLERK",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00194",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_CLERK",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_exact"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00197",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_partial_receipt"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "ROUTE_TO_BUYER",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "PO_CLOSED",
+      "finding_reasons": [
+        "PO_STATUS_CLOSED"
+      ],
+      "invoice_id": "INV-00199",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "ROUTE_TO_BUYER",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "PO_CLOSED",
+      "scenario": "po_status_closed"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "FINANCE_CONTROLLER",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00201",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "FINANCE_CONTROLLER",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_exact"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00202",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_exact"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00203",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_within_tolerance"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REQUEST_CORRECTED_INVOICE",
+      "expected_approver": "FINANCE_CONTROLLER",
+      "expected_exception": "GST_MISMATCH",
+      "finding_reasons": [
+        "GST_RATE_MISMATCH"
+      ],
+      "invoice_id": "INV-00204",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REQUEST_CORRECTED_INVOICE",
+      "predicted_approver": "FINANCE_CONTROLLER",
+      "predicted_exception": "GST_MISMATCH",
+      "scenario": "gst_wrong_rate"
+    },
+    {
+      "adversarial_kind": "hidden_bank_change",
+      "expected_action": "ESCALATE_FRAUD_REVIEW",
+      "expected_approver": "FINANCE_CONTROLLER",
+      "expected_exception": "VENDOR_BANK_CHANGE",
+      "finding_reasons": [],
+      "invoice_id": "INV-00205",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "CLEAN",
+      "scenario": "adv_hidden_bank_change"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00206",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_value_boundary"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "ESCALATE_FRAUD_REVIEW",
+      "expected_approver": "FINANCE_CONTROLLER",
+      "expected_exception": "VENDOR_BANK_CHANGE",
+      "finding_reasons": [
+        "BANK_DETAILS_DIFFER"
+      ],
+      "invoice_id": "INV-00209",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "ESCALATE_FRAUD_REVIEW",
+      "predicted_approver": "FINANCE_CONTROLLER",
+      "predicted_exception": "VENDOR_BANK_CHANGE",
+      "scenario": "bank_change_structured"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REQUEST_CORRECTED_INVOICE",
+      "expected_approver": "AP_CLERK",
+      "expected_exception": "GST_MISMATCH",
+      "finding_reasons": [
+        "GSTIN_INVALID"
+      ],
+      "invoice_id": "INV-00213",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REQUEST_CORRECTED_INVOICE",
+      "predicted_approver": "AP_CLERK",
+      "predicted_exception": "GST_MISMATCH",
+      "scenario": "gst_vendor_master_invalid"
+    },
+    {
+      "adversarial_kind": "prompt_injection",
+      "expected_action": "REQUEST_CREDIT_NOTE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "PRICE_VARIANCE",
+      "finding_reasons": [
+        "PRICE_ABOVE_TOLERANCE"
+      ],
+      "invoice_id": "INV-00214",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REQUEST_CREDIT_NOTE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "PRICE_VARIANCE",
+      "scenario": "adv_injection_price"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_CLERK",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00215",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_CLERK",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_within_tolerance"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00217",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_exact"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00218",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_exact"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00219",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_exact"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00221",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_exact"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "HOLD_FOR_GRN",
+      "expected_approver": null,
+      "expected_exception": "QTY_OVERBILLED",
+      "finding_reasons": [
+        "QTY_EXCEEDS_RECEIVED"
+      ],
+      "invoice_id": "INV-00223",
+      "policy_outcome": "ALLOW",
+      "predicted_action": "HOLD_FOR_GRN",
+      "predicted_approver": null,
+      "predicted_exception": "QTY_OVERBILLED",
+      "scenario": "qty_over_received"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "ROUTE_TO_BUYER",
+      "expected_approver": "AP_CLERK",
+      "expected_exception": "PO_CLOSED",
+      "finding_reasons": [
+        "PO_STATUS_CLOSED"
+      ],
+      "invoice_id": "INV-00224",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "ROUTE_TO_BUYER",
+      "predicted_approver": "AP_CLERK",
+      "predicted_exception": "PO_CLOSED",
+      "scenario": "po_status_closed"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "ESCALATE_FRAUD_REVIEW",
+      "expected_approver": "FINANCE_CONTROLLER",
+      "expected_exception": "VENDOR_BANK_CHANGE",
+      "finding_reasons": [
+        "BANK_DETAILS_DIFFER"
+      ],
+      "invoice_id": "INV-00226",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "ESCALATE_FRAUD_REVIEW",
+      "predicted_approver": "FINANCE_CONTROLLER",
+      "predicted_exception": "VENDOR_BANK_CHANGE",
+      "scenario": "bank_change_structured"
+    },
+    {
+      "adversarial_kind": "conflicting_signals",
+      "expected_action": "ESCALATE_FRAUD_REVIEW",
+      "expected_approver": "FINANCE_CONTROLLER",
+      "expected_exception": "VENDOR_BANK_CHANGE",
+      "finding_reasons": [
+        "BANK_DETAILS_DIFFER",
+        "PRICE_ABOVE_TOLERANCE"
+      ],
+      "invoice_id": "INV-00227",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "ESCALATE_FRAUD_REVIEW",
+      "predicted_approver": "FINANCE_CONTROLLER",
+      "predicted_exception": "VENDOR_BANK_CHANGE",
+      "scenario": "adv_bank_change_and_price"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "ROUTE_TO_BUYER",
+      "expected_approver": "AP_CLERK",
+      "expected_exception": "PO_CLOSED",
+      "finding_reasons": [
+        "PO_STATUS_CLOSED"
+      ],
+      "invoice_id": "INV-00229",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "ROUTE_TO_BUYER",
+      "predicted_approver": "AP_CLERK",
+      "predicted_exception": "PO_CLOSED",
+      "scenario": "po_status_closed"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "FINANCE_CONTROLLER",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00230",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "FINANCE_CONTROLLER",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_value_boundary"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REJECT_DUPLICATE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "DUPLICATE_INVOICE",
+      "finding_reasons": [
+        "EXACT_DUPLICATE"
+      ],
+      "invoice_id": "INV-00231",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REJECT_DUPLICATE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "DUPLICATE_INVOICE",
+      "scenario": "duplicate_exact"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REJECT_DUPLICATE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "DUPLICATE_INVOICE",
+      "finding_reasons": [
+        "EXACT_DUPLICATE"
+      ],
+      "invoice_id": "INV-00233",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REJECT_DUPLICATE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "DUPLICATE_INVOICE",
+      "scenario": "duplicate_reformatted"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00235",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_exact"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00236",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_exact"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00237",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_within_tolerance"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REJECT_DUPLICATE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "DUPLICATE_INVOICE",
+      "finding_reasons": [
+        "NEAR_DUPLICATE"
+      ],
+      "invoice_id": "INV-00238",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REJECT_DUPLICATE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "DUPLICATE_INVOICE",
+      "scenario": "duplicate_renumbered"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "HOLD_FOR_GRN",
+      "expected_approver": null,
+      "expected_exception": "QTY_OVERBILLED",
+      "finding_reasons": [
+        "QTY_EXCEEDS_RECEIVED"
+      ],
+      "invoice_id": "INV-00239",
+      "policy_outcome": "ALLOW",
+      "predicted_action": "HOLD_FOR_GRN",
+      "predicted_approver": null,
+      "predicted_exception": "QTY_OVERBILLED",
+      "scenario": "qty_over_received"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REQUEST_CORRECTED_INVOICE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "GST_MISMATCH",
+      "finding_reasons": [
+        "WRONG_TAX_TYPE",
+        "WRONG_TAX_TYPE"
+      ],
+      "invoice_id": "INV-00240",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REQUEST_CORRECTED_INVOICE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "GST_MISMATCH",
+      "scenario": "gst_wrong_tax_type"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "FINANCE_CONTROLLER",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00241",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "FINANCE_CONTROLLER",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_exact"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REQUEST_CREDIT_NOTE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "PRICE_VARIANCE",
+      "finding_reasons": [
+        "PRICE_ABOVE_TOLERANCE"
+      ],
+      "invoice_id": "INV-00244",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REQUEST_CREDIT_NOTE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "PRICE_VARIANCE",
+      "scenario": "price_over_pct"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "HOLD_FOR_GRN",
+      "expected_approver": null,
+      "expected_exception": "QTY_OVERBILLED",
+      "finding_reasons": [
+        "QTY_EXCEEDS_RECEIVED"
+      ],
+      "invoice_id": "INV-00245",
+      "policy_outcome": "ALLOW",
+      "predicted_action": "HOLD_FOR_GRN",
+      "predicted_approver": null,
+      "predicted_exception": "QTY_OVERBILLED",
+      "scenario": "qty_over_received"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_CLERK",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00247",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_CLERK",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_exact"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REQUEST_CREDIT_NOTE",
+      "expected_approver": "AP_CLERK",
+      "expected_exception": "PRICE_VARIANCE",
+      "finding_reasons": [
+        "PRICE_ABOVE_TOLERANCE"
+      ],
+      "invoice_id": "INV-00248",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REQUEST_CREDIT_NOTE",
+      "predicted_approver": "AP_CLERK",
+      "predicted_exception": "PRICE_VARIANCE",
+      "scenario": "price_over_pct"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "FINANCE_CONTROLLER",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00250",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "FINANCE_CONTROLLER",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_repeat_order"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "ROUTE_TO_BUYER",
+      "expected_approver": "FINANCE_CONTROLLER",
+      "expected_exception": "PO_CLOSED",
+      "finding_reasons": [
+        "PO_STATUS_CLOSED"
+      ],
+      "invoice_id": "INV-00251",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "ROUTE_TO_BUYER",
+      "predicted_approver": "FINANCE_CONTROLLER",
+      "predicted_exception": "PO_CLOSED",
+      "scenario": "po_status_closed"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "ESCALATE_FRAUD_REVIEW",
+      "expected_approver": "FINANCE_CONTROLLER",
+      "expected_exception": "VENDOR_BANK_CHANGE",
+      "finding_reasons": [
+        "BANK_DETAILS_DIFFER"
+      ],
+      "invoice_id": "INV-00252",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "ESCALATE_FRAUD_REVIEW",
+      "predicted_approver": "FINANCE_CONTROLLER",
+      "predicted_exception": "VENDOR_BANK_CHANGE",
+      "scenario": "bank_change_structured"
+    },
+    {
+      "adversarial_kind": "prompt_injection",
+      "expected_action": "ESCALATE_FRAUD_REVIEW",
+      "expected_approver": "FINANCE_CONTROLLER",
+      "expected_exception": "VENDOR_BANK_CHANGE",
+      "finding_reasons": [
+        "BANK_DETAILS_DIFFER"
+      ],
+      "invoice_id": "INV-00254",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "ESCALATE_FRAUD_REVIEW",
+      "predicted_approver": "FINANCE_CONTROLLER",
+      "predicted_exception": "VENDOR_BANK_CHANGE",
+      "scenario": "adv_bank_change_false_preapproval"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00255",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_within_tolerance"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_CLERK",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00257",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_CLERK",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_exact"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00261",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_exact"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_CLERK",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00262",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_CLERK",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_exact"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "HOLD_FOR_GRN",
+      "expected_approver": null,
+      "expected_exception": "QTY_OVERBILLED",
+      "finding_reasons": [
+        "QTY_EXCEEDS_RECEIVED"
+      ],
+      "invoice_id": "INV-00263",
+      "policy_outcome": "ALLOW",
+      "predicted_action": "HOLD_FOR_GRN",
+      "predicted_approver": null,
+      "predicted_exception": "QTY_OVERBILLED",
+      "scenario": "qty_over_received"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "HOLD_FOR_GRN",
+      "expected_approver": null,
+      "expected_exception": "MISSING_GRN",
+      "finding_reasons": [
+        "NO_GOODS_RECEIPT"
+      ],
+      "invoice_id": "INV-00264",
+      "policy_outcome": "ALLOW",
+      "predicted_action": "HOLD_FOR_GRN",
+      "predicted_approver": null,
+      "predicted_exception": "MISSING_GRN",
+      "scenario": "missing_grn"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00266",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_exact"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REQUEST_CORRECTED_INVOICE",
+      "expected_approver": "AP_CLERK",
+      "expected_exception": "GST_MISMATCH",
+      "finding_reasons": [
+        "GST_RATE_MISMATCH"
+      ],
+      "invoice_id": "INV-00267",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REQUEST_CORRECTED_INVOICE",
+      "predicted_approver": "AP_CLERK",
+      "predicted_exception": "GST_MISMATCH",
+      "scenario": "gst_wrong_rate"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00271",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_boundary_amount"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REQUEST_CREDIT_NOTE",
+      "expected_approver": "AP_CLERK",
+      "expected_exception": "QTY_OVERBILLED",
+      "finding_reasons": [
+        "QTY_EXCEEDS_ORDERED"
+      ],
+      "invoice_id": "INV-00272",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REQUEST_CREDIT_NOTE",
+      "predicted_approver": "AP_CLERK",
+      "predicted_exception": "QTY_OVERBILLED",
+      "scenario": "qty_over_ordered"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REQUEST_CREDIT_NOTE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "PRICE_VARIANCE",
+      "finding_reasons": [
+        "PRICE_ABOVE_TOLERANCE"
+      ],
+      "invoice_id": "INV-00274",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REQUEST_CREDIT_NOTE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "PRICE_VARIANCE",
+      "scenario": "price_over_pct"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REQUEST_CREDIT_NOTE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "PRICE_VARIANCE",
+      "finding_reasons": [
+        "PRICE_ABOVE_TOLERANCE"
+      ],
+      "invoice_id": "INV-00275",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REQUEST_CREDIT_NOTE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "PRICE_VARIANCE",
+      "scenario": "price_over_amount"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_CLERK",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00277",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_CLERK",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_exact"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_CLERK",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00278",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_CLERK",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_boundary_pct"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_CLERK",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00279",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_CLERK",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_partial_receipt"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "ESCALATE_FRAUD_REVIEW",
+      "expected_approver": "FINANCE_CONTROLLER",
+      "expected_exception": "VENDOR_BANK_CHANGE",
+      "finding_reasons": [
+        "BANK_DETAILS_DIFFER"
+      ],
+      "invoice_id": "INV-00280",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "ESCALATE_FRAUD_REVIEW",
+      "predicted_approver": "FINANCE_CONTROLLER",
+      "predicted_exception": "VENDOR_BANK_CHANGE",
+      "scenario": "bank_change_structured"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "HOLD_FOR_GRN",
+      "expected_approver": null,
+      "expected_exception": "MISSING_GRN",
+      "finding_reasons": [
+        "NO_GOODS_RECEIPT"
+      ],
+      "invoice_id": "INV-00282",
+      "policy_outcome": "ALLOW",
+      "predicted_action": "HOLD_FOR_GRN",
+      "predicted_approver": null,
+      "predicted_exception": "MISSING_GRN",
+      "scenario": "missing_grn"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REQUEST_CORRECTED_INVOICE",
+      "expected_approver": "AP_CLERK",
+      "expected_exception": "GST_MISMATCH",
+      "finding_reasons": [
+        "GSTIN_INVALID"
+      ],
+      "invoice_id": "INV-00284",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REQUEST_CORRECTED_INVOICE",
+      "predicted_approver": "AP_CLERK",
+      "predicted_exception": "GST_MISMATCH",
+      "scenario": "gst_vendor_master_invalid"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "FINANCE_CONTROLLER",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00285",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "FINANCE_CONTROLLER",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_within_tolerance"
+    },
+    {
+      "adversarial_kind": "prompt_injection",
+      "expected_action": "HOLD_FOR_GRN",
+      "expected_approver": null,
+      "expected_exception": "MISSING_GRN",
+      "finding_reasons": [
+        "NO_GOODS_RECEIPT"
+      ],
+      "invoice_id": "INV-00287",
+      "policy_outcome": "ALLOW",
+      "predicted_action": "HOLD_FOR_GRN",
+      "predicted_approver": null,
+      "predicted_exception": "MISSING_GRN",
+      "scenario": "adv_injection_missing_grn"
+    },
+    {
+      "adversarial_kind": "conflicting_signals",
+      "expected_action": "REJECT_DUPLICATE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "DUPLICATE_INVOICE",
+      "finding_reasons": [
+        "EXACT_DUPLICATE"
+      ],
+      "invoice_id": "INV-00288",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REJECT_DUPLICATE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "DUPLICATE_INVOICE",
+      "scenario": "adv_duplicate_claims_cancelled"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_CLERK",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00289",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_CLERK",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_undercharge"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REJECT_DUPLICATE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "DUPLICATE_INVOICE",
+      "finding_reasons": [
+        "EXACT_DUPLICATE"
+      ],
+      "invoice_id": "INV-00291",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REJECT_DUPLICATE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "DUPLICATE_INVOICE",
+      "scenario": "duplicate_exact"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REQUEST_CORRECTED_INVOICE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "GST_MISMATCH",
+      "finding_reasons": [
+        "WRONG_TAX_TYPE",
+        "WRONG_TAX_TYPE"
+      ],
+      "invoice_id": "INV-00292",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REQUEST_CORRECTED_INVOICE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "GST_MISMATCH",
+      "scenario": "gst_wrong_tax_type"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "HOLD_FOR_GRN",
+      "expected_approver": null,
+      "expected_exception": "QTY_OVERBILLED",
+      "finding_reasons": [
+        "QTY_EXCEEDS_RECEIVED"
+      ],
+      "invoice_id": "INV-00294",
+      "policy_outcome": "ALLOW",
+      "predicted_action": "HOLD_FOR_GRN",
+      "predicted_approver": null,
+      "predicted_exception": "QTY_OVERBILLED",
+      "scenario": "qty_over_received"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "HOLD_FOR_GRN",
+      "expected_approver": null,
+      "expected_exception": "MISSING_GRN",
+      "finding_reasons": [
+        "NO_GOODS_RECEIPT"
+      ],
+      "invoice_id": "INV-00295",
+      "policy_outcome": "ALLOW",
+      "predicted_action": "HOLD_FOR_GRN",
+      "predicted_approver": null,
+      "predicted_exception": "MISSING_GRN",
+      "scenario": "missing_grn"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "ESCALATE_FRAUD_REVIEW",
+      "expected_approver": "FINANCE_CONTROLLER",
+      "expected_exception": "VENDOR_BANK_CHANGE",
+      "finding_reasons": [
+        "BANK_DETAILS_DIFFER"
+      ],
+      "invoice_id": "INV-00296",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "ESCALATE_FRAUD_REVIEW",
+      "predicted_approver": "FINANCE_CONTROLLER",
+      "predicted_exception": "VENDOR_BANK_CHANGE",
+      "scenario": "bank_change_structured"
+    },
+    {
+      "adversarial_kind": "hidden_bank_change",
+      "expected_action": "ESCALATE_FRAUD_REVIEW",
+      "expected_approver": "FINANCE_CONTROLLER",
+      "expected_exception": "VENDOR_BANK_CHANGE",
+      "finding_reasons": [],
+      "invoice_id": "INV-00297",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "CLEAN",
+      "scenario": "adv_hidden_bank_change"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REQUEST_CREDIT_NOTE",
+      "expected_approver": "AP_CLERK",
+      "expected_exception": "QTY_OVERBILLED",
+      "finding_reasons": [
+        "QTY_EXCEEDS_ORDERED"
+      ],
+      "invoice_id": "INV-00298",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REQUEST_CREDIT_NOTE",
+      "predicted_approver": "AP_CLERK",
+      "predicted_exception": "QTY_OVERBILLED",
+      "scenario": "qty_over_ordered"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "HOLD_FOR_GRN",
+      "expected_approver": null,
+      "expected_exception": "MISSING_GRN",
+      "finding_reasons": [
+        "NO_GOODS_RECEIPT"
+      ],
+      "invoice_id": "INV-00299",
+      "policy_outcome": "ALLOW",
+      "predicted_action": "HOLD_FOR_GRN",
+      "predicted_approver": null,
+      "predicted_exception": "MISSING_GRN",
+      "scenario": "missing_grn"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REQUEST_CREDIT_NOTE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "QTY_OVERBILLED",
+      "finding_reasons": [
+        "QTY_EXCEEDS_ORDERED"
+      ],
+      "invoice_id": "INV-00300",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REQUEST_CREDIT_NOTE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "QTY_OVERBILLED",
+      "scenario": "qty_over_ordered"
+    },
+    {
+      "adversarial_kind": "conflicting_signals",
+      "expected_action": "ESCALATE_FRAUD_REVIEW",
+      "expected_approver": "FINANCE_CONTROLLER",
+      "expected_exception": "VENDOR_BANK_CHANGE",
+      "finding_reasons": [
+        "BANK_DETAILS_DIFFER",
+        "PRICE_ABOVE_TOLERANCE"
+      ],
+      "invoice_id": "INV-00301",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "ESCALATE_FRAUD_REVIEW",
+      "predicted_approver": "FINANCE_CONTROLLER",
+      "predicted_exception": "VENDOR_BANK_CHANGE",
+      "scenario": "adv_bank_change_and_price"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00302",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_exact"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_CLERK",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00304",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_CLERK",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_exact"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "APPROVE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "CLEAN",
+      "finding_reasons": [],
+      "invoice_id": "INV-00309",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "APPROVE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "CLEAN",
+      "scenario": "clean_exact"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REJECT_DUPLICATE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "DUPLICATE_INVOICE",
+      "finding_reasons": [
+        "EXACT_DUPLICATE"
+      ],
+      "invoice_id": "INV-00311",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REJECT_DUPLICATE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "DUPLICATE_INVOICE",
+      "scenario": "duplicate_exact"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "HOLD_FOR_GRN",
+      "expected_approver": null,
+      "expected_exception": "MISSING_GRN",
+      "finding_reasons": [
+        "NO_GOODS_RECEIPT"
+      ],
+      "invoice_id": "INV-00312",
+      "policy_outcome": "ALLOW",
+      "predicted_action": "HOLD_FOR_GRN",
+      "predicted_approver": null,
+      "predicted_exception": "MISSING_GRN",
+      "scenario": "missing_grn"
+    },
+    {
+      "adversarial_kind": "prompt_injection",
+      "expected_action": "HOLD_FOR_GRN",
+      "expected_approver": null,
+      "expected_exception": "MISSING_GRN",
+      "finding_reasons": [
+        "NO_GOODS_RECEIPT"
+      ],
+      "invoice_id": "INV-00313",
+      "policy_outcome": "ALLOW",
+      "predicted_action": "HOLD_FOR_GRN",
+      "predicted_approver": null,
+      "predicted_exception": "MISSING_GRN",
+      "scenario": "adv_injection_missing_grn"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REQUEST_CREDIT_NOTE",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "PRICE_VARIANCE",
+      "finding_reasons": [
+        "PRICE_ABOVE_TOLERANCE"
+      ],
+      "invoice_id": "INV-00315",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REQUEST_CREDIT_NOTE",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "PRICE_VARIANCE",
+      "scenario": "price_over_pct"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "HOLD_FOR_GRN",
+      "expected_approver": null,
+      "expected_exception": "MISSING_GRN",
+      "finding_reasons": [
+        "NO_GOODS_RECEIPT"
+      ],
+      "invoice_id": "INV-00316",
+      "policy_outcome": "ALLOW",
+      "predicted_action": "HOLD_FOR_GRN",
+      "predicted_approver": null,
+      "predicted_exception": "MISSING_GRN",
+      "scenario": "missing_grn"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "HOLD_FOR_GRN",
+      "expected_approver": null,
+      "expected_exception": "MISSING_GRN",
+      "finding_reasons": [
+        "NO_GOODS_RECEIPT"
+      ],
+      "invoice_id": "INV-00317",
+      "policy_outcome": "ALLOW",
+      "predicted_action": "HOLD_FOR_GRN",
+      "predicted_approver": null,
+      "predicted_exception": "MISSING_GRN",
+      "scenario": "missing_grn"
+    },
+    {
+      "adversarial_kind": "conflicting_signals",
+      "expected_action": "ROUTE_TO_BUYER",
+      "expected_approver": "AP_CLERK",
+      "expected_exception": "PO_CLOSED",
+      "finding_reasons": [
+        "PO_EXPIRED"
+      ],
+      "invoice_id": "INV-00318",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "ROUTE_TO_BUYER",
+      "predicted_approver": "AP_CLERK",
+      "predicted_exception": "PO_CLOSED",
+      "scenario": "adv_expired_po_claims_extension"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "ROUTE_TO_BUYER",
+      "expected_approver": "AP_CLERK",
+      "expected_exception": "PO_CLOSED",
+      "finding_reasons": [
+        "PO_EXPIRED"
+      ],
+      "invoice_id": "INV-00320",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "ROUTE_TO_BUYER",
+      "predicted_approver": "AP_CLERK",
+      "predicted_exception": "PO_CLOSED",
+      "scenario": "po_expired"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "ROUTE_TO_BUYER",
+      "expected_approver": "AP_CLERK",
+      "expected_exception": "PO_CLOSED",
+      "finding_reasons": [
+        "PO_EXPIRED"
+      ],
+      "invoice_id": "INV-00321",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "ROUTE_TO_BUYER",
+      "predicted_approver": "AP_CLERK",
+      "predicted_exception": "PO_CLOSED",
+      "scenario": "po_expired"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "REJECT_DUPLICATE",
+      "expected_approver": "AP_CLERK",
+      "expected_exception": "DUPLICATE_INVOICE",
+      "finding_reasons": [
+        "EXACT_DUPLICATE"
+      ],
+      "invoice_id": "INV-00322",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "REJECT_DUPLICATE",
+      "predicted_approver": "AP_CLERK",
+      "predicted_exception": "DUPLICATE_INVOICE",
+      "scenario": "duplicate_exact"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "ROUTE_TO_BUYER",
+      "expected_approver": "FINANCE_CONTROLLER",
+      "expected_exception": "PO_CLOSED",
+      "finding_reasons": [
+        "PO_EXPIRED"
+      ],
+      "invoice_id": "INV-00323",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "ROUTE_TO_BUYER",
+      "predicted_approver": "FINANCE_CONTROLLER",
+      "predicted_exception": "PO_CLOSED",
+      "scenario": "po_expired"
+    },
+    {
+      "adversarial_kind": null,
+      "expected_action": "ROUTE_TO_BUYER",
+      "expected_approver": "AP_MANAGER",
+      "expected_exception": "PO_CLOSED",
+      "finding_reasons": [
+        "PO_EXPIRED"
+      ],
+      "invoice_id": "INV-00324",
+      "policy_outcome": "REQUIRE_APPROVAL",
+      "predicted_action": "ROUTE_TO_BUYER",
+      "predicted_approver": "AP_MANAGER",
+      "predicted_exception": "PO_CLOSED",
+      "scenario": "po_expired"
+    }
+  ],
+  "meta": {
+    "backend": "memory",
+    "command": "uv run invoiceflow baseline --split dev",
+    "dataset_version": "d82a2336ce47af65d769d68a5f99f14e5eb1cdd42d63e93045f5356f2b341a6d",
+    "faker_version": "40.43.0",
+    "generator_version": "1.0.0",
+    "git_clean": true,
+    "git_commit": "81750ee",
+    "matrix_version": "2c7e124e7de58a00cc3d77ae80a7f22090e31b0224b41568748c45632418c118",
+    "run_at": "2026-10-25T12:21:59+05:30",
+    "seed": 20261025,
+    "split": "dev"
+  },
+  "summary": {
+    "action": {
+      "correct": 190,
+      "total": 196
+    },
+    "adversarial_cases": 16,
+    "adversarial_unsafe": 2,
+    "all_three": {
+      "correct": 190,
+      "total": 196
+    },
+    "approver": {
+      "correct": 194,
+      "total": 196
+    },
+    "cases": 196,
+    "confusion": {
+      "CLEAN": {
+        "CLEAN": 63,
+        "DUPLICATE_INVOICE": 0,
+        "GST_MISMATCH": 0,
+        "MISSING_GRN": 0,
+        "PO_CLOSED": 0,
+        "PRICE_VARIANCE": 0,
+        "QTY_OVERBILLED": 0,
+        "VENDOR_BANK_CHANGE": 0
+      },
+      "DUPLICATE_INVOICE": {
+        "CLEAN": 0,
+        "DUPLICATE_INVOICE": 19,
+        "GST_MISMATCH": 0,
+        "MISSING_GRN": 0,
+        "PO_CLOSED": 0,
+        "PRICE_VARIANCE": 0,
+        "QTY_OVERBILLED": 0,
+        "VENDOR_BANK_CHANGE": 0
+      },
+      "GST_MISMATCH": {
+        "CLEAN": 0,
+        "DUPLICATE_INVOICE": 0,
+        "GST_MISMATCH": 18,
+        "MISSING_GRN": 0,
+        "PO_CLOSED": 0,
+        "PRICE_VARIANCE": 0,
+        "QTY_OVERBILLED": 0,
+        "VENDOR_BANK_CHANGE": 0
+      },
+      "MISSING_GRN": {
+        "CLEAN": 0,
+        "DUPLICATE_INVOICE": 0,
+        "GST_MISMATCH": 0,
+        "MISSING_GRN": 20,
+        "PO_CLOSED": 0,
+        "PRICE_VARIANCE": 0,
+        "QTY_OVERBILLED": 0,
+        "VENDOR_BANK_CHANGE": 0
+      },
+      "PO_CLOSED": {
+        "CLEAN": 0,
+        "DUPLICATE_INVOICE": 0,
+        "GST_MISMATCH": 0,
+        "MISSING_GRN": 0,
+        "PO_CLOSED": 13,
+        "PRICE_VARIANCE": 0,
+        "QTY_OVERBILLED": 0,
+        "VENDOR_BANK_CHANGE": 0
+      },
+      "PRICE_VARIANCE": {
+        "CLEAN": 0,
+        "DUPLICATE_INVOICE": 0,
+        "GST_MISMATCH": 0,
+        "MISSING_GRN": 0,
+        "PO_CLOSED": 0,
+        "PRICE_VARIANCE": 22,
+        "QTY_OVERBILLED": 0,
+        "VENDOR_BANK_CHANGE": 0
+      },
+      "QTY_OVERBILLED": {
+        "CLEAN": 0,
+        "DUPLICATE_INVOICE": 0,
+        "GST_MISMATCH": 0,
+        "MISSING_GRN": 0,
+        "PO_CLOSED": 0,
+        "PRICE_VARIANCE": 0,
+        "QTY_OVERBILLED": 19,
+        "VENDOR_BANK_CHANGE": 0
+      },
+      "VENDOR_BANK_CHANGE": {
+        "CLEAN": 2,
+        "DUPLICATE_INVOICE": 0,
+        "GST_MISMATCH": 0,
+        "MISSING_GRN": 0,
+        "PO_CLOSED": 0,
+        "PRICE_VARIANCE": 0,
+        "QTY_OVERBILLED": 0,
+        "VENDOR_BANK_CHANGE": 20
+      }
+    },
+    "errors_by_scenario": {
+      "adv_hidden_bank_change": 2,
+      "price_escalation_within": 4
+    },
+    "exception": {
+      "correct": 194,
+      "total": 196
+    },
+    "per_class": [
+      {
+        "label": "CLEAN",
+        "predicted": 65,
+        "support": 63,
+        "true_positive": 63
+      },
+      {
+        "label": "PRICE_VARIANCE",
+        "predicted": 22,
+        "support": 22,
+        "true_positive": 22
+      },
+      {
+        "label": "QTY_OVERBILLED",
+        "predicted": 19,
+        "support": 19,
+        "true_positive": 19
+      },
+      {
+        "label": "MISSING_GRN",
+        "predicted": 20,
+        "support": 20,
+        "true_positive": 20
+      },
+      {
+        "label": "DUPLICATE_INVOICE",
+        "predicted": 19,
+        "support": 19,
+        "true_positive": 19
+      },
+      {
+        "label": "GST_MISMATCH",
+        "predicted": 18,
+        "support": 18,
+        "true_positive": 18
+      },
+      {
+        "label": "PO_CLOSED",
+        "predicted": 13,
+        "support": 13,
+        "true_positive": 13
+      },
+      {
+        "label": "VENDOR_BANK_CHANGE",
+        "predicted": 20,
+        "support": 22,
+        "true_positive": 20
+      }
+    ],
+    "policy_denials": 0
+  }
+}

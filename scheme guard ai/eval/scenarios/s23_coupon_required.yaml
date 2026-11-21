@@ -1,0 +1,13 @@
+# Hand-labelled golden scenario. Expectations derive from reading the SQL and dashboards.yaml.
+id: s23_coupon_required
+description: orders.coupon_code becomes required (stricter)
+topic: orders.v1
+mutations:
+- op: make_required
+  field: coupon_code
+expected:
+  change_class: non_breaking
+  route: report
+  impacted: []
+  verdicts: {}
+  fix_should_pass: null

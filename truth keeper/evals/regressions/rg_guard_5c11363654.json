@@ -1,0 +1,57 @@
+{
+  "conflict": {
+    "customer_key": "ACC-00475",
+    "evidence": {
+      "billing": [
+        {
+          "billing_customer_id": "BC-00462",
+          "billing_email": "freya.silva@mosaic-studio.example",
+          "billing_plan": "growth",
+          "billing_status": "active",
+          "currency": "USD",
+          "match_confidence": 1.0,
+          "match_method": "id",
+          "monthly_amount": 149.0,
+          "next_charge_date": "2026-11-22",
+          "past_due_since": null,
+          "subscription_id": "SUB-00462"
+        },
+        {
+          "billing_customer_id": "BC-00463",
+          "billing_email": "freya.silva@mosaic-studio.example",
+          "billing_plan": "growth",
+          "billing_status": "active",
+          "currency": "USD",
+          "match_confidence": 0.95,
+          "match_method": "email",
+          "monthly_amount": 149.0,
+          "next_charge_date": "2026-11-12",
+          "past_due_since": null,
+          "subscription_id": "SUB-00463"
+        }
+      ],
+      "crm_account_id": "ACC-00475",
+      "crm_email": "freya.silva@mosaic-studio.example",
+      "crm_name": "Freya Silva",
+      "crm_plan": "growth",
+      "crm_status": "active"
+    },
+    "id": "cf_15640f17babf",
+    "type": "DUPLICATE_CUSTOMER"
+  },
+  "created_at": "2026-11-16T03:20:09+00:00",
+  "expect_mock": {
+    "failure_category": "bad_params",
+    "status": "FAILED"
+  },
+  "expected_action": "merge_billing_duplicates",
+  "id": "rg_guard_5c11363654",
+  "note": "merge into itself is rejected",
+  "prompt_version": "v1",
+  "recorded_responses": [
+    "{\"explanation\": \"Two billing records.\", \"action\": \"merge_billing_duplicates\", \"params\": {\"keep_customer_id\": \"BC-00462\", \"remove_customer_id\": \"BC-00462\"}, \"confidence\": 0.8, \"needs_human_note\": null}",
+    "{\"explanation\": \"Two billing records.\", \"action\": \"merge_billing_duplicates\", \"params\": {\"keep_customer_id\": \"BC-00462\", \"remove_customer_id\": \"BC-00462\"}, \"confidence\": 0.8, \"needs_human_note\": null}",
+    "{\"explanation\": \"Two billing records.\", \"action\": \"merge_billing_duplicates\", \"params\": {\"keep_customer_id\": \"BC-00462\", \"remove_customer_id\": \"BC-00462\"}, \"confidence\": 0.8, \"needs_human_note\": null}"
+  ],
+  "source": "guard"
+}

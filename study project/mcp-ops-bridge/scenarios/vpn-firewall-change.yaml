@@ -1,0 +1,14 @@
+# Ground truth: VPN outage. Synthetic Acme Retail Ltd drill.
+scenario: vpn-firewall-change
+incident_number: INC1000001
+ci: vpn-gateway-01
+true_root_cause: Firewall policy push v1842 on fw-edge-01 narrowed rule 22, dropping IKE; VPN tunnels collapsed 20 min later.
+evidence:
+  - change: CHG1000001 opened 2026-09-01T14:05:00+00:00 (20 min before incident 14:25)
+  - logs: vpn ERROR ike auth failures + firewall INFO policy push
+  - blast: get_blast_radius(fw-edge-01, 1) contains vpn-gateway-01 and vpn-gateway-02
+related_changes: [CHG1000001]
+red_herrings: []
+expected_blast: [vpn-gateway-01, vpn-gateway-02]
+log_window: {service: vpn, minutes: 60}
+confidence: HIGH

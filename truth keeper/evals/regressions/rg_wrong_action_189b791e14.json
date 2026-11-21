@@ -1,0 +1,42 @@
+{
+  "conflict": {
+    "customer_key": "ACC-00271",
+    "evidence": {
+      "billing": [
+        {
+          "billing_customer_id": "BC-00266",
+          "billing_email": "yara.marsh@copper-studio.example",
+          "billing_plan": "enterprise",
+          "billing_status": "active",
+          "currency": "USD",
+          "match_confidence": 0.95,
+          "match_method": "email",
+          "monthly_amount": 1200.0,
+          "next_charge_date": "2026-11-09",
+          "past_due_since": null,
+          "subscription_id": "SUB-00266"
+        }
+      ],
+      "crm_account_id": "ACC-00271",
+      "crm_email": "yara.marsh@copper-studio.example",
+      "crm_name": "Yara Marsh",
+      "crm_plan": "enterprise",
+      "crm_status": "cancelled"
+    },
+    "id": "cf_595818f57686",
+    "type": "CANCELLED_BUT_BILLING_ACTIVE"
+  },
+  "created_at": "2026-11-16T03:20:13+00:00",
+  "expect_mock": {
+    "action": "no_action",
+    "status": "PENDING_REVIEW"
+  },
+  "expected_action": "cancel_subscription",
+  "id": "rg_wrong_action_189b791e14",
+  "note": "proposed no_action, ground truth expects cancel_subscription",
+  "prompt_version": "v1",
+  "recorded_responses": [
+    "{\"explanation\": \"The CRM marks account ACC-00271 as cancelled, but billing subscription SUB-00266 is still active at 1200.0 USD per month. The customer will be charged after cancelling.\", \"action\": \"no_action\", \"params\": {}, \"confidence\": 0.55, \"needs_human_note\": \"Check whether a refund for past charges is owed.\"}"
+  ],
+  "source": "wrong_action"
+}

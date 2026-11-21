@@ -1,0 +1,25 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    environment:
+      MAILOPS_REVIEWER_TOKEN: ${MAILOPS_REVIEWER_TOKEN:?Set MAILOPS_REVIEWER_TOKEN before starting}
+      MAILOPS_DB: /data/mailops.sqlite3
+    volumes:
+      - mailops-data:/data
+    restart: unless-stopped
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    ports:
+      - "127.0.0.1:${MAILOPS_PORT:-18080}:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+volumes:
+  mailops-data:
+
+

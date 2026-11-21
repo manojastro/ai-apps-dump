@@ -1,0 +1,26 @@
+# Local backend: Postgres 17 with pgvector. Reachable only from this machine.
+#   docker compose up -d --wait     # start and wait until healthy
+#   docker compose down             # stop (data stays in the named volume)
+#   docker compose down -v          # stop and delete the data
+# Settings come from .env (copy .env.example). POSTGRES_PASSWORD is required.
+name: invoiceflow
+
+services:
+  postgres:
+    image: pgvector/pgvector:0.8.7-pg17
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-invoiceflow}
+      POSTGRES_USER: ${POSTGRES_USER:-invoiceflow}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+    ports:
+      - "127.0.0.1:${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+
+volumes:
+  pgdata:

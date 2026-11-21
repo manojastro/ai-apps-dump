@@ -1,0 +1,955 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "D:\\ai apps dump\\career os\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "e2e/functional-audit.spec.ts",
+      "e2e/production-readonly-audit.spec.ts",
+      "--reporter=json"
+    ],
+    "configFile": "D:\\ai apps dump\\career os\\playwright.config.ts",
+    "rootDir": "D:/ai apps dump/career os/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 2
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/ai apps dump/career os/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "D:/ai apps dump/career os/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 90000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 6,
+    "webServer": {
+      "command": "npm run start",
+      "url": "http://127.0.0.1:3102",
+      "timeout": 90000,
+      "reuseExistingServer": false,
+      "env": {
+        "PORT": "3102"
+      }
+    }
+  },
+  "suites": [
+    {
+      "title": "functional-audit.spec.ts",
+      "file": "functional-audit.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "A: linked planning, timer pause/resume, completion, dashboard and log persist",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8686,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-09T18:35:33.228Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c8572141a47bd3c7757c-db66a2f75040e9fbf47a",
+          "file": "functional-audit.spec.ts",
+          "line": 36,
+          "column": 5
+        },
+        {
+          "title": "B: two milestones and a linked task update goal progress without unrelated tasks",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8373,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-09T18:35:42.357Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c8572141a47bd3c7757c-a6ea0dfd0650d7a9ff76",
+          "file": "functional-audit.spec.ts",
+          "line": 73,
+          "column": 5
+        },
+        {
+          "title": "C: manual skill topic, distinct readiness, linked task and evidence persist",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6574,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-09T18:35:50.756Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c8572141a47bd3c7757c-e4886d006c5240aa6c76",
+          "file": "functional-audit.spec.ts",
+          "line": 100,
+          "column": 5
+        },
+        {
+          "title": "D: project links, status and completed task progress persist",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4927,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-09T18:35:57.362Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c8572141a47bd3c7757c-8d43373c0979ff009e99",
+          "file": "functional-audit.spec.ts",
+          "line": 131,
+          "column": 5
+        },
+        {
+          "title": "E: due followup reaches dashboard and interaction history persists",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5372,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-09T18:36:02.321Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c8572141a47bd3c7757c-497314f9b98f3785c596",
+          "file": "functional-audit.spec.ts",
+          "line": 151,
+          "column": 5
+        },
+        {
+          "title": "F: interview answer and repeated practice update dashboard and log",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4105,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-09T18:36:07.712Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c8572141a47bd3c7757c-4bdbfcff0ead05178771",
+          "file": "functional-audit.spec.ts",
+          "line": 171,
+          "column": 5
+        },
+        {
+          "title": "G: every supported job stage changes one record and notes persist",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5070,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-09T18:36:11.848Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c8572141a47bd3c7757c-95730988c9afb30c4098",
+          "file": "functional-audit.spec.ts",
+          "line": 193,
+          "column": 5
+        },
+        {
+          "title": "H: local Copilot writes require explicit confirmation and avoid repeat confirmation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2743,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-09T18:36:16.944Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c8572141a47bd3c7757c-011f871dca97bb1e18a4",
+          "file": "functional-audit.spec.ts",
+          "line": 217,
+          "column": 5
+        },
+        {
+          "title": "I: notes, resources, inbox conversion, journal and JSON export preserve data",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6016,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-09T18:36:19.708Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c8572141a47bd3c7757c-c353661a85abb6c49df4",
+          "file": "functional-audit.spec.ts",
+          "line": 230,
+          "column": 5
+        },
+        {
+          "title": "desktop/tablet/mobile navigation, dark mode, shortcuts and layouts",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 76702,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 16\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"/ at 768: 845px\",\u001b[39m\n\u001b[31m+   \"/today at 768: 817px\",\u001b[39m\n\u001b[31m+   \"/planner at 768: 826px\",\u001b[39m\n\u001b[31m+   \"/tasks at 768: 815px\",\u001b[39m\n\u001b[31m+   \"/goals at 768: 844px\",\u001b[39m\n\u001b[31m+   \"/skills at 768: 814px\",\u001b[39m\n\u001b[31m+   \"/projects at 768: 830px\",\u001b[39m\n\u001b[31m+   \"/networking at 768: 848px\",\u001b[39m\n\u001b[31m+   \"/interviews at 768: 834px\",\u001b[39m\n\u001b[31m+   \"/jobs at 768: 854px\",\u001b[39m\n\u001b[31m+   \"/daily-log at 768: 811px\",\u001b[39m\n\u001b[31m+   \"/copilot at 768: 824px\",\u001b[39m\n\u001b[31m+   \"/more at 768: 811px\",\u001b[39m\n\u001b[31m+   \"/settings at 768: 830px\",\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 16\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"/ at 768: 845px\",\u001b[39m\n\u001b[31m+   \"/today at 768: 817px\",\u001b[39m\n\u001b[31m+   \"/planner at 768: 826px\",\u001b[39m\n\u001b[31m+   \"/tasks at 768: 815px\",\u001b[39m\n\u001b[31m+   \"/goals at 768: 844px\",\u001b[39m\n\u001b[31m+   \"/skills at 768: 814px\",\u001b[39m\n\u001b[31m+   \"/projects at 768: 830px\",\u001b[39m\n\u001b[31m+   \"/networking at 768: 848px\",\u001b[39m\n\u001b[31m+   \"/interviews at 768: 834px\",\u001b[39m\n\u001b[31m+   \"/jobs at 768: 854px\",\u001b[39m\n\u001b[31m+   \"/daily-log at 768: 811px\",\u001b[39m\n\u001b[31m+   \"/copilot at 768: 824px\",\u001b[39m\n\u001b[31m+   \"/more at 768: 811px\",\u001b[39m\n\u001b[31m+   \"/settings at 768: 830px\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at D:\\ai apps dump\\career os\\e2e\\functional-audit.spec.ts:291:21",
+                    "location": {
+                      "file": "D:\\ai apps dump\\career os\\e2e\\functional-audit.spec.ts",
+                      "column": 21,
+                      "line": 291
+                    },
+                    "snippet": "  289 |   await page.keyboard.press(\"/\");\n  290 |   await expect(page.getByRole(\"dialog\", { name: \"Search Career OS\" })).toBeVisible();\n> 291 |   expect(overflows).toEqual([]);\n      |                     ^\n  292 | });\n  293 |\n  294 | // Reproductions assert the expected user behavior. Failures are audit findings,"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\ai apps dump\\career os\\e2e\\functional-audit.spec.ts",
+                        "column": 21,
+                        "line": 291
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 16\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"/ at 768: 845px\",\u001b[39m\n\u001b[31m+   \"/today at 768: 817px\",\u001b[39m\n\u001b[31m+   \"/planner at 768: 826px\",\u001b[39m\n\u001b[31m+   \"/tasks at 768: 815px\",\u001b[39m\n\u001b[31m+   \"/goals at 768: 844px\",\u001b[39m\n\u001b[31m+   \"/skills at 768: 814px\",\u001b[39m\n\u001b[31m+   \"/projects at 768: 830px\",\u001b[39m\n\u001b[31m+   \"/networking at 768: 848px\",\u001b[39m\n\u001b[31m+   \"/interviews at 768: 834px\",\u001b[39m\n\u001b[31m+   \"/jobs at 768: 854px\",\u001b[39m\n\u001b[31m+   \"/daily-log at 768: 811px\",\u001b[39m\n\u001b[31m+   \"/copilot at 768: 824px\",\u001b[39m\n\u001b[31m+   \"/more at 768: 811px\",\u001b[39m\n\u001b[31m+   \"/settings at 768: 830px\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  289 |   await page.keyboard.press(\"/\");\n  290 |   await expect(page.getByRole(\"dialog\", { name: \"Search Career OS\" })).toBeVisible();\n> 291 |   expect(overflows).toEqual([]);\n      |                     ^\n  292 | });\n  293 |\n  294 | // Reproductions assert the expected user behavior. Failures are audit findings,\n    at D:\\ai apps dump\\career os\\e2e\\functional-audit.spec.ts:291:21"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-09T18:36:25.749Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\ai apps dump\\career os\\test-results\\functional-audit-desktop-t-2d252--mode-shortcuts-and-layouts-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\ai apps dump\\career os\\test-results\\functional-audit-desktop-t-2d252--mode-shortcuts-and-layouts-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\ai apps dump\\career os\\e2e\\functional-audit.spec.ts",
+                    "column": 21,
+                    "line": 291
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "c8572141a47bd3c7757c-61fadd662dbccaa6d4b5",
+          "file": "functional-audit.spec.ts",
+          "line": 269,
+          "column": 5
+        },
+        {
+          "title": "DEFECT: arbitrary start time should remain visible in Planner day view",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 3832,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('AUDIT hidden 08:30 block', { exact: true })\nExpected: visible\nTimeout: 1500ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText('AUDIT hidden 08:30 block', { exact: true }) with timeout 1500ms\u001b[22m\n\u001b[2m  - waiting for getByText('AUDIT hidden 08:30 block', { exact: true })\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('AUDIT hidden 08:30 block', { exact: true })\nExpected: visible\nTimeout: 1500ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText('AUDIT hidden 08:30 block', { exact: true }) with timeout 1500ms\u001b[22m\n\u001b[2m  - waiting for getByText('AUDIT hidden 08:30 block', { exact: true })\u001b[22m\n\n    at D:\\ai apps dump\\career os\\e2e\\functional-audit.spec.ts:305:77",
+                    "location": {
+                      "file": "D:\\ai apps dump\\career os\\e2e\\functional-audit.spec.ts",
+                      "column": 77,
+                      "line": 305
+                    },
+                    "snippet": "  303 |   expect((await state(page)).planner_blocks).toHaveLength(1);\n  304 |   await page.getByRole(\"button\", { name: \"Today\", exact: true }).click();\n> 305 |   await expect(page.getByText(\"AUDIT hidden 08:30 block\", { exact: true })).toBeVisible({ timeout: 1500 });\n      |                                                                             ^\n  306 | });\n  307 |\n  308 | test(\"DEFECT: choosing Completed in task editor should populate completion date\", async ({ page }) => {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\ai apps dump\\career os\\e2e\\functional-audit.spec.ts",
+                        "column": 77,
+                        "line": 305
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('AUDIT hidden 08:30 block', { exact: true })\nExpected: visible\nTimeout: 1500ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText('AUDIT hidden 08:30 block', { exact: true }) with timeout 1500ms\u001b[22m\n\u001b[2m  - waiting for getByText('AUDIT hidden 08:30 block', { exact: true })\u001b[22m\n\n\n  303 |   expect((await state(page)).planner_blocks).toHaveLength(1);\n  304 |   await page.getByRole(\"button\", { name: \"Today\", exact: true }).click();\n> 305 |   await expect(page.getByText(\"AUDIT hidden 08:30 block\", { exact: true })).toBeVisible({ timeout: 1500 });\n      |                                                                             ^\n  306 | });\n  307 |\n  308 | test(\"DEFECT: choosing Completed in task editor should populate completion date\", async ({ page }) => {\n    at D:\\ai apps dump\\career os\\e2e\\functional-audit.spec.ts:305:77"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-09T18:37:44.608Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\ai apps dump\\career os\\test-results\\functional-audit-DEFECT-ar-23637-visible-in-Planner-day-view-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\ai apps dump\\career os\\test-results\\functional-audit-DEFECT-ar-23637-visible-in-Planner-day-view-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\ai apps dump\\career os\\e2e\\functional-audit.spec.ts",
+                    "column": 77,
+                    "line": 305
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "c8572141a47bd3c7757c-c7d3cbb1e1cc3cfeb354",
+          "file": "functional-audit.spec.ts",
+          "line": 296,
+          "column": 5
+        },
+        {
+          "title": "DEFECT: choosing Completed in task editor should populate completion date",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 2987,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoBeNull\u001b[2m()\u001b[22m\n\nReceived: \u001b[31mnull\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoBeNull\u001b[2m()\u001b[22m\n\nReceived: \u001b[31mnull\u001b[39m\n    at D:\\ai apps dump\\career os\\e2e\\functional-audit.spec.ts:314:57",
+                    "location": {
+                      "file": "D:\\ai apps dump\\career os\\e2e\\functional-audit.spec.ts",
+                      "column": 57,
+                      "line": 314
+                    },
+                    "snippet": "  312 |   await page.getByRole(\"button\", { name: \"Save task\" }).click();\n  313 |   await expect(page.getByRole(\"dialog\")).toHaveCount(0);\n> 314 |   expect((await state(page)).tasks[0].completed_at).not.toBeNull();\n      |                                                         ^\n  315 | });\n  316 |\n  317 | test(\"DEFECT: completing a focused task should retain Today actual total\", async ({ page }) => {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\ai apps dump\\career os\\e2e\\functional-audit.spec.ts",
+                        "column": 57,
+                        "line": 314
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoBeNull\u001b[2m()\u001b[22m\n\nReceived: \u001b[31mnull\u001b[39m\n\n  312 |   await page.getByRole(\"button\", { name: \"Save task\" }).click();\n  313 |   await expect(page.getByRole(\"dialog\")).toHaveCount(0);\n> 314 |   expect((await state(page)).tasks[0].completed_at).not.toBeNull();\n      |                                                         ^\n  315 | });\n  316 |\n  317 | test(\"DEFECT: completing a focused task should retain Today actual total\", async ({ page }) => {\n    at D:\\ai apps dump\\career os\\e2e\\functional-audit.spec.ts:314:57"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-09T18:37:50.025Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\ai apps dump\\career os\\test-results\\functional-audit-DEFECT-ch-ab915-ld-populate-completion-date-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\ai apps dump\\career os\\test-results\\functional-audit-DEFECT-ch-ab915-ld-populate-completion-date-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\ai apps dump\\career os\\e2e\\functional-audit.spec.ts",
+                    "column": 57,
+                    "line": 314
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "c8572141a47bd3c7757c-e7a521589cd97d01abac",
+          "file": "functional-audit.spec.ts",
+          "line": 308,
+          "column": 5
+        },
+        {
+          "title": "DEFECT: completing a focused task should retain Today actual total",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 4478,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.summary-item').filter({ has: locator('span').filter({ hasText: /^Actual$/ }) }).locator('strong')\nExpected: \u001b[32m\"\u001b[7m1\u001b[27mm\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7m0\u001b[27mm\"\u001b[39m\nTimeout:  1500ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('.summary-item').filter({ has: locator('span').filter({ hasText: /^Actual$/ }) }).locator('strong') with timeout 1500ms\u001b[22m\n\u001b[2m  - waiting for locator('.summary-item').filter({ has: locator('span').filter({ hasText: /^Actual$/ }) }).locator('strong')\u001b[22m\n\u001b[2m    15 × locator resolved to <strong>0m</strong>\u001b[22m\n\u001b[2m       - unexpected value \"0m\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.summary-item').filter({ has: locator('span').filter({ hasText: /^Actual$/ }) }).locator('strong')\nExpected: \u001b[32m\"\u001b[7m1\u001b[27mm\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7m0\u001b[27mm\"\u001b[39m\nTimeout:  1500ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('.summary-item').filter({ has: locator('span').filter({ hasText: /^Actual$/ }) }).locator('strong') with timeout 1500ms\u001b[22m\n\u001b[2m  - waiting for locator('.summary-item').filter({ has: locator('span').filter({ hasText: /^Actual$/ }) }).locator('strong')\u001b[22m\n\u001b[2m    15 × locator resolved to <strong>0m</strong>\u001b[22m\n\u001b[2m       - unexpected value \"0m\"\u001b[22m\n\n    at D:\\ai apps dump\\career os\\e2e\\functional-audit.spec.ts:327:47",
+                    "location": {
+                      "file": "D:\\ai apps dump\\career os\\e2e\\functional-audit.spec.ts",
+                      "column": 47,
+                      "line": 327
+                    },
+                    "snippet": "  325 |   await expect(await summary(page, \"Actual\")).toHaveText(\"1m\");\n  326 |   await page.getByRole(\"checkbox\", { name: \"Complete AUDIT Today actual\" }).click();\n> 327 |   await expect(await summary(page, \"Actual\")).toHaveText(\"1m\", { timeout: 1500 });\n      |                                               ^\n  328 | });\n  329 |\n  330 | test(\"DEFECT: focus session should survive a page refresh\", async ({ page }) => {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\ai apps dump\\career os\\e2e\\functional-audit.spec.ts",
+                        "column": 47,
+                        "line": 327
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.summary-item').filter({ has: locator('span').filter({ hasText: /^Actual$/ }) }).locator('strong')\nExpected: \u001b[32m\"\u001b[7m1\u001b[27mm\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7m0\u001b[27mm\"\u001b[39m\nTimeout:  1500ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('.summary-item').filter({ has: locator('span').filter({ hasText: /^Actual$/ }) }).locator('strong') with timeout 1500ms\u001b[22m\n\u001b[2m  - waiting for locator('.summary-item').filter({ has: locator('span').filter({ hasText: /^Actual$/ }) }).locator('strong')\u001b[22m\n\u001b[2m    15 × locator resolved to <strong>0m</strong>\u001b[22m\n\u001b[2m       - unexpected value \"0m\"\u001b[22m\n\n\n  325 |   await expect(await summary(page, \"Actual\")).toHaveText(\"1m\");\n  326 |   await page.getByRole(\"checkbox\", { name: \"Complete AUDIT Today actual\" }).click();\n> 327 |   await expect(await summary(page, \"Actual\")).toHaveText(\"1m\", { timeout: 1500 });\n      |                                               ^\n  328 | });\n  329 |\n  330 | test(\"DEFECT: focus session should survive a page refresh\", async ({ page }) => {\n    at D:\\ai apps dump\\career os\\e2e\\functional-audit.spec.ts:327:47"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-09T18:37:54.774Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\ai apps dump\\career os\\test-results\\functional-audit-DEFECT-co-3ffb8-d-retain-Today-actual-total-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\ai apps dump\\career os\\test-results\\functional-audit-DEFECT-co-3ffb8-d-retain-Today-actual-total-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\ai apps dump\\career os\\e2e\\functional-audit.spec.ts",
+                    "column": 47,
+                    "line": 327
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "c8572141a47bd3c7757c-dcf733af4d6bae6935a0",
+          "file": "functional-audit.spec.ts",
+          "line": 317,
+          "column": 5
+        },
+        {
+          "title": "DEFECT: focus session should survive a page refresh",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 3819,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('dialog', { name: 'Focus session' })\nExpected: visible\nTimeout: 1500ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('dialog', { name: 'Focus session' }) with timeout 1500ms\u001b[22m\n\u001b[2m  - waiting for getByRole('dialog', { name: 'Focus session' })\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('dialog', { name: 'Focus session' })\nExpected: visible\nTimeout: 1500ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('dialog', { name: 'Focus session' }) with timeout 1500ms\u001b[22m\n\u001b[2m  - waiting for getByRole('dialog', { name: 'Focus session' })\u001b[22m\n\n    at D:\\ai apps dump\\career os\\e2e\\functional-audit.spec.ts:335:69",
+                    "location": {
+                      "file": "D:\\ai apps dump\\career os\\e2e\\functional-audit.spec.ts",
+                      "column": 69,
+                      "line": 335
+                    },
+                    "snippet": "  333 |   await expect(page.getByRole(\"dialog\", { name: \"Focus session\" })).toBeVisible();\n  334 |   await page.reload();\n> 335 |   await expect(page.getByRole(\"dialog\", { name: \"Focus session\" })).toBeVisible({ timeout: 1500 });\n      |                                                                     ^\n  336 | });\n  337 |\n  338 | test(\"DEFECT: manual duplicate skill should be rejected consistently with hosted mode\", async ({ page }) => {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\ai apps dump\\career os\\e2e\\functional-audit.spec.ts",
+                        "column": 69,
+                        "line": 335
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('dialog', { name: 'Focus session' })\nExpected: visible\nTimeout: 1500ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('dialog', { name: 'Focus session' }) with timeout 1500ms\u001b[22m\n\u001b[2m  - waiting for getByRole('dialog', { name: 'Focus session' })\u001b[22m\n\n\n  333 |   await expect(page.getByRole(\"dialog\", { name: \"Focus session\" })).toBeVisible();\n  334 |   await page.reload();\n> 335 |   await expect(page.getByRole(\"dialog\", { name: \"Focus session\" })).toBeVisible({ timeout: 1500 });\n      |                                                                     ^\n  336 | });\n  337 |\n  338 | test(\"DEFECT: manual duplicate skill should be rejected consistently with hosted mode\", async ({ page }) => {\n    at D:\\ai apps dump\\career os\\e2e\\functional-audit.spec.ts:335:69"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-09T18:38:01.449Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\ai apps dump\\career os\\test-results\\functional-audit-DEFECT-fo-46c9a-ould-survive-a-page-refresh-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\ai apps dump\\career os\\test-results\\functional-audit-DEFECT-fo-46c9a-ould-survive-a-page-refresh-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\ai apps dump\\career os\\e2e\\functional-audit.spec.ts",
+                    "column": 69,
+                    "line": 335
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "c8572141a47bd3c7757c-3062ae3e7c401a51037d",
+          "file": "functional-audit.spec.ts",
+          "line": 330,
+          "column": 5
+        },
+        {
+          "title": "DEFECT: manual duplicate skill should be rejected consistently with hosted mode",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 3629,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoHaveLength\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected length: \u001b[32m1\u001b[39m\nReceived length: \u001b[31m2\u001b[39m\nReceived array:  \u001b[31m[{\"category\": \"\", \"created_at\": \"2026-10-09T18:38:09.609Z\", \"hands_on\": 0, \"id\": \"c13d7f33-7342-4633-920e-ad2bbd925efa\", \"interview\": 0, \"knowledge\": 0, \"last_activity\": null, \"name\": \"AUDIT duplicate\", \"production\": 0, \"project_proof\": 0, \"status\": \"Not Started\", \"user_id\": \"demo\"}, {\"category\": \"\", \"created_at\": \"2026-10-09T18:38:09.260Z\", \"hands_on\": 0, \"id\": \"dfe01032-7fe0-4847-8375-755dae0c4b61\", \"interview\": 0, \"knowledge\": 0, \"last_activity\": null, \"name\": \"AUDIT duplicate\", \"production\": 0, \"project_proof\": 0, \"status\": \"Not Started\", \"user_id\": \"demo\"}]\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoHaveLength\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected length: \u001b[32m1\u001b[39m\nReceived length: \u001b[31m2\u001b[39m\nReceived array:  \u001b[31m[{\"category\": \"\", \"created_at\": \"2026-10-09T18:38:09.609Z\", \"hands_on\": 0, \"id\": \"c13d7f33-7342-4633-920e-ad2bbd925efa\", \"interview\": 0, \"knowledge\": 0, \"last_activity\": null, \"name\": \"AUDIT duplicate\", \"production\": 0, \"project_proof\": 0, \"status\": \"Not Started\", \"user_id\": \"demo\"}, {\"category\": \"\", \"created_at\": \"2026-10-09T18:38:09.260Z\", \"hands_on\": 0, \"id\": \"dfe01032-7fe0-4847-8375-755dae0c4b61\", \"interview\": 0, \"knowledge\": 0, \"last_activity\": null, \"name\": \"AUDIT duplicate\", \"production\": 0, \"project_proof\": 0, \"status\": \"Not Started\", \"user_id\": \"demo\"}]\u001b[39m\n    at D:\\ai apps dump\\career os\\e2e\\functional-audit.spec.ts:346:38",
+                    "location": {
+                      "file": "D:\\ai apps dump\\career os\\e2e\\functional-audit.spec.ts",
+                      "column": 38,
+                      "line": 346
+                    },
+                    "snippet": "  344 |     await expect(page.getByRole(\"dialog\")).toHaveCount(0);\n  345 |   }\n> 346 |   expect((await state(page)).skills).toHaveLength(1);\n      |                                      ^\n  347 | });\n  348 |\n  349 | test(\"DEFECT: modal dialog should keep keyboard focus inside\", async ({ page }) => {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\ai apps dump\\career os\\e2e\\functional-audit.spec.ts",
+                        "column": 38,
+                        "line": 346
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoHaveLength\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected length: \u001b[32m1\u001b[39m\nReceived length: \u001b[31m2\u001b[39m\nReceived array:  \u001b[31m[{\"category\": \"\", \"created_at\": \"2026-10-09T18:38:09.609Z\", \"hands_on\": 0, \"id\": \"c13d7f33-7342-4633-920e-ad2bbd925efa\", \"interview\": 0, \"knowledge\": 0, \"last_activity\": null, \"name\": \"AUDIT duplicate\", \"production\": 0, \"project_proof\": 0, \"status\": \"Not Started\", \"user_id\": \"demo\"}, {\"category\": \"\", \"created_at\": \"2026-10-09T18:38:09.260Z\", \"hands_on\": 0, \"id\": \"dfe01032-7fe0-4847-8375-755dae0c4b61\", \"interview\": 0, \"knowledge\": 0, \"last_activity\": null, \"name\": \"AUDIT duplicate\", \"production\": 0, \"project_proof\": 0, \"status\": \"Not Started\", \"user_id\": \"demo\"}]\u001b[39m\n\n  344 |     await expect(page.getByRole(\"dialog\")).toHaveCount(0);\n  345 |   }\n> 346 |   expect((await state(page)).skills).toHaveLength(1);\n      |                                      ^\n  347 | });\n  348 |\n  349 | test(\"DEFECT: modal dialog should keep keyboard focus inside\", async ({ page }) => {\n    at D:\\ai apps dump\\career os\\e2e\\functional-audit.spec.ts:346:38"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-09T18:38:07.092Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\ai apps dump\\career os\\test-results\\functional-audit-DEFECT-ma-24207-nsistently-with-hosted-mode-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\ai apps dump\\career os\\test-results\\functional-audit-DEFECT-ma-24207-nsistently-with-hosted-mode-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\ai apps dump\\career os\\e2e\\functional-audit.spec.ts",
+                    "column": 38,
+                    "line": 346
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "c8572141a47bd3c7757c-f260f519f36b78e7a981",
+          "file": "functional-audit.spec.ts",
+          "line": 338,
+          "column": 5
+        },
+        {
+          "title": "DEFECT: modal dialog should keep keyboard focus inside",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 2446,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n    at D:\\ai apps dump\\career os\\e2e\\functional-audit.spec.ts:355:76",
+                    "location": {
+                      "file": "D:\\ai apps dump\\career os\\e2e\\functional-audit.spec.ts",
+                      "column": 76,
+                      "line": 355
+                    },
+                    "snippet": "  353 |   await dialog.getByRole(\"button\", { name: \"Close\", exact: true }).focus();\n  354 |   await page.keyboard.press(\"Shift+Tab\");\n> 355 |   expect(await dialog.evaluate(el => el.contains(document.activeElement))).toBe(true);\n      |                                                                            ^\n  356 | });\n  357 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\ai apps dump\\career os\\e2e\\functional-audit.spec.ts",
+                        "column": 76,
+                        "line": 355
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\n  353 |   await dialog.getByRole(\"button\", { name: \"Close\", exact: true }).focus();\n  354 |   await page.keyboard.press(\"Shift+Tab\");\n> 355 |   expect(await dialog.evaluate(el => el.contains(document.activeElement))).toBe(true);\n      |                                                                            ^\n  356 | });\n  357 |\n    at D:\\ai apps dump\\career os\\e2e\\functional-audit.spec.ts:355:76"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-09T18:38:12.721Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\ai apps dump\\career os\\test-results\\functional-audit-DEFECT-mo-78d67--keep-keyboard-focus-inside-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\ai apps dump\\career os\\test-results\\functional-audit-DEFECT-mo-78d67--keep-keyboard-focus-inside-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\ai apps dump\\career os\\e2e\\functional-audit.spec.ts",
+                    "column": 76,
+                    "line": 355
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "c8572141a47bd3c7757c-0466c5bb65766d163902",
+          "file": "functional-audit.spec.ts",
+          "line": 349,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "production-readonly-audit.spec.ts",
+      "file": "production-readonly-audit.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "live anonymous production pages, protection, sample workspace and browser health",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 22449,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'Your career, in motion' })\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'Your career, in motion' }) with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Your career, in motion' })\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'Your career, in motion' })\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'Your career, in motion' }) with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Your career, in motion' })\u001b[22m\n\n    at D:\\ai apps dump\\career os\\e2e\\production-readonly-audit.spec.ts:24:79",
+                    "location": {
+                      "file": "D:\\ai apps dump\\career os\\e2e\\production-readonly-audit.spec.ts",
+                      "column": 79,
+                      "line": 24
+                    },
+                    "snippet": "  22 |   await page.goto(`${URL}/login`);\n  23 |   await page.getByRole(\"button\", { name: \"Explore the sample workspace\" }).click();\n> 24 |   await expect(page.getByRole(\"heading\", { name: \"Your career, in motion\" })).toBeVisible();\n     |                                                                               ^\n  25 |   for (const width of [1440, 768, 390]) {\n  26 |     await page.setViewportSize({ width, height: 900 });\n  27 |     for (const route of [\"/\", \"/today\", \"/planner\", \"/tasks\", \"/goals\", \"/skills\", \"/projects\", \"/networking\", \"/interviews\", \"/jobs\", \"/daily-log\", \"/copilot\", \"/more\", \"/settings\"]) {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\ai apps dump\\career os\\e2e\\production-readonly-audit.spec.ts",
+                        "column": 79,
+                        "line": 24
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'Your career, in motion' })\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'Your career, in motion' }) with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Your career, in motion' })\u001b[22m\n\n\n  22 |   await page.goto(`${URL}/login`);\n  23 |   await page.getByRole(\"button\", { name: \"Explore the sample workspace\" }).click();\n> 24 |   await expect(page.getByRole(\"heading\", { name: \"Your career, in motion\" })).toBeVisible();\n     |                                                                               ^\n  25 |   for (const width of [1440, 768, 390]) {\n  26 |     await page.setViewportSize({ width, height: 900 });\n  27 |     for (const route of [\"/\", \"/today\", \"/planner\", \"/tasks\", \"/goals\", \"/skills\", \"/projects\", \"/networking\", \"/interviews\", \"/jobs\", \"/daily-log\", \"/copilot\", \"/more\", \"/settings\"]) {\n    at D:\\ai apps dump\\career os\\e2e\\production-readonly-audit.spec.ts:24:79"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-09T18:35:33.223Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\ai apps dump\\career os\\test-results\\production-readonly-audit--07166-orkspace-and-browser-health-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\ai apps dump\\career os\\test-results\\production-readonly-audit--07166-orkspace-and-browser-health-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\ai apps dump\\career os\\e2e\\production-readonly-audit.spec.ts",
+                    "column": 79,
+                    "line": 24
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "31fd854feea083529404-24a41c281e06a7da58fc",
+          "file": "production-readonly-audit.spec.ts",
+          "line": 4,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-09T18:35:28.398Z",
+    "duration": 169202.641,
+    "expected": 9,
+    "skipped": 0,
+    "unexpected": 8,
+    "flaky": 0
+  }
+}

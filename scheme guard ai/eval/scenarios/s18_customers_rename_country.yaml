@@ -1,0 +1,34 @@
+# Hand-labelled golden scenario. Expectations derive from reading the SQL and dashboards.yaml.
+id: s18_customers_rename_country
+description: Rename customers.country -> country_code
+topic: customers.v1
+mutations:
+- op: rename_field
+  field: country
+  to: country_code
+expected:
+  change_class: breaking
+  route: approval
+  impacted:
+  - column:mart.customer_ltv.country
+  - column:mart.customer_ltv.customer_id
+  - column:mart.customer_ltv.ltv
+  - column:mart.customer_ltv.order_count
+  - column:mart.fct_orders.country
+  - column:stg.stg_customers.country
+  - dashboard:Customer Health
+  - visual:Customer Health/Customers by Country
+  - visual:Customer Health/LTV Distribution
+  verdicts:
+    column:stg.stg_customers.country: breaking
+    column:mart.fct_orders.country: breaking
+    column:mart.customer_ltv.customer_id: breaking
+    column:mart.customer_ltv.country: breaking
+    column:mart.customer_ltv.ltv: breaking
+    column:mart.customer_ltv.order_count: breaking
+    visual:Customer Health/Customers by Country: breaking
+    visual:Customer Health/LTV Distribution: breaking
+    dashboard:Customer Health: breaking
+  fix_should_pass: true
+  failing_tables:
+  - stg.stg_customers

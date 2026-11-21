@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% block content %}
+<h2>Workflows</h2>
+<p>Filter: <a href="/workflows">all</a> {% for s in ["RUNNING","WAITING_APPROVAL","WAITING_TIMER","COMPLETED","FAILED","ESCALATED"] %}| <a href="/workflows?status={{ s }}">{{ s }}</a> {% endfor %}</p>
+<table><tr><th>id</th><th>type</th><th>status</th><th>step</th><th>outcome</th><th>updated</th></tr>
+{% for w in workflows %}<tr><td><a href="/workflows/{{ w.id }}">{{ w.id }}</a></td><td>{{ w.type }}</td><td>{{ w.status }}</td><td>{{ w.step }}</td><td>{{ w.data.get("outcome", "") }}</td><td>{{ w.updated_at }}</td></tr>{% endfor %}
+</table>{% endblock %}

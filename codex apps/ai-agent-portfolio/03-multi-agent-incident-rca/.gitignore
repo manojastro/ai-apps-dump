@@ -1,0 +1,16 @@
+.env
+.venv/
+backend/.venv/
+backend/.venv313/
+backend/.testdeps/
+backend/*.db
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+frontend/node_modules/
+frontend/.next/
+frontend/playwright-report/
+frontend/test-results/
+evaluation/reports/*.json
+evaluation/reports/*.md

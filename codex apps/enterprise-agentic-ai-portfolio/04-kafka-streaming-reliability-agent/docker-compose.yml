@@ -1,0 +1,20 @@
+services:
+  streaming-reliability-agent:
+    build: .
+    ports:
+      - "8104:8104"
+    environment:
+      DATABASE_PATH: /app/data/streaming.db
+      LLM_MODE: mock
+      AUTH_MODE: open
+      CORS_ORIGINS: http://localhost:8104
+    volumes:
+      - streaming_agent_data:/app/data
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8104/health')"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+volumes:
+  streaming_agent_data:

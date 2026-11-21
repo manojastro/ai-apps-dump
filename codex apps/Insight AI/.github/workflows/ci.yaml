@@ -1,0 +1,43 @@
+name: ProductionLens deterministic validation
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      PLAYWRIGHT_CHANNEL: chromium
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22.17.1
+          cache: npm
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: 0.11.20
+      - run: uv python install 3.11
+      - run: npm ci
+      - run: uv sync --locked
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: uv run --locked ruff check services packages demo tests
+      - run: uv run --locked pytest --junitxml=docs/evidence/pytest.xml
+      - run: npm run build
+      - run: npm run bootstrap
+      - run: uv run --locked playwright install --with-deps chromium
+      - name: Start local stack
+        run: |
+          npm run dev > /tmp/productionlens.log 2>&1 &
+          uv run --locked python scripts/wait_ready.py
+      - run: npm run test:browser
+      - run: uv run --locked python tests/browser_evaluation_edges.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: productionlens-evidence
+          path: docs/evidence
+      # No model credentials or billable requests are used on pull requests.

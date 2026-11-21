@@ -1,0 +1,92 @@
+# InvoiceFlow control matrix: the source of truth for policy.
+#
+# SYNTHETIC EXAMPLE POLICY VALUES. These numbers illustrate a typical AP control set; they
+# are not any real organization's policy. Human-readable version: docs/CONTROL_MATRIX.md.
+# Every rule cites a section of data/docs/ap_policy_manual.md (AP-POL).
+#
+# Changing this file changes the matrix version hash recorded in every policy decision.
+
+version: 1
+synthetic: true
+currency: INR
+
+tolerance:
+  price_variance_max_pct: "2.00"       # per invoice, inclusive
+  price_variance_max_amount: "5000.00" # per invoice, inclusive
+  source: "AP-POL §4.2"
+
+duplicates:
+  near_duplicate_window_days: 7
+  source: "AP-POL §5.2"
+
+gst:
+  tax_amount_tolerance: "1.00"  # rupees per tax component, for rounding
+  source: "AP-POL §6.1"
+
+# Authority from lowest to highest. A higher role satisfies a lower requirement.
+approver_hierarchy: [AP_CLERK, AP_MANAGER, FINANCE_CONTROLLER]
+never_approve: [AUDITOR, PLATFORM_ADMIN]
+
+# By gross invoice value including GST. "Up to" is inclusive; null means no upper limit.
+approval_limits:
+  - { role: AP_CLERK, max_gross_value: "100000.00" }
+  - { role: AP_MANAGER, max_gross_value: "1000000.00" }
+  - { role: FINANCE_CONTROLLER, max_gross_value: null }
+
+# Reversible, no money moves: executes on an ALLOW decision without a human approval.
+actions_without_approval: [HOLD_FOR_GRN]
+
+exceptions:
+  CLEAN:
+    allowed_actions: [APPROVE, ESCALATE_FRAUD_REVIEW]
+    default_action: APPROVE
+    source: "AP-POL §4.1"
+  PRICE_VARIANCE:
+    allowed_actions: [REQUEST_CREDIT_NOTE, ROUTE_TO_BUYER, ESCALATE_FRAUD_REVIEW]
+    default_action: REQUEST_CREDIT_NOTE
+    source: "AP-POL §4.3"
+  QTY_OVERBILLED:
+    allowed_actions: [HOLD_FOR_GRN, REQUEST_CREDIT_NOTE, ESCALATE_FRAUD_REVIEW]
+    default_action: HOLD_FOR_GRN
+    default_action_by_reason:
+      QTY_EXCEEDS_ORDERED: REQUEST_CREDIT_NOTE
+    source: "AP-POL §4.5"
+  MISSING_GRN:
+    allowed_actions: [HOLD_FOR_GRN, ESCALATE_FRAUD_REVIEW]
+    default_action: HOLD_FOR_GRN
+    source: "AP-POL §8.1"
+  DUPLICATE_INVOICE:
+    allowed_actions: [REJECT_DUPLICATE, ESCALATE_FRAUD_REVIEW]
+    default_action: REJECT_DUPLICATE
+    source: "AP-POL §5.3"
+  GST_MISMATCH:
+    allowed_actions: [REQUEST_CORRECTED_INVOICE, ESCALATE_FRAUD_REVIEW]
+    default_action: REQUEST_CORRECTED_INVOICE
+    source: "AP-POL §6.2"
+  PO_CLOSED:
+    allowed_actions: [ROUTE_TO_BUYER, ESCALATE_FRAUD_REVIEW]
+    default_action: ROUTE_TO_BUYER
+    source: "AP-POL §4.6"
+  VENDOR_BANK_CHANGE:
+    allowed_actions: [ESCALATE_FRAUD_REVIEW]
+    default_action: ESCALATE_FRAUD_REVIEW
+    required_role: FINANCE_CONTROLLER
+    requires_out_of_band_verification: true
+    source: "AP-POL §7.2"
+
+# Minimum approver for an action, whatever the invoice value.
+minimum_role_by_action:
+  REJECT_DUPLICATE: AP_CLERK
+
+# Each rule has an allow test and a deny test (enforced by tests/policy/test_rule_coverage.py).
+rules:
+  - { id: CM-01, title: "APPROVE with a price variance only within tolerance", source: "AP-POL §4.2" }
+  - { id: CM-02, title: "Approver authority follows gross invoice value", source: "AP-POL §3.1" }
+  - { id: CM-03, title: "Vendor bank change: escalate only, Finance Controller plus out-of-band verification", source: "AP-POL §7.2" }
+  - { id: CM-04, title: "REJECT_DUPLICATE needs at least AP Clerk confirmation", source: "AP-POL §5.3" }
+  - { id: CM-05, title: "Segregation of duties: approver differs from preparer", source: "AP-POL §2.2" }
+  - { id: CM-06, title: "The agent, Auditors and Platform Admins never approve", source: "AP-POL §2.3" }
+  - { id: CM-07, title: "No write action without ALLOW and any required approval", source: "AP-POL §10.1" }
+  - { id: CM-08, title: "Every decision cites at least one policy or contract source", source: "AP-POL §9.1" }
+  - { id: CM-09, title: "The action must be allowed for the exception", source: "AP-POL §4.1" }
+  - { id: CM-10, title: "Only listed reversible actions skip human approval", source: "AP-POL §8.2" }

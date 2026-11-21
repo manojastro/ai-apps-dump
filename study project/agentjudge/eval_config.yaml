@@ -1,0 +1,11 @@
+target: stub
+target_url: http://localhost:8000
+top_k: 5
+repeat: 1
+thresholds:
+  # Set from the stub mock baseline (reports/baseline.json). Mock-first
+  # values; re-measure with a real target before enforcing in CI.
+  faithfulness: 0.50
+  hit_rate_at_5: 0.50
+  refusal_accuracy: 0.80
+  p95_latency_ms: 5000.0

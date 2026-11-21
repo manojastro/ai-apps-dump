@@ -1,0 +1,8 @@
+{% extends "gamma/base.jinja" %}{% block title %}Purchase{% endblock %}{% block body %}
+<h1>Purchase - step 1 of 2</h1>
+{% if problem == 'empty' %}<p>Quote cart is empty.</p>{% elif problem %}<p class="err" role="alert">Only one part number per purchase. Delete other lines.</p>{% else %}
+<p>Rates are exclusive of GST. GST and freight are shown separately.</p>
+{% include "gamma/_totals.jinja" %}
+<form method="get" action="{{ r.confirm }}"><p><label for="cons">Consignee</label>
+<select id="cons" name="address">{% for a in addresses %}<option value="{{ a.ref }}" {% if a.ref == address.ref %}selected{% endif %}>{{ a.label }} ({{ a.ref }})</option>{% endfor %}</select>
+<button class="button" type="submit">Next</button></p></form>{% endif %}{% endblock %}

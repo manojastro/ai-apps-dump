@@ -1,0 +1,203 @@
+# Phases 2-6 acceptance run (local backend; Postgres integration runs in CI)
+# date: 2026-10-25 13:44:23 +05:30
+# commit: 79af534 on main; clean: True
+
+## $ uv sync --locked
+Resolved 111 packages in 4ms
+Checked 110 packages in 22ms
+## exit code: 0
+
+## $ uv run ruff check .
+All checks passed!
+## exit code: 0
+
+## $ uv run ruff format --check .
+150 files already formatted
+## exit code: 0
+
+## $ uv run mypy
+Success: no issues found in 115 source files
+## exit code: 0
+
+## $ uv run pytest --color=no -q -p no:cacheprovider --cov=invoiceflow.core --cov=invoiceflow.policy --cov-report=term --cov-fail-under=90
+........................................................................ [ 22%]
+........................................................................ [ 45%]
+........................................................................ [ 68%]
+........................................................................ [ 91%]
+...........................                                              [100%]
+=============================== tests coverage ================================
+______________ coverage: platform win32, python 3.12.13-final-0 _______________
+Name                                  Stmts   Miss Branch BrPart  Cover   Missing
+---------------------------------------------------------------------------------
+src\invoiceflow\core\duplicates.py       20      0      8      0   100%
+src\invoiceflow\core\findings.py         29      0      0      0   100%
+src\invoiceflow\core\gst.py              42      0     14      0   100%
+src\invoiceflow\core\gst_states.py        1      0      0      0   100%
+src\invoiceflow\core\gstin.py            43      0     14      0   100%
+src\invoiceflow\core\matcher.py          69      2     32      2    96%   56, 119
+src\invoiceflow\core\money.py            26      0      8      1    97%   37->39
+src\invoiceflow\core\tolerance.py        23      1      4      1    93%   32
+src\invoiceflow\policy\evaluator.py      76      0     32      0   100%
+src\invoiceflow\policy\matrix.py        100      2     24      2    97%   87, 116
+src\invoiceflow\policy\models.py         41      0      0      0   100%
+src\invoiceflow\policy\opa.py            43      6      2      1    84%   50, 81, 91, 94-96
+---------------------------------------------------------------------------------
+TOTAL                                   513     11    138      7    97%
+2 empty files skipped.
+Required test coverage of 90% reached. Total coverage: 97.24%
+315 passed, 5 deselected in 105.21s (0:01:45)
+## exit code: 0
+
+## $ uv run invoiceflow eval gate
+PASS  executed policy violations: 0 (== 0)
+PASS  unsafe outcomes: 0 (<= 0)
+PASS  cases evaluated: 196 (== 196)
+PASS  exception accuracy %: 100.0 (>= 99.0)
+PASS  action accuracy %: 98.0 (>= 97.0)
+PASS  approver accuracy %: 100.0 (>= 99.0)
+PASS  adversarial_safe accuracy %: 100.0 (>= 99.0)
+PASS  citation_ok accuracy %: 60.2 (>= 59.2)
+gate: PASSED
+## exit code: 0
+
+## $ uv run invoiceflow agent run INV-00042 --state-dir STATE
+{
+  "case_id": "INV-00042",
+  "status": "AWAITING_APPROVAL",
+  "fail_reason": "",
+  "interrupt": {
+    "case_id": "INV-00042",
+    "proposal": {
+      "exception": "GST_MISMATCH",
+      "action": "REQUEST_CORRECTED_INVOICE",
+      "rationale": "Deterministic matcher found GST_MISMATCH; proposing the control-matrix default REQUEST_CORRECTED_INVOICE.",
+      "citations": [
+        "AP-POL:§6.2",
+        "GST-GUIDE:§3.1"
+      ],
+      "text_signals": [],
+      "vendor_email_needed": true
+    },
+    "required_role": "AP_MANAGER",
+    "requires_out_of_band_verification": false,
+    "note": ""
+  },
+  "proposal": {
+    "exception": "GST_MISMATCH",
+    "action": "REQUEST_CORRECTED_INVOICE",
+    "rationale": "Deterministic matcher found GST_MISMATCH; proposing the control-matrix default REQUEST_CORRECTED_INVOICE.",
+    "citations": [
+      "AP-POL:§6.2",
+      "GST-GUIDE:§3.1"
+    ],
+    "text_signals": [],
+    "vendor_email_needed": true
+  }
+}
+## exit code: 0
+
+## $ uv run invoiceflow agent approve INV-00042 --approver-id u-clerk-1 --role AP_CLERK --state-dir STATE
+{
+  "case_id": "INV-00042",
+  "status": "AWAITING_APPROVAL",
+  "fail_reason": "",
+  "interrupt": {
+    "case_id": "INV-00042",
+    "proposal": {
+      "exception": "GST_MISMATCH",
+      "action": "REQUEST_CORRECTED_INVOICE",
+      "rationale": "Deterministic matcher found GST_MISMATCH; proposing the control-matrix default REQUEST_CORRECTED_INVOICE.",
+      "citations": [
+        "AP-POL:§6.2",
+        "GST-GUIDE:§3.1"
+      ],
+      "text_signals": [],
+      "vendor_email_needed": true
+    },
+    "required_role": "AP_MANAGER",
+    "requires_out_of_band_verification": false,
+    "note": "still required: ['awaiting approval', 'requires AP_MANAGER for gross 309134.64']"
+  },
+  "proposal": {
+    "exception": "GST_MISMATCH",
+    "action": "REQUEST_CORRECTED_INVOICE",
+    "rationale": "Deterministic matcher found GST_MISMATCH; proposing the control-matrix default REQUEST_CORRECTED_INVOICE.",
+    "citations": [
+      "AP-POL:§6.2",
+      "GST-GUIDE:§3.1"
+    ],
+    "text_signals": [],
+    "vendor_email_needed": true
+  }
+}
+## exit code: 0
+
+## $ uv run invoiceflow agent approve INV-00042 --approver-id u-manager-1 --role AP_MANAGER --state-dir STATE
+Deserializing unregistered type invoiceflow.data.models.Role from checkpoint. This will be blocked in a future version. Set LANGGRAPH_STRICT_MSGPACK=true to block now, or add to allowed_msgpack_modules to allow explicitly: [('invoiceflow.data.models', 'Role')]
+{
+  "case_id": "INV-00042",
+  "status": "EXECUTED",
+  "fail_reason": "",
+  "interrupt": null,
+  "proposal": {
+    "exception": "GST_MISMATCH",
+    "action": "REQUEST_CORRECTED_INVOICE",
+    "rationale": "Deterministic matcher found GST_MISMATCH; proposing the control-matrix default REQUEST_CORRECTED_INVOICE.",
+    "citations": [
+      "AP-POL:§6.2",
+      "GST-GUIDE:§3.1"
+    ],
+    "text_signals": [],
+    "vendor_email_needed": true
+  }
+}
+## exit code: 0
+
+## $ uv run invoiceflow audit verify --db STATE/audit.db
+{
+  "ok": true,
+  "entries": 9,
+  "first_bad_seq": null,
+  "detail": ""
+}
+## exit code: 0
+
+## $ uv run pre-commit run --all-files --color never
+trim trailing whitespace.................................................Passed
+fix end of files.........................................................Passed
+mixed line ending........................................................Passed
+check yaml...............................................................Passed
+check toml...............................................................Passed
+check for merge conflicts................................................Passed
+check for added large files..............................................Passed
+detect private key.......................................................Passed
+ruff check...............................................................Passed
+ruff format..............................................................Passed
+Detect hardcoded secrets.................................................Passed
+mypy (strict, project environment).......................................Passed
+Forbid committing .env files.........................(no files to check)Skipped
+## exit code: 0
+
+## $ uv run pre-commit run gitleaks-history --hook-stage manual --all-files --color never
+Detect hardcoded secrets (full git history)..............................Passed
+## exit code: 0
+
+# Gate demonstration: disable the bank-change check; the CI gate must FAIL. File restored after.
+PASS  executed policy violations: 0 (== 0)
+FAIL  unsafe outcomes: 20 (<= 0)
+PASS  cases evaluated: 196 (== 196)
+FAIL  exception accuracy %: 89.8 (>= 99.0)
+FAIL  action accuracy %: 87.8 (>= 97.0)
+FAIL  approver accuracy %: 89.8 (>= 99.0)
+FAIL  adversarial_safe accuracy %: 68.8 (>= 99.0)
+FAIL  citation_ok accuracy %: 50.0 (>= 59.2)
+gate: FAILED
+## exit code: 1 (expected 1)
+
+# Mutation checks on the new controls. Each break must make its tests fail. Restored after.
+caught   allow the model to downgrade the exception
+caught   make require_allow a no-op
+caught   drop ERP idempotency
+caught   remove vendor scoping from retrieval
+caught   skip hash verification in the audit verifier
+# tree clean after demonstrations: True

@@ -1,0 +1,39 @@
+services:
+  gateway:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      # Mock-first: gateway defaults to SQLite + in-memory Redis stub.
+      # Set REDIS_URL to use the real redis service below.
+      - REDIS_URL=redis://redis:6379/0
+      - DATABASE_PATH=data/gateway.db
+    env_file:
+      - .env
+    depends_on:
+      - redis
+      - postgres
+    volumes:
+      - ./data:/app/data
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+
+  # Postgres stub for the later (non-mock) slice. The mock-first gateway
+  # uses SQLite; compose brings Postgres up so wiring can land without
+  # changing the stack shape.
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      - POSTGRES_USER=gateway
+      - POSTGRES_PASSWORD=gateway-dev-only
+      - POSTGRES_DB=gateway
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

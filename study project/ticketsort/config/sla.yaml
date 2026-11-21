@@ -1,0 +1,6 @@
+# SLA response targets (Acme Retail Ltd, synthetic). Hours per priority.
+P1: 1
+P2: 4
+P3: 8
+P4: 24
+P5: 48

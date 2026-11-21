@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "truthkeeper",
+      "runtimeExecutable": ".venv/Scripts/python.exe",
+      "runtimeArgs": ["-m", "uvicorn", "app.api.main:create_app", "--factory", "--port", "8000"],
+      "port": 8000
+    }
+  ]
+}

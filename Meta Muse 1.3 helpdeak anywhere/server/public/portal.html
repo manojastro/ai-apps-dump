@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Helpdesk Anywhere — Agent Portal</title>
+  <link rel="stylesheet" href="./portal.css" />
+</head>
+<body>
+  <main>
+    <h1>Helpdesk Anywhere — Agent Console</h1>
+
+    <section id="setup">
+      <label>Agent name:
+        <input id="agentName" type="text" value="Agent" autocomplete="off" maxlength="64" />
+      </label>
+      <button id="start" type="button">Start session</button>
+    </section>
+
+    <section id="session" hidden>
+      <div id="codeBox">
+        <div>Session code:</div>
+        <div id="code" aria-live="polite">------</div>
+        <div>Join link: <a id="joinUrl" href="#">#</a>
+          <button id="copyLink" type="button">Copy</button>
+        </div>
+      </div>
+      <p id="status" role="status">Idle</p>
+      <div id="uacBanner" hidden><strong>UAC prompt active</strong> — secure desktop in use.</div>
+      <button id="end" type="button">End session</button>
+    </section>
+
+    <section>
+      <h2>Remote screen (Phase 3)</h2>
+      <canvas id="screen" width="960" height="540" tabindex="0"></canvas>
+      <div id="stats">FPS: — · kbps: —</div>
+      <div id="keybar">
+        <span>Send keys:</span>
+        <button id="keyWin" type="button" disabled>Win</button>
+        <button id="keyAltTab" type="button" disabled>Alt+Tab</button>
+        <button id="keyCtrlEsc" type="button" disabled>Ctrl+Esc</button>
+        <button id="keyPrtScn" type="button" disabled>PrintScreen</button>
+        <button id="keyCAD" type="button" disabled title="Available after UAC elevation (Phase 5)">Ctrl+Alt+Del</button>
+      </div>
+      <p class="hint">Click the screen to focus it, then type and use the mouse. The browser reserves some shortcuts — use the buttons above for those.</p>
+    </section>
+
+    <section id="elevation">
+      <h2>Unlock UAC prompts (Phase 5)</h2>
+      <div>
+        <button id="elevInteractive" type="button" disabled>Ask the user to approve the Windows prompt on their screen</button>
+      </div>
+      <form id="credForm" autocomplete="off">
+        <fieldset>
+          <legend>Enter admin credentials (standard-user machines)</legend>
+          <label>Domain: <input id="credDomain" name="domain" type="text" autocomplete="off" /></label>
+          <label>Username: <input id="credUser" name="username" type="text" autocomplete="off" /></label>
+          <label>Password: <input id="credPass" name="password" type="password" autocomplete="off" /></label>
+          <button id="elevCredential" type="submit" disabled>Elevate with credentials</button>
+        </fieldset>
+      </form>
+      <p id="elevStatus" role="status"></p>
+    </section>
+
+    <section id="scripts">
+      <h2>Run script (Phase 6)</h2>
+      <label>Shell:
+        <select id="shell">
+          <option value="powershell">powershell</option>
+          <option value="cmd">cmd</option>
+        </select>
+      </label>
+      <label><input id="asSystem" type="checkbox" /> Run as SYSTEM</label>
+      <br />
+      <textarea id="scriptBox" rows="4" cols="60" placeholder="Get-Process | Select -First 5"></textarea>
+      <br />
+      <button id="runScript" type="button" disabled>Run</button>
+      <pre id="scriptOut"></pre>
+    </section>
+  </main>
+  <script src="./portal.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gamma Trade :: {% block title %}Portal{% endblock %}</title>
+<style>
+body{font-family:Verdana,Tahoma,sans-serif;font-size:13px;margin:0;background:#efeee9;color:#222}
+#hdr{background:#5b2c06;color:#ffe8c7;padding:8px 14px;font-size:18px}
+#demo{background:#fff2cc;border-bottom:1px solid #d9b26f;padding:3px 14px;font-size:11px}
+#layout{display:flex;min-height:80vh}#side{width:190px;background:#f8e6cf;padding:10px;border-right:1px solid #d9b26f}
+#side a{display:block;color:#5b2c06;margin:6px 0}#content{flex:1;padding:14px 20px;background:#fff}
+table.grid{border-collapse:collapse}table.grid td,table.grid th{border:1px solid #bbb;padding:4px 10px}
+table.grid th{background:#f3e3cd;text-align:left}
+.button{background:#8a4a10;color:#fff;border:1px solid #5b2c06;padding:5px 12px;cursor:pointer;text-decoration:none;display:inline-block}
+.err{color:#b00;font-weight:bold}.promo-notice{border:2px dashed #b00;padding:8px;margin:10px 0}
+</style></head><body>
+<div id="hdr">Gamma Trade B2B Portal</div>
+<div id="demo" role="note">Synthetic trading partner for demos. All data is fictitious.</div>
+<div id="layout"><nav id="side" aria-label="Portal menu">
+<a href="{{ r.search }}">Product finder</a><a href="{{ r.cart }}">Quote cart</a><a href="{{ r.orders }}">Purchase history</a>{% if account %}<a href="{{ r.logout }}">Logout</a>{% endif %}</nav>
+<main id="content">{% block body %}{% endblock %}</main></div></body></html>

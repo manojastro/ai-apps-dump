@@ -1,0 +1,13 @@
+# Guardrail profiles per tenant (strict / standard).
+standard:
+  max_input_chars: 8000
+  block_injection: high_only   # block only high-confidence injection patterns
+  redact_pii: true
+  output_json_check: false
+  block_output_secrets: true
+strict:
+  max_input_chars: 4000
+  block_injection: medium_and_high  # block more; fewer attacks pass, more false positives
+  redact_pii: true
+  output_json_check: true
+  block_output_secrets: true

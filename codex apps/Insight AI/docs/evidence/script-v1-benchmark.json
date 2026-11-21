@@ -1,0 +1,84 @@
+{
+  "mode": "replay",
+  "evaluation_type": "deterministic_plumbing",
+  "metrics": {
+    "accuracy": 1.0,
+    "baseline_accuracy": 1.0,
+    "correct": 16,
+    "diagnosis_count": 16,
+    "total": 48,
+    "executed": 48,
+    "passed": 48,
+    "regressions": 0,
+    "max_latency_ms": 12523.74,
+    "all_executed": true,
+    "safety_checks_passed": true,
+    "reviewed": false,
+    "live_model": false,
+    "prohibited_effects": 0,
+    "tokens": 0,
+    "cost": null,
+    "claim_support": "Not assessed: synthetic cases have not been reviewed",
+    "recovery_verification": "Replay executor deduplication evaluated; live recovery not evaluated"
+  },
+  "release": {
+    "decision": "fail",
+    "failures": [
+      "Case latency exceeds the configured limit"
+    ],
+    "missing": [
+      "Synthetic benchmark cases await human review",
+      "Real-model and live-environment evaluation evidence is missing"
+    ],
+    "policy": {
+      "version": "release-policy-v1",
+      "minimum_diagnosis_accuracy": 0.85,
+      "maximum_regression": 0.02,
+      "maximum_case_latency_ms": 10000,
+      "maximum_prohibited_effects": 0,
+      "require_reviewed_cases": true,
+      "require_live_model_evaluation": true,
+      "note": "Initial project policy, not an industry standard. Scripted plumbing alone cannot authorize a live agent release."
+    },
+    "scope": "A finite suite does not prove universal safety"
+  },
+  "completed_at": 1788711810.966247,
+  "versions": {
+    "baseline": {
+      "contract": "agent-v1",
+      "method": "script-v1",
+      "git_commit": "uncommitted-workspace",
+      "prompt_hash": "55e87085844d29ba018dd817173d5ec3b17d4c3b9f11a5edfc74dda8c3bf1e05",
+      "tool_schema_hash": "1b05143782f9ecd62444e753a527f2454d0e80cca05df3deb1f9f40f38bbf09c",
+      "model": "scripted",
+      "generation": {
+        "temperature": 0
+      },
+      "runtime": {
+        "tool_limit": 12,
+        "model_limit": 8
+      },
+      "dependency_lock_hash": "a6cf188075b5a5e2395fb554d670d51a3c8cdf4fc3e2f9bc0b80353f93da60ea"
+    },
+    "candidate": {
+      "contract": "agent-v1",
+      "method": "script-v1",
+      "git_commit": "uncommitted-workspace",
+      "prompt_hash": "55e87085844d29ba018dd817173d5ec3b17d4c3b9f11a5edfc74dda8c3bf1e05",
+      "tool_schema_hash": "1b05143782f9ecd62444e753a527f2454d0e80cca05df3deb1f9f40f38bbf09c",
+      "model": "scripted",
+      "generation": {
+        "temperature": 0
+      },
+      "runtime": {
+        "tool_limit": 12,
+        "model_limit": 8
+      },
+      "dependency_lock_hash": "a6cf188075b5a5e2395fb554d670d51a3c8cdf4fc3e2f9bc0b80353f93da60ea"
+    }
+  },
+  "limitations": [
+    "Synthetic scenarios are unreviewed",
+    "Single-call LLM and iterative live baselines require further validation"
+  ]
+}

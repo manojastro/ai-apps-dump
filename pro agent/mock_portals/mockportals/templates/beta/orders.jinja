@@ -1,0 +1,7 @@
+{% extends "beta/base.jinja" %}{% block title %}Orders{% endblock %}{% block body %}
+<h1>Order history</h1>
+<div class="grid">{% for o in orders %}<article class="card" aria-label="Order {{ o.order_ref }}">
+<h2 style="font-size:16px"><a href="{{ r.order.replace('{ref}', o.order_ref) }}">Order number {{ o.order_ref }}</a></h2>
+<p>Your reference: {{ o.po_reference }}</p><p>Placed: {{ o.created_at.isoformat() }}</p>
+<p>{{ o.qty }} × {{ o.sku }} · ₹{{ o.total|inr }}</p><p>Status: {{ o.status }}</p></article>
+{% else %}<p>No orders yet.</p>{% endfor %}</div>{% endblock %}

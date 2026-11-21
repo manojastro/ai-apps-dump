@@ -1,0 +1,55 @@
+{
+  "conflict": {
+    "customer_key": "ACC-00285",
+    "evidence": {
+      "billing": [
+        {
+          "billing_customer_id": "BC-00279",
+          "billing_email": "AMARA.MARSH@quarry-labs.example",
+          "billing_plan": "starter",
+          "billing_status": "active",
+          "currency": "USD",
+          "match_confidence": 0.95,
+          "match_method": "email",
+          "monthly_amount": 49.0,
+          "next_charge_date": "2026-11-28",
+          "past_due_since": null,
+          "subscription_id": "SUB-00279"
+        },
+        {
+          "billing_customer_id": "BC-00280",
+          "billing_email": "  amara.marsh@quarry-labs.example ",
+          "billing_plan": "starter",
+          "billing_status": "active",
+          "currency": "USD",
+          "match_confidence": 0.95,
+          "match_method": "email",
+          "monthly_amount": 49.0,
+          "next_charge_date": "2026-11-14",
+          "past_due_since": null,
+          "subscription_id": "SUB-00280"
+        }
+      ],
+      "crm_account_id": "ACC-00285",
+      "crm_email": "amara.marsh@quarry-labs.example",
+      "crm_name": "Amara Marsh",
+      "crm_plan": "starter",
+      "crm_status": "active"
+    },
+    "id": "cf_5ece5e4501d9",
+    "type": "DUPLICATE_CUSTOMER"
+  },
+  "created_at": "2026-11-16T03:20:13+00:00",
+  "expect_mock": {
+    "action": "flag_for_finance_review",
+    "status": "PENDING_REVIEW"
+  },
+  "expected_action": "merge_billing_duplicates",
+  "id": "rg_wrong_action_3758be11e9",
+  "note": "proposed flag_for_finance_review, ground truth expects merge_billing_duplicates",
+  "prompt_version": "v1",
+  "recorded_responses": [
+    "{\"explanation\": \"Account ACC-00285 has 2 live billing customers (BC-00279 and BC-00280), each with its own subscription, so the customer is likely charged twice.\", \"action\": \"flag_for_finance_review\", \"params\": {\"reason\": \"Possible duplicate\"}, \"confidence\": 0.55, \"needs_human_note\": \"Refund any double charges after merging.\"}"
+  ],
+  "source": "wrong_action"
+}

@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: {name: checkout, namespace: selfheal-demo, labels: {app: checkout}}
+spec:
+  replicas: 1
+  selector: {matchLabels: {app: checkout}}
+  template:
+    metadata: {labels: {app: checkout}}
+    spec:
+      containers:
+        - name: app
+          image: nginx:1.27-alpine
+          ports: [{containerPort: 80}]
+          readinessProbe: {httpGet: {path: /, port: 80}, initialDelaySeconds: 2, periodSeconds: 3}
+          resources: {requests: {cpu: 10m, memory: 16Mi}, limits: {cpu: 100m, memory: 64Mi}}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: {name: worker, namespace: selfheal-demo, labels: {app: worker}}
+spec:
+  replicas: 1
+  selector: {matchLabels: {app: worker}}
+  template:
+    metadata: {labels: {app: worker}}
+    spec:
+      containers:
+        - {name: worker, image: nginx:1.27-alpine, resources: {requests: {cpu: 10m, memory: 16Mi}, limits: {cpu: 100m, memory: 64Mi}}}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: {name: payments, namespace: selfheal-demo, labels: {app: payments}}
+spec:
+  replicas: 1
+  selector: {matchLabels: {app: payments}}
+  template:
+    metadata: {labels: {app: payments}, annotations: {selfheal-demo/revision: "1"}}
+    spec:
+      containers:
+        - {name: payments, image: nginx:1.27-alpine, resources: {requests: {cpu: 10m, memory: 16Mi}, limits: {cpu: 100m, memory: 64Mi}}}
+---
+apiVersion: batch/v1
+kind: Job
+metadata: {name: reconcile, namespace: selfheal-demo}
+spec:
+  backoffLimit: 0
+  template:
+    spec:
+      restartPolicy: Never
+      containers: [{name: reconcile, image: busybox:1.36, command: ["sh", "-c", "echo reconciliation complete"]}]
+

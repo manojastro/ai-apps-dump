@@ -1,0 +1,73 @@
+# RESTOCK workflow: supply agent compares stock with forecast, drafts an order, a human approves.
+- id: rs01_low_stock_order_approved
+  description: Three items at zero stock; one order is drafted and approved.
+  setup: {low_stock: 3}
+  events: [{type: STOCK_LOW, payload: {sku: SKU-001}}]
+  expect:
+    workflow_status: COMPLETED
+    outcome: order_approved
+    must_call: [get_stock, get_usage_forecast, draft_supply_order, request_approval]
+    must_not_call: [get_patient_summary, get_checkins, draft_communication]
+    approvals: [supply_order]
+    db: {orders: {approved: 1}}
+
+- id: rs02_nothing_to_order
+  description: Everything is fully stocked; no order, no approval.
+  setup: {stock_full: true}
+  events: [{type: STOCK_LOW, payload: {}}]
+  expect:
+    workflow_status: COMPLETED
+    outcome: no_restock_needed
+    must_not_call: [draft_supply_order, request_approval]
+    no_approvals: true
+    db: {orders: {approved: 0}}
+
+- id: rs03_rejected_once_then_ok
+  description: First order rejected with a reason; one re-draft is made and approved.
+  setup: {low_stock: 3}
+  events: [{type: STOCK_LOW, payload: {}}]
+  approvals: {supply_order: reject_once}
+  expect:
+    workflow_status: COMPLETED
+    outcome: order_approved
+    db: {orders: {rejected: 1, approved: 1}}
+
+- id: rs04_rejected_twice
+  description: Two rejections end the workflow with no approved order.
+  setup: {low_stock: 3}
+  events: [{type: STOCK_LOW, payload: {}}]
+  approvals: {supply_order: reject}
+  expect:
+    workflow_status: COMPLETED
+    outcome: order_rejected
+    db: {orders: {rejected: 2, approved: 0}}
+
+- id: rs05_expires_twice_escalates
+  description: Nobody approves; re-draft after the first expiry, escalate after the second.
+  setup: {low_stock: 3}
+  events: [{type: STOCK_LOW, payload: {}}]
+  approvals: {supply_order: ignore}
+  expire: true
+  expect:
+    workflow_status: ESCALATED
+    outcome: escalated
+    db: {orders: {approved: 0}}
+
+- id: rs06_nightly_timer_triggers_restock
+  description: The nightly TIMER_DUE event starts the same workflow.
+  setup: {low_stock: 2}
+  events: [{type: TIMER_DUE, payload: {kind: nightly_restock}}]
+  expect:
+    workflow_status: COMPLETED
+    outcome: order_approved
+    approvals: [supply_order]
+
+- id: rs07_forecast_pushes_item_under_reorder
+  description: SKU-001 is just above its reorder level but upcoming appointments will use it up, so it is ordered.
+  setup: {stock_full: true, stock: {SKU-001: {on_hand: 21, reorder_level: 20, usage_per_appointment: 5.0}}}
+  events: [{type: STOCK_LOW, payload: {}}]
+  expect:
+    workflow_status: COMPLETED
+    outcome: order_approved
+    must_call: [get_usage_forecast, draft_supply_order]
+    db: {order_has_sku: SKU-001}

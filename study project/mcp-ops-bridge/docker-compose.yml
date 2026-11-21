@@ -1,0 +1,24 @@
+services:
+  mock-itsm:
+    build: .
+    command: uv run uvicorn mock_itsm.app:app --host 0.0.0.0 --port 8001
+    ports: ["8001:8001"]
+    environment:
+      ITSM_DB_PATH: /app/data/itsm.db
+    volumes: ["./data:/app/data", "./scenarios:/app/scenarios:ro"]
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8001/health')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+  # Postgres note: add a db service (postgres:16) and point ITSM_DB_PATH /
+  # DATABASE_URL at it via a psycopg-backed mock_itsm.db. This slice uses SQLite offline.
+  ops-mcp:
+    build: .
+    command: uv run python -m ops_mcp.server --transport http --port 8002
+    ports: ["8002:8002"]
+    environment:
+      ITSM_DB_PATH: /app/data/itsm.db
+      MCP_BEARER_TOKEN: ${MCP_BEARER_TOKEN:-dev-bearer-token-change-me}
+    volumes: ["./data:/app/data:ro"]
+    depends_on: [mock-itsm]

@@ -1,0 +1,39 @@
+# One-command demo: `docker compose up --build`
+# Everything runs in MOCK LLM mode by default (offline, free). Synthetic data only.
+# NOTE: all services share one SQLite file on a named volume (fine for a single-host demo, not for production).
+x-eir: &eir
+  build: .
+  environment: &env
+    EIR_DB_URL: sqlite:////data/eir.db
+    EIR_LLM_MODE: ${EIR_LLM_MODE:-MOCK}
+    ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+    EIR_SESSION_SECRET: ${EIR_SESSION_SECRET:-change-me-demo-only}
+    PHOENIX_COLLECTOR_ENDPOINT: http://phoenix:6006/v1/traces
+  volumes: [eirdata:/data]
+
+services:
+  seed:            # one-shot: create tables + synthetic data
+    <<: *eir
+    command: ["python", "scripts/seed.py"]
+  api:             # event ingestion + read API  -> http://localhost:8000/docs
+    <<: *eir
+    command: ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+    ports: ["8000:8000"]
+    depends_on: {seed: {condition: service_completed_successfully}}
+  worker:          # claims events, runs workflows and agents (2 asyncio workers each)
+    <<: *eir
+    command: ["python", "-m", "app.worker"]
+    environment: {<<: *env, EIR_WORKERS: "2"}
+    depends_on: {seed: {condition: service_completed_successfully}}
+    deploy: {replicas: 2}
+  console:         # staff console -> http://localhost:8001  (frontdesk1 / nurse1 / inventory1, password: demo)
+    <<: *eir
+    command: ["uvicorn", "app.console.app:app", "--host", "0.0.0.0", "--port", "8001"]
+    ports: ["8001:8001"]
+    depends_on: {seed: {condition: service_completed_successfully}}
+  phoenix:         # trace viewer -> http://localhost:6006
+    image: arizephoenix/phoenix:latest
+    ports: ["6006:6006"]
+
+volumes:
+  eirdata:

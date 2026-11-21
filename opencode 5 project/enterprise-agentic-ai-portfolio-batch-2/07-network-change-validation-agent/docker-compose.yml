@@ -1,0 +1,23 @@
+services:
+  network-twin:
+    build: .
+    container_name: network-twin-agent
+    ports:
+      - "8612:8612"
+    environment:
+      APP_DB_PATH: /app/data/app.db
+      LLM_MODE: ${LLM_MODE:-mock}
+      LLM_API_KEY: ${LLM_API_KEY:-}
+      LLM_BASE_URL: ${LLM_BASE_URL:-https://api.openai.com/v1}
+      LLM_MODEL: ${LLM_MODEL:-gpt-4o-mini}
+    volumes:
+      - twin-data:/app/data
+    healthcheck:
+      test: ["CMD", "python", "-c",
+             "import urllib.request;urllib.request.urlopen('http://127.0.0.1:8612/health')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+volumes:
+  twin-data:

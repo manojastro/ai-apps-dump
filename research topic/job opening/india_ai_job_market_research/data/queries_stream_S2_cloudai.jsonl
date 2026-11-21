@@ -1,0 +1,44 @@
+{"engine":"WebSearch","query":"Cloud AI Engineer jobs India 2026 Bengaluru Hyderabad","relevant":0,"results_reviewed":0,"stream":"S2_cloudai","unique_added":0}
+{"engine":"WebSearch","query":"site:boards.greenhouse.io Cloud AI engineer India","relevant":0,"results_reviewed":0,"stream":"S2_cloudai","unique_added":0}
+{"engine":"WebSearch","query":"site:jobs.lever.co Cloud AI ML engineer India","relevant":0,"results_reviewed":0,"stream":"S2_cloudai","unique_added":0}
+{"engine":"WebSearch","query":"site:myworkdayjobs.com Cloud AI engineer India","relevant":0,"results_reviewed":0,"stream":"S2_cloudai","unique_added":0}
+{"engine":"WebSearch","query":"site:jobs.ashbyhq.com Cloud AI engineer India","relevant":0,"results_reviewed":0,"stream":"S2_cloudai","unique_added":0}
+{"engine":"WebSearch","query":"AWS Bedrock engineer jobs India 2026","relevant":0,"results_reviewed":0,"stream":"S2_cloudai","unique_added":0}
+{"engine":"WebSearch","query":"Azure AI Foundry Azure OpenAI engineer jobs India 2026","relevant":0,"results_reviewed":0,"stream":"S2_cloudai","unique_added":0}
+{"engine":"WebSearch","query":"GCP Vertex AI engineer jobs India 2026","relevant":0,"results_reviewed":0,"stream":"S2_cloudai","unique_added":0}
+{"engine":"WebSearch","query":"Cloud AI Engineer jobs India 2026","relevant":0,"results_reviewed":0,"stream":"S2_cloudai","unique_added":0}
+{"engine":"WebSearch","query":"Cloud AI Engineer jobs India Bengaluru","relevant":0,"results_reviewed":0,"stream":"S2_cloudai","unique_added":0}
+{"engine":"WebSearch","query":"Teradata Senior Cloud AI Engineer Hyderabad posting","relevant":0,"results_reviewed":0,"stream":"S2_cloudai","unique_added":0}
+{"engine":"WebFetch","query":"Bing: Cloud AI Engineer jobs India Bengaluru 2026 (generic results, no usable postings)","relevant":0,"results_reviewed":10,"stream":"S2_cloudai","unique_added":0}
+{"engine":"WebFetch","query":"DuckDuckGo html: Cloud AI Engineer jobs India site:jobs.lever.co (bot captcha, no results)","relevant":0,"results_reviewed":0,"stream":"S2_cloudai","unique_added":0}
+{"engine":"WebFetch","query":"Fetch https://quantiphi.com/careers/ (found MyWorkday ATS link, no listings rendered)","relevant":0,"results_reviewed":1,"stream":"S2_cloudai","unique_added":0}
+{"engine":"WebFetch","query":"Fetch https://www.searce.com/careers/ and https://searce.com/careers (404)","relevant":0,"results_reviewed":0,"stream":"S2_cloudai","unique_added":0}
+{"engine":"WebFetch","query":"Fetch https://minfy.com/careers/ (transport error)","relevant":0,"results_reviewed":0,"stream":"S2_cloudai","unique_added":0}
+{"engine":"WebFetch","query":"Fetch https://jobs.ashbyhq.com/quantiphi (JS shell, no listings)","relevant":0,"results_reviewed":0,"stream":"S2_cloudai","unique_added":0}
+{"engine":"WebFetch","query":"Fetch Ashby API job-board/quantiphi (404, unknown board slug)","relevant":0,"results_reviewed":0,"stream":"S2_cloudai","unique_added":0}
+{"engine":"WebFetch","query":"Fetch https://quantiphi.wd1.myworkdayjobs.com/Careers_at_Quantiphi (empty JS page)","relevant":0,"results_reviewed":0,"stream":"S2_cloudai","unique_added":0}
+{"engine":"WebFetch","query":"Fetch https://cutshort.io/jobs/cloud-ai-engineer-jobs-in-india (generic page, no listings)","relevant":0,"results_reviewed":0,"stream":"S2_cloudai","unique_added":0}
+{"engine":"WebFetch","query":"Fetch https://in.jooble.org/jobs-Cloud-AI-engineer/India (403)","relevant":0,"results_reviewed":0,"stream":"S2_cloudai","unique_added":0}
+{"engine":"WebFetch","query":"Fetch https://www.careerjet.co.in/cloud-ai-jobs-in-india.html (404)","relevant":0,"results_reviewed":0,"stream":"S2_cloudai","unique_added":0}
+{"engine":"WebFetch","query":"Fetch https://www.foundit.in/srp/results?query=Cloud+AI+Engineer (JS shell, no listings)","relevant":0,"results_reviewed":0,"stream":"S2_cloudai","unique_added":0}
+{"engine":"WebFetch","query":"Fetch Indeed viewjob jk=74fd47acf98ef8ad Insight detail (401)","relevant":0,"results_reviewed":0,"stream":"S2_cloudai","unique_added":0}
+{"engine":"WebFetch","query":"Indeed: \"cloud AI engineer\" in India (Insight, Teradata x4, PwC x2)","relevant":9,"results_reviewed":15,"stream":"S2_cloudai","unique_added":5}
+{"engine":"WebFetch","query":"Indeed: AWS Bedrock engineer in India (Stellaspire, Cloudbyz)","relevant":5,"results_reviewed":15,"stream":"S2_cloudai","unique_added":2}
+{"engine":"WebFetch","query":"Indeed: Azure AI engineer in India (Saarthee, Relevance Labs, Luxoft, WebSenor Noida listed, Marlabs)","relevant":7,"results_reviewed":15,"stream":"S2_cloudai","unique_added":3}
+{"engine":"WebFetch","query":"Indeed: Vertex AI engineer in India (Techolution, The Strong AI)","relevant":6,"results_reviewed":15,"stream":"S2_cloudai","unique_added":2}
+{"engine":"WebFetch","query":"Indeed: \"AI Platform Engineer\" in India (eBay, Quest Global, Tvh India, Veltris, AHEAD)","relevant":8,"results_reviewed":15,"stream":"S2_cloudai","unique_added":3}
+{"engine":"WebFetch","query":"Indeed: \"ML Platform\" engineer in India (UST, Cartesia, Vikash, Eventrics/Wandercraft)","relevant":7,"results_reviewed":15,"stream":"S2_cloudai","unique_added":4}
+{"engine":"WebFetch","query":"Indeed: \"AI Infrastructure\" engineer in India (TalentNest, Together AI, Sarvam, Crowe)","relevant":8,"results_reviewed":15,"stream":"S2_cloudai","unique_added":4}
+{"engine":"WebFetch","query":"Indeed: \"Cloud Solutions\" AI engineer in India (AstraZeneca R-259465, Microsoft CSA)","relevant":6,"results_reviewed":15,"stream":"S2_cloudai","unique_added":2}
+{"engine":"WebFetch","query":"Indeed: Microsoft Cloud AI engineer in India (OpenAI Partner AWS, Acronotics)","relevant":6,"results_reviewed":15,"stream":"S2_cloudai","unique_added":2}
+{"engine":"WebFetch","query":"Indeed: Google Cloud AI engineer in India (Google Gurugram, Pune, Mumbai FDE/GenAI)","relevant":6,"results_reviewed":15,"stream":"S2_cloudai","unique_added":3}
+{"engine":"WebFetch","query":"Indeed: Quantiphi cloud AI in India (Snehal AWS AI Architect)","relevant":5,"results_reviewed":15,"stream":"S2_cloudai","unique_added":1}
+{"engine":"WebFetch","query":"Indeed: \"SageMaker\" engineer in India (Accenture Hyderabad AI/ML)","relevant":5,"results_reviewed":15,"stream":"S2_cloudai","unique_added":1}
+{"engine":"WebFetch","query":"Indeed: Cloud AI engineer in Mumbai (Husqvarna, PCDS, Aadmi, Google)","relevant":7,"results_reviewed":15,"stream":"S2_cloudai","unique_added":3}
+{"engine":"WebFetch","query":"Indeed: Cloud AI engineer in Hyderabad (Rupa, NTT, Teradata)","relevant":8,"results_reviewed":15,"stream":"S2_cloudai","unique_added":2}
+{"engine":"WebFetch","query":"Indeed: Cloud AI engineer in Chennai (AstraZeneca, Strong AI, UST, SES)","relevant":5,"results_reviewed":15,"stream":"S2_cloudai","unique_added":0}
+{"engine":"WebFetch","query":"Indeed: Cloud AI engineer in Pune (Kiash AWS Connect+Claude, Teradata, Mastercard)","relevant":7,"results_reviewed":15,"stream":"S2_cloudai","unique_added":1}
+{"engine":"WebFetch","query":"Indeed: Cloud AI engineer in New Delhi (Rohde & Schwarz, RMSI Noida, Quadcentrix)","relevant":6,"results_reviewed":15,"stream":"S2_cloudai","unique_added":2}
+{"engine":"WebFetch","query":"Indeed: Cloud AI engineer in Gurugram (EXL, Jinendra Copilot, NTT, Insight)","relevant":8,"results_reviewed":15,"stream":"S2_cloudai","unique_added":2}
+{"engine":"WebFetch","query":"Indeed: Searce OR Minfy cloud AI in India (0 results)","relevant":0,"results_reviewed":0,"stream":"S2_cloudai","unique_added":0}
+{"engine":"WebFetch","query":"Indeed: Cloud AI engineer in Kolkata (SS&C Bedrock/Azure/Vertex, Kabinav, Accenture)","relevant":6,"results_reviewed":15,"stream":"S2_cloudai","unique_added":2}

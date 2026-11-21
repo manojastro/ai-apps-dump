@@ -1,0 +1,103 @@
+# Evaluation questions about RFC 7519. Drafted by Claude; every item needs review.
+# difficulty: easy = direct lookup; tricky = MUST/SHOULD/MAY, optional claims, validation rules.
+questions:
+  - id: q01
+    doc_id: rfc7519
+    status: draft
+    difficulty: easy
+    question: What does the "exp" claim identify?
+  - id: q02
+    doc_id: rfc7519
+    status: draft
+    difficulty: tricky
+    question: Is the "iss" claim required in every JWT?
+  - id: q03
+    doc_id: rfc7519
+    status: draft
+    difficulty: easy
+    question: What kind of value must the "exp" claim contain?
+  - id: q04
+    doc_id: rfc7519
+    status: draft
+    difficulty: tricky
+    question: What must happen if the principal processing a JWT does not identify itself with a value in the "aud" claim when that claim is present?
+  - id: q05
+    doc_id: rfc7519
+    status: draft
+    difficulty: tricky
+    question: Can the "aud" claim be a single string instead of an array?
+  - id: q06
+    doc_id: rfc7519
+    status: draft
+    difficulty: easy
+    question: What is the "jti" claim for, and what does the RFC say about its uniqueness?
+  - id: q07
+    doc_id: rfc7519
+    status: draft
+    difficulty: tricky
+    question: What does the "nbf" claim mean, and may implementers allow for clock skew?
+  - id: q08
+    doc_id: rfc7519
+    status: draft
+    difficulty: easy
+    question: How does RFC 7519 define a NumericDate?
+  - id: q09
+    doc_id: rfc7519
+    status: draft
+    difficulty: tricky
+    question: If the "typ" header parameter is used, what value is recommended for it?
+  - id: q10
+    doc_id: rfc7519
+    status: draft
+    difficulty: tricky
+    question: When must the "cty" header parameter be present, and what value should it have then?
+  - id: q11
+    doc_id: rfc7519
+    status: draft
+    difficulty: tricky
+    question: What must a JWT parser do when the Claims Set contains duplicate claim names?
+  - id: q12
+    doc_id: rfc7519
+    status: draft
+    difficulty: tricky
+    question: Which cryptographic algorithms must conforming JWT implementations support?
+  - id: q13
+    doc_id: rfc7519
+    status: draft
+    difficulty: easy
+    question: What "alg" header value does an Unsecured JWT use, and what is its signature?
+  - id: q14
+    doc_id: rfc7519
+    status: draft
+    difficulty: tricky
+    question: When validating a JWT, what must be checked about the JOSE Header?
+  - id: q15
+    doc_id: rfc7519
+    status: draft
+    difficulty: tricky
+    question: Are comparisons of JWT claim names and other strings case-sensitive?
+  - id: q16
+    doc_id: rfc7519
+    status: draft
+    difficulty: tricky
+    question: When a JWT is both signed and encrypted, in what order should the operations be applied, and why?
+  - id: q17
+    doc_id: rfc7519
+    status: draft
+    difficulty: tricky
+    question: Are any of the registered claims mandatory to use in every JWT?
+  - id: q18
+    doc_id: rfc7519
+    status: draft
+    difficulty: easy
+    question: What is the difference between Public Claim Names and Private Claim Names?
+  - id: q19
+    doc_id: rfc7519
+    status: draft
+    difficulty: easy
+    question: What media type does RFC 7519 register for JWTs?
+  - id: q20
+    doc_id: rfc7519
+    status: draft
+    difficulty: tricky
+    question: Who decides which cryptographic algorithms are acceptable when a JWT is validated?

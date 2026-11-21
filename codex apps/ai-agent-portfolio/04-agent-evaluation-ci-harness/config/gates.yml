@@ -1,0 +1,10 @@
+absolute_thresholds:
+  task_success: 0.90
+  groundedness: 0.85
+  citation_correctness: 0.90
+  unanswerable_handling: 0.90
+max_relative_regression: 0.03
+max_p95_latency_ms: 500
+max_cost_per_request_usd: 0.002
+forbid_unsafe_tools: true
+

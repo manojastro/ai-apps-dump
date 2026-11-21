@@ -1,0 +1,159 @@
+# PLAN 7.1, with two interchangeable ways to reach the stack from the internet
+# (DECISIONS.md D-007). The `app` service is IDENTICAL in both, so migrating from
+# the temporary ngrok tunnel to the permanent DuckDNS + Caddy hostname is a
+# profile swap and a PUBLIC_HOST change — no application code changes.
+#
+#   docker compose --profile cloudflared up -d --build  # temporary, no DNS, no account
+#   docker compose --profile ngrok       up -d --build  # temporary, needs an authtoken
+#   docker compose --profile tls         up -d --build  # DuckDNS + Let's Encrypt
+#
+# `scripts/deploy-cloudflared.sh`, `scripts/deploy-ngrok.sh` and `scripts/deploy.sh`
+# wrap those three. Exactly one tunnel profile at a time: two tunnels means two
+# public hostnames for one PUBLIC_HOST, and the /ws Origin policy accepts one.
+
+x-logging: &logging
+  # Without rotation a long-lived POC fills the disk with container logs, and the
+  # first symptom is the whole VM misbehaving rather than this service.
+  driver: json-file
+  options:
+    max-size: "10m"
+    max-file: "5"
+
+services:
+  app:
+    build:
+      context: ./server
+    restart: unless-stopped
+    logging: *logging
+    # The image's own user is uid 1000, but the bind-mounted ./audit directory
+    # belongs to whoever checked the repo out — and if those differ the audit log
+    # silently fails to write, which breaks CLAUDE.md constraint #5. The deploy
+    # scripts export the current user's ids; the defaults cover a fresh clone.
+    user: "${HOST_UID:-1000}:${HOST_GID:-1000}"
+    environment:
+      PORT: 8080
+      PUBLIC_HOST: ${PUBLIC_HOST:?set PUBLIC_HOST in .env}
+      AUDIT_DIR: /app/audit
+      AGENT_NAME: ${AGENT_NAME:-Support Agent}
+      # Both deployment modes put a TLS-terminating proxy in front (Caddy, or
+      # ngrok's edge), so the client's real IP and scheme arrive in headers.
+      # Without this the rate limiter sees only the proxy and the transport check
+      # sees plain ws.
+      TRUST_PROXY: "1"
+      SESSION_CODE_TTL_MS: ${SESSION_CODE_TTL_MS:-600000}
+      JOIN_ATTEMPTS_PER_MINUTE: ${JOIN_ATTEMPTS_PER_MINUTE:-5}
+      ELEVATION_ATTEMPTS_PER_SESSION: ${ELEVATION_ATTEMPTS_PER_SESSION:-5}
+      # Added by the 2026-09-03 security review. Listed here because compose
+      # passes an explicit environment block: a key that is not named here
+      # cannot be set in a deployment at all, whatever the .env says.
+      CREATE_ATTEMPTS_PER_MINUTE: ${CREATE_ATTEMPTS_PER_MINUTE:-10}
+      MAX_LIVE_SESSIONS: ${MAX_LIVE_SESSIONS:-500}
+      # Extra browser origins allowed to open /ws. Normally empty: the request's
+      # own Host is always allowed, and non-browser clients send no Origin.
+      ALLOWED_ORIGINS: ${ALLOWED_ORIGINS:-}
+      # Shared credential for the agent console. Unset means an OPEN console —
+      # fine locally, unsafe on any public address. Never hard-code it here.
+      CONSOLE_USER: ${CONSOLE_USER:-agent}
+      CONSOLE_PASSWORD: ${CONSOLE_PASSWORD:-}
+      # Never set in a deployment (PLAN 5.2c rule 1).
+      ALLOW_INSECURE_DEV: "0"
+    volumes:
+      - ./audit:/app/audit
+      # The .exe build-windows.sh produces, served by the app in ngrok mode and
+      # by Caddy in tls mode.
+      - ./server/public/download:/app/public/download:ro
+    # Not published to the host — the proxy reaches it on the internal network.
+    expose:
+      - "8080"
+
+  # ---------------------------------------------------------------- tls profile
+  # Permanent deployment: DuckDNS hostname + automatic Let's Encrypt (PLAN 7.2/7.3).
+  # Only 80 and 443 are published — custom ports are exactly what corporate egress
+  # filtering blocks, and 80 must stay open for the ACME HTTP-01 challenge.
+  caddy:
+    profiles: ["tls"]
+    image: caddy:2-alpine
+    restart: unless-stopped
+    logging: *logging
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      PUBLIC_HOST: ${PUBLIC_HOST:?set PUBLIC_HOST in .env}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./server/public:/srv/public:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      app:
+        condition: service_healthy
+
+  # -------------------------------------------------------------- ngrok profile
+  # Temporary external access while no DNS exists (PLAN 7.8 brought forward).
+  # ngrok terminates TLS at its edge and forwards to app:8080, so the browser
+  # still sees real HTTPS — which Chrome requires before it will download an .exe.
+  #
+  # NGROK_AUTHTOKEN comes from .env and is never committed. NGROK_URL is optional:
+  # set it to a reserved static domain so the URL survives a restart, otherwise
+  # ngrok assigns a random one each time and the applet must be rebuilt.
+  ngrok:
+    profiles: ["ngrok"]
+    image: ngrok/ngrok:alpine
+    restart: unless-stopped
+    logging: *logging
+    environment:
+      NGROK_AUTHTOKEN: ${NGROK_AUTHTOKEN:?set NGROK_AUTHTOKEN in .env}
+    command: >
+      http app:8080
+      --log stdout
+      --log-format logfmt
+      ${NGROK_URL:+--url=${NGROK_URL}}
+    ports:
+      # ngrok's local inspection API, bound to LOOPBACK ONLY: it exposes request
+      # contents, which for this app includes session codes.
+      - "127.0.0.1:4040:4040"
+    depends_on:
+      app:
+        condition: service_healthy
+
+  # -------------------------------------------------------- cloudflared profile
+  # Temporary external access with no account, no token and no DNS, and — unlike
+  # ngrok's free tier — no monthly bandwidth cap (DECISIONS.md D-011). That cap is
+  # what stopped MT-01 and MT-06 being retested on 2026-09-05: this applet is a
+  # 66 MB download and every screen frame of every session crosses the same
+  # tunnel, so a few test runs is a meaningful fraction of a free ngrok month.
+  #
+  # Cloudflare terminates TLS at its edge and forwards to app:8080, so the browser
+  # sees real HTTPS — which Chrome requires before it will download an .exe — and
+  # WebSockets pass through, which /ws needs.
+  #
+  # A "quick tunnel" gets a RANDOM trycloudflare.com hostname, and a NEW one on
+  # every restart. The applet has the URL baked in (PLAN 2.2), so a restart
+  # silently orphans every .exe already downloaded. `restart: unless-stopped` is
+  # still right — an unreachable tunnel is worse than a changed one — but after
+  # any restart, re-run scripts/deploy-cloudflared.sh, which reconciles
+  # PUBLIC_HOST and rebuilds the .exe.
+  cloudflared:
+    profiles: ["cloudflared"]
+    image: cloudflare/cloudflared:latest
+    restart: unless-stopped
+    logging: *logging
+    # --no-autoupdate: an image that replaces its own binary at runtime is not a
+    # reproducible deployment, and the restart it does to apply an update drops
+    # the tunnel and takes the hostname with it.
+    command: tunnel --no-autoupdate --url http://app:8080 --metrics 0.0.0.0:2000
+    ports:
+      # The metrics endpoint, LOOPBACK ONLY. /quicktunnel there is how the deploy
+      # script learns the assigned hostname without scraping a log banner. It
+      # carries no request contents — unlike ngrok's 4040 inspector, which for
+      # this app would expose session codes — but there is no reason to publish
+      # it beyond the host either.
+      - "127.0.0.1:2000:2000"
+    depends_on:
+      app:
+        condition: service_healthy
+
+volumes:
+  caddy_data:
+  caddy_config:

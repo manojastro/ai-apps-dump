@@ -1,0 +1,75 @@
+# Hand-labelled golden scenario. Expectations derive from reading the SQL and dashboards.yaml.
+id: s20_drop_customer_id
+description: 'Drop orders.customer_id: join key for every mart; not-null test blocks a default'
+topic: orders.v1
+mutations:
+- op: drop_field
+  field: customer_id
+expected:
+  change_class: breaking
+  route: escalate
+  impacted:
+  - column:mart.customer_ltv.country
+  - column:mart.customer_ltv.customer_id
+  - column:mart.customer_ltv.ltv
+  - column:mart.customer_ltv.order_count
+  - column:mart.daily_revenue.items_sold
+  - column:mart.daily_revenue.order_count
+  - column:mart.daily_revenue.order_date
+  - column:mart.daily_revenue.revenue
+  - column:mart.fct_orders.amount
+  - column:mart.fct_orders.country
+  - column:mart.fct_orders.created_at
+  - column:mart.fct_orders.currency
+  - column:mart.fct_orders.customer_id
+  - column:mart.fct_orders.order_date
+  - column:mart.fct_orders.order_id
+  - column:mart.fct_orders.paid_amount
+  - column:mart.fct_orders.payment_method
+  - column:mart.fct_orders.quantity
+  - column:mart.fct_orders.status
+  - column:stg.stg_orders.customer_id
+  - dashboard:Customer Health
+  - dashboard:Finance Reconciliation
+  - dashboard:Sales Overview
+  - visual:Customer Health/Customers by Country
+  - visual:Customer Health/LTV Distribution
+  - visual:Finance Reconciliation/Paid vs Ordered
+  - visual:Sales Overview/Items Sold by Day
+  - visual:Sales Overview/Orders by Status
+  - visual:Sales Overview/Payment Mix
+  - visual:Sales Overview/Revenue by Day
+  verdicts:
+    column:stg.stg_orders.customer_id: breaking
+    column:mart.fct_orders.order_id: breaking
+    column:mart.fct_orders.customer_id: breaking
+    column:mart.fct_orders.amount: breaking
+    column:mart.fct_orders.currency: breaking
+    column:mart.fct_orders.quantity: breaking
+    column:mart.fct_orders.status: breaking
+    column:mart.fct_orders.created_at: breaking
+    column:mart.fct_orders.order_date: breaking
+    column:mart.fct_orders.paid_amount: breaking
+    column:mart.fct_orders.payment_method: breaking
+    column:mart.fct_orders.country: breaking
+    column:mart.daily_revenue.order_date: breaking
+    column:mart.daily_revenue.revenue: breaking
+    column:mart.daily_revenue.order_count: breaking
+    column:mart.daily_revenue.items_sold: breaking
+    column:mart.customer_ltv.customer_id: breaking
+    column:mart.customer_ltv.country: breaking
+    column:mart.customer_ltv.ltv: breaking
+    column:mart.customer_ltv.order_count: breaking
+    visual:Sales Overview/Revenue by Day: breaking
+    visual:Sales Overview/Items Sold by Day: breaking
+    visual:Sales Overview/Orders by Status: breaking
+    visual:Sales Overview/Payment Mix: breaking
+    visual:Customer Health/LTV Distribution: breaking
+    visual:Customer Health/Customers by Country: breaking
+    visual:Finance Reconciliation/Paid vs Ordered: breaking
+    dashboard:Sales Overview: breaking
+    dashboard:Customer Health: breaking
+    dashboard:Finance Reconciliation: breaking
+  fix_should_pass: false
+  failing_tables:
+  - stg.stg_orders

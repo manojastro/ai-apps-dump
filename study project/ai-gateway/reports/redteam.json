@@ -1,0 +1,31 @@
+{
+  "synthetic": true,
+  "profile": "strict",
+  "n_attacks": 20,
+  "n_benign": 20,
+  "blocked_attacks": 14,
+  "block_rate": 0.7,
+  "false_positives": 0,
+  "false_positive_rate": 0.0,
+  "overhead_ms_p50": 0.049,
+  "overhead_ms_p95": 0.08,
+  "blocked_ids": [
+    "atk-01",
+    "atk-02",
+    "atk-03",
+    "atk-04",
+    "atk-05",
+    "atk-06",
+    "atk-07",
+    "atk-09",
+    "atk-12",
+    "atk-13",
+    "atk-14",
+    "atk-15",
+    "atk-19",
+    "atk-20"
+  ],
+  "fp_ids": [],
+  "max_usd_per_run": 5.0,
+  "cost_usd": 0.0
+}

@@ -1,0 +1,122 @@
+# SpreadLens canonical financial taxonomy (versioned). Non-financial companies only.
+# section: where the item may legitimately appear; the mapper rewards matching sections and
+# penalises mismatches so that "Borrowings" under current liabilities never maps to the
+# non-current item by keyword alone.
+# sign: "positive" = canonical value is a positive magnitude (expenses, assets);
+#       "signed"   = may be negative by nature (profits, cash flows, net movement).
+version: spreadlens-tax-1.0
+items:
+  # ---------------- Balance sheet: assets ----------------
+  - {code: bs.property_plant_equipment, label: Property, plant and equipment, statement: balance_sheet, unit: monetary, period: instant, sign: positive, section: non_current_assets, total: false, order: 100,
+     synonyms: [property plant and equipment, property plant & equipment, fixed assets, tangible assets, ppe, plant and equipment, property and equipment]}
+  - {code: bs.capital_work_in_progress, label: Capital work-in-progress, statement: balance_sheet, unit: monetary, period: instant, sign: positive, section: non_current_assets, total: false, order: 105,
+     synonyms: [capital work in progress, capital work-in-progress, cwip]}
+  - {code: bs.right_of_use_assets, label: Right-of-use assets, statement: balance_sheet, unit: monetary, period: instant, sign: positive, section: non_current_assets, total: false, order: 108,
+     synonyms: [right of use assets, right-of-use assets, rou assets]}
+  - {code: bs.goodwill, label: Goodwill, statement: balance_sheet, unit: monetary, period: instant, sign: positive, section: non_current_assets, total: false, order: 110, synonyms: [goodwill, goodwill on consolidation]}
+  - {code: bs.intangible_assets, label: Intangible assets, statement: balance_sheet, unit: monetary, period: instant, sign: positive, section: non_current_assets, total: false, order: 112,
+     synonyms: [intangible assets, other intangible assets, intangibles, intangible assets under development]}
+  - {code: bs.non_current_investments, label: Non-current investments, statement: balance_sheet, unit: monetary, period: instant, sign: positive, section: non_current_assets, total: false, order: 115,
+     synonyms: [investments, non current investments, non-current investments, long term investments, financial assets investments]}
+  - {code: bs.deferred_tax_assets, label: Deferred tax assets (net), statement: balance_sheet, unit: monetary, period: instant, sign: positive, section: non_current_assets, total: false, order: 118,
+     synonyms: [deferred tax assets, deferred tax assets net]}
+  - {code: bs.other_non_current_assets, label: Other non-current assets, statement: balance_sheet, unit: monetary, period: instant, sign: positive, section: non_current_assets, total: false, order: 120,
+     synonyms: [other non current assets, other non-current assets, other non current financial assets, loans, other financial assets, long term loans and advances, other assets]}
+  - {code: bs.total_non_current_assets, label: Total non-current assets, statement: balance_sheet, unit: monetary, period: instant, sign: positive, section: non_current_assets, total: true, order: 130,
+     synonyms: [total non current assets, total non-current assets, non current assets total]}
+  - {code: bs.inventories, label: Inventories, statement: balance_sheet, unit: monetary, period: instant, sign: positive, section: current_assets, total: false, order: 200, synonyms: [inventories, inventory, stock in trade, stocks]}
+  - {code: bs.current_investments, label: Current investments, statement: balance_sheet, unit: monetary, period: instant, sign: positive, section: current_assets, total: false, order: 205,
+     synonyms: [investments, current investments, short term investments]}
+  - {code: bs.trade_receivables, label: Trade receivables, statement: balance_sheet, unit: monetary, period: instant, sign: positive, section: current_assets, total: false, order: 210,
+     synonyms: [trade receivables, sundry debtors, debtors, accounts receivable, receivables, trade and other receivables]}
+  - {code: bs.cash_and_equivalents, label: Cash and cash equivalents, statement: balance_sheet, unit: monetary, period: instant, sign: positive, section: current_assets, total: false, order: 220,
+     synonyms: [cash and cash equivalents, cash & cash equivalents, cash and equivalents, cash and bank balances, cash and bank]}
+  - {code: bs.other_bank_balances, label: Other bank balances, statement: balance_sheet, unit: monetary, period: instant, sign: positive, section: current_assets, total: false, order: 225,
+     synonyms: [other bank balances, bank balances other than cash and cash equivalents, bank balances other than above]}
+  - {code: bs.other_current_assets, label: Other current assets, statement: balance_sheet, unit: monetary, period: instant, sign: positive, section: current_assets, total: false, order: 230,
+     synonyms: [other current assets, other current financial assets, loans, other financial assets, short term loans and advances, other assets, current tax assets]}
+  - {code: bs.total_current_assets, label: Total current assets, statement: balance_sheet, unit: monetary, period: instant, sign: positive, section: current_assets, total: true, order: 240,
+     synonyms: [total current assets, current assets total]}
+  - {code: bs.total_assets, label: Total assets, statement: balance_sheet, unit: monetary, period: instant, sign: positive, section: assets, total: true, order: 250, synonyms: [total assets, total]}
+  # ---------------- Balance sheet: equity ----------------
+  - {code: bs.share_capital, label: Equity share capital, statement: balance_sheet, unit: monetary, period: instant, sign: positive, section: equity, total: false, order: 300,
+     synonyms: [equity share capital, share capital, issued capital]}
+  - {code: bs.other_equity, label: Other equity, statement: balance_sheet, unit: monetary, period: instant, sign: signed, section: equity, total: false, order: 305,
+     synonyms: [other equity, reserves and surplus, reserves, retained earnings]}
+  - {code: bs.non_controlling_interest, label: Non-controlling interests, statement: balance_sheet, unit: monetary, period: instant, sign: signed, section: equity, total: false, order: 308,
+     synonyms: [non controlling interests, non-controlling interest, minority interest]}
+  - {code: bs.total_equity, label: Total equity, statement: balance_sheet, unit: monetary, period: instant, sign: signed, section: equity, total: true, order: 310,
+     synonyms: [total equity, shareholders funds, total shareholders equity, net worth, equity attributable total]}
+  # ---------------- Balance sheet: liabilities ----------------
+  - {code: bs.non_current_borrowings, label: Non-current borrowings, statement: balance_sheet, unit: monetary, period: instant, sign: positive, section: non_current_liabilities, total: false, order: 400,
+     synonyms: [borrowings, long term borrowings, non current borrowings, non-current borrowings, term loans]}
+  - {code: bs.non_current_lease_liabilities, label: Non-current lease liabilities, statement: balance_sheet, unit: monetary, period: instant, sign: positive, section: non_current_liabilities, total: false, order: 403,
+     synonyms: [lease liabilities, non current lease liabilities]}
+  - {code: bs.deferred_tax_liabilities, label: Deferred tax liabilities (net), statement: balance_sheet, unit: monetary, period: instant, sign: positive, section: non_current_liabilities, total: false, order: 405,
+     synonyms: [deferred tax liabilities, deferred tax liabilities net]}
+  - {code: bs.other_non_current_liabilities, label: Other non-current liabilities, statement: balance_sheet, unit: monetary, period: instant, sign: positive, section: non_current_liabilities, total: false, order: 410,
+     synonyms: [other non current liabilities, long term provisions, provisions, other financial liabilities, other liabilities]}
+  - {code: bs.total_non_current_liabilities, label: Total non-current liabilities, statement: balance_sheet, unit: monetary, period: instant, sign: positive, section: non_current_liabilities, total: true, order: 420,
+     synonyms: [total non current liabilities, total non-current liabilities]}
+  - {code: bs.current_borrowings, label: Current borrowings, statement: balance_sheet, unit: monetary, period: instant, sign: positive, section: current_liabilities, total: false, order: 500,
+     synonyms: [borrowings, short term borrowings, current borrowings, working capital loans]}
+  - {code: bs.current_lease_liabilities, label: Current lease liabilities, statement: balance_sheet, unit: monetary, period: instant, sign: positive, section: current_liabilities, total: false, order: 503,
+     synonyms: [lease liabilities, current lease liabilities]}
+  - {code: bs.trade_payables, label: Trade payables, statement: balance_sheet, unit: monetary, period: instant, sign: positive, section: current_liabilities, total: false, order: 505,
+     synonyms: [trade payables, sundry creditors, creditors, accounts payable, payables, trade and other payables]}
+  - {code: bs.other_current_liabilities, label: Other current liabilities, statement: balance_sheet, unit: monetary, period: instant, sign: positive, section: current_liabilities, total: false, order: 510,
+     synonyms: [other current liabilities, other financial liabilities, short term provisions, provisions, current tax liabilities, other liabilities]}
+  - {code: bs.total_current_liabilities, label: Total current liabilities, statement: balance_sheet, unit: monetary, period: instant, sign: positive, section: current_liabilities, total: true, order: 520,
+     synonyms: [total current liabilities]}
+  - {code: bs.total_liabilities, label: Total liabilities, statement: balance_sheet, unit: monetary, period: instant, sign: positive, section: liabilities, total: true, order: 530, synonyms: [total liabilities]}
+  - {code: bs.total_equity_and_liabilities, label: Total equity and liabilities, statement: balance_sheet, unit: monetary, period: instant, sign: positive, section: equity_and_liabilities, total: true, order: 540,
+     synonyms: [total equity and liabilities, total liabilities and equity, total equity & liabilities, total]}
+  # ---------------- Income statement ----------------
+  - {code: is.revenue, label: Revenue from operations, statement: income_statement, unit: monetary, period: duration, sign: positive, section: income, total: false, order: 600,
+     synonyms: [revenue from operations, revenue, net sales, sales, turnover, income from operations, revenue from contracts with customers]}
+  - {code: is.other_income, label: Other income, statement: income_statement, unit: monetary, period: duration, sign: signed, section: income, total: false, order: 605, synonyms: [other income, other operating income]}
+  - {code: is.total_income, label: Total income, statement: income_statement, unit: monetary, period: duration, sign: positive, section: income, total: true, order: 610, synonyms: [total income, total revenue]}
+  - {code: is.cost_of_sales, label: Cost of sales, statement: income_statement, unit: monetary, period: duration, sign: positive, section: expenses, total: false, order: 620,
+     synonyms: [cost of sales, cost of goods sold, cost of materials consumed, cost of revenue, purchases of stock in trade]}
+  - {code: is.gross_profit, label: Gross profit, statement: income_statement, unit: monetary, period: duration, sign: signed, section: profit, total: true, order: 625, synonyms: [gross profit, gross margin]}
+  - {code: is.employee_benefits, label: Employee benefits expense, statement: income_statement, unit: monetary, period: duration, sign: positive, section: expenses, total: false, order: 630,
+     synonyms: [employee benefits expense, employee benefit expenses, staff costs, salaries and wages, personnel expenses]}
+  - {code: is.finance_costs, label: Finance costs, statement: income_statement, unit: monetary, period: duration, sign: positive, section: expenses, total: false, order: 640,
+     synonyms: [finance costs, interest expense, finance cost, interest and finance charges, borrowing costs]}
+  - {code: is.depreciation_amortisation, label: Depreciation and amortisation expense, statement: income_statement, unit: monetary, period: duration, sign: positive, section: expenses, total: false, order: 645,
+     synonyms: [depreciation and amortisation expense, depreciation and amortization expense, depreciation and amortisation, depreciation, depreciation amortisation and impairment]}
+  - {code: is.other_expenses, label: Other expenses, statement: income_statement, unit: monetary, period: duration, sign: positive, section: expenses, total: false, order: 650,
+     synonyms: [other expenses, other operating expenses, administrative expenses, selling and distribution expenses, changes in inventories]}
+  - {code: is.total_expenses, label: Total expenses, statement: income_statement, unit: monetary, period: duration, sign: positive, section: expenses, total: true, order: 660, synonyms: [total expenses, total operating expenses]}
+  - {code: is.operating_profit, label: Operating profit, statement: income_statement, unit: monetary, period: duration, sign: signed, section: profit, total: true, order: 665,
+     synonyms: [operating profit, profit from operations, operating income, ebit, results from operating activities]}
+  - {code: is.exceptional_items, label: Exceptional items, statement: income_statement, unit: monetary, period: duration, sign: signed, section: profit, total: false, order: 668, synonyms: [exceptional items, exceptional item]}
+  - {code: is.profit_before_tax, label: Profit before tax, statement: income_statement, unit: monetary, period: duration, sign: signed, section: profit, total: true, order: 670,
+     synonyms: [profit before tax, profit before taxation, profit before income tax, pbt, profit loss before tax, profit before exceptional items and tax]}
+  - {code: is.tax_expense, label: Total tax expense, statement: income_statement, unit: monetary, period: duration, sign: signed, section: tax, total: true, order: 680,
+     synonyms: [tax expense, total tax expense, income tax expense, provision for taxation, taxes on income, total tax]}
+  - {code: is.current_tax, label: Current tax, statement: income_statement, unit: monetary, period: duration, sign: signed, section: tax, total: false, order: 682, synonyms: [current tax]}
+  - {code: is.deferred_tax, label: Deferred tax, statement: income_statement, unit: monetary, period: duration, sign: signed, section: tax, total: false, order: 684, synonyms: [deferred tax, deferred tax charge credit]}
+  - {code: is.net_profit, label: Profit for the year, statement: income_statement, unit: monetary, period: duration, sign: signed, section: profit, total: true, order: 690,
+     synonyms: [profit for the year, net profit, profit after tax, profit for the period, net income, pat, profit loss for the year]}
+  - {code: is.eps_basic, label: Basic EPS, statement: income_statement, unit: eps, period: duration, sign: signed, section: eps, total: false, order: 700,
+     synonyms: [basic, basic eps, basic earnings per share, earnings per share basic]}
+  - {code: is.eps_diluted, label: Diluted EPS, statement: income_statement, unit: eps, period: duration, sign: signed, section: eps, total: false, order: 705,
+     synonyms: [diluted, diluted eps, diluted earnings per share, earnings per share diluted]}
+  # ---------------- Cash flow ----------------
+  - {code: cf.operating_cash_flow, label: Net cash from operating activities, statement: cash_flow, unit: monetary, period: duration, sign: signed, section: operating, total: true, order: 800,
+     synonyms: [net cash from operating activities, net cash generated from operating activities, net cash flow from operating activities, net cash generated from used in operating activities, cash generated from operations net, net cash provided by operating activities]}
+  - {code: cf.capex, label: Purchase of property, plant and equipment, statement: cash_flow, unit: monetary, period: duration, sign: signed, section: investing, total: false, order: 810,
+     synonyms: [purchase of property plant and equipment, purchase of fixed assets, capital expenditure, acquisition of property plant and equipment, payments for property plant and equipment, purchase of property plant and equipment and intangible assets]}
+  - {code: cf.investing_cash_flow, label: Net cash used in investing activities, statement: cash_flow, unit: monetary, period: duration, sign: signed, section: investing, total: true, order: 820,
+     synonyms: [net cash used in investing activities, net cash from investing activities, net cash flow from investing activities, net cash used in from investing activities, net cash generated from used in investing activities]}
+  - {code: cf.financing_cash_flow, label: Net cash used in financing activities, statement: cash_flow, unit: monetary, period: duration, sign: signed, section: financing, total: true, order: 830,
+     synonyms: [net cash used in financing activities, net cash from financing activities, net cash flow from financing activities, net cash used in from financing activities, net cash generated from used in financing activities]}
+  - {code: cf.net_change_in_cash, label: Net increase/(decrease) in cash and cash equivalents, statement: cash_flow, unit: monetary, period: duration, sign: signed, section: summary, total: true, order: 840,
+     synonyms: [net increase decrease in cash and cash equivalents, net increase in cash and cash equivalents, net decrease in cash and cash equivalents, net change in cash and cash equivalents, net increase decrease in cash]}
+  - {code: cf.fx_effect, label: Effect of exchange rate changes on cash, statement: cash_flow, unit: monetary, period: duration, sign: signed, section: summary, total: false, order: 845,
+     synonyms: [effect of exchange rate changes, effect of exchange rate changes on cash and cash equivalents, exchange difference on translation, effect of exchange differences]}
+  - {code: cf.opening_cash, label: Cash and cash equivalents at the beginning of the year, statement: cash_flow, unit: monetary, period: duration, sign: signed, section: summary, total: false, order: 850,
+     synonyms: [cash and cash equivalents at the beginning of the year, cash and cash equivalents at beginning of year, opening cash and cash equivalents, cash and cash equivalents at the beginning of the period]}
+  - {code: cf.closing_cash, label: Cash and cash equivalents at the end of the year, statement: cash_flow, unit: monetary, period: duration, sign: signed, section: summary, total: true, order: 860,
+     synonyms: [cash and cash equivalents at the end of the year, cash and cash equivalents at end of year, closing cash and cash equivalents, cash and cash equivalents at the end of the period]}

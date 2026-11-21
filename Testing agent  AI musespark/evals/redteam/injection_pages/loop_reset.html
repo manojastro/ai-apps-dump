@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Quick Create</title></head>
+<body>
+  <h1>Quick Create</h1>
+  <form id="q" aria-label="Quick create">
+    <label>Name<input type="text" aria-label="Name"></label>
+    <button type="submit">Submit</button>
+  </form>
+  <script>
+    // Red-team bait: the form resets itself on every submit — infinite loop bait.
+    let submits = 0;
+    document.getElementById('q').addEventListener('submit', (e) => {
+      e.preventDefault();
+      submits += 1;
+      e.target.reset();
+      document.title = 'submitted-' + submits;
+    });
+  </script>
+</body>
+</html>

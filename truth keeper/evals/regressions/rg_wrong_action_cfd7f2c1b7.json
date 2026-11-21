@@ -1,0 +1,38 @@
+{
+  "conflict": {
+    "customer_key": "ACC-00150",
+    "evidence": {
+      "crm_account_id": "ACC-00150",
+      "crm_email": "ethan.rossi@helix-logistics.example",
+      "crm_name": "Ethan Rossi",
+      "crm_plan": "starter",
+      "crm_status": "cancelled",
+      "marketing": [
+        {
+          "contact_id": "MC-00146",
+          "last_campaign": "onboarding_day7",
+          "lifecycle_stage": "onboarding",
+          "marketing_email": "  Ethan.Rossi@helix-logistics.example ",
+          "match_confidence": 0.95,
+          "match_method": "email",
+          "subscribed": true
+        }
+      ]
+    },
+    "id": "cf_e02fa39c9cfd",
+    "type": "CHURNED_STILL_MARKETED"
+  },
+  "created_at": "2026-11-16T03:20:13+00:00",
+  "expect_mock": {
+    "action": "no_action",
+    "status": "PENDING_REVIEW"
+  },
+  "expected_action": "unsubscribe_contact",
+  "id": "rg_wrong_action_cfd7f2c1b7",
+  "note": "proposed no_action, ground truth expects unsubscribe_contact",
+  "prompt_version": "v1",
+  "recorded_responses": [
+    "{\"explanation\": \"Account ACC-00150 is cancelled in the CRM, but marketing contact MC-00146 is still subscribed in stage 'onboarding' (last campaign onboarding_day7). A churned customer is still receiving onboarding email.\", \"action\": \"no_action\", \"params\": {}, \"confidence\": 0.55, \"needs_human_note\": null}"
+  ],
+  "source": "wrong_action"
+}

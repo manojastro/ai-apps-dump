@@ -1,0 +1,35 @@
+# DECISIONS — Digital Workplace Autopilot
+
+- D001 Real framework wins. Any prompt assumption conflicting with `docs/FRAMEWORK_FACTS.md` is adapted + documented here. No compatibility shims unless necessary.
+- D002 Preserve Neuro SAN layout. `registries/*.hocon` + `coded_tools/*` + `config/llm_config.hocon` + `registries/manifest.hocon` are mandatory conventions. Prompt's `agents/` top-level folder REJECTED (agents live as `tools[]` entries inside HOCON). `control_plane/`, `integrations/`, `simulator/`, `database/`, etc. are plain Python packages imported by coded tools, not served directly.
+- D003 Gemini-only LLM. `config/llm_config.hocon` = `{ "llm_config": { "model_name": "gemini-3-flash", "temperature": 1.0 } }` (or `gemini-2.5-flash` if tool-calling proves more stable). Env `GOOGLE_API_KEY` only (verified canonical; `GEMINI_API_KEY` is doc-only noise). `temperature:1.0` mandatory for Gemini 3 (0.7 loops). Fallbacks disabled for determinism; re-add OpenAI/Anthropic only if user provides keys. ADC/Vertex path documented but NOT default.
+- D004 One network, 10 LLM agents. `registries/digital_workplace_autopilot/commander.hocon` holds Commander (front-man, `tools[0]`, no `class`/`toolbox`) + 9 specialists as LLM agents with `tools=[coded-tools]`. Coded tools do NOT count toward the 10. No extra agents without approval. AAOSA `include "registries/aaosa.hocon"` + `${aaosa_instructions}/${aaosa_call}` for delegation (not hard-coded routing).
+- D005 Deterministic control plane = coded tools, never LLM. Policy/RBAC/risk/autonomy/approval/script-validation/execution/verification/rollback/audit/redaction/metrics are `CodedTool.async_invoke` classes under `coded_tools/digital_workplace/` thin-wrapping `control_plane/*` pure Python (unit-testable without server). LLM proposes `action_id` only; execution requires `ALLOW` + hash match + `execute_remote_action`.
+- D006 Secrets via env + sly_data only. `GOOGLE_API_KEY`, `SERVICENOW_*` live in `.env` (gitignored) → server env → coded-tool `os.getenv`/sly_data. Never in HOCON `instructions`, never in prompts/logs/UI. Add `PIIMiddleware` (`pii_type:api_key`, `detector` from `pii_patterns.*`) on front-man + `scan_prompt_for_secrets()` test gate for `docs/ZERO_SECRET_PROOF.md`. `.env.example` holds placeholders only.
+- D007 ServiceNow env names: support BOTH studio canonical (`SERVICENOW_INSTANCE_URL`, `SERVICENOW_USER`, `SERVICENOW_PWD`) and prompt aliases (`SERVICENOW_INSTANCE`, `SERVICENOW_USERNAME`, `SERVICENOW_PASSWORD`), canonical wins. Adapter isolated `integrations/servicenow/` speaking Table API (`incident`, `problem`, work notes); no custom Scripted REST unless proven insufficient; OAuth-ready.
+- D008 SQLite is fine. Framework has no DB opinion; SQLite + migrations/deterministic seed for users/devices/evidence/etc. Evidence normalized `{evidence_id,case_id,source_system,tool,timestamp,entity,measurement,value,unit,confidence,raw_reference,sanitized_summary}`.
+- D009 UI = nsflow (graph+chat, `:4173`) + minimal custom dashboard reading SQLite metrics (no login). Nsflow render code is external (`nsflow==0.7.0`); do not fork it. Final user card + fleet counts rendered by Commander + dashboard.
+- D010 Tool path scoping. `AGENT_TOOL_PATH=./coded_tools` (+ `PYTHONPATH` includes repo root so `control_plane.*`, `integrations.*`, `simulator.*` importable). Per-network modules under `coded_tools/digital_workplace/` shared across the one network; do NOT duplicate simulation inside agents.
+- D11 Explicit agent schemas (M7). Specialists use hand-written `function` schemas, not `${aaosa_call}` merge, for parse certainty; commander front-man carries no params. `tests/conftest.py` stubs `neuro_san` for unit tests (real check = `ns check-config` before demo).
+- D12 Numbers-only selection (M8). Post-routing tool choice (`_next_tools`) takes accumulated facts, never request text; initial text ranking is intent routing, not symptom→script mapping. Healthy-device abstention is correct behavior.
+- D13 Visible rejection (M10). Contradicted hypotheses stay as REJECTED (never silently dropped); cross-domain hypotheses (vpn vs performance) do not conflict; INSUFFICIENT (nothing to judge) vs ESCALATE (judged-unsafe) both block autonomy.
+- D14 Keyword + ACL-comment knowledge (M11). Keyword section retrieval (no vectors — deterministic for an 11-doc base); ACL as line-1 `<!-- allowed_roles: ... -->`, parsed before content is read, missing ACL = invisible.
+- D15 Isolated policy engine (M12). `control_plane/` imports nothing agent/LLM/env-related (boundary-tested); hash mismatch hard-denies, empty hash defers to execution-time validation; off-hours and no-rollback gate non-LOW risk to approval.
+- D16 Recomputable registry hash (M13). Hash covers id/version/platform/name only (recomputable from the row); AI-generated intake stays M14 — the registry never self-writes from LLM output.
+- D17 Intake vocabulary + staging (M14). Executable vocabulary is the primitives allowlist; staging policy tests post-approval shape; sandbox proves copy-isolation inline.
+- D18 Live-metrics autonomy (M15). Promotion/demotion read remediation/workflow runs + approvals/decisions only; approvals.script_id holds either entity id; 24h expiry default.
+- D19 Execution is not resolution (M16). remediation_runs.success means executed-ok; stored (not effective) autonomy governs runs; estates are injected, never global; agents never see the executor tool.
+- D20 Verify on telemetry, roll back on snapshots (M17). Verification reads live provider data; rollback restores snapshot keys generically; escalation is a payload until M18 acts on it.
+- D21 Provider-agnostic lifecycle (M18). Composer takes ITSMProvider; local rows mirror ITSM; resolve gate raises on unverified.
+- D22 Read-time timeline (M19). Merge at read, never duplicate; verdicts and durations are rows; card shape fixed early, fleet keys later.
+- D23 Snapshot learning (M20). Patterns are resolution snapshots; relapses poison the rate; promotion simulates on scratch; autonomy stays earned post-approval.
+- D24 Reuse choke point (M21). Policy re-check on every reuse; metrics dual-homed (row + runs); versions frozen per approval.
+- D25 Lexical replay (M22). Text-overlap shortcut; live-posture recheck; pauses record nothing.
+- D26 Banded fleet states (M23). Threshold bands on live readings; buckets = state × policy × autonomy; counts computed, never staged.
+- D27 Re-gated mass healing (M24). Every device re-passes the gate at act time; prevented = healed others; problem always filed.
+- D28 Location-only findings (M25). Scanner never carries values; fixtures allowlisted by name.
+- D29 Contract benchmarks (M26). Incomplete-but-principled inputs must escalate; unsafe rate headline 0.0.
+- D30 Real counts only (M27). Estimates multiply counts by labeled rates; metrics must move with data.
+- D31 Composed demos (M28). No demo-only logic; human roles played explicitly and labeled.
+- D32 Degraded beats dead (M29). Gaps become missing evidence; typed errors at every I/O boundary.
+- D33 Honest docs (M30). Claim only what tests prove; name the live gaps.

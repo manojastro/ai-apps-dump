@@ -1,0 +1,15 @@
+# Hand-labelled golden scenario. Expectations derive from reading the SQL and dashboards.yaml.
+id: s19_customers_drop_email
+description: Drop customers.email (staging only, no dashboard)
+topic: customers.v1
+mutations:
+- op: drop_field
+  field: email
+expected:
+  change_class: breaking
+  route: approval
+  impacted:
+  - column:stg.stg_customers.email
+  verdicts:
+    column:stg.stg_customers.email: breaking
+  fix_should_pass: true

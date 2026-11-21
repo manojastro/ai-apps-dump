@@ -1,0 +1,55 @@
+{
+  "conflict": {
+    "customer_key": "ACC-00139",
+    "evidence": {
+      "billing": [
+        {
+          "billing_customer_id": "BC-00132",
+          "billing_email": "lena.ibrahim@basalt-systems.example",
+          "billing_plan": "growth",
+          "billing_status": "active",
+          "currency": "USD",
+          "match_confidence": 1.0,
+          "match_method": "id",
+          "monthly_amount": 149.0,
+          "next_charge_date": "2026-11-21",
+          "past_due_since": null,
+          "subscription_id": "SUB-00132"
+        },
+        {
+          "billing_customer_id": "BC-00133",
+          "billing_email": "lena.ibrahim@basalt-systems.example",
+          "billing_plan": "growth",
+          "billing_status": "active",
+          "currency": "USD",
+          "match_confidence": 0.95,
+          "match_method": "email",
+          "monthly_amount": 149.0,
+          "next_charge_date": "2026-11-06",
+          "past_due_since": null,
+          "subscription_id": "SUB-00133"
+        }
+      ],
+      "crm_account_id": "ACC-00139",
+      "crm_email": "lena.ibrahim@basalt-systems.example",
+      "crm_name": "Lena Ibrahim",
+      "crm_plan": "growth",
+      "crm_status": "active"
+    },
+    "id": "cf_70049dbf2eab",
+    "type": "DUPLICATE_CUSTOMER"
+  },
+  "created_at": "2026-11-16T03:20:13+00:00",
+  "expect_mock": {
+    "action": "flag_for_finance_review",
+    "status": "PENDING_REVIEW"
+  },
+  "expected_action": "merge_billing_duplicates",
+  "id": "rg_wrong_action_9e69ef7d33",
+  "note": "proposed flag_for_finance_review, ground truth expects merge_billing_duplicates",
+  "prompt_version": "v1",
+  "recorded_responses": [
+    "{\"explanation\": \"Account ACC-00139 has 2 live billing customers (BC-00132 and BC-00133), each with its own subscription, so the customer is likely charged twice.\", \"action\": \"flag_for_finance_review\", \"params\": {\"reason\": \"Possible duplicate\"}, \"confidence\": 0.55, \"needs_human_note\": \"Refund any double charges after merging.\"}"
+  ],
+  "source": "wrong_action"
+}

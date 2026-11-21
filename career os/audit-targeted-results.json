@@ -1,0 +1,322 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "D:\\ai apps dump\\career os\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "e2e/functional-audit.spec.ts",
+      "-g",
+      "B:|I:|Complete task saves|editing task schedule|preserve requested high",
+      "--reporter=json"
+    ],
+    "configFile": "D:\\ai apps dump\\career os\\playwright.config.ts",
+    "rootDir": "D:/ai apps dump/career os/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/ai apps dump/career os/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "D:/ai apps dump/career os/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 90000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 6,
+    "webServer": {
+      "command": "npm run start",
+      "url": "http://127.0.0.1:3102",
+      "timeout": 90000,
+      "reuseExistingServer": false,
+      "env": {
+        "PORT": "3102"
+      }
+    }
+  },
+  "suites": [
+    {
+      "title": "functional-audit.spec.ts",
+      "file": "functional-audit.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "B: two milestones and a linked task update goal progress without unrelated tasks",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9529,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-09T19:01:46.534Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c8572141a47bd3c7757c-a6ea0dfd0650d7a9ff76",
+          "file": "functional-audit.spec.ts",
+          "line": 73,
+          "column": 5
+        },
+        {
+          "title": "I: notes, resources, inbox conversion, journal and JSON export preserve data",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5813,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-09T19:01:56.508Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c8572141a47bd3c7757c-c353661a85abb6c49df4",
+          "file": "functional-audit.spec.ts",
+          "line": 233,
+          "column": 5
+        },
+        {
+          "title": "focus Complete task saves exactly one session and updates the daily log",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3877,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-09T19:02:02.345Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c8572141a47bd3c7757c-75c24d83e88c12e32329",
+          "file": "functional-audit.spec.ts",
+          "line": 364,
+          "column": 5
+        },
+        {
+          "title": "DEFECT: editing task schedule should move its linked Planner block",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 90762,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 90000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 90000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 90000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "D:\\ai apps dump\\career os\\e2e\\functional-audit.spec.ts",
+                        "column": 60,
+                        "line": 390
+                      },
+                      "message": "Error: locator.fill: Test timeout of 90000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('Scheduled date', { exact: true })\u001b[22m\n\n\n  388 |   await page.goto(\"/tasks\");\n  389 |   await page.getByRole(\"button\", { name: \"Edit AUDIT schedule consistency\" }).click();\n> 390 |   await page.getByLabel(\"Scheduled day\", { exact: true }).fill(\"2099-01-01\");\n      |                                                            ^\n  391 |   await page.getByRole(\"button\", { name: \"Save task\" }).click();\n  392 |   await expect(page.getByRole(\"dialog\")).toHaveCount(0);\n  393 |   await page.reload();\n    at D:\\ai apps dump\\career os\\e2e\\functional-audit.spec.ts:390:60"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-09T19:02:06.241Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\ai apps dump\\career os\\test-results\\functional-audit-DEFECT-ed-69c4d-ve-its-linked-Planner-block-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\ai apps dump\\career os\\test-results\\functional-audit-DEFECT-ed-69c4d-ve-its-linked-Planner-block-chromium\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "c8572141a47bd3c7757c-eba36be8b61ecf488aab",
+          "file": "functional-audit.spec.ts",
+          "line": 382,
+          "column": 5
+        },
+        {
+          "title": "DEFECT: Copilot should preserve requested high priority",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 2950,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"high\"\u001b[39m\nReceived: \u001b[31m\"medium\"\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"high\"\u001b[39m\nReceived: \u001b[31m\"medium\"\u001b[39m\n    at D:\\ai apps dump\\career os\\e2e\\functional-audit.spec.ts:406:49",
+                    "location": {
+                      "file": "D:\\ai apps dump\\career os\\e2e\\functional-audit.spec.ts",
+                      "column": 49,
+                      "line": 406
+                    },
+                    "snippet": "  404 |   await expect(page.getByRole(\"button\", { name: \"All saved\" })).toBeDisabled();\n  405 |   await page.reload();\n> 406 |   expect((await state(page)).tasks[0].priority).toBe(\"high\");\n      |                                                 ^\n  407 | });\n  408 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\ai apps dump\\career os\\e2e\\functional-audit.spec.ts",
+                        "column": 49,
+                        "line": 406
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"high\"\u001b[39m\nReceived: \u001b[31m\"medium\"\u001b[39m\n\n  404 |   await expect(page.getByRole(\"button\", { name: \"All saved\" })).toBeDisabled();\n  405 |   await page.reload();\n> 406 |   expect((await state(page)).tasks[0].priority).toBe(\"high\");\n      |                                                 ^\n  407 | });\n  408 |\n    at D:\\ai apps dump\\career os\\e2e\\functional-audit.spec.ts:406:49"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-09T19:03:38.729Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\ai apps dump\\career os\\test-results\\functional-audit-DEFECT-Co-fc43f-rve-requested-high-priority-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\ai apps dump\\career os\\test-results\\functional-audit-DEFECT-Co-fc43f-rve-requested-high-priority-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\ai apps dump\\career os\\e2e\\functional-audit.spec.ts",
+                    "column": 49,
+                    "line": 406
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "c8572141a47bd3c7757c-0feaf0729a2eb6c5b76b",
+          "file": "functional-audit.spec.ts",
+          "line": 399,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-09T19:01:43.184Z",
+    "duration": 120187.192,
+    "expected": 3,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

@@ -1,0 +1,20 @@
+# Routing policy: X-Task header -> primary + fallback model.
+# Reasons are one line each (learner-written, M6).
+default_task: general
+tasks:
+  triage:
+    primary: triage-cheap
+    fallback: general-default
+    reason: "Cheap model is enough for triage classification; fallback keeps tickets flowing."
+  rca:
+    primary: rca-strong
+    fallback: general-default
+    reason: "RCA needs the strongest reasoning; fallback still answers instead of failing."
+  rag_answer:
+    primary: general-default
+    fallback: triage-cheap
+    reason: "General model balances quality/cost for grounded answers; cheap fallback on outage."
+  general:
+    primary: general-default
+    fallback: triage-cheap
+    reason: "Default safe choice for unknown tasks."

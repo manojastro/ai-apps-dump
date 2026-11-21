@@ -1,0 +1,5 @@
+{% extends "beta/base.jinja" %}{% block title %}Order received{% endblock %}{% block body %}
+<div class="card"><h1>Order received</h1>
+<p role="status">Order number <strong>{{ order.order_ref }}</strong></p>
+<p>Your reference: {{ order.po_reference }} · Grand total ₹{{ order.total|inr }}</p>
+<a href="{{ r.order.replace('{ref}', order.order_ref) }}">Track this order</a></div>{% endblock %}

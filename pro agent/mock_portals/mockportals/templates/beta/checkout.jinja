@@ -1,0 +1,8 @@
+{% extends "beta/base.jinja" %}{% block title %}Review order{% endblock %}{% block body %}
+<h1>Review order</h1>
+{% if problem == 'empty' %}<p>Your cart is empty.</p>{% elif problem %}<p class="alert" role="alert">Only one product per order. Remove other items from your cart.</p>{% else %}
+<p>All prices include GST.</p>
+{% include "beta/_totals.jinja" %}
+<form method="get" action="{{ r.confirm }}" style="margin-top:14px"><label>Ship to
+<select name="address">{% for a in addresses %}<option value="{{ a.ref }}" {% if a.ref == address.ref %}selected{% endif %}>{{ a.label }} ({{ a.ref }})</option>{% endfor %}</select></label>
+<button class="cta" type="submit">Continue</button></form>{% endif %}{% endblock %}

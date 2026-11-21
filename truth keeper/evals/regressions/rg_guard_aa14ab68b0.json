@@ -1,0 +1,44 @@
+{
+  "conflict": {
+    "customer_key": "ACC-00178",
+    "evidence": {
+      "billing": [
+        {
+          "billing_customer_id": "BC-00171",
+          "billing_email": "  Ethan.Costa@orbit-logistics.example ",
+          "billing_plan": "starter",
+          "billing_status": "active",
+          "currency": "USD",
+          "match_confidence": 1.0,
+          "match_method": "id",
+          "monthly_amount": 49.0,
+          "next_charge_date": "2026-11-10",
+          "past_due_since": null,
+          "subscription_id": "SUB-00171"
+        }
+      ],
+      "crm_account_id": "ACC-00178",
+      "crm_email": "ethan.costa@orbit-logistics.example",
+      "crm_name": "Ethan Costa",
+      "crm_plan": "starter",
+      "crm_status": "cancelled"
+    },
+    "id": "cf_03f9c61078f2",
+    "type": "CANCELLED_BUT_BILLING_ACTIVE"
+  },
+  "created_at": "2026-11-16T03:20:09+00:00",
+  "expect_mock": {
+    "failure_category": "invalid_json",
+    "status": "FAILED"
+  },
+  "expected_action": "cancel_subscription",
+  "id": "rg_guard_aa14ab68b0",
+  "note": "model always returns bad JSON: retried twice then FAILED, never accepted",
+  "prompt_version": "v1",
+  "recorded_responses": [
+    "Sure! Here is my fix: {action: cancel_subscription",
+    "Sure! Here is my fix: {action: cancel_subscription",
+    "Sure! Here is my fix: {action: cancel_subscription"
+  ],
+  "source": "guard"
+}

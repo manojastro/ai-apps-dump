@@ -1,0 +1,35 @@
+# Hand-labelled golden scenario. Expectations derive from reading the SQL and dashboards.yaml.
+id: s03_drop_amount
+description: Drop orders.amount, which revenue depends on; no safe code fix
+topic: orders.v1
+mutations:
+- op: drop_field
+  field: amount
+expected:
+  change_class: breaking
+  route: escalate
+  impacted:
+  - column:mart.customer_ltv.ltv
+  - column:mart.daily_revenue.revenue
+  - column:mart.fct_orders.amount
+  - column:stg.stg_orders.amount
+  - dashboard:Customer Health
+  - dashboard:Finance Reconciliation
+  - dashboard:Sales Overview
+  - visual:Customer Health/LTV Distribution
+  - visual:Finance Reconciliation/Paid vs Ordered
+  - visual:Sales Overview/Revenue by Day
+  verdicts:
+    column:stg.stg_orders.amount: breaking
+    column:mart.fct_orders.amount: breaking
+    column:mart.daily_revenue.revenue: breaking
+    column:mart.customer_ltv.ltv: breaking
+    visual:Sales Overview/Revenue by Day: breaking
+    visual:Finance Reconciliation/Paid vs Ordered: breaking
+    visual:Customer Health/LTV Distribution: breaking
+    dashboard:Sales Overview: breaking
+    dashboard:Finance Reconciliation: breaking
+    dashboard:Customer Health: breaking
+  fix_should_pass: false
+  failing_tables:
+  - stg.stg_orders

@@ -1,0 +1,22 @@
+[project]
+name = "eir-agent-fleet"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi", "uvicorn", "pydantic>=2", "sqlalchemy>=2", "pyyaml", "anthropic",
+  "opentelemetry-sdk", "opentelemetry-exporter-otlp-proto-http",
+  "jinja2", "python-multipart", "itsdangerous", "python-dotenv", "httpx",
+]
+[project.optional-dependencies]
+dev = ["pytest", "ruff"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py311"
+[tool.ruff.lint]
+select = ["E", "F", "I", "B"]
+ignore = ["E501", "B008"]
